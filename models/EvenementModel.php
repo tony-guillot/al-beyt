@@ -1,6 +1,7 @@
 <?php
+namespace \Models;
+use \Models\Bdd;
 
-require_once('Bdd.php');
 class EvenementModel extends Bdd {
 
     public function getAllEvent()

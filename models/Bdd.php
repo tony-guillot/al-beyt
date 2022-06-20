@@ -1,4 +1,5 @@
 <?php
+namespace \Models;
 
 abstract class Bdd
 {

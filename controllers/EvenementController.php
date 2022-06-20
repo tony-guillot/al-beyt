@@ -1,23 +1,23 @@
 
 <?php
-
-require_once('../models/EvenementModel.php');
+namespace \Controllers;
+use \Models\EvenementModel;
 
 class  EvenementController{
 
-        public function __construct(){
+        public function __construct()
+        {
 
-            $this->modelEvenement = new EvenementModel;
+            $this->modelEvenement = new EvenementModel();
         }
     
-    public function  displayEvent(){
+    public function  displayEvent()
+    {
+        $display = $this->modelEvenement->getAllEvent();
 
-            $display = $this->modelEvenement->getAllEvent();
-
-            return $display;
-
-            
-          
+        return $display;
     }
+
+    
 
 }
