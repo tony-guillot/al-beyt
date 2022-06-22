@@ -5,11 +5,13 @@ use \Models\EvenementModel;
 
 class  EvenementController{
 
-        public function __construct()
-        {
+    protected $modelEvenement;
 
-            $this->modelEvenement = new EvenementModel();
-        }
+    public function __construct()
+    {
+
+        $this->modelEvenement = new EvenementModel();
+    }
     
     public function  displayEvent()
     {
@@ -18,6 +20,10 @@ class  EvenementController{
         return $display;
     }
 
-    
+    public function registerEvent()
+    {
+       $insertEvent = $this->modelEvenement->insertEvent();
+       return $insertEvent;
+    }
 
 }
