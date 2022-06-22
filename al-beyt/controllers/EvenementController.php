@@ -1,7 +1,6 @@
-
 <?php
-namespace \Controllers;
-use \Models\EvenementModel;
+namespace AlBeyt\Controllers;
+use AlBeyt\Models\EvenementModel;
 
 class  EvenementController{
 

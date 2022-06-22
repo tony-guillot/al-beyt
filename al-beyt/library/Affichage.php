@@ -1,5 +1,7 @@
 <?php
 
+namespace AlBeyt\Library;
+
 class Affichage
 {
     const NB_LIGNES_SELECT = 15;

@@ -1,6 +1,5 @@
 <?php
-namespace \Models;
-use \Models\Bdd;
+namespace AlBeyt\Models;
 
 class EvenementModel extends Bdd {
 

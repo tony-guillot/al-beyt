@@ -1,9 +1,12 @@
 <?php
+require_once '../../../vendor/autoload.php';
+use AlBeyt\Controllers\EvenementController;
+use AlBeyt\Library\Affichage;
+
 $title = "Ajouter un évènement";
 require_once('../include/header.php');
-require_once('../../library/Affichage.php');
 require_once('../include/sidebar.php');
-$controllerEvenement = new EvenementController;
+$controllerEvenement = new EvenementController();
 
 if(!empty($_POST['valider']))
 {

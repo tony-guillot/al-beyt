@@ -1,5 +1,8 @@
 <?php
-namespace \Models;
+namespace AlBeyt\Models;
+
+use \PDO;
+use \PDOException;
 
 abstract class Bdd
 {
