@@ -8,15 +8,25 @@ class  EvenementController{
 
     public function __construct()
     {
-
         $this->modelEvenement = new EvenementModel();
     }
     
-    public function  displayEvent()
+    public function displayAllEvent()
     {
         $display = $this->modelEvenement->getAllEvent();
-
         return $display;
+    }
+
+        public function displayEventByYear($year)
+    {
+        $display = $this->modelEvenement->getAllEventByYear($year);
+        return $display;
+    }
+
+        public function displayEventById($id)
+    {
+       $display = $this->modelEvenement->getEventById($id);
+       return $display;
     }
 
     public function registerEvent()
