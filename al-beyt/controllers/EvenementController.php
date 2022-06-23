@@ -5,21 +5,26 @@ use AlBeyt\Models\EvenementModel;
 class  EvenementController{
 
     protected $modelEvenement;
+    const NB_EVENEMENT_PAR_PAGE = 2;
 
     public function __construct()
     {
         $this->modelEvenement = new EvenementModel();
     }
     
-    public function displayAllEvent()
+    public function displayAllEvents($pageCourante)
     {
-        $display = $this->modelEvenement->getAllEvent();
+        $limit = self::NB_EVENEMENT_PAR_PAGE ;
+        $offset = self::NB_EVENEMENT_PAR_PAGE * ($pageCourante-1) ;
+        $display = $this->modelEvenement->getAllEvents($limit,$offset);
         return $display;
     }
 
-        public function displayEventByYear($year)
+        public function displayEventsByYear($year, $page)
     {
-        $display = $this->modelEvenement->getAllEventByYear($year);
+        $limit = self::NB_EVENEMENT_PAR_PAGE ;
+        $offset = self::NB_EVENEMENT_PAR_PAGE * ($page-1) ;
+        $display = $this->modelEvenement->getAllEventsByYear($year, $limit, $offset);
         return $display;
     }
 
