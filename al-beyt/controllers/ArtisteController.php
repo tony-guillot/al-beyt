@@ -20,6 +20,7 @@ class ArtisteController{
         $displayAllArtists = $this->modelArtiste->getAllArtists($limit,$offset);
         return $displayAllArtists;
     }
+    
 
 }
 ?>
