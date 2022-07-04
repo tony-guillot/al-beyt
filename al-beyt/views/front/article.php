@@ -34,4 +34,14 @@ echo "displayArticleById(6) :<br />";
 var_dump($article->displayArticleById(6));
 echo "<br /><br /><br />";
 
+echo "displayImageByArticle(4) :<br />";
+var_dump($article->displayImagesByIdArticle(4));
+echo "<br /><br /><br />";
+echo "displayImageByArticle(5) :<br />";
+var_dump($article->displayImagesByIdArticle(5));
+echo "<br /><br /><br />";
+echo "displayImageByArticle(6) :<br />";
+var_dump($article->displayImagesByIdArticle(6));
+echo "<br /><br /><br />";
+
 echo '<pre />';

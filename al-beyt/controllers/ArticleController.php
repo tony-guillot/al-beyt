@@ -36,4 +36,10 @@ class ArticleController
        $display = $this->modelArticle->getArticleById($id);
        return $display;
     }
+
+    public function displayImagesByIdArticle($id)
+    {
+        $display = $this->modelArticle->getImagesByIdArticle($id);
+        return $display;
+    }
 }

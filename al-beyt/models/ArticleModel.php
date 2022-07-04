@@ -48,13 +48,26 @@ class ArticleModel extends Bdd
     public function getArticleById($id)
     {
         $bdd = $this->bdd->prepare(
-            'SELECT article.id, article.titre, article.DATE, article.auteur, image_article.chemin
+            'SELECT article.id, article.titre, article.DATE, article.auteur, image_article.chemin, image_article.legende
                     FROM article
-                    LEFT JOIN image_article ON image_article.id_article = article.id
-                    WHERE article.id = :id'     /*TODO: Gestion des images */
+                    LEFT JOIN image_article ON image_article.id_article = article.id AND image_article.ordre = 1
+                    WHERE article.id = :id'
         );
         $bdd->execute([':id' => $id]);
         $result = $bdd->fetch();
+
+        return $result;
+    }
+
+    public function getImagesByIdArticle($id)
+    {
+        $bdd = $this->bdd->prepare(
+            'SELECT image_article.id, image_article.chemin, image_article.legende, image_article.ordre
+                    FROM image_article 
+                    WHERE image_article.id_article = :id'
+        );
+        $bdd->execute([':id' => $id]);
+        $result = $bdd->fetchAll();
 
         return $result;
     }
