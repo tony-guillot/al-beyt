@@ -71,4 +71,37 @@ class ArticleModel extends Bdd
 
         return $result;
     }
+
+    public function insertArticle($titre, $auteur, $description)
+    {
+        $bdd = $this->bdd->prepare(
+            'INSERT INTO article (titre, date, auteur, description)
+            VALUES (:titre, NOW(),:auteur, :description)'
+        );
+        $bdd->bindValue(":titre" , $titre,PDO::PARAM_STR);
+        $bdd->bindValue(":auteur" , $auteur, PDO::PARAM_STR);
+        $bdd->bindValue(":description" , $description, PDO::PARAM_STR);
+        $bdd->execute();
+        $result = $this->bdd->lastInsertId();
+
+        return $result;
+    }
+
+        public function insertImage($chemin, $legende, $id_article, $ordre)
+    {
+        $bdd = $this->bdd->prepare(
+            'INSERT INTO image_article (chemin,legende,id_article,ordre)
+            VALUES (:chemin, :legende , :id_article, :ordre)'
+        );
+        $bdd->bindValue(":chemin" , $chemin,PDO::PARAM_STR);
+        $bdd->bindValue(":legende" , $legende, PDO::PARAM_STR);
+        $bdd->bindValue(":id_article", $id_article, PDO::PARAM_INT);
+        $bdd->bindValue(":ordre" , $ordre, PDO::PARAM_INT);
+        $bdd->execute();
+        $result = $this->bdd->lastInsertId();
+
+        return $result;
+    }
+
+
 }
