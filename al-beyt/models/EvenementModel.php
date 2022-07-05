@@ -55,6 +55,19 @@ class EvenementModel extends Bdd {
         return $result;
     }
 
+        public function getImagesByEvenementId($id)
+    {
+         $bdd = $this->bdd->prepare(
+            'SELECT id, chemin, legende, ordre
+                    FROM image_evenement
+                    WHERE image_evenement.id_evenement = :id ;'
+        );
+        $bdd->execute([':id' => $id]);
+        $result = $bdd->fetchAll();
+
+        return $result;
+    }
+
 
 
 }

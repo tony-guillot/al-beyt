@@ -34,6 +34,12 @@ class  EvenementController{
        return $display;
     }
 
+    public function displayImagesByEvenementId($id)
+    {
+       $display = $this->modelEvenement->getImagesByEvenementId($id);
+       return $display;
+    }
+
     public function registerEvent()
     {
        $insertEvent = $this->modelEvenement->insertEvent();
