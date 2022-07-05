@@ -72,7 +72,7 @@ if(!empty($_POST['valider']))
             <label for="heure">Heure de début:</label>
             <input type="text" name="heure" placeholder="">
         </article>
-        <article>
+        
             <?php 
                 //données de test pour fct d'affichage
                 $artists = [
@@ -100,7 +100,7 @@ if(!empty($_POST['valider']))
 
                 echo $printSelectForArtists = Affichage::printSelectForArtists($artists);
             ?>
-        </article>
+       
         <article>
             <label for="description">Description de l'évènement:</label>
             <textarea name="description" placeholder=""> </textarea>
