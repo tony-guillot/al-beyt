@@ -118,4 +118,4 @@ if(!empty($_POST['valider']))
 
         <input type="submit" name="valider" value="submit">
     </form>
-</section>
+</section> 

@@ -6,6 +6,7 @@ $artist = New ArtisteController;
 
 
 
+
 $displayArtistById = $artist->displayArtistById($id_artiste);
 $displayEventByIdArtist = $artist->displayEventsByIdArtist($id_artiste,$pageCourante);
 

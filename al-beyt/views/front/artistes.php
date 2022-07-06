@@ -6,7 +6,7 @@ use AlBeyt\Controllers\ArtisteController;
 $artists = New ArtisteController;
 $pageCourante = 1;
 $displayAllArtists = $artists->displayAllArtists($pageCourante);
-$displayAllArtistsByDomain= $artists->displayAllArtistsByDomain($id_domain,$pageCourante);
+$displayAllArtistsByDomain= $artists->displayAllArtistsByDomain($id_domaine,$pageCourante);
 
  
 echo '<pre>';

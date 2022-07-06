@@ -60,14 +60,38 @@ class ArtisteModel extends Bdd
         return $result;
     }
 
-    public function insertArtist()
-    {
-    
+    public function insertArtist($website, $nom, $description, $email,$lien_insta, $lien_soundcloud,$lien_facebook,$lien_twitter,$id_domaine)
+    {   
+        
+        $bdd = $this->bdd->prepare('INSERT INTO artiste (website, nom, description, email, lien_insta, lien_soundcloud,lien_facebook,lien_twitter,id_domaine)
+                                    VALUES (:website, :nom, :description, :email, :lien_insta, :lien_soundcloud,:lien_facebook,:lien_twitter,:id_domaine)');
+        $bdd->execute(array(':website' => $website,
+                            ':nom' => $nom,
+                            ':description' => $description,
+                            ':email' => $email,
+                            ':lien_insta' => $lien_insta,
+                            ':lien_soundcloud' => $lien_soundcloud,
+                            ':lien_facebook' => $lien_facebook,
+                            ':lien_twitter' => $lien_twitter,
+                            ':id_domaine' => $id_domaine));
+
+        $id_artiste = $this->bdd->lastInsertId();
+        return $id_artiste;
     }
     
     public function updateArtiste($id)
     {
 
+    }
+
+    public function insertImageArtiste($chemin,$legende,$id_artiste)
+    {
+        $bdd = $this->bdd->prepare('INSERT INTO image_artiste (chemin,legende,id_artiste) VALUES (:chemin,:legende,:id_artiste)');
+        $bdd->execute(array(':chemin' => $chemin,
+                            ':legende' => $legende,
+                            ':id_artiste' => $id_artiste
+                        ));
+        return Null;
     }
 
 
