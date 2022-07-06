@@ -22,7 +22,7 @@ if(!empty($_POST['valider']))
     <form action="" method="post" enctype="multipart/form-data">
         <article>
             <label for="titre">Titre:</label>
-            <input type="text" name="titre" placeholder="">
+            <input type="text" name="titre" value="<?= $_POST['titre'] ?? "" ?>" placeholder="">
         </article>
                         <br />
         <article>
@@ -32,16 +32,16 @@ if(!empty($_POST['valider']))
         </article>
         <article>
             <label for="legende_en_avant">Légende associée à l'image en avant:</label>
-            <input type="text" name="legende_en_avant" placeholder="">
+            <input type="text" name="legende_en_avant" value="<?= $_POST['legende_en_avant'] ?? "" ?>" placeholder="">
         </article>
                         <br />
         <article>
             <label for="auteur">Auteur:</label>
-            <input type="text" name="auteur" placeholder="">
+            <input type="text" name="auteur" value="<?= $_POST['auteur'] ?? "" ?>" placeholder="">
         </article>
         <article>
             <label for="description">Texte de l'article:</label>
-            <textarea name="description" placeholder=""> </textarea>
+            <textarea name="description"  placeholder=""> <?= $_POST['description'] ?? "" ?> </textarea>
         </article>
 
                         <br />
@@ -53,7 +53,7 @@ if(!empty($_POST['valider']))
         </article>
         <article>
             <label for="legende2">Légende complémentaire 2:</label>
-            <input type="text" name="legende2">
+            <input type="text" value="<?= $_POST['legende2'] ?? "" ?>" name="legende2">
             <input type="hidden" name="ordre_legende2" value="2">
         </article>
 
@@ -64,7 +64,7 @@ if(!empty($_POST['valider']))
         </article>
         <article>
             <label for="legende3">Légende complémentaire 3:</label>
-            <input type="text" name="legende3">
+            <input type="text" value="<?= $_POST['legende3'] ?? "" ?>" name="legende3">
         </article>
 
                 <article>
@@ -74,7 +74,7 @@ if(!empty($_POST['valider']))
         </article>
         <article>
             <label for="legende4">Légende complémentaire 4:</label>
-            <input type="text" name="legende4">
+            <input type="text" value="<?= $_POST['legende4'] ?? "" ?>" name="legende4">
         </article>
 
         <input type="submit" name="valider" value="submit">
