@@ -24,6 +24,7 @@ class ArtisteController extends Controller
 
     }
 
+    //****/Gestion des requetes d'affichage front pour les visiteurs\***
     public function displayAllArtists($pageCourante)
     {   
         $limit = self::NBR_ARTISTE_PAR_PAGE;
@@ -54,15 +55,20 @@ class ArtisteController extends Controller
         return $displayEventsByIdArtist;
     }
 
+    //****/Gestion des requetes d'affichage  front pour l'administrateur\***
+
+    public function displayAllDomains()
+    {
+        $getAllDomains = $this->modelDomaine->getAllDomains();
+        return $getAllDomains;
+    }
+
     public function registerArtist($id_domaine, $nom, $description, $email, $website, $lien_insta, $lien_soundcloud, $lien_facebook, $lien_twitter,$chemin,$legende)
     {
         $id_domaine = $this->secure(intval($id_domaine));
         $nom = $this->secureWithoutTrim($nom);
         $description = $this->secureWithoutTrim($description);
-        
-       
-        
-        // upload image comment sécuriser le champs faille upload.    
+        //!\ upload image comment sécuriser le champs faille upload.    
         $chemin = $this->secure($chemin);
         $legende =$this->secureWithoutTrim($legende);
     
@@ -130,16 +136,11 @@ class ArtisteController extends Controller
         {
             echo "Veuillez choisir une pratique et remplir les champs alias ou description.";
         }
-
-       
-       
     }
 
-    public function displayAllDomains()
-    {
-        $getAllDomains = $this->modelDomaine->getAllDomains();
-        return $getAllDomains;
-    }
+   
+
+   
 
 
 }
