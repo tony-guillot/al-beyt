@@ -7,7 +7,7 @@ class ArtisteModel extends Bdd
     public function getAllArtists($limit,$offset)
     {
         $bdd = $this->bdd->prepare(
-            'SELECT artiste.nom, image_artiste.chemin 
+            'SELECT artiste.id, artiste.nom, image_artiste.chemin 
             FROM artiste 
             INNER JOIN image_artiste
             ON artiste.id = image_artiste.id_artiste
@@ -26,7 +26,7 @@ class ArtisteModel extends Bdd
     public function getAllArtistsByDomain($id_domain,$limit,$offset)
     {
         $bdd = $this->bdd->prepare(
-            'SELECT artiste.nom, image_artiste.chemin
+            'SELECT artiste.id, artiste.nom, image_artiste.chemin
             FROM artiste
             INNER JOIN image_artiste
             ON artiste.id = image_artiste.id_artiste
@@ -47,7 +47,7 @@ class ArtisteModel extends Bdd
     public function getArtistById($id_artiste)
     {
         $bdd = $this->bdd->prepare(
-            'SELECT nom, description, email, lien_insta, lien_soundcloud, lien_facebook, lien_twitter, chemin,legende
+            'SELECT artiste.id, nom, description, email, lien_insta, lien_soundcloud, lien_facebook, lien_twitter, chemin,legende
             FROM artiste
             INNER JOIN image_artiste
             ON artiste.id = image_artiste.id_artiste
