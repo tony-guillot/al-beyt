@@ -1,5 +1,7 @@
 <?php
 require_once '../../../vendor/autoload.php';
+
+use AlBeyt\Controllers\ArtisteController;
 use AlBeyt\Controllers\EvenementController;
 use AlBeyt\Library\Affichage;
 
@@ -7,6 +9,7 @@ $title = "Ajouter un évènement";
 require_once('../include/header.php');
 require_once('../include/sidebar.php');
 $controllerEvenement = new EvenementController();
+$controllerArtiste = new ArtisteController();
 
 if(!empty($_POST['valider']))
 {
@@ -49,7 +52,7 @@ if(!empty($_POST['valider']))
     <form action="" method="post">
         <article>
             <label for="titre">Titre:</label>
-            <input type="text" name="titre" placeholder="">
+            <input type="text" name="titre" value="<?= $_POST['titre'] ?? "" ?>" placeholder="">
         </article>
         <article>
             <label for="image_en_avant">Affiche:</label>
@@ -58,11 +61,11 @@ if(!empty($_POST['valider']))
         </article>
         <article>
             <label for="legende_en_avant"> Légende associée à l'affiche:</label>
-            <input type="text" name="legende_en_avant" placeholder="">
+            <input type="text" name="legende_en_avant" value="<?= $_POST['legende_en_avant'] ?? "" ?>" placeholder="">
         </article>
         <article>
             <label for="adresse">Adresse:</label>
-            <input type="text" name="adresse" placeholder="">
+            <input type="text" name="adresse" value="<?= $_POST['adresse'] ?? "" ?>" placeholder="">
         </article>
         <article>
             <label for="date">Date:</label>
@@ -70,40 +73,17 @@ if(!empty($_POST['valider']))
         </article>
         <article>
             <label for="heure">Heure de début:</label>
-            <input type="text" name="heure" placeholder="">
+            <input type="text" value="<?= $_POST['heure'] ?? "" ?>" name="heure" placeholder="">
         </article>
 
             <?php 
-                //données de test pour fct d'affichage
-                $artists = [
-                    [
-                        "nom" => "Robert",
-                        "id" => "1",
-                    ],
-                    [
-                        "nom" => "Albert",
-                        "id" => "2",
-                    ],
-                    [
-                        "nom" => "Antoinr",
-                        "id" => "6",
-                    ],
-                    [
-                        "nom" => "Oui",
-                        "id" => "8",
-                    ],
-                    [
-                        "nom" => "Non",
-                        "id" => "99",
-                    ],
-                ];
-
+                $artists = $controllerArtiste->displayAllArtists();
                 echo $printSelectForArtists = Affichage::printSelectForArtists($artists);
             ?>
 
         <article>
             <label for="description">Description de l'évènement:</label>
-            <textarea name="description" placeholder=""> </textarea>
+            <textarea name="description" placeholder=""><?= $_POST['description'] ?? "" ?></textarea>
         </article>
         <article>
             <label for="image2">Image complémentaire:</label>
@@ -112,7 +92,7 @@ if(!empty($_POST['valider']))
         </article>
         <article>
             <label for="legende2">Légende complémentaire</label>
-            <input type="text" name="legende2">
+            <input type="text" value="<?= $_POST['legende2'] ?? "" ?>" name="legende2">
             <input type="hidden" name="ordre_legende2" value="2">
         </article>
 

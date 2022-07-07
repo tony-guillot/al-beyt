@@ -10,11 +10,10 @@ class Affichage
     {
         //construction du code html
         $displayTags = '';
-
        // $artists = NULL;
         for($i=1; $i<= self::NB_LIGNES_SELECT; $i++)
         {
-            $displayArticle= $displayArticle.'<article>
+            $displayArticle = '<article>
                                             <label for="artiste'.$i.'">Artiste'.$i.':</label>
                                             <select name="artiste'.$i.'">
                                                 <option selected value="">veuillez selectionner un artiste</option>
