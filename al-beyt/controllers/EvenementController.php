@@ -1,5 +1,6 @@
 <?php
 namespace AlBeyt\Controllers;
+use AlBeyt\Library\Image;
 use AlBeyt\Models\EvenementModel;
 
 class  EvenementController{
@@ -46,7 +47,7 @@ class  EvenementController{
         $image2,
         $legende2,
         $ordre_image2,
-        $artistes
+        $ids_artistes
     )
     {
         //TODO: conditions gestion d'erreur
@@ -67,15 +68,17 @@ class  EvenementController{
                 }
             }
 
-            if(!empty($artistes)){
-                foreach($artistes as $artiste)
+            if(!empty($ids_artistes)){
+                foreach($ids_artistes as $id_artiste)
                 {
-                    $this->modelEvenement->insertParticipationArtisteByEvent($artiste['id'],$id_evenement);
+                    if($id_artiste != ""){
+                        $this->modelEvenement->insertParticipationArtisteByEvent($id_artiste, $id_evenement);
+                    }
                 }
             }
         }
 
-        return $insertEvent;
+        return $id_evenement;
     }
 
 }

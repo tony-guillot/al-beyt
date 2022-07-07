@@ -13,43 +13,46 @@ $controllerArtiste = new ArtisteController();
 
 if(!empty($_POST['valider']))
 {
-    $registerEvent = $controllerEvenement->registerEvent
+    $id_event = $controllerEvenement->registerEvent
     (
         $_POST['titre'],
-        $_POST['image_en_avant'],
+        $_FILES['image_en_avant'],
         $_POST['legende_en_avant'],
         $_POST['ordre_image_en_avant'],
         $_POST['adresse'],
         $_POST['date'],
         $_POST['heure'],
         $_POST['description'],
-        $_POST['image2'],
+        $_FILES['image2'],
         $_POST['legende2'],
         $_POST['ordre_image2'],
         [ 
-            $_POST['artiste1'],
-            $_POST['artiste2'],
-            $_POST['artiste3'],
-            $_POST['artiste4'],
-            $_POST['artiste5'],
-            $_POST['artiste6'],
-            $_POST['artiste7'],
-            $_POST['artiste8'],
-            $_POST['artiste9'],
-            $_POST['artiste10'],
-            $_POST['artiste11'],
-            $_POST['artiste12'],
-            $_POST['artiste13'],
-            $_POST['artiste14'],
-            $_POST['artiste15']
+            $_POST['id_artiste1'],
+            $_POST['id_artiste2'],
+            $_POST['id_artiste3'],
+            $_POST['id_artiste4'],
+            $_POST['id_artiste5'],
+            $_POST['id_artiste6'],
+            $_POST['id_artiste7'],
+            $_POST['id_artiste8'],
+            $_POST['id_artiste9'],
+            $_POST['id_artiste10'],
+            $_POST['id_artiste11'],
+            $_POST['id_artiste12'],
+            $_POST['id_artiste13'],
+            $_POST['id_artiste14'],
+            $_POST['id_artiste15']
         ]
     );
+    echo '<pre>';
+    var_dump($controllerEvenement->displayEventById($id_event));
+    echo '</pre>';
     }
 
 ?>
 <section>
     <h1>Ajouter un nouvel évènement</h1>
-    <form action="" method="post">
+    <form action="" method="post" enctype="multipart/form-data">
         <article>
             <label for="titre">Titre:</label>
             <input type="text" name="titre" value="<?= $_POST['titre'] ?? "" ?>" placeholder="">

@@ -15,7 +15,7 @@ class Affichage
         {
             $displayArticle = '<article>
                                             <label for="artiste'.$i.'">Artiste'.$i.':</label>
-                                            <select name="artiste'.$i.'">
+                                            <select name="id_artiste'.$i.'">
                                                 <option selected value="">veuillez selectionner un artiste</option>
                             ';
 
