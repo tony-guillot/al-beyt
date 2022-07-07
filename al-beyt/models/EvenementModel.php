@@ -55,6 +55,19 @@ class EvenementModel extends Bdd {
         return $result;
     }
 
+        public function getImagesByEvenementId($id)
+    {
+         $bdd = $this->bdd->prepare(
+            'SELECT id, chemin, legende, ordre
+                    FROM image_evenement
+                    WHERE image_evenement.id_evenement = :id ;'
+        );
+        $bdd->execute([':id' => $id]);
+        $result = $bdd->fetchAll();
+
+        return $result;
+    }
+
     public function getEventsByIdArtist($id_artiste,$limit,$offset)
     {
         $bdd = $this->bdd->prepare('SELECT e.titre, e.date_evenement,image_evenement.chemin
@@ -73,7 +86,7 @@ class EvenementModel extends Bdd {
 
         return $result;
     }
-   
+
 
     public function insertEvent($titre, $adresse, $date_evenement, $heure, $description)
     {
