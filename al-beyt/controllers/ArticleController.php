@@ -78,7 +78,7 @@ class ArticleController
                 $this->modelArticle->insertImage($cheminImage4, $legende4, $id_article, 4);
             }
         }
-        return $cheminImageEnAvant;
+        return $id_article;
     }
 
 
