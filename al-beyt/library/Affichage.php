@@ -5,18 +5,17 @@ namespace AlBeyt\Library;
 class Affichage
 {
     const NB_LIGNES_SELECT = 15;
-    
+
     public static function printSelectForArtists($artists) : string
     {
         //construction du code html
         $displayTags = '';
-    
        // $artists = NULL;
         for($i=1; $i<= self::NB_LIGNES_SELECT; $i++)
         {
-            $displayArticle= $displayArticle.'<article>
+            $displayArticle = '<article>
                                             <label for="artiste'.$i.'">Artiste'.$i.':</label>
-                                            <select name="artiste'.$i.'">
+                                            <select name="id_artiste'.$i.'">
                                                 <option selected value="">veuillez selectionner un artiste</option>
                             ';
 
@@ -29,18 +28,19 @@ class Affichage
                                         </article>' ;
             $displayTags = $displayTags . $displayArticle;
         }
+
         //retour de la fonction
         return $displayTags;
     }
 
     public function printAllArtists()
     {
-        
+
     }
 
     public function printAllEventByIdArtist($eventsByIdArtist)
     {
-        
+
     }
 }
 
