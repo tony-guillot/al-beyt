@@ -95,7 +95,7 @@ class ArtisteController extends Controller
                             $lien_facebook = $this->secureUrl($lien_facebook);
                             $lien_twitter = $this->secureUrl($lien_twitter);
 
-                         $id_artiste = $this->modelArtiste->insertArtist($website, $nom, $description, $email,$lien_insta, $lien_soundcloud,$lien_facebook,$lien_twitter,$id_domaine);
+                         $id_artiste = $this->modelArtiste->insertArtist($website, $nom, $description, $email,$lien_insta, $lien_soundcloud,$lien_facebook,$lien_twitter, $id_domaine);
                  
 
                         if(!empty($chemin))
@@ -104,7 +104,7 @@ class ArtisteController extends Controller
                             if (($legendeLen <= 100) && ($legendeLen >=10))
                             {
                 
-                                $insertImageArtist = $this->modelArtiste->insertImageArtiste($chemin,$legende,$id_artiste);
+                                $insertImageArtist = $this->modelArtiste->insertImageArtist($chemin,$legende,$id_artiste);
                             }
                             else
                             {
@@ -136,6 +136,12 @@ class ArtisteController extends Controller
         {
             echo "Veuillez choisir une pratique et remplir les champs alias ou description.";
         }
+    }
+
+    public function modifyArtist($website, $nom, $description, $email,$lien_insta, $lien_soundcloud,$lien_facebook,$lien_twitter, $statut, $id_domaine, $chemin, $legende, $id_artiste)
+    {
+        $id_artiste = $this->modelArtist->updateArtist($website, $nom, $description, $email,$lien_insta, $lien_soundcloud,$lien_facebook,$lien_twitter, $statut, $id_domaine);
+        $updateImageArtist = $this->modelArtist->updateImageArtist($chemin,$legende, $id_artiste);
     }
 
    
