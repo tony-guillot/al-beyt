@@ -60,7 +60,8 @@ class EvenementModel extends Bdd {
          $bdd = $this->bdd->prepare(
             'SELECT id, chemin, legende, ordre
                     FROM image_evenement
-                    WHERE image_evenement.id_evenement = :id ;'
+                    WHERE image_evenement.id_evenement = :id 
+                    ORDER BY image_evenement.ordre;'
         );
         $bdd->execute([':id' => $id]);
         $result = $bdd->fetchAll();

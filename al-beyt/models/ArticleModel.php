@@ -64,7 +64,8 @@ class ArticleModel extends Bdd
         $bdd = $this->bdd->prepare(
             'SELECT image_article.id, image_article.chemin, image_article.legende, image_article.ordre
                     FROM image_article 
-                    WHERE image_article.id_article = :id'
+                    WHERE image_article.id_article = :id
+                    ORDER BY image_article.ordre'
         );
         $bdd->execute([':id' => $id]);
         $result = $bdd->fetchAll();
