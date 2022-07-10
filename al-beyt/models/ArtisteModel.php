@@ -3,11 +3,12 @@ namespace AlBeyt\Models;
 use \PDO;
 
 class ArtisteModel extends Bdd 
-{
+{   
+    //cette fonction est conçue à destination du back-office
     public function getAllArtists($limit,$offset)
     {
         $bdd = $this->bdd->prepare(
-            'SELECT artiste.nom, image_artiste.chemin 
+            'SELECT artiste.id,artiste.nom, image_artiste.chemin 
             FROM artiste 
             INNER JOIN image_artiste
             ON artiste.id = image_artiste.id_artiste
@@ -19,25 +20,45 @@ class ArtisteModel extends Bdd
         $result = $bdd->fetchall(PDO::FETCH_ASSOC);
         
         return $result;
-
     }
-    
 
-    public function getAllArtistsByDomain($id_domain,$limit,$offset)
+    //cette fonction est conçue à destination du côté visiteurs
+    public function getAllArtistsByStatut($statut)
     {
         $bdd = $this->bdd->prepare(
-            'SELECT artiste.nom, image_artiste.chemin
+            'SELECT artiste.id, artiste.nom, image_artiste.chemin 
+            FROM artiste 
+            INNER JOIN image_artiste
+            ON artiste.id = image_artiste.id_artiste
+            ORDER BY artiste.nom ASC
+            WHERE statut = :statut
+            LIMIT :limit OFFSET :offset');
+        $bdd->bindValue(':limit',$limit, PDO::PARAM_INT);
+        $bdd->bindValue(':offset',$offset,PDO::PARAM_INT);
+        $bdd->bindValue(':statut',$statut, PDO::PARAM_BOOL);
+        $bdd->execute();
+        $result = $bdd->fetchall(PDO::FETCH_ASSOC);
+        
+        return $result;
+    }
+    
+    
+    // page artistes.php côté visiteurs
+    public function getAllArtistsByDomain($id_domaine,$limit,$offset)
+    {
+        $bdd = $this->bdd->prepare(
+            'SELECT artiste.id, artiste.nom, image_artiste.chemin
             FROM artiste
             INNER JOIN image_artiste
             ON artiste.id = image_artiste.id_artiste
             INNER JOIN domaine
             ON artiste.id_domaine = domaine.id
-            WHERE domaine.id = :id_domain 
+            WHERE domaine.id = :id_domaine 
             ORDER BY artiste.nom ASC
             LIMIT :limit OFFSET :offset');
         $bdd->bindValue(':limit',$limit, PDO::PARAM_INT);
         $bdd->bindValue(':offset',$offset, PDO::PARAM_INT);
-        $bdd->bindValue(':id_domain',$id_domain, PDO::PARAM_INT);
+        $bdd->bindValue(':id_domaine',$id_domaine, PDO::PARAM_INT);
         $bdd->execute();
         $result = $bdd->fetchall(PDO::FETCH_ASSOC);
         
@@ -47,19 +68,35 @@ class ArtisteModel extends Bdd
     public function getArtistById($id_artiste)
     {
         $bdd = $this->bdd->prepare(
-            'SELECT nom, description, email, lien_insta, lien_soundcloud, lien_facebook, lien_twitter, chemin,legende
+            'SELECT  domaine.nom as nom_domaine, domaine.id as id_domaine, artiste.id as id_artiste ,website, artiste.nom, description, email, lien_insta, lien_soundcloud, lien_facebook, lien_twitter, chemin,legende, statut
             FROM artiste
             INNER JOIN image_artiste
             ON artiste.id = image_artiste.id_artiste
+            INNER JOIN domaine
+            ON artiste.id_domaine = domaine.id
             WHERE artiste.id = :id_artiste
             ORDER BY artiste.nom ASC');
         $bdd->bindValue(':id_artiste',$id_artiste, PDO::PARAM_INT);
+        $bdd->execute();
+        $result = $bdd->fetch(PDO::FETCH_ASSOC);
+
+        return $result;
+    }
+    public function getAllInfoArtists()
+    {
+        $bdd = $this->bdd->prepare(
+            'SELECT  artiste.id as id_artiste, domaine.nom as domaine, artiste.nom, description, email, lien_insta, lien_soundcloud, lien_facebook, lien_twitter, chemin,legende, statut,website
+            FROM artiste 
+            INNER JOIN image_artiste 
+            ON artiste.id = image_artiste.id_artiste 
+            INNER JOIN domaine 
+            ON artiste.id_domaine = domaine.id 
+            ORDER BY artiste.nom ASC ');
         $bdd->execute();
         $result = $bdd->fetchall(PDO::FETCH_ASSOC);
 
         return $result;
     }
-
     public function insertArtist($website, $nom, $description, $email, $lien_insta, $lien_soundcloud,$lien_facebook,$lien_twitter,$id_domaine)
     {   
         
@@ -91,7 +128,7 @@ class ArtisteModel extends Bdd
         return Null;
     }
     
-    public function updateArtist($website, $nom, $description, $email,$lien_insta, $lien_soundcloud,$lien_facebook,$lien_twitter, $statut, $id_domaine)
+    public function updateArtist($website, $nom, $description, $email,$lien_insta, $lien_soundcloud,$lien_facebook,$lien_twitter, $statut, $id_domaine, $id)
     {
         $bdd = $this->bdd->prepare('UPDATE artiste 
                                     SET  website = :website,
@@ -116,24 +153,28 @@ class ArtisteModel extends Bdd
                             ':lien_twitter' => $lien_twitter,
                             ':statut' => $statut,
                             ':id_domaine' => $id_domaine,
-                            ':id' => $id
+                            ':id' => $id    
                             ));
-        $id_artiste = $id;
-        return $id_artiste;                          
+        return $id;                          
     }
 
-    public function updateImageArtist($chemin,$legende,$id_artiste)
+    public function updateImageArtist($chemin,$legende, $id_artiste)
     {
+        var_dump($id_artiste);
+
+    
         $bdd = $this->bdd->prepare('UPDATE image_artiste
-                                    SET chemin= :nom,
-                                        legende= :legende,
+                                    SET chemin= :chemin,
+                                        legende= :legende
                                     WHERE id_artiste = :id_artiste');
-        $bdd->execute(array(':chemin' => $chemin,
-                            ':legende' => $legende,
-                            ':id_artiste' => $id_artiste
-                            ));    
+        $bdd->bindValue(':chemin', $chemin, PDO::PARAM_STR);
+        $bdd->bindValue(':legende', $legende, PDO::PARAM_STR);
+        $bdd->bindValue(':id_artiste', $id_artiste, PDO::PARAM_INT);
+    
+        $bdd->execute();
 
     }
+
 
 }
 

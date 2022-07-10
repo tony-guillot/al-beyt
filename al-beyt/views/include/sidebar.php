@@ -6,28 +6,29 @@
 
         <div class="contener-liste-bo">
             <ul class="ul-nav-bo">
+                
                 <li class="liste-bo">
                     <a href="ajout_artiste.php"> <i class="fa-solid fa-users"></i>Ajouter un Artiste</a>
                 </li>
+
                 <li class="liste-bo">
-                   
-                    <a href="ajout_article.php"><i style="font-size:0.9em;" class="fa-solid fa-plus"></i>Ajouter un Article</a>
+                   <a href="ajout_article.php"><i style="font-size:0.9em;" class="fa-solid fa-plus"></i>Ajouter un Article</a>
                 </li>
+
                 <li class="liste-bo">
-                   
-                    <a href="ajout_evenement.php"><i style="font-size:0.9em;" class="fa-solid fa-gear"></i>Ajouter un Evènement</a>
+                   <a href="ajout_evenement.php"><i style="font-size:0.9em;" class="fa-solid fa-gear"></i>Ajouter un Evènement</a>
                 </li>
+
                 <li class="liste-bo">
-                    
-                    <a href="gere_artistes.php"><i style="font-size:0.9em;" class="fa-solid fa-plus"></i>Gerer les Artistes</a>
+                    <a href="artiste_gestion.php"><i style="font-size:0.9em;" class="fa-solid fa-plus"></i>Gerer les Artistes</a>
                 </li>
+
                 <li class="liste-bo">
-                   
-                <a href="gere_articles"><i style="font-size:0.9em;" class="fa-solid fa-gear"></i> Gérer les Articles</a>
+                   <a href="article_gestion"><i style="font-size:0.9em;" class="fa-solid fa-gear"></i> Gérer les Articles</a>
                 </li>
+
                 <li class="liste-bo">
-                   
-                <a href="gere_evenement.php"><i style="font-size:0.9em;" class="fa-solid fa-gear"></i> Gérer les Evènements</a>
+                   <a href="evenement_gestion.php"><i style="font-size:0.9em;" class="fa-solid fa-gear"></i> Gérer les Evènements</a>
                 </li>
             </ul>
         </div>  

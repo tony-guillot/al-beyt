@@ -3,10 +3,10 @@ require_once '../../../vendor/autoload.php';
 require_once('../include/header.php');
 use AlBeyt\Controllers\ArtisteController;
 
-$artists = New ArtisteController;
+$controller = New ArtisteController;
 $pageCourante = 1;
-$displayAllArtists = $artists->displayAllArtists($pageCourante);
-$displayAllArtistsByDomain= $artists->displayAllArtistsByDomain($id_domaine,$pageCourante);
+$artists = $controller->displayAllArtists();
+$displayAllArtistsByDomain= $controller->displayAllArtistsByDomain($id_domaine);
 
  
 echo '<pre>';
@@ -15,7 +15,7 @@ echo '<pre>';
 // echo '</br> </br> </br> </br>';
 // var_dump($artists->displayAllArtists(2));
 echo '</br> </br> </br> </br>';
-var_dump($artists->displayAllArtists(1));
+var_dump($artists->displayAllArtists());
 echo '</br> </br> </br> </br>';
 
 // echo "artists->displayAllArtists 2 </br>";
@@ -23,12 +23,15 @@ echo '</br> </br> </br> </br>';
 echo '</pre>';
 ?>
 <main>
-    <section>
-        <?php
-            // foreach($artists as $allArtists)
-            // {
-            //     echo $allArtiste[''];
-            // }        
-        ?>
-    </section>
+
+    <?php foreach($artists as $artist)
+    { ?>
+        <div>
+            <a href="artiste_update.php?id=<?= $artist['id']?>">
+                <img src="<?= $artist['chemin']?>">
+                <div><?= $artist['nom']?></div>
+            </a>
+        </div>
+    <?php } ?>
 </main>    
+   

@@ -25,11 +25,19 @@ class ArtisteController extends Controller
     }
 
     //****/Gestion des requetes d'affichage front pour les visiteurs\***
-    public function displayAllArtists($pageCourante)
+    public function displayAllArtists($pageCourante = null)
     {   
-        $limit = self::NBR_ARTISTE_PAR_PAGE;
-        $offset = self::NBR_ARTISTE_PAR_PAGE * ($pageCourante-1);
-        $displayAllArtists = $this->modelArtiste->getAllArtists($limit,$offset);
+        if($pageCourante != null)
+        {
+
+            $limit = self::NBR_ARTISTE_PAR_PAGE;
+            $offset = self::NBR_ARTISTE_PAR_PAGE * ($pageCourante-1);
+            $displayAllArtists = $this->modelArtiste->getAllArtists($limit,$offset);
+        }
+        else
+        {
+            $displayAllArtists = $this->modelArtiste->getAllArtists(1000000,0);
+        }
         return $displayAllArtists;
     }
     
@@ -56,6 +64,11 @@ class ArtisteController extends Controller
     }
 
     //****/Gestion des requetes d'affichage  front pour l'administrateur\***
+    public function displayAllInfoArtists()
+    {
+        $AllInfoArtists = $this->modelArtiste->getAllInfoArtists();
+        return $AllInfoArtists;
+    }
 
     public function displayAllDomains()
     {
@@ -140,8 +153,9 @@ class ArtisteController extends Controller
 
     public function modifyArtist($website, $nom, $description, $email,$lien_insta, $lien_soundcloud,$lien_facebook,$lien_twitter, $statut, $id_domaine, $chemin, $legende, $id_artiste)
     {
-        $id_artiste = $this->modelArtist->updateArtist($website, $nom, $description, $email,$lien_insta, $lien_soundcloud,$lien_facebook,$lien_twitter, $statut, $id_domaine);
-        $updateImageArtist = $this->modelArtist->updateImageArtist($chemin,$legende, $id_artiste);
+        $id_artiste = $this->modelArtiste->updateArtist($website, $nom, $description, $email,$lien_insta, $lien_soundcloud,$lien_facebook,$lien_twitter, $statut, $id_domaine, $id_artiste);
+                                                        
+        $updateImageArtist = $this->modelArtiste->updateImageArtist($chemin,$legende, $id_artiste);
     }
 
    
