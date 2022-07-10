@@ -78,90 +78,171 @@ class ArtisteController extends Controller
 
     public function registerArtist($id_domaine, $nom, $description, $email, $website, $lien_insta, $lien_soundcloud, $lien_facebook, $lien_twitter,$chemin,$legende)
     {
-        $id_domaine = $this->secure(intval($id_domaine));
-        $nom = $this->secureWithoutTrim($nom);
-        $description = $this->secureWithoutTrim($description);
-        //!\ upload image comment sécuriser le champs faille upload.    
-        $chemin = $this->secure($chemin);
-        $legende =$this->secureWithoutTrim($legende);
-    
+            $id_domaine = $this->secure(intval($id_domaine));
+            $nom = $this->secureWithoutTrim($nom);
+            $description = $this->secureWithoutTrim($description);
+            //!\ upload image comment sécuriser le champs faille upload.    
+            $chemin = $this->secure($chemin);
+            $legende =$this->secureWithoutTrim($legende);
+        
 
-        if(!empty($id_domaine) && !empty($nom) && !empty($description))
-        {
-           
-            $descriptionLen = strlen($description);
-            if(($descriptionLen <= 1600) && ($descriptionLen >= 50)) 
-            {
-                if(empty($email) || filter_var($email,FILTER_VALIDATE_EMAIL))
-                {
+            if(!empty($id_domaine) && !empty($nom) && !empty($description))
+            {   
+                $id_domaine = $this->secure(intval($id_domaine));
+                $nom = $this->secureWithoutTrim($nom);
+                $description = $this->secureWithoutTrim($description);
+                //!\ upload image comment sécuriser le champs faille upload.    
+                $chemin = $this->secure($chemin);
+                $legende =$this->secureWithoutTrim($legende);   
             
-                    $email = $this->secureEmail($email);
-
-                    if((empty($lien_twitter) || filter_var($lien_twitter,FILTER_VALIDATE_URL))
-                        && (empty($lien_insta) || filter_var($lien_insta,FILTER_VALIDATE_URL))
-                        && (empty($lien_facebook) || filter_var($lien_facebook,FILTER_VALIDATE_URL))
-                        && (empty($lien_soundcloud) || filter_var($lien_soundcloud,FILTER_VALIDATE_URL)))
-                        {   
-                            $website = $this->secureUrl($website);
-                            $lien_insta = $this->secureUrl($lien_insta);
-                            $lien_soundcloud = $this->secureUrl($lien_soundcloud);
-                            $lien_facebook = $this->secureUrl($lien_facebook);
-                            $lien_twitter = $this->secureUrl($lien_twitter);
-
-                         $id_artiste = $this->modelArtiste->insertArtist($website, $nom, $description, $email,$lien_insta, $lien_soundcloud,$lien_facebook,$lien_twitter, $id_domaine);
-                 
-
-                        if(!empty($chemin))
-                        {
-                            $legendeLen = strlen($legende);
-                            if (($legendeLen <= 100) && ($legendeLen >=10))
-                            {
+                $descriptionLen = strlen($description);
+                if(($descriptionLen <= 1600) && ($descriptionLen >= 50)) 
+                {
+                    if(empty($email) || filter_var($email,FILTER_VALIDATE_EMAIL))
+                    {
                 
-                                $insertImageArtist = $this->modelArtiste->insertImageArtist($chemin,$legende,$id_artiste);
+                        $email = $this->secureEmail($email);
+
+                        if((empty($lien_twitter) || filter_var($lien_twitter,FILTER_VALIDATE_URL))
+                            && (empty($lien_insta) || filter_var($lien_insta,FILTER_VALIDATE_URL))
+                            && (empty($lien_facebook) || filter_var($lien_facebook,FILTER_VALIDATE_URL))
+                            && (empty($lien_soundcloud) || filter_var($lien_soundcloud,FILTER_VALIDATE_URL)))
+                            {   
+                                $website = $this->secureUrl($website);
+                                $lien_insta = $this->secureUrl($lien_insta);
+                                $lien_soundcloud = $this->secureUrl($lien_soundcloud);
+                                $lien_facebook = $this->secureUrl($lien_facebook);
+                                $lien_twitter = $this->secureUrl($lien_twitter);
+
+                            $id_artiste = $this->modelArtiste->insertArtist($website, $nom, $description, $email,$lien_insta, $lien_soundcloud,$lien_facebook,$lien_twitter, $id_domaine);
+                    
+
+                            if(!empty($chemin))
+                            {
+                                $legendeLen = strlen($legende);
+                                if (($legendeLen <= 100) && ($legendeLen >=10))
+                                {
+                    
+                                    $insertImageArtist = $this->modelArtiste->insertImageArtist($chemin,$legende,$id_artiste);
+                                }
+                                else
+                                {
+                                    echo 'La légende doit comporter entre 10 et 100 caractères.';
+                                }
                             }
                             else
                             {
-                                echo 'La légende doit comporter entre 10 et 100 caractères.';
+                                echo 'Veuillez choisir une image et remplir le champs légende';
                             }
                         }
                         else
                         {
-                            echo 'Veuillez choisir une image et remplir le champs légende';
+                            echo 'Veuillez rentrer un format d\'adresse URL valide.';
                         }
                     }
-                    else
+                    else 
                     {
-                        echo 'Veuillez rentrer un format d\'adresse URL valide.';
+                        echo 'Veuillez vérifier le format de l\' adresse email';
                     }
-                }
-                else 
-                {
-                    echo 'Veuillez vérifier le format de l\' adresse email';
-                }
 
+                }
+                else
+                {
+                    echo "La description doit être comprise entre 50 et 1600 caractères.";
+                }
             }
             else
             {
-                echo "La description doit être comprise entre 50 et 1600 caractères.";
+                echo "Veuillez choisir une pratique et remplir les champs alias ou description.";
             }
         }
-        else
+
+        public function modifyArtist($website, $nom, $description, $email,$lien_insta, $lien_soundcloud,$lien_facebook,$lien_twitter, $statut, $id_domaine, $chemin, $legende, $id_artiste)
         {
-            echo "Veuillez choisir une pratique et remplir les champs alias ou description.";
+            $id_domaine = $this->secure(intval($id_domaine));
+            $nom = $this->secureWithoutTrim($nom);
+            $description = $this->secureWithoutTrim($description);
+            //!\ upload image comment sécuriser le champs faille upload.    
+            $chemin = $this->secure($chemin);
+            $legende =$this->secureWithoutTrim($legende);
+        
+
+            if(!empty($id_domaine) && !empty($nom) && !empty($description))
+            {   
+                // $id_domaine = $this->secure(intval($id_domaine));
+                // $nom = $this->secureWithoutTrim($nom);
+                // $description = $this->secureWithoutTrim($description);
+                // //!\ upload image comment sécuriser le champs faille upload.    
+                // $chemin = $this->secure($chemin);
+                // $legende =$this->secureWithoutTrim($legende);   
+            
+                // $descriptionLen = strlen($description);
+                // if(($descriptionLen <= 1600) && ($descriptionLen >= 50)) 
+                // {
+                //     if(empty($email) || filter_var($email,FILTER_VALIDATE_EMAIL))
+                //     {
+                
+                //         $email = $this->secureEmail($email);
+
+                //         if((empty($lien_twitter) || filter_var($lien_twitter,FILTER_VALIDATE_URL))
+                //             && (empty($lien_insta) || filter_var($lien_insta,FILTER_VALIDATE_URL))
+                //             && (empty($lien_facebook) || filter_var($lien_facebook,FILTER_VALIDATE_URL))
+                //             && (empty($lien_soundcloud) || filter_var($lien_soundcloud,FILTER_VALIDATE_URL)))
+                //             {   
+                //                 $website = $this->secureUrl($website);
+                //                 $lien_insta = $this->secureUrl($lien_insta);
+                //                 $lien_soundcloud = $this->secureUrl($lien_soundcloud);
+                //                 $lien_facebook = $this->secureUrl($lien_facebook);
+                //                 $lien_twitter = $this->secureUrl($lien_twitter);
+
+                                $id_artiste = $this->modelArtiste->updateArtist($website, $nom, $description, $email,$lien_insta, $lien_soundcloud,$lien_facebook,$lien_twitter, $statut, $id_domaine, $id_artiste);
+                    
+
+                            // if(!empty($chemin))
+                            // {
+                            //     $legendeLen = strlen($legende);
+                            //     if (($legendeLen <= 100) && ($legendeLen >=10))
+                            //     {
+                    
+                                    $updateImageArtist = $this->modelArtiste->updateImageArtist($chemin,$legende, $id_artiste);
+            //                     }
+            //                     else
+            //                     {
+            //                         echo 'La légende doit comporter entre 10 et 100 caractères.';
+            //                     }
+            //                 }
+            //                 else
+            //                 {
+            //                     echo 'Veuillez choisir une image et remplir le champs "légende"';
+            //                 }
+            //             }
+            //             else
+            //             {
+            //                 echo 'Veuillez rentrer un format d\'adresse URL valide.';
+            //             }
+            //         }
+            //         else 
+            //         {
+            //             echo 'Veuillez vérifier le format de l\' adresse email';
+            //         }
+
+            //     }
+            //     else
+            //     {
+            //         echo "La description doit être comprise entre 50 et 1600 caractères.";
+            //     }
+            }
+            else
+            {
+                echo 'Veuillez choisir une pratique et remplir les champs "alias" ou "description".';
+            }
+           
         }
-    }
-
-    public function modifyArtist($website, $nom, $description, $email,$lien_insta, $lien_soundcloud,$lien_facebook,$lien_twitter, $statut, $id_domaine, $chemin, $legende, $id_artiste)
-    {
-        $id_artiste = $this->modelArtiste->updateArtist($website, $nom, $description, $email,$lien_insta, $lien_soundcloud,$lien_facebook,$lien_twitter, $statut, $id_domaine, $id_artiste);
-                                                        
-        $updateImageArtist = $this->modelArtiste->updateImageArtist($chemin,$legende, $id_artiste);
-    }
 
    
 
    
-
+                        
 
 }
 ?>

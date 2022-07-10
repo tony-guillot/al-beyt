@@ -36,7 +36,7 @@ if(isset($_POST['submit']))
     $id);
 
     // echo '<a href="artiste.php?='.$artists['id_artiste'].'> voir la page de l\'artiste </a>';
-     header("Location: artiste_update.php?id=" . $artist['id_artiste']);
+    //  header("Location: artiste_update.php?id=" . $artist['id_artiste']);
 }
 
 echo '<pre>';
