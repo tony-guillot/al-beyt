@@ -87,13 +87,7 @@ class ArtisteController extends Controller
         
 
             if(!empty($id_domaine) && !empty($nom) && !empty($description))
-            {   
-                $id_domaine = $this->secure(intval($id_domaine));
-                $nom = $this->secureWithoutTrim($nom);
-                $description = $this->secureWithoutTrim($description);
-                //!\ upload image comment sécuriser le champs faille upload.    
-                $chemin = $this->secure($chemin);
-                $legende =$this->secureWithoutTrim($legende);   
+            {  
             
                 $descriptionLen = strlen($description);
                 if(($descriptionLen <= 1600) && ($descriptionLen >= 50)) 

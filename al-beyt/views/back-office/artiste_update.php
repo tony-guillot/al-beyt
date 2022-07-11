@@ -13,13 +13,23 @@ if($_GET['id'])
     $id = $_GET['id'];
     $artist = $controller->displayArtistById($id);
 }
-
 $id = intval($id);
-echo '<pre>';
 
+echo '<pre>';
+var_dump($artist);
+var_dump($artist['statut']);
 echo '</pre>';
+
 if(isset($_POST['submit']))
 {
+    if(isset($_POST['statut']) && $_POST['statut'] ==1)
+    {
+        $statut = 1;
+    }else
+    {
+        $statut = 0;
+    }
+
     $retrieveData = $controller->modifyArtist(
     $_POST['website'],
     $_POST['nom'],
@@ -29,14 +39,13 @@ if(isset($_POST['submit']))
     $_POST['soundcloud'],
     $_POST['facebook'],
     $_POST['twitter'],
-    $_POST['statut'],
+    $statut,
     $_POST['id_domaine'],
     $_POST['url'],
     $_POST['legende'],
     $id);
 
-    // echo '<a href="artiste.php?='.$artists['id_artiste'].'> voir la page de l\'artiste </a>';
-    //  header("Location: artiste_update.php?id=" . $artist['id_artiste']);
+    header("Location: artiste_update.php?id=" . $artist['id_artiste']);
 }
 
 echo '<pre>';
@@ -51,10 +60,10 @@ echo '</pre>';
                 <article>
                     <label for="">Pour cacher l'artiste à tes visiteurs décoche la case:</label>
                     <label class="switch">
-                        <?php if($artist['statut'] == 1){?>
-                            <input type="checkbox" name="statut" value="1" checked>
+                        <?php if($artist['statut']==1){?>
+                            <input type="checkbox" name="statut"  value=1 checked>
                         <?php }else{ ?>
-                            <input type="checkbox" name="statut" value="0">
+                            <input type="checkbox" name="statut" value=1>
                             <?php }?>
                        
                         <span class="slider round"></span>

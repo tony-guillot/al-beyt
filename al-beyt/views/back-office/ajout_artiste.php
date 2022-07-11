@@ -57,7 +57,7 @@ if(isset($_POST['submit']))
                     <input type="text" name="legende"></br>
                  <!-- */artiste image* -->
                  <label for="email">Email pro de l'artiste:</label>
-                 <input type="email" placeholder="king.tubby@tubby.com" name="email" value="" required></br>
+                 <input type="email" placeholder="king.tubby@tubby.com" name="email" value="" ></br>
                  <label for="website">Lien du site web:</label>
                  <input type="text" placeholder="https://reggae.fr/artiste-biographie/211_King-Tubby.html" name="website" value=""></br>
                  <h2>Les réseaux-sociaux:</h2>
