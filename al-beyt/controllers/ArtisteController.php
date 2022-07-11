@@ -11,7 +11,6 @@ class ArtisteController extends Controller
     protected $modelEvenement;
     protected $modelDomaine;
     protected $modelArtiste;
-    
     const NBR_ARTISTE_PAR_PAGE = 10;
     const NBR_EVENEMENT_PAGE_ARTISTE = 4;
     
@@ -41,11 +40,16 @@ class ArtisteController extends Controller
         return $displayAllArtists;
     }
     
-    public function displayAllArtistsByDomain($id_domaine,$pageCourante)
-    { 
-        $limit = self::NBR_ARTISTE_PAR_PAGE;
-        $offset = self::NBR_ARTISTE_PAR_PAGE * ($pageCourante-1);
-        $displayAllArtistsByDomain = $this->modelArtiste->getAllArtistsByDomain($id_domaine,$limit,$offset);
+    public function displayAllArtistsByDomain($id_domaine,$pageCourante = null)
+    {
+        if($pageCourante != null){
+            $limit = self::NBR_ARTISTE_PAR_PAGE;
+            $offset = self::NBR_ARTISTE_PAR_PAGE * ($pageCourante - 1);
+            $displayAllArtistsByDomain = $this->modelArtiste->getAllArtistsByDomain($id_domaine, $limit, $offset);
+        }else{
+            $displayAllArtistsByDomain = $this->modelArtiste->getAllArtistsByDomain($id_domain, 100000, 0);
+
+        }
         return $displayAllArtistsByDomain;
     }
     
@@ -57,9 +61,13 @@ class ArtisteController extends Controller
 
     public function displayEventsByIdArtist($id_artiste,$pageCourante)
     {
-        $limit = self::NBR_EVENEMENT_PAGE_ARTISTE;
-        $offset = self::NBR_EVENEMENT_PAGE_ARTISTE * ($pageCourante-1);
-        $displayEventsByIdArtist = $this->modelEvenement->getEventsByIdArtist($id_artiste,$limit,$offset);
+        if($pageCourante != null){
+            $limit = self::NBR_EVENEMENT_PAGE_ARTISTE;
+            $offset = self::NBR_EVENEMENT_PAGE_ARTISTE * ($pageCourante - 1);
+            $displayEventsByIdArtist = $this->modelEvenement->getEventsByIdArtist($id_artiste, $limit, $offset);
+        }else{
+            $displayEventsByIdArtist = $this->modelEvenement->getEventsByIdArtist($id_artiste, 100000, 0);
+        }
         return $displayEventsByIdArtist;
     }
 
@@ -233,7 +241,6 @@ class ArtisteController extends Controller
            
         }
 
-   
 
    
                         

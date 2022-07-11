@@ -55,6 +55,20 @@ class EvenementModel extends Bdd {
         return $result;
     }
 
+        public function getImagesByEvenementId($id)
+    {
+         $bdd = $this->bdd->prepare(
+            'SELECT id, chemin, legende, ordre
+                    FROM image_evenement
+                    WHERE image_evenement.id_evenement = :id 
+                    ORDER BY image_evenement.ordre;'
+        );
+        $bdd->execute([':id' => $id]);
+        $result = $bdd->fetchAll();
+
+        return $result;
+    }
+
     public function getEventsByIdArtist($id_artiste,$limit,$offset)
     {
         $bdd = $this->bdd->prepare('SELECT e.titre, e.date_evenement,image_evenement.chemin
@@ -73,7 +87,54 @@ class EvenementModel extends Bdd {
 
         return $result;
     }
-   
+
+
+    public function insertEvent($titre, $adresse, $date_evenement, $heure, $description)
+    {
+        $bdd = $this->bdd->prepare(
+            'INSERT INTO evenement (titre, adresse, date_evenement, heure, description) 
+                    VALUES (:titre, :adresse, :date_evenement, :heure, :description)'
+        );
+        $bdd->bindValue(":titre" , $titre, PDO::PARAM_STR);
+        $bdd->bindValue(":adresse" , $adresse, PDO::PARAM_STR);
+        $bdd->bindValue(":date_evenement" , $date_evenement, PDO::PARAM_STR);
+        $bdd->bindValue(":heure" , $heure, PDO::PARAM_STR);
+        $bdd->bindValue(":description" , $description, PDO::PARAM_STR);
+        $bdd->execute();
+        $result = $this->bdd->lastInsertId();
+
+        return $result;
+    }
+
+    public function insertImage($chemin, $legende, $id_evenement, $ordre)
+    {
+        $bdd = $this->bdd->prepare(
+            'INSERT INTO image_evenement (chemin, legende, id_evenement, ordre) 
+                    VALUES (:chemin, :legende, :id_evenement, :ordre)'
+        );
+        $bdd->bindValue(":chemin" , $chemin, PDO::PARAM_STR);
+        $bdd->bindValue(":legende" , $legende, PDO::PARAM_STR);
+        $bdd->bindValue(":id_evenement" , $id_evenement, PDO::PARAM_INT);
+        $bdd->bindValue(":ordre" , $ordre, PDO::PARAM_INT);
+        $bdd->execute();
+        $result = $this->bdd->lastInsertId();
+
+        return $result;
+    }
+
+    public function insertParticipationArtisteByEvent($id_artiste, $id_evenement)
+    {
+        $bdd = $this->bdd->prepare(
+            'INSERT INTO artiste_evenement (id_artiste, id_evenement) VALUES  (:id_artiste, :id_evenement)'
+        );
+        $bdd->bindValue(":id_artiste" , $id_artiste, PDO::PARAM_INT);
+        $bdd->bindValue(":id_evenement" , $id_evenement, PDO::PARAM_INT);
+        $bdd->execute();
+        $result = $this->bdd->lastInsertId();
+
+        return $result;
+    }
+
 
 
 

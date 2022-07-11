@@ -74,17 +74,6 @@ echo '</pre>';
                     <input type="text" placeholder="King Tubby" name="nom" value="<?= $artist['nom']?>"></br>
                 </article>
                 <article>
-                <article>
-                    <!-- *artiste image* -->
-                    
-                    <label for="image">Choisir une image représentant l'artiste:</label>
-                        <!-- <input type="file" name="image"> -->
-                        <input type="text" name="url" value="<?= $artist['chemin']?>"></br>
-                        <label for="legende">Légende ou crédits de l'image</label>
-                        <input type="text" name="legende" value="<?= $artist['legende']?>"></br>
-                    <!-- */artiste image* -->
-                </article>
-                <article>
                     <label for="id_domaine">choisir un domaine</label>
                         <select name="id_domaine">
                                 <option value="<?= $artist['id_domaine']?>"><?= $artist['nom_domaine']?></option>
@@ -134,7 +123,22 @@ echo '</pre>';
                     <textarea name="description" value=""><?= $artist['description']?></textarea></br></br>
                 </article>
             </section>
-            <input type="submit" name="submit" value="Ajouter l'artiste">
+            <input type="submit" name="submit" value="remplacer les informations">
+        </form>
+
+        <form action="" method="post">
+            <p>Pour remplacer l'image de l'artiste, cliquez ici</p>
+        <article>
+                    <!-- *artiste image* -->
+                    
+                    <label for="image">Choisir une image représentant l'artiste:</label>
+                        <!-- <input type="file" name="image"> -->
+                        <input type="text" name="url" value="<?= $artist['chemin']?>"></br>
+                        <label for="legende">Légende ou crédits de l'image</label>
+                        <input type="text" name="legende" value="<?= $artist['legende']?>"></br>
+                    <!-- */artiste image* -->
+                    <input type="submit" name="submit" value="remplacer l'image de l'artiste">
+                </article>
         </form>
     </section>
 </main>

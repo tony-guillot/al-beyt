@@ -1,5 +1,6 @@
 <?php
 namespace AlBeyt\Controllers;
+
 class Controller
 {
    

@@ -8,7 +8,7 @@ class ArtisteModel extends Bdd
     public function getAllArtists($limit,$offset)
     {
         $bdd = $this->bdd->prepare(
-            'SELECT artiste.id,artiste.nom, image_artiste.chemin 
+            'SELECT artiste.id, artiste.nom, image_artiste.chemin 
             FROM artiste 
             INNER JOIN image_artiste
             ON artiste.id = image_artiste.id_artiste
@@ -118,14 +118,19 @@ class ArtisteModel extends Bdd
     }
 
 
-    public function insertImageArtist($chemin,$legende,$id_artiste)
+    public function insertImage($chemin, $legende, $id_artiste)
     {
-        $bdd = $this->bdd->prepare('INSERT INTO image_artiste (chemin,legende,id_artiste) VALUES (:chemin,:legende,:id_artiste)');
-        $bdd->execute(array(':chemin' => $chemin,
-                            ':legende' => $legende,
-                            ':id_artiste' => $id_artiste
-                        ));
-        return Null;
+        $bdd = $this->bdd->prepare(
+            'INSERT INTO image_artiste (chemin,legende,id_artiste)
+            VALUES (:chemin, :legende , :id_artiste)'
+        );
+        $bdd->bindValue(":chemin" , $chemin,PDO::PARAM_STR);
+        $bdd->bindValue(":legende" , $legende, PDO::PARAM_STR);
+        $bdd->bindValue(":id_artiste", $id_artiste, PDO::PARAM_INT);
+        $bdd->execute();
+        $result = $this->bdd->lastInsertId();
+
+        return $result;
     }
     
     public function updateArtist($website, $nom, $description, $email,$lien_insta, $lien_soundcloud,$lien_facebook,$lien_twitter, $statut, $id_domaine, $id)

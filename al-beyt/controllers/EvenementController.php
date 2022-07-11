@@ -1,5 +1,6 @@
 <?php
 namespace AlBeyt\Controllers;
+use AlBeyt\Library\Image;
 use AlBeyt\Models\EvenementModel;
 
 class  EvenementController{
@@ -34,10 +35,56 @@ class  EvenementController{
        return $display;
     }
 
-    public function registerEvent()
+    public function displayImagesByEvenementId($id)
     {
-       $insertEvent = $this->modelEvenement->insertEvent();
-       return $insertEvent;
+       $display = $this->modelEvenement->getImagesByEvenementId($id);
+       return $display;
+    }
+
+    public function registerEvent(
+        $titre,
+        $image_en_avant,
+        $legende_en_avant,
+        $ordre_image_en_avant,
+        $adresse,
+        $date,
+        $heure,
+        $description,
+        $image2,
+        $legende2,
+        $ordre_image2,
+        $ids_artistes
+    )
+    {
+        //TODO: conditions gestion d'erreur
+        $id_evenement = $this->modelEvenement->insertEvent($titre, $adresse, $date, $heure, $description);
+
+        if($id_evenement){
+            if(!empty($image_en_avant) &&  !empty($legende_en_avant)){
+                $cheminImageEnAvant = Image::sauvegardeImage($image_en_avant);
+                if ($cheminImageEnAvant != "") {
+                    $this->modelEvenement->insertImage($cheminImageEnAvant, $legende_en_avant, $id_evenement, $ordre_image_en_avant);
+                }
+            }
+
+            if(!empty($image2) &&  !empty($legende2)){
+                $cheminImage2 = Image::sauvegardeImage($image2);
+                if( $cheminImage2 != "") {
+                    $this->modelEvenement->insertImage($cheminImage2, $legende2, $id_evenement, $ordre_image2);
+                }
+            }
+
+            if(!empty($ids_artistes)){
+                foreach($ids_artistes as $id_artiste)
+                {
+                    if($id_artiste != ""){
+                        $this->modelEvenement->insertParticipationArtisteByEvent($id_artiste, $id_evenement);
+                    }
+                }
+            }
+        }
+
+        return $id_evenement;
     }
 
 }
