@@ -2,10 +2,11 @@
 
 namespace AlBeyt\Controllers;
 
+use AlBeyt\Library\Error;
 use AlBeyt\Library\Image;
 use AlBeyt\Models\ArticleModel;
 
-class ArticleController
+class ArticleController extends Controller
 {
 
     protected $modelArticle;
@@ -79,6 +80,61 @@ class ArticleController
             }
         }
         return $id_article;
+    }
+
+    public function modifyArticle($id_article, $titre, $date, $auteur, $description)
+    {
+        $titre = $this->secure($titre);
+        $date = $this->secure($date);
+        $auteur = $this->secure($auteur);
+        $description = $this->secure($description);
+
+        if(!empty($titre) && !empty($description) && !empty($auteur) && !empty($date))
+        {
+            if(strlen($titre) > 100){
+
+                if(strlen($auteur) > 50){
+                    $this->modelArticle->updateArticle($id_article, $titre, $date, $auteur, $description);
+                }
+                else
+                {
+                    Error::afficheErreur('Le nom de l\'auteur ne doit pas dépasser 50 caracteres.');
+                }
+            }
+            else
+            {
+                Error::afficheErreur('Le titre ne doit pas dépasser 100 caracteres.');
+            }
+        }
+        else
+        {
+            Error::afficheErreur('Veuillez remplir les champs.');
+        }
+
+        return $id_article;
+    }
+
+    public function modifyImage($id_article, $image, $legende, $ordre)
+    {
+        if ( strlen($legende) < 100) {
+            $chemin = Image::sauvegardeImage($image);
+
+            $images = $this->modelArticle->getImagesByIdArticle($id_article);
+
+            if(isset($images[$ordre-1])){
+                $this->modelArticle->updateImage($id_article, $chemin, $legende, $ordre);
+            }else{
+                $this->modelArticle->insertImage($chemin, $legende, $id_article , $ordre);
+            }
+
+        }else{
+            Error::afficheErreur('La légende doit compter entre 10 et 100 caracteres.');
+        }
+    }
+
+    public function supprimeImage($id_article, $ordre)
+    {
+        $this->modelArticle->deleteImageByIdArticle($id_article,$ordre);
     }
 
 
