@@ -7,8 +7,8 @@ use AlBeyt\Controllers\ArticleController;
 
 $controllerArticle = new ArticleController();
 
-if($_GET['id_article']){
-    $id_article = $_GET['id_article'];
+if($_GET['id']){
+    $id_article = $_GET['id'];
 
     $article = $controllerArticle->displayArticleById($id_article);
     $images_article = $controllerArticle->displayImagesByIdArticle($id_article);

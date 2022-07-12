@@ -88,7 +88,7 @@ class ArticleModel extends Bdd
         return $result;
     }
 
-        public function insertImage($chemin, $legende, $id_article, $ordre)
+    public function insertImage($chemin, $legende, $id_article, $ordre)
     {
         $bdd = $this->bdd->prepare(
             'INSERT INTO image_article (chemin,legende,id_article,ordre)
@@ -103,6 +103,7 @@ class ArticleModel extends Bdd
 
         return $result;
     }
+
 
 
 }
