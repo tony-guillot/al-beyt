@@ -45,9 +45,9 @@ if(isset($_POST['submit']))
                 </select></br>
 
                  <label for="nom">Allias ou Nom:</label>
-                 <input type="text" placeholder="King Tubby" name="nom" value=""></br>
+                 <input type="text" placeholder="King Tubby" name="nom"></br>
                  <label for="description">Description:</label>
-                 <textarea name="description"  value=""></textarea> </br></br>
+                 <textarea name="description" ></textarea> </br></br>
                     <!-- *artiste image* -->
                  
                     <label for="image">Choisir une image représentant l'artiste:</label>
@@ -57,18 +57,18 @@ if(isset($_POST['submit']))
                     <input type="text" name="legende"></br>
                  <!-- */artiste image* -->
                  <label for="email">Email pro de l'artiste:</label>
-                 <input type="email" placeholder="king.tubby@tubby.com" name="email" value="" ></br>
+                 <input type="text" placeholder="king.tubby@tubby.com" name="email"></br>
                  <label for="website">Lien du site web:</label>
-                 <input type="text" placeholder="https://reggae.fr/artiste-biographie/211_King-Tubby.html" name="website" value=""></br>
+                 <input type="text" placeholder="https://reggae.fr/artiste-biographie/211_King-Tubby.html" name="website"></br>
                  <h2>Les réseaux-sociaux:</h2>
                     <label for="insta">Lien Instagram:</label>
-                    <input type="text" placeholder="https://www.instagram.com/tubbyofficial" name="insta" value=""></br>
+                    <input type="text" placeholder="https://www.instagram.com/tubbyofficial" name="insta"></br>
                     <label for="soundcloud">Lien Soundcloud:</label>
-                    <input type="text" placeholder="https://www.soundcloud.com/tubbyofficial" name="soundcloud" value=""></br>
+                    <input type="text" placeholder="https://www.soundcloud.com/tubbyofficial" name="soundcloud"></br>
                     <label for="facebook">Lien Facebook:</label>
-                    <input type="text" placeholder="https://www.facebook.com/tubbyofficial" name="facebook" value=""></br>
+                    <input type="text" placeholder="https://www.facebook.com/tubbyofficial" name="facebook"></br>
                     <label for="twitter">Lien Twitter:</label>
-                    <input type="text" placeholder="https://twitter.com/tubbyofficial" name="twitter" value=""></br>
+                    <input type="text" placeholder="https://twitter.com/tubbyofficial" name="twitter"></br>
               
                  <input type="submit" name="submit" value="Ajouter l'artiste">
             </form>

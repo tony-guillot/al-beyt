@@ -165,7 +165,7 @@ class ArtisteModel extends Bdd
 
     public function updateImageArtist($chemin,$legende, $id_artiste)
     {
-        var_dump($id_artiste);
+        // var_dump($id_artiste);
 
     
         $bdd = $this->bdd->prepare('UPDATE image_artiste

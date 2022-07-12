@@ -8,15 +8,15 @@
             <ul class="ul-nav-bo">
                 
                 <li class="liste-bo">
-                    <a href="ajout_artiste.php"> <i class="fa-solid fa-users"></i>Ajouter un Artiste</a>
+                    <a href="artiste_ajout.php"> <i class="fa-solid fa-users"></i>Ajouter un Artiste</a>
                 </li>
 
                 <li class="liste-bo">
-                   <a href="ajout_article.php"><i style="font-size:0.9em;" class="fa-solid fa-plus"></i>Ajouter un Article</a>
+                   <a href="article_ajout.php"><i style="font-size:0.9em;" class="fa-solid fa-plus"></i>Ajouter un Article</a>
                 </li>
 
                 <li class="liste-bo">
-                   <a href="ajout_evenement.php"><i style="font-size:0.9em;" class="fa-solid fa-gear"></i>Ajouter un Evènement</a>
+                   <a href="evenement_ajout.php"><i style="font-size:0.9em;" class="fa-solid fa-gear"></i>Ajouter un Evènement</a>
                 </li>
 
                 <li class="liste-bo">

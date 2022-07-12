@@ -17,11 +17,11 @@ class Controller
         return $value;
     }
 
-    public function secureWithoutTrim($value)
-    {
-        $value = htmlspecialchars(strip_tags($value));
-        return $value;
-    }
+    // public function secureWithoutTrim($value)
+    // {
+    //     $value = htmlspecialchars(strip_tags($value));
+    //     return $value;
+    // }
 
     public function secureEmail($email)
     {

@@ -16,6 +16,45 @@
 <body>
     <header>
         <nav>
-
+            <!-- <ul>
+                <li>
+                    <a href="">Les artistes</a>
+                        <ul>
+                            <li>
+                                <a href="">Pôle Exposition</a>
+                                <a href="">Pôle Musique</a>
+                                <a href="">Pôle Cinéma</a>
+                                <a href="">Pôle Art vivants</a>
+                                <a href="">Pôle Collectifs</a>
+                                <a href="">Pôle Stands</a>
+                            </li>
+                        </ul>
+                </li>
+                <li>
+                    <a href="">Nos Evènements</a>
+                        <ul>
+                            <li>
+                                <a href="">2021</a>
+                                <a href="">2022</a>
+                                <a href="">2023</a>
+                                <a href="">2024</a>
+                            </li>
+                        </ul>
+                    </li>
+                <li>
+                    <a href=""> Actualités </a>
+                        <ul>
+                            <li>
+                                <a href="">2021</a>
+                                <a href="">2022</a>
+                                <a href="">2023</a>
+                                <a href="">2024</a>
+                            </li>
+                        </ul>
+                </li>
+                <li>
+                    <a href=""> A propos</a>
+                </li>
+            </ul> -->
         </nav>
     </header>
