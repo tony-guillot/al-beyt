@@ -14,13 +14,13 @@ if($_GET['id']){
 
 
 }else{
-    header('Location: artiste_gestion.php');
+    header('Location: article_gestion.php');
 }
 
 if( isset($_GET['action']) && $_GET['action'] == "deleteImage"){
     $controllerArticle->supprimeImage($id_article,$_GET['ordre']);
 
-    header('Location: artiste_update.php?id='.$id_article); //on vide les params _GET de l'url
+    header('Location: article_update.php?id='.$id_article); //on vide les params _GET de l'url
 }
 
 if(!empty($_POST['validerImages']))
@@ -28,6 +28,9 @@ if(!empty($_POST['validerImages']))
     if(!empty($_FILES['image_en_avant']['name']))
     {
         $controllerArticle->modifyImage($id_article, $_FILES['image_en_avant'], $_POST['legende_en_avant'], 1);
+    }else{
+        //Veuillez choisir une image et remplir le champs légende
+        header('Location: article_update.php?id='.$id_article);
     }
     if(!empty($_FILES['image2']['name']))
     {
@@ -58,9 +61,10 @@ if(!empty($_POST['valider']))
     <div class="imagesForm">
         <form action="" method="post" enctype="multipart/form-data">
             <h2>Image de présentation : </h2>
+
             <article>
                 <img class="image" id="image_en_avant" alt="<?= $images_article[0]['legende'] ?>"
-                     src="<?= $images_article[0]['chemin'] ?>">
+                     src="http://<?= $images_article[0]['chemin'] ?>">
                 <label for="image_en_avant">Image en avant:</label>
                 <input type="file" name="image_en_avant" placeholder="">
                 <input type="hidden" name="ordre_image_en_avant" value="1">
@@ -70,52 +74,53 @@ if(!empty($_POST['valider']))
                 <label for="legende_en_avant">Légende associée à l'image en avant:</label>
                 <input type="text" name="legende_en_avant" value="<?= $images_article[0]['legende'] ?>" placeholder="">
             </article>
+
             <h2>Images slider : </h2>
             <article>
                 <?php if (!empty($images_article[1]['chemin'])): ?>
-                <img class="image" id="image2" src="<?= $images_article[1]['chemin'] ?>"
+                <img class="image" id="image2" src="http://<?= $images_article[1]['chemin'] ?>"
                      alt="<?= $images_article[1]['legende'] ?>">
                 <?php endif ?>
                 <label for="image2">Image complémentaire 2:</label>
                 <input type="file" name="image2">
                 <input type="hidden" name="ordre_image2" value="2">
                 <a href="article_update.php?id=<?= $id_article ?>&action=deleteImage&ordre=2" >Supprimer cette image</a>
-
             </article>
             <article>
                 <label for="legende2">Légende complémentaire 2:</label>
                 <input type="text" value="<?= $images_article[1]['legende'] ?? "" ?>" name="legende2">
             </article>
+
             <article>
                 <?php if (!empty($images_article[2]['chemin'])): ?>
-                    <img class="image" id="image3" src="<?= $images_article[2]['chemin'] ?>"
+                    <img class="image" id="image3" src="http://<?= $images_article[2]['chemin'] ?>"
                          alt="<?= $images_article[2]['legende'] ?? ""  ?>">
                 <?php endif ?>
                 <label for="image3">Image complémentaire 3:</label>
                 <input type="file" name="image3">
                 <input type="hidden" name="ordre_image3" value="3">
                 <a href="article_update.php?id=<?= $id_article ?>&action=deleteImage&ordre=3" >Supprimer cette image</a>
-
             </article>
             <article>
                 <label for="legende3">Légende complémentaire 3:</label>
                 <input type="text" value="<?= $images_article[2]['legende'] ?? ""  ?>" name="legende3">
             </article>
+
             <article>
                 <?php if (!empty($images_article[3]['chemin'])): ?>
-                    <img class="image" id="image4" src="<?= $images_article[3]['chemin'] ?>"
+                    <img class="image" id="image4" src="http://<?= $images_article[3]['chemin'] ?>"
                          alt="<?= $images_article[3]['legende'] ?? ""  ?>">
                 <?php endif ?>
                 <label for="image4">Image complémentaire 4:</label>
                 <input type="file" name="image4">
                 <input type="hidden" name="ordre_image4" value="4">
                 <a href="article_update.php?id=<?= $id_article ?>&action=deleteImage&ordre=4" >Supprimer cette image</a>
-
             </article>
             <article>
                 <label for="legende4">Légende complémentaire 4:</label>
                 <input type="text" value="<?= $images_article[3]['legende'] ?? "" ?>" name="legende4">
             </article>
+
             <input type="hidden" value="<?= $id_article ?>">
             <input type="submit" name="validerImages" value="Mettre a jour les images">
         </form>

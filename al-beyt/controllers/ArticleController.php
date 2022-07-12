@@ -41,8 +41,17 @@ class ArticleController extends Controller
 
     public function displayImagesByIdArticle($id)
     {
-        $display = $this->modelArticle->getImagesByIdArticle($id);
+        $images = $this->modelArticle->getImagesByIdArticle($id);
+        $display = $this->reorderImages($images); //ré-arrange l'array en fonction de l'ordre des images
         return $display;
+    }
+
+    public function reorderImages($images)
+    {
+        foreach ($images as $imgArticle) {
+            $images_article[$imgArticle['ordre'] - 1] = $imgArticle;
+        }
+        return $images_article;
     }
 
     public function registerArticle($titre,$auteur,$description,$image_en_avant,$legende_en_avant,$image2,$legende2, $image3,$legende3, $image4,$legende4)
@@ -98,17 +107,17 @@ class ArticleController extends Controller
                 }
                 else
                 {
-                    Error::afficheErreur('Le nom de l\'auteur ne doit pas dépasser 50 caracteres.');
+                    //Error::afficheErreur('Le nom de l\'auteur ne doit pas dépasser 50 caracteres.');
                 }
             }
             else
             {
-                Error::afficheErreur('Le titre ne doit pas dépasser 100 caracteres.');
+                //Error::afficheErreur('Le titre ne doit pas dépasser 100 caracteres.');
             }
         }
         else
         {
-            Error::afficheErreur('Veuillez remplir les champs.');
+            //Error::afficheErreur('Veuillez remplir les champs.');
         }
 
         return $id_article;
@@ -128,7 +137,7 @@ class ArticleController extends Controller
             }
 
         }else{
-            Error::afficheErreur('La légende doit compter entre 10 et 100 caracteres.');
+            //Error::afficheErreur('La légende doit compter entre 10 et 100 caracteres.');
         }
     }
 
@@ -136,6 +145,8 @@ class ArticleController extends Controller
     {
         $this->modelArticle->deleteImageByIdArticle($id_article,$ordre);
     }
+
+
 
 
 }
