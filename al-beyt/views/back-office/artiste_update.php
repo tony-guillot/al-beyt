@@ -43,7 +43,7 @@ if(isset($_POST['submit']))
 if(isset($_POST['replace_image']))
 {
     $id_artiste = intval($id);
-    $retriveImage = $controller->modifyImageArtist($_POST['image'], $_POST['legende'], $id_artiste);
+    $retriveImage = $controller->modifyImageArtist($_FILES['image'], $_POST['legende'], $id_artiste);
     $artist = $controller->displayArtistById($id);
 }
 
@@ -121,20 +121,21 @@ if(isset($_POST['replace_image']))
             </section>
             <input type="submit" name="submit" value="remplacer les informations">
         </form>
+        <section>
+        <p>Pour remplacer l'image de l'artiste, cliquez ici</p>
+        <img src="<?= $artist['chemin']?>">     
+            <form action="" method="post" enctype="multipart/form-data">
+                <article>
+                    <label for="image">Choisir un image:</label>
+                        <input type="file" name="image" placeholder=""></br>
+                        <!-- <input type="hidden" name="ordre_image_en_avant" value="1"> </br> -->
 
-        <form action="" method="post" enctype="multipart/form-data">
-            <p>Pour remplacer l'image de l'artiste, cliquez ici</p>
-        <article>
-                    <!-- *artiste image* -->
-                    
-                    <label for="image">Choisir une image représentant l'artiste:</label>
-                        <!-- <input type="file" name="image"> -->
-                        <input type="text" name="image" value="<?= $artist['chemin']?>"></br>
-                        <label for="legende">Légende ou crédits de l'image</label>
-                        <input type="text" name="legende" value="<?= $artist['legende']?>"></br>
-                    <!-- */artiste image* -->
-                    <input type="submit" name="replace_image" value="remplacer l'image de l'artiste">
+                
+                    <label for="legende">Légende ou crédits de l'image:</label>
+                    <input type="text" name="legende" value="<?= $artist['legende']?>" placeholder=""> 
                 </article>
-        </form>
-    </section>
+                    <input type="submit" name="replace_image" value="remplacer l'image de l'artiste">
+            
+            </form>
+        </section>
 </main>
