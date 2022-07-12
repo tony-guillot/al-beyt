@@ -76,13 +76,11 @@ class ArtisteController extends Controller
         return $getAllDomains;
     }
 
-    public function registerArtist($id_domaine, $nom, $description, $email, $website, $lien_insta, $lien_soundcloud, $lien_facebook, $lien_twitter,$chemin,$legende)
+    public function registerArtist($id_domaine, $nom, $description, $email, $website, $lien_insta, $lien_soundcloud, $lien_facebook, $lien_twitter,$image,$legende)
     {
         $id_domaine = $this->secure(intval($id_domaine));
         $nom = $this->secureWithoutTrim($nom);
         $description = $this->secureWithoutTrim($description);
-        //!\ upload image comment sécuriser le champs faille upload.
-        $chemin = $this->secure($chemin);
         $legende =$this->secureWithoutTrim($legende);
 
 
@@ -111,12 +109,12 @@ class ArtisteController extends Controller
                          $id_artiste = $this->modelArtiste->insertArtist($website, $nom, $description, $email,$lien_insta, $lien_soundcloud,$lien_facebook,$lien_twitter,$id_domaine);
 
 
-                        if(!empty($chemin))
-                        {
+                        if(!empty($image))
+                        {  
                             $legendeLen = strlen($legende);
                             if (($legendeLen <= 100) && ($legendeLen >=10))
                             {
-
+                                    $chemin = Image::sauvegardeImage($image);
                                 $insertImageArtist = $this->modelArtiste->insertImageArtiste($chemin,$legende,$id_artiste);
                             }
                             else
@@ -150,6 +148,7 @@ class ArtisteController extends Controller
             echo "Veuillez choisir une pratique et remplir les champs alias ou description.";
         }
     }
+
 
 
 
