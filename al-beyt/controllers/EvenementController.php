@@ -2,8 +2,10 @@
 namespace AlBeyt\Controllers;
 use AlBeyt\Library\Image;
 use AlBeyt\Models\EvenementModel;
+use AlBeyt\Models\ArtisteModel;
 
-class  EvenementController{
+class  EvenementController
+{
 
     protected $modelEvenement;
     const NB_EVENEMENT_PAR_PAGE = 2;
@@ -11,13 +13,45 @@ class  EvenementController{
     public function __construct()
     {
         $this->modelEvenement = new EvenementModel();
+        $this->modelArtiste = new ArtisteModel();
     }
     
-    public function displayAllEvents($pageCourante)
+    public function displayAllEvents($pageCourante = null)
     {
-        $limit = self::NB_EVENEMENT_PAR_PAGE ;
-        $offset = self::NB_EVENEMENT_PAR_PAGE * ($pageCourante-1) ;
-        $display = $this->modelEvenement->getAllEvents($limit,$offset);
+        if($pageCourante != null)
+        {
+            
+            $limit = self::NB_EVENEMENT_PAR_PAGE ;
+            $offset = self::NB_EVENEMENT_PAR_PAGE * ($pageCourante-1) ;
+            $display = $this->modelEvenement->getAllEvents($limit,$offset);
+            
+        }
+        else
+        {
+            $display = $this->modelEvenement->getAllEvents(1000000,0);
+        }
+
+        return $display;
+    }
+    public function displayAllInfosEvent($pageCourante = null)
+    {   
+        if($pageCourante != null)
+        {
+            
+            $limit = self::NB_EVENEMENT_PAR_PAGE ;
+            $offset = self::NB_EVENEMENT_PAR_PAGE * ($pageCourante-1) ;
+            $display = $this->modelEvenement->getAllInfosEvents($limit,$offset);
+        }
+        else
+        {
+            $display = $this->modelEvenement->getAllInfosEvents(1000000,0);
+        }
+        return $display;
+    }
+
+    public function displayArtistsByEventId($id_evenement)
+    {
+        $display = $this->modelArtiste->getArtistsByEventId($id_evenement); 
         return $display;
     }
 
@@ -35,9 +69,9 @@ class  EvenementController{
        return $display;
     }
 
-    public function displayImagesByEvenementId($id)
+    public function displayImagesByEventId($id)
     {
-       $display = $this->modelEvenement->getImagesByEvenementId($id);
+       $display = $this->modelEvenement->getImagesByEventId($id);
        return $display;
     }
 
@@ -58,6 +92,8 @@ class  EvenementController{
     {
         //TODO: conditions gestion d'erreur
         $id_evenement = $this->modelEvenement->insertEvent($titre, $adresse, $date, $heure, $description);
+
+        
 
         if($id_evenement){
             if(!empty($image_en_avant) &&  !empty($legende_en_avant)){

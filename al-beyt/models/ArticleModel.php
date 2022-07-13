@@ -73,6 +73,7 @@ class ArticleModel extends Bdd
         return $result;
     }
 
+  
     public function insertArticle($titre, $auteur, $description)
     {
         $bdd = $this->bdd->prepare(

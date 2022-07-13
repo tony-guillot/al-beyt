@@ -37,7 +37,7 @@ class ArtisteController extends Controller
         }
         else
         {
-            $displayAllArtists = $this->modelArtiste->getAllArtists(1000000,0);
+            $displayAllArtists = $this->modelArtiste->getAllArtists(100000, 0);
         }
         return $displayAllArtists;
     }
@@ -49,7 +49,7 @@ class ArtisteController extends Controller
             $offset = self::NBR_ARTISTE_PAR_PAGE * ($pageCourante - 1);
             $displayAllArtistsByDomain = $this->modelArtiste->getAllArtistsByDomain($id_domaine, $limit, $offset);
         }else{
-            $displayAllArtistsByDomain = $this->modelArtiste->getAllArtistsByDomain($id_domain, 100000, 0);
+            $displayAllArtistsByDomain = $this->modelArtiste->getAllArtistsByDomain($id_domaine, 100000, 0);
 
         }
         return $displayAllArtistsByDomain;

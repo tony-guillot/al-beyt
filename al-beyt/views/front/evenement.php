@@ -41,14 +41,14 @@ var_dump($event->displayEventById(3));
 echo "<br /><br /><br />";
 
 
-echo "displayImagesByEvenementId(1) :<br />";
-var_dump($event->displayImagesByEvenementId(1));
+echo "displayImagesByEventId(1) :<br />";
+var_dump($event->displayImagesByEventId(1));
 echo "<br /><br /><br />";
-echo "displayImagesByEvenementId(2) :<br />";
-var_dump($event->displayImagesByEvenementId(2));
+echo "displayImagesByEventId(2) :<br />";
+var_dump($event->displayImagesByEventId(2));
 echo "<br /><br /><br />";
-echo "displayImagesByEvenementId(3) :<br />";
-var_dump($event->displayImagesByEvenementId(3));
+echo "displayImagesByEventId(3) :<br />";
+var_dump($event->displayImagesByEventId(3));
 echo "<br /><br /><br />";
 
 

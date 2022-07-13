@@ -50,6 +50,7 @@ if(!empty($_POST['valider']))
     }
 
 ?>
+
 <section>
     <h1>Ajouter un nouvel évènement</h1>
     <form action="" method="post" enctype="multipart/form-data">
