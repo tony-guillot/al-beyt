@@ -90,35 +90,48 @@ class  EvenementController
         $ids_artistes
     )
     {
-        //TODO: conditions gestion d'erreur
-        $id_evenement = $this->modelEvenement->insertEvent($titre, $adresse, $date, $heure, $description);
-
-        
-
-        if($id_evenement){
-            if(!empty($image_en_avant) &&  !empty($legende_en_avant)){
-                $cheminImageEnAvant = Image::sauvegardeImage($image_en_avant);
-                if ($cheminImageEnAvant != "") {
-                    $this->modelEvenement->insertImage($cheminImageEnAvant, $legende_en_avant, $id_evenement, $ordre_image_en_avant);
-                }
-            }
-
-            if(!empty($image2) &&  !empty($legende2)){
-                $cheminImage2 = Image::sauvegardeImage($image2);
-                if( $cheminImage2 != "") {
-                    $this->modelEvenement->insertImage($cheminImage2, $legende2, $id_evenement, $ordre_image2);
-                }
-            }
-
-            if(!empty($ids_artistes)){
-                foreach($ids_artistes as $id_artiste)
-                {
-                    if($id_artiste != ""){
-                        $this->modelEvenement->insertParticipationArtisteByEvent($id_artiste, $id_evenement);
+        $id_evenement = 0;
+        if (!empty($titre) && !empty($adresse) && !empty($date) && !empty($heure)  && !empty($description)) {
+            if (strlen($titre) < 150) {
+                if (!empty($image_en_avant['name']) && $image_en_avant['size'] < Image::TAILLE_LIMITE) {
+                    if (empty($image2['name']) || (!empty($image2['name'])  && $image2['size'] < Image::TAILLE_LIMITE)) {
+                        $id_evenement = $this->modelEvenement->insertEvent($titre, $adresse, $date, $heure, $description);
+                        $cheminImageEnAvant = Image::sauvegardeImage($image_en_avant);
+                        if ($cheminImageEnAvant != "") {
+                            $this->modelEvenement->insertImage($cheminImageEnAvant, $legende_en_avant, $id_evenement, $ordre_image_en_avant);
+                        }
+                        if (!empty($image2['name'])) {
+                            $cheminImage2 = Image::sauvegardeImage($image2);
+                            if ($cheminImage2 != "") {
+                                $this->modelEvenement->insertImage($cheminImage2, $legende2, $id_evenement, $ordre_image2);
+                            }
+                        }
+                        if (!empty($ids_artistes)) {
+                            foreach ($ids_artistes as $id_artiste) {
+                                if ($id_artiste != "") {
+                                    $this->modelEvenement->insertParticipationArtisteByEvent($id_artiste, $id_evenement);
+                                }
+                            }
+                        }
+                    }else{
+                        echo 'Veuillez choisir une image complémentaire valide. (Taille limite = 2Mo maximum)';
                     }
                 }
+                else
+                {
+                    echo 'Veuillez choisir une image d\'affiche valide. (Taille limite = 2Mo maximum)';
+                }
+            }
+            else
+            {
+               echo 'La longueur du titre ne doit pas exceder 150 caracteres.';
             }
         }
+        else
+        {
+            echo "Veuillez remplir les champ Titre, Adresse, Date, Heure et Description.";
+        }
+
 
         return $id_evenement;
     }

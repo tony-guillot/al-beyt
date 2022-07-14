@@ -10,7 +10,7 @@ class ArticleModel extends Bdd
     public function getAllArticles($limit,$offset)
     {
         $bdd = $this->bdd->prepare(
-            'SELECT article.id, article.titre, article.DATE, article.auteur, image_article.chemin
+            'SELECT article.id, article.titre, article.DATE, article.auteur,article.description, image_article.chemin
                     FROM article
                     LEFT JOIN image_article ON image_article.id_article = article.id
                     AND image_article.ordre = 1
@@ -28,7 +28,7 @@ class ArticleModel extends Bdd
     public function getAllArticlesByYear($year,$limit, $offset)
     {
         $bdd = $this->bdd->prepare(
-            'SELECT article.id, article.titre, article.DATE, article.auteur, image_article.chemin
+            'SELECT article.id, article.titre, article.DATE, article.auteur,article.description, image_article.chemin
                     FROM article
                     LEFT JOIN image_article ON image_article.id_article = article.id
                     AND image_article.ordre = 1
@@ -48,7 +48,7 @@ class ArticleModel extends Bdd
     public function getArticleById($id)
     {
         $bdd = $this->bdd->prepare(
-            'SELECT article.id, article.titre, article.DATE, article.auteur, image_article.chemin, image_article.legende
+            'SELECT article.id, article.titre, article.DATE, article.auteur, article.description, image_article.chemin, image_article.legende
                     FROM article
                     LEFT JOIN image_article ON image_article.id_article = article.id AND image_article.ordre = 1
                     WHERE article.id = :id'
@@ -89,7 +89,7 @@ class ArticleModel extends Bdd
         return $result;
     }
 
-        public function insertImage($chemin, $legende, $id_article, $ordre)
+    public function insertImage($chemin, $legende, $id_article, $ordre)
     {
         $bdd = $this->bdd->prepare(
             'INSERT INTO image_article (chemin,legende,id_article,ordre)
@@ -105,5 +105,54 @@ class ArticleModel extends Bdd
         return $result;
     }
 
+    public function updateArticle($id, $titre, $date, $auteur, $description)
+    {
+        $bdd = $this->bdd->prepare('UPDATE article
+            SET titre = :titre,
+            date = :date,
+            auteur = :auteur,
+            description = :description
+            WHERE id = :id
+        '
+        );
+        $bdd->bindValue(":titre", $titre, PDO::PARAM_STR);
+        $bdd->bindValue(":date", $date, PDO::PARAM_STR);
+        $bdd->bindValue(":auteur", $auteur, PDO::PARAM_STR);
+        $bdd->bindValue(":description", $description, PDO::PARAM_STR);
+        $bdd->bindValue(":id", $id, PDO::PARAM_INT);
+        $bdd->execute();
+
+        return $id;
+    }
+
+    public function updateImage($id_article, $chemin, $legende, $ordre)
+    {
+         $bdd = $this->bdd->prepare('UPDATE image_article
+            SET chemin = :chemin,
+            legende = :legende
+            WHERE id_article = :id AND ordre = :ordre
+        '
+        );
+        $bdd->bindValue(":chemin", $chemin, PDO::PARAM_STR);
+        $bdd->bindValue(":legende", $legende, PDO::PARAM_STR);
+        $bdd->bindValue(":ordre", $ordre, PDO::PARAM_INT);
+        $bdd->bindValue(":id", $id_article, PDO::PARAM_INT);
+        $bdd->execute();
+
+        return $id_article;
+    }
+
+    public function deleteImageByIdArticle($id_article, $ordre)
+    {
+        $bdd = $this->bdd->prepare('DELETE FROM image_article
+            WHERE id_article = :id AND ordre = :ordre
+        '
+        );
+        $bdd->bindValue(":ordre", $ordre, PDO::PARAM_INT);
+        $bdd->bindValue(":id", $id_article, PDO::PARAM_INT);
+        $bdd->execute();
+
+        return $id_article;
+    }
 
 }
