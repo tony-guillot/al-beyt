@@ -6,6 +6,7 @@ class Image
 {
     const SOUS_REPERTOIRE_IMAGES = '/../../images/';
     const TYPES_AUTORISES = ['image/jpeg','image/png','image/gif'];
+    const TAILLE_LIMITE = 2000000; // = 2 Mo
 
 
     public static function sauvegardeImage($image)
@@ -21,11 +22,11 @@ class Image
                 $urlDestination = $_SERVER['HTTP_HOST']."/images/".$nomFichierSurServeur;
             }else{
                 //TODO: gestion des erreurs
-                echo "<script>alert(\"Extension mauvaise\")</script>";
+                echo "Extension mauvaise";
             }
         }else{
             //TODO: gestion des erreurs
-                echo "<script>alert(\"Erreur Upload fichier\")</script>";
+                echo "Erreur Upload fichier";
         }
         return $urlDestination;
     }
