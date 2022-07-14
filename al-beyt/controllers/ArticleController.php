@@ -10,18 +10,22 @@ class ArticleController extends Controller
 {
 
     protected $modelArticle;
-    const NB_ARTICLE_PAR_PAGE = 2;
+    const NB_ARTICLE_PAR_PAGE = 15;
 
     public function __construct()
     {
         $this->modelArticle = new ArticleModel();
     }
     
-    public function displayAllArticles($pageCourante)
+    public function displayAllArticles($pageCourante = null)
     {
-        $limit = self::NB_ARTICLE_PAR_PAGE ;
-        $offset = self::NB_ARTICLE_PAR_PAGE * ($pageCourante-1) ;
-        $display = $this->modelArticle->getAllArticles($limit,$offset);
+        if ($pageCourante != null) {
+            $limit = self::NB_ARTICLE_PAR_PAGE;
+            $offset = self::NB_ARTICLE_PAR_PAGE * ($pageCourante - 1);
+            $display = $this->modelArticle->getAllArticles($limit, $offset);
+        }else{
+            $display = $this->modelArticle->getAllArticles(100000000, 0);
+        }
         return $display;
     }
 
@@ -154,13 +158,24 @@ class ArticleController extends Controller
             }
 
         }else{
-            //Error::afficheErreur('La légende doit compter moins de 100 caracteres.');
+           echo('La légende doit compter moins de 100 caracteres.');
         }
     }
 
-    public function supprimeImage($id_article, $ordre)
+    public function deleteImage($id_article, $ordre)
     {
         $this->modelArticle->deleteImageByIdArticle($id_article,$ordre);
+    }
+
+    public function deleteArticle($id_article)
+    {
+        $images = $this->displayImagesByIdArticle($id_article);
+        foreach ($images as $image){
+            $this->modelArticle->deleteImageByIdArticle($id_article,$image['ordre']);
+         }
+        $this->modelArticle->deleteArticle($id_article);
+
+        return $id_article;
     }
 
 

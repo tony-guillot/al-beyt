@@ -8,13 +8,13 @@ use AlBeyt\Controllers\ArticleController;
 $controllerArticle = new ArticleController();
 
 if($_GET['id']){
-    $id_article = $_GET['id'];
+    $id_article = $controllerArticle->secure($_GET['id']);
 }else{
     header('Location: article_gestion.php'); //on redirige vers la page de gestion
 }
 
 if( isset($_GET['action']) && $_GET['action'] == "deleteImage"){
-    $controllerArticle->supprimeImage($id_article,$_GET['ordre']);
+    $controllerArticle->deleteImage($id_article,$controllerArticle->secure($_GET['ordre']));
     header('Location: article_update.php?id='.$id_article); //on vide les params _GET de l'url
 }
 
@@ -48,7 +48,7 @@ $images_article = $controllerArticle->displayImagesByIdArticle($id_article);
 
 ?>
 <main>
-    <h1>Editer un article</h1>
+    <h1>Modifier un article</h1>
     <form action="" method="post">
     <h2>Info de l'article</h2>
 
@@ -67,10 +67,10 @@ $images_article = $controllerArticle->displayImagesByIdArticle($id_article);
                 </article>
             </section>
 
-            <section>
+            <article>
                 <label for="description">Texte de l'article:</label>
                 <textarea name="description" placeholder=""> <?= $article['description'] ?> </textarea>
-            </section>
+            </article>
 
             <input type="hidden" name="id_article" value="<?= $id_article ?>">
             <input type="submit" name="valider" value="Mettre a jour l'article">
@@ -82,23 +82,23 @@ $images_article = $controllerArticle->displayImagesByIdArticle($id_article);
 
             <h2>Remplacer l'image principale : </h2>
 
-            <article>
-                <div>
+            <section>
+                <article>
                     <label for="image_en_avant">Nouvelle image principale:</label>
                     <input type="file" name="image_en_avant" placeholder="">
                     <input type="hidden" name="ordre_image_en_avant" value="1">
-                </div>
-                <div>
+                </article>
+                <article>
                     <label for="legende_en_avant">Légende associée à l'image principale:</label>
                     <input type="text" name="legende_en_avant" value="<?= $images_article[0]['legende'] ?>"
                            placeholder="">
-                </div>
-                <div>
+                </article>
+                <article>
                     <label for="">Image actuelle:</label>
                     <img class="image" id="image_en_avant" alt="<?= $images_article[0]['legende'] ?>"
                          src="http://<?= $images_article[0]['chemin'] ?>">
-                </div>
-            </article>
+                </article>
+            </section>
 
             <h2>Remplacer les images du slider : </h2>
 
