@@ -100,24 +100,24 @@ class ArticleController extends Controller
 
         if(!empty($titre) && !empty($description) && !empty($auteur) && !empty($date))
         {
-            if(strlen($titre) > 100){
+            if(strlen($titre) < 150){
 
-                if(strlen($auteur) > 50){
+                if(strlen($auteur) < 50){
                     $this->modelArticle->updateArticle($id_article, $titre, $date, $auteur, $description);
                 }
                 else
                 {
-                    //Error::afficheErreur('Le nom de l\'auteur ne doit pas dépasser 50 caracteres.');
+                    echo('Le nom de l\'auteur ne doit pas dépasser 50 caracteres.');
                 }
             }
             else
             {
-                //Error::afficheErreur('Le titre ne doit pas dépasser 100 caracteres.');
+                echo('Le titre ne doit pas dépasser 150 caracteres.');
             }
         }
         else
         {
-            //Error::afficheErreur('Veuillez remplir les champs.');
+            echo('Veuillez remplir les champs.');
         }
 
         return $id_article;
@@ -125,10 +125,10 @@ class ArticleController extends Controller
 
     public function modifyImage($id_article, $image, $legende, $ordre)
     {
-        if ( strlen($legende) < 100) {
+        if (strlen($legende) < 100 ) {
             $chemin = Image::sauvegardeImage($image);
-
-            $images = $this->modelArticle->getImagesByIdArticle($id_article);
+            var_dump($chemin);
+            $images = $this->displayImagesByIdArticle($id_article);
 
             if(isset($images[$ordre-1])){
                 $this->modelArticle->updateImage($id_article, $chemin, $legende, $ordre);
@@ -137,7 +137,7 @@ class ArticleController extends Controller
             }
 
         }else{
-            //Error::afficheErreur('La légende doit compter entre 10 et 100 caracteres.');
+            //Error::afficheErreur('La légende doit compter moins de 100 caracteres.');
         }
     }
 

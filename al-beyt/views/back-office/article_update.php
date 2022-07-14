@@ -9,28 +9,19 @@ $controllerArticle = new ArticleController();
 
 if($_GET['id']){
     $id_article = $_GET['id'];
-    $article = $controllerArticle->displayArticleById($id_article);
-    $images_article = $controllerArticle->displayImagesByIdArticle($id_article);
-
-
 }else{
-    header('Location: article_gestion.php');
+    header('Location: article_gestion.php'); //on redirige vers la page de gestion
 }
 
 if( isset($_GET['action']) && $_GET['action'] == "deleteImage"){
     $controllerArticle->supprimeImage($id_article,$_GET['ordre']);
-
     header('Location: article_update.php?id='.$id_article); //on vide les params _GET de l'url
 }
 
 if(!empty($_POST['validerImages']))
 {
-    if(!empty($_FILES['image_en_avant']['name']))
-    {
+    if(!empty($_FILES['image_en_avant']['name'])) {
         $controllerArticle->modifyImage($id_article, $_FILES['image_en_avant'], $_POST['legende_en_avant'], 1);
-    }else{
-        //Veuillez choisir une image et remplir le champs légende
-        header('Location: article_update.php?id='.$id_article);
     }
     if(!empty($_FILES['image2']['name']))
     {
@@ -44,16 +35,17 @@ if(!empty($_POST['validerImages']))
     {
         $controllerArticle->modifyImage($id_article, $_FILES['image4'], $_POST['legende4'], 4);
     }
-
-    $article = $controllerArticle->displayArticleById($id_article);
-    $images_article = $controllerArticle->displayImagesByIdArticle($id_article);
-
 }
 
 if(!empty($_POST['valider']))
 {
-    var_dump($_POST);
+    $date = date("Y-m-d");
+    $controllerArticle->modifyArticle($id_article,$_POST['titre'],$date,$_POST['auteur'],$_POST['description']);
 }
+
+$article = $controllerArticle->displayArticleById($id_article);
+$images_article = $controllerArticle->displayImagesByIdArticle($id_article);
+
 ?>
 
 <section>
@@ -68,7 +60,6 @@ if(!empty($_POST['valider']))
                 <label for="image_en_avant">Image en avant:</label>
                 <input type="file" name="image_en_avant" placeholder="">
                 <input type="hidden" name="ordre_image_en_avant" value="1">
-                <a href="article_update.php?id=<?= $id_article ?>&action=deleteImage&ordre=1" >Supprimer cette image</a>
             </article>
             <article>
                 <label for="legende_en_avant">Légende associée à l'image en avant:</label>
@@ -80,6 +71,9 @@ if(!empty($_POST['valider']))
                 <?php if (!empty($images_article[1]['chemin'])): ?>
                 <img class="image" id="image2" src="http://<?= $images_article[1]['chemin'] ?>"
                      alt="<?= $images_article[1]['legende'] ?>">
+                <?php else: ?>
+                <img class="image" id="image2" src="http://al-beyt.moi/images/placeholder-image.jpg"
+                     alt="">
                 <?php endif ?>
                 <label for="image2">Image complémentaire 2:</label>
                 <input type="file" name="image2">
@@ -95,6 +89,9 @@ if(!empty($_POST['valider']))
                 <?php if (!empty($images_article[2]['chemin'])): ?>
                     <img class="image" id="image3" src="http://<?= $images_article[2]['chemin'] ?>"
                          alt="<?= $images_article[2]['legende'] ?? ""  ?>">
+                <?php else: ?>
+                <img class="image" id="image2" src="http://al-beyt.moi/images/placeholder-image.jpg"
+                     alt="">
                 <?php endif ?>
                 <label for="image3">Image complémentaire 3:</label>
                 <input type="file" name="image3">
@@ -110,6 +107,9 @@ if(!empty($_POST['valider']))
                 <?php if (!empty($images_article[3]['chemin'])): ?>
                     <img class="image" id="image4" src="http://<?= $images_article[3]['chemin'] ?>"
                          alt="<?= $images_article[3]['legende'] ?? ""  ?>">
+                <?php else: ?>
+                <img class="image" id="image2" src="http://al-beyt.moi/images/placeholder-image.jpg"
+                     alt="">
                 <?php endif ?>
                 <label for="image4">Image complémentaire 4:</label>
                 <input type="file" name="image4">
