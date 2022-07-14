@@ -2,10 +2,11 @@
 
 namespace AlBeyt\Controllers;
 
+use AlBeyt\Library\Error;
 use AlBeyt\Library\Image;
 use AlBeyt\Models\ArticleModel;
 
-class ArticleController
+class ArticleController extends Controller
 {
 
     protected $modelArticle;
@@ -40,8 +41,17 @@ class ArticleController
 
     public function displayImagesByIdArticle($id)
     {
-        $display = $this->modelArticle->getImagesByIdArticle($id);
+        $images = $this->modelArticle->getImagesByIdArticle($id);
+        $display = $this->reorderImages($images); //ré-arrange l'array en fonction de l'ordre des images
         return $display;
+    }
+
+    public function reorderImages($images)
+    {
+        foreach ($images as $imgArticle) {
+            $images_article[$imgArticle['ordre'] - 1] = $imgArticle;
+        }
+        return $images_article;
     }
 
     public function registerArticle($titre,$auteur,$description,$image_en_avant,$legende_en_avant,$image2,$legende2, $image3,$legende3, $image4,$legende4)
@@ -97,6 +107,63 @@ class ArticleController
 
         return $id_article;
     }
+
+    public function modifyArticle($id_article, $titre, $date, $auteur, $description)
+    {
+        $titre = $this->secure($titre);
+        $date = $this->secure($date);
+        $auteur = $this->secure($auteur);
+        $description = $this->secure($description);
+
+        if(!empty($titre) && !empty($description) && !empty($auteur) && !empty($date))
+        {
+            if(strlen($titre) < 150){
+
+                if(strlen($auteur) < 50){
+                    $this->modelArticle->updateArticle($id_article, $titre, $date, $auteur, $description);
+                }
+                else
+                {
+                    echo('Le nom de l\'auteur ne doit pas dépasser 50 caracteres.');
+                }
+            }
+            else
+            {
+                echo('Le titre ne doit pas dépasser 150 caracteres.');
+            }
+        }
+        else
+        {
+            echo('Veuillez remplir les champs.');
+        }
+
+        return $id_article;
+    }
+
+    public function modifyImage($id_article, $image, $legende, $ordre)
+    {
+        if (strlen($legende) < 100 ) {
+            $chemin = Image::sauvegardeImage($image);
+            var_dump($chemin);
+            $images = $this->displayImagesByIdArticle($id_article);
+
+            if(isset($images[$ordre-1])){
+                $this->modelArticle->updateImage($id_article, $chemin, $legende, $ordre);
+            }else{
+                $this->modelArticle->insertImage($chemin, $legende, $id_article , $ordre);
+            }
+
+        }else{
+            //Error::afficheErreur('La légende doit compter moins de 100 caracteres.');
+        }
+    }
+
+    public function supprimeImage($id_article, $ordre)
+    {
+        $this->modelArticle->deleteImageByIdArticle($id_article,$ordre);
+    }
+
+
 
 
 }
