@@ -6,24 +6,44 @@ use AlBeyt\Controllers\EvenementController;
 $controller = New EvenementController;
 if(isset($_GET['id']))
 {
-    $id = $_GET['id'];
+    $id = intval($_GET['id']);
     $event = $controller->displayEventById($id);
-    // var_dump($event);
+    
+}
+$imagesEvent = $controller->displayImagesByEventId($id);
+
+
+if(isset($_POST['valider']))
+{   
+ 
+    $eventModify = $controller->modifyEvent(  $_POST['titre'],
+                                                $_POST['adresse'],
+                                                $_POST['date'],
+                                                $_POST['heure'],
+                                                $_POST['description'],
+                                                $id
+                                            );
+
 }
 
+if(isset($_POST['image']))
+{   echo '<pre>';
+    var_dump( $_FILES['image_en_avant']);
+    echo '</pre>';
 
+    $id_evenement = intval($id);
+  
+    $eventImagesModify = $controller->modifyImagesEvent( $_FILES['image_en_avant'],
+                                                         $_POST['legende_en_avant'],
+                                                         $_POST['ordre_image_en_avant'],
+                                                         $_FILES['image2'],
+                                                         $_POST['legende2'],
+                                                         $_POST['ordre_image2'],
+                                                         $id_evenement
+                                                        );
+                                                        
 
-$imagesEvent = $controller->displayImagesByEventId($id);
-echo '<pre>';
-var_dump($imagesEvent);
-echo '</pre>';
-// un form pour la table evenement titre, description , adresse , date, heure , 
-// un form pour la table image_evenement image_en_avant, legende_en_avant, image2, legende2 
-//
-//
-//
-//
-
+}
 ?>
 <main>
     <section>
@@ -90,7 +110,6 @@ echo '</pre>';
                         <div>
                             <label for="legende2">Légende complémentaire</label>
                             <input type="text" value="<?= $imagesEvent[1]['legende'] ?? "" ?>" name="legende2">
-                            <input type="hidden" name="ordre_legende2" value="2">
                         </div>
                     </article>
                     <article>

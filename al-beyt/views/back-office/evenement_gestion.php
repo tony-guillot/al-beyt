@@ -4,17 +4,16 @@ require_once('../include/sidebar.php');
 require_once('../include/header.php');
 use AlBeyt\Controllers\EvenementController;
 $controller = New EvenementController;
-
-
 $allEvents = $controller->displayAllInfosEvent();
 
+// supprimer un évènement.
+if(isset($_GET['delete']))
+{   
+    $id = $_GET['delete'];
+    $supprime = $controller->supprimeEvent($id);
+   
+}
 
-
-
-echo '<pre>';
-// var_dump($allEvents['id']);
-// var_dump($allEvents);
-echo '</pre>';
 ?>
 <main>
         <table>
@@ -32,11 +31,8 @@ echo '</pre>';
             <tbody>
             <?php foreach($allEvents as $allEvent)
             {  $id_evenement = $allEvent['id'];
-                var_dump($id_evenement);
+                
                $artistsByEventId = $controller->displayArtistsByEventId($id_evenement);
-               echo '<pre>';
-               var_dump($artistsByEventId);
-               echo '</pre>';
                 ?>
                 <tr>
                     <td><?= $allEvent['chemin']?></td>
@@ -51,16 +47,26 @@ echo '</pre>';
                     <td><?= $allEvent['adresse']?></td>
                     <td><?= $allEvent['date_evenement']?></td>
                     <td><?= $allEvent['heure']?></td>
-                    <td> <a href="evenement_update.php?id=<?= $id_evenement?>">modifier l'évènement</a> </td>
-                    <td></td>
+                    <td> <a href="evenement_update.php?id=<?= $id_evenement?>">Modifier l'évènement</a> </td>
+                    <form action="" methode='get'>
 
+                        <td>
+                            <button name="delete" type="submit" value='<?= $id_evenement?>'>Supprimer</button>
+                         
+                        </td>
+                      
+                    </form>
+                      <?php
+                      
+                   
+                      ?>
                 </tr>
-            <?php } ?>            
+    <?php   } ?>            
             </tbody>
         </table>
-    
-
 </main>
+
+
 
 
 

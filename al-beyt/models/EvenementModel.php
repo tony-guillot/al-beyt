@@ -155,6 +155,48 @@ class EvenementModel extends Bdd {
         return $result;
     }
 
+    public function updateEvent($titre, $adresse, $date, $heure, $description, $id)
+    {
+        $bdd = $this->bdd->prepare('UPDATE evenement
+                                    SET titre = :titre,
+                                        adresse = :adresse,
+                                        date = :date,
+                                        heure = :heure,
+                                        description = :description
+                                        WHERE id = :id');
+        $bdd->execute(["titre" => $titre,
+                      "adresse" => $adresse,
+                      "date" => $date,
+                      "heure" => $heure,
+                      "description" => $description,
+                      ":id" => $id ]);
+    }
+
+    public function updateImagesEvent($chemin, $legende, $ordre, $id_evenement)
+    {   $id_evenement = intval($id_evenement);
+        // echo '<pre>';
+        // var_dump($chemin, $legende, $ordre,$id_evenement);
+        // echo '</pre>';
+        $bdd = $this->bdd->prepare('UPDATE image_evenement
+                                    SET chemin = :chemin,
+                                        legende = :legende,
+                                        ordre = :ordre
+                                        WHERE id_evenement = :id_evenement');
+
+        $bdd->execute(array(':chemin' => $chemin,
+                            ':legende' => $legende,
+                            ':ordre' => $ordre,
+                            ':id_evenement' => $id_evenement
+        ));
+    }
+
+    public function deleteEvent($id)
+    {
+        $bdd = $this->bdd->prepare('DELETE FROM evenement WHERE id = :id');
+        $bdd->execute(array(':id' => $id));
+    }
+
+
 
 
 
