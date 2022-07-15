@@ -11,8 +11,6 @@ class Image
 
     public static function sauvegardeImage($image)
     { 
-          var_dump('image');
-        var_dump($image);
         $urlDestination = "";
         if(isset($image) && $image['error'] == UPLOAD_ERR_OK){
             if(in_array($image['type'], self::TYPES_AUTORISES)){
