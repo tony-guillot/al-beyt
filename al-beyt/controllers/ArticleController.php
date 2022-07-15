@@ -148,7 +148,6 @@ class ArticleController extends Controller
     {
         if (strlen($legende) < 100 ) {
             $chemin = Image::sauvegardeImage($image);
-            var_dump($chemin);
             $images = $this->displayImagesByIdArticle($id_article);
 
             if(isset($images[$ordre-1])){
