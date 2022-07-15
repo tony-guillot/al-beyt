@@ -11,17 +11,6 @@ echo '<pre>';
 // var_dump($allInfoArtists);
 echo '</pre>';
 
-$value = [ 'insta' => $artists['lien_insta'],
-            'soundcloud' => $artists['lien_soundcloud']];
-if(!empty($value))
-{
-    echo $value;
-}
-else
-{
-    echo 'champs vide';
-}
-
 ?>
 <main>
     <section>

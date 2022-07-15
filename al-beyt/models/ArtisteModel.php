@@ -22,8 +22,23 @@ class ArtisteModel extends Bdd
         return $result;
     }
 
+    public function getArtistsByEventId($id_evenement)
+    {
+        $bdd = $this->bdd->prepare(
+            'SELECT artiste.nom
+             FROM artiste
+             INNER JOIN artiste_evenement
+             ON artiste.id = artiste_evenement.id_artiste
+             WHERE id_evenement = :id_evenement');
+        $bdd->bindValue(":id_evenement", $id_evenement, PDO::PARAM_INT);
+        $bdd->execute();
+        $result = $bdd->fetchAll(PDO::FETCH_ASSOC);
+
+        return $result;
+    }
+
     //cette fonction est conçue à destination du côté visiteurs
-    public function getAllArtistsByStatut($statut)
+    public function getAllArtistsByStatut($statut, $limit, $offset)
     {
         $bdd = $this->bdd->prepare(
             'SELECT artiste.id, artiste.nom, image_artiste.chemin 

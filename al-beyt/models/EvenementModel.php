@@ -22,6 +22,24 @@ class EvenementModel extends Bdd {
         return $result;
     }
 
+    public function getAllInfosEvents($limit,$offset)
+    {
+        $bdd = $this->bdd->prepare(
+            'SELECT e.id, e.titre, e.adresse, e.date_evenement, e.heure, e.description, image_e.chemin
+            FROM evenement as e
+            LEFT JOIN image_evenement as image_e
+            ON image_e.id_evenement = e.id
+            AND image_e.ordre = 1
+                LIMIT :limit OFFSET :offset ;'
+        );
+        $bdd->bindValue(":limit" , $limit,PDO::PARAM_INT);
+        $bdd->bindValue(":offset" , $offset, PDO::PARAM_INT);
+        $bdd->execute();
+        $result = $bdd->fetchAll(PDO::FETCH_ASSOC);
+
+        return $result;
+    }
+
     public function getAllEventsByYear($year,$limit, $offset)
     {
         $bdd = $this->bdd->prepare(
@@ -55,7 +73,7 @@ class EvenementModel extends Bdd {
         return $result;
     }
 
-        public function getImagesByEvenementId($id)
+        public function getImagesByEventId($id)
     {
          $bdd = $this->bdd->prepare(
             'SELECT id, chemin, legende, ordre
