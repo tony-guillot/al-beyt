@@ -13,9 +13,10 @@ if(isset($_GET['delete']))
     $supprime = $controller->supprimeEvent($id);
    
 }
-
 ?>
+
 <main>
+    <section>
         <table>
             <thead>
                 <th>Affiche</th>
@@ -29,41 +30,34 @@ if(isset($_GET['delete']))
                 <th>Supprimer</th>
             </thead>
             <tbody>
-            <?php foreach($allEvents as $allEvent)
-            {  $id_evenement = $allEvent['id'];
-                
-               $artistsByEventId = $controller->displayArtistsByEventId($id_evenement);
-                ?>
-                <tr>
-                    <td><?= $allEvent['chemin']?></td>
-                    <td><?= $allEvent['titre']?></td>
-                    <td><?= $allEvent['description']?></td>
-                    <td>
-                        <?php foreach($artistsByEventId as $artists)
-                            {   
-                            echo  ' '.$artists['nom'].' </br>';
-                            }?>
-                    </td>
-                    <td><?= $allEvent['adresse']?></td>
-                    <td><?= $allEvent['date_evenement']?></td>
-                    <td><?= $allEvent['heure']?></td>
-                    <td> <a href="evenement_update.php?id=<?= $id_evenement?>">Modifier l'évènement</a> </td>
-                    <form action="" methode='get'>
-
+                <?php foreach($allEvents as $allEvent)
+                {  $id_evenement = $allEvent['id'];
+                   $artistsByEventId = $controller->displayArtistsByEventId($id_evenement);
+                    ?>
+                    <tr>
+                        <td><?= $allEvent['chemin']?></td>
+                        <td><?= $allEvent['titre']?></td>
+                        <td><?= $allEvent['description']?></td>
                         <td>
-                            <button name="delete" type="submit" value='<?= $id_evenement?>'>Supprimer</button>
-                         
+                            <?php foreach($artistsByEventId as $artists)
+                                {   
+                                echo  ' '.$artists['nom'].' </br>';
+                                }?>
                         </td>
-                      
-                    </form>
-                      <?php
-                      
-                   
-                      ?>
-                </tr>
-    <?php   } ?>            
+                        <td><?= $allEvent['adresse']?></td>
+                        <td><?= $allEvent['date_evenement']?></td>
+                        <td><?= $allEvent['heure']?></td>
+                        <td> <a href="evenement_update.php?id=<?= $id_evenement?>"><i class="fa-solid fa-wrench"></i></a> </td>
+                        <form action="" methode='get'>
+                            <td>
+                                <button name="delete" type="submit" value='<?= $id_evenement?>'><i class="fa-solid fa-trash"></i></button>
+                            </td>
+                        </form>
+                    </tr>
+                <?php } ?>            
             </tbody>
         </table>
+    </section>    
 </main>
 
 

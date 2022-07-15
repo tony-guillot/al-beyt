@@ -125,7 +125,7 @@ class ArtisteController extends Controller
                             if (($legendeLen <= 100) && ($legendeLen >=10))
                             {
                                     $chemin = Image::sauvegardeImage($image);
-                                $insertImageArtist = $this->modelArtiste->insertImageArtiste($chemin,$legende,$id_artiste);
+                                         $this->modelArtiste->insertImage($chemin,$legende,$id_artiste);
                             }
                             else
                             {

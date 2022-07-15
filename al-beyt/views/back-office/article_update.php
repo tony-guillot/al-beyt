@@ -8,13 +8,13 @@ use AlBeyt\Controllers\ArticleController;
 $controllerArticle = new ArticleController();
 
 if($_GET['id']){
-    $id_article = $_GET['id'];
+    $id_article = $controllerArticle->secure($_GET['id']);
 }else{
     header('Location: article_gestion.php'); //on redirige vers la page de gestion
 }
 
 if( isset($_GET['action']) && $_GET['action'] == "deleteImage"){
-    $controllerArticle->supprimeImage($id_article,$_GET['ordre']);
+    $controllerArticle->deleteImage($id_article,$controllerArticle->secure($_GET['ordre']));
     header('Location: article_update.php?id='.$id_article); //on vide les params _GET de l'url
 }
 
@@ -47,98 +47,133 @@ $article = $controllerArticle->displayArticleById($id_article);
 $images_article = $controllerArticle->displayImagesByIdArticle($id_article);
 
 ?>
+<main>
+    <h1>Modifier un article</h1>
+    <form action="" method="post">
+    <h2>Info de l'article</h2>
 
-<section>
-    <h1>Editer un article</h1>
+        <section>
+
+            <section>
+                <article>
+                    <div>
+                        <label for="titre">Titre:</label>
+                        <input type="text" name="titre" value="<?= $article['titre'] ?? "" ?>" placeholder="">
+                    </div>
+                    <div>
+                        <label for="auteur">Auteur:</label>
+                        <input type="text" name="auteur" value="<?= $article['auteur'] ?>" placeholder="">
+                    </div>
+                </article>
+            </section>
+
+            <article>
+                <label for="description">Texte de l'article:</label>
+                <textarea name="description" placeholder=""> <?= $article['description'] ?> </textarea>
+            </article>
+
+            <input type="hidden" name="id_article" value="<?= $id_article ?>">
+            <input type="submit" name="valider" value="Mettre a jour l'article">
+        </section>
+    </form>
+
     <div class="imagesForm">
         <form action="" method="post" enctype="multipart/form-data">
-            <h2>Image de présentation : </h2>
 
-            <article>
-                <img class="image" id="image_en_avant" alt="<?= $images_article[0]['legende'] ?>"
-                     src="http://<?= $images_article[0]['chemin'] ?>">
-                <label for="image_en_avant">Image en avant:</label>
-                <input type="file" name="image_en_avant" placeholder="">
-                <input type="hidden" name="ordre_image_en_avant" value="1">
-            </article>
-            <article>
-                <label for="legende_en_avant">Légende associée à l'image en avant:</label>
-                <input type="text" name="legende_en_avant" value="<?= $images_article[0]['legende'] ?>" placeholder="">
-            </article>
+            <h2>Remplacer l'image principale : </h2>
 
-            <h2>Images slider : </h2>
-            <article>
-                <?php if (!empty($images_article[1]['chemin'])): ?>
-                <img class="image" id="image2" src="http://<?= $images_article[1]['chemin'] ?>"
-                     alt="<?= $images_article[1]['legende'] ?>">
-                <?php else: ?>
-                <img class="image" id="image2" src="http://al-beyt.moi/images/placeholder-image.jpg"
-                     alt="">
-                <?php endif ?>
-                <label for="image2">Image complémentaire 2:</label>
-                <input type="file" name="image2">
-                <input type="hidden" name="ordre_image2" value="2">
-                <a href="article_update.php?id=<?= $id_article ?>&action=deleteImage&ordre=2" >Supprimer cette image</a>
-            </article>
-            <article>
-                <label for="legende2">Légende complémentaire 2:</label>
-                <input type="text" value="<?= $images_article[1]['legende'] ?? "" ?>" name="legende2">
-            </article>
+            <section>
+                <article>
+                    <label for="image_en_avant">Nouvelle image principale:</label>
+                    <input type="file" name="image_en_avant" placeholder="">
+                    <input type="hidden" name="ordre_image_en_avant" value="1">
+                </article>
+                <article>
+                    <label for="legende_en_avant">Légende associée à l'image principale:</label>
+                    <input type="text" name="legende_en_avant" value="<?= $images_article[0]['legende'] ?>"
+                           placeholder="">
+                </article>
+                <article>
+                    <label for="">Image actuelle:</label>
+                    <img class="image" id="image_en_avant" alt="<?= $images_article[0]['legende'] ?>"
+                         src="http://<?= $images_article[0]['chemin'] ?>">
+                </article>
+            </section>
 
-            <article>
-                <?php if (!empty($images_article[2]['chemin'])): ?>
-                    <img class="image" id="image3" src="http://<?= $images_article[2]['chemin'] ?>"
-                         alt="<?= $images_article[2]['legende'] ?? ""  ?>">
-                <?php else: ?>
-                <img class="image" id="image2" src="http://al-beyt.moi/images/placeholder-image.jpg"
-                     alt="">
-                <?php endif ?>
-                <label for="image3">Image complémentaire 3:</label>
-                <input type="file" name="image3">
-                <input type="hidden" name="ordre_image3" value="3">
-                <a href="article_update.php?id=<?= $id_article ?>&action=deleteImage&ordre=3" >Supprimer cette image</a>
-            </article>
-            <article>
-                <label for="legende3">Légende complémentaire 3:</label>
-                <input type="text" value="<?= $images_article[2]['legende'] ?? ""  ?>" name="legende3">
-            </article>
+            <h2>Remplacer les images du slider : </h2>
 
-            <article>
-                <?php if (!empty($images_article[3]['chemin'])): ?>
-                    <img class="image" id="image4" src="http://<?= $images_article[3]['chemin'] ?>"
-                         alt="<?= $images_article[3]['legende'] ?? ""  ?>">
-                <?php else: ?>
-                <img class="image" id="image2" src="http://al-beyt.moi/images/placeholder-image.jpg"
-                     alt="">
-                <?php endif ?>
-                <label for="image4">Image complémentaire 4:</label>
-                <input type="file" name="image4">
-                <input type="hidden" name="ordre_image4" value="4">
-                <a href="article_update.php?id=<?= $id_article ?>&action=deleteImage&ordre=4" >Supprimer cette image</a>
-            </article>
-            <article>
-                <label for="legende4">Légende complémentaire 4:</label>
-                <input type="text" value="<?= $images_article[3]['legende'] ?? "" ?>" name="legende4">
-            </article>
+            <section>
+                <article>
+                    <label for="image2">Nouvelle image 2:</label>
+                    <input type="file" name="image2">
+                    <input type="hidden" name="ordre_image2" value="2">
+                </article>
+                <article>
+                    <label for="">Image 2 actuelle:</label>
+                    <?php if (!empty($images_article[1]['chemin'])): ?>
+                        <img class="image" id="image2" src="http://<?= $images_article[1]['chemin'] ?>"
+                             alt="<?= $images_article[1]['legende'] ?>">
+                    <?php else: ?>
+                        <img class="image" id="image2" src="http://al-beyt.moi/images/placeholder-image.jpg"
+                             alt="">
+                    <?php endif ?>
+                </article>
+                <article>
+                    <label for="legende2">Légende complémentaire 2:</label>
+                    <input type="text" value="<?= $images_article[1]['legende'] ?? "" ?>" name="legende2">
+                </article>
+                <a href="article_update.php?id=<?= $id_article ?>&action=deleteImage&ordre=2">Supprimer cette image</a>
+            </section>
+
+
+            <section>
+                <article>
+                    <label for="image3">Nouvelle image 3 :</label>
+                    <input type="file" name="image3">
+                    <input type="hidden" name="ordre_image3" value="3">
+                </article>
+                <article>
+                    <label for="">Image 3 actuelle:</label>
+                    <?php if (!empty($images_article[2]['chemin'])): ?>
+                        <img class="image" id="image3" src="http://<?= $images_article[2]['chemin'] ?>"
+                             alt="<?= $images_article[2]['legende'] ?? "" ?>">
+                    <?php else: ?>
+                        <img class="image" id="image2" src="http://al-beyt.moi/images/placeholder-image.jpg"
+                             alt="">
+                    <?php endif ?>
+                </article>
+                <article>
+                    <label for="legende3">Légende image 3:</label>
+                    <input type="text" value="<?= $images_article[2]['legende'] ?? "" ?>" name="legende3">
+                </article>
+                <a href="article_update.php?id=<?= $id_article ?>&action=deleteImage&ordre=3">Supprimer cette image</a>
+            </section>
+
+            <section>
+                <article>
+                    <label for="image4">Image complémentaire 4:</label>
+                    <input type="file" name="image4">
+                    <input type="hidden" name="ordre_image4" value="4">
+                </article>
+                <article>
+                    <label for="">Image 3 actuelle:</label>
+                    <?php if (!empty($images_article[3]['chemin'])): ?>
+                        <img class="image" id="image4" src="http://<?= $images_article[3]['chemin'] ?>"
+                             alt="<?= $images_article[3]['legende'] ?? "" ?>">
+                    <?php else: ?>
+                        <img class="image" id="image2" src="http://al-beyt.moi/images/placeholder-image.jpg"
+                             alt="">
+                    <?php endif ?>
+                </article>
+                <article>
+                    <label for="legende4">Légende complémentaire 4:</label>
+                    <input type="text" value="<?= $images_article[3]['legende'] ?? "" ?>" name="legende4">
+                </article>
+                <a href="article_update.php?id=<?= $id_article ?>&action=deleteImage&ordre=4">Supprimer cette image</a>
+            </section>
 
             <input type="hidden" value="<?= $id_article ?>">
             <input type="submit" name="validerImages" value="Mettre a jour les images">
         </form>
     </div>
-    <form action="" method="post">
-        <article>
-            <label for="titre">Titre:</label>
-            <input type="text" name="titre" value="<?= $article['titre'] ?? ""  ?>" placeholder="">
-        </article>
-        <article>
-            <label for="auteur">Auteur:</label>
-            <input type="text" name="auteur" value="<?= $article['auteur'] ?>" placeholder="">
-        </article>
-        <article>
-            <label for="description">Texte de l'article:</label>
-            <textarea name="description"  placeholder=""> <?= $article['description'] ?> </textarea>
-        </article>
-        <input type="hidden" value="<?= $id_article ?>">
-        <input type="submit" name="valider" value="Mettre a jour l'article">
-    </form>
-</section>
+</main>

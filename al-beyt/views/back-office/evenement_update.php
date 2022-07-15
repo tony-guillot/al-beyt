@@ -25,29 +25,60 @@ if(isset($_POST['valider']))
                                             );
 
 }
+// echo '<pre>';
+// var_dump( $_FILES['image_en_avant']);
+// var_dump( $_FILES['image2']['name']);
+// echo '</pre>';
 
 if(isset($_POST['image']))
-{   echo '<pre>';
-    var_dump( $_FILES['image_en_avant']);
-    echo '</pre>';
+{   
+     $id_evenement = intval($id);
+    if(!empty($displayImagesByEventId[1]) )
+    {     
+        echo ('passe dans le if');
 
-    $id_evenement = intval($id);
-  
-    $eventImagesModify = $controller->modifyImagesEvent( $_FILES['image_en_avant'],
-                                                         $_POST['legende_en_avant'],
-                                                         $_POST['ordre_image_en_avant'],
-                                                         $_FILES['image2'],
-                                                         $_POST['legende2'],
-                                                         $_POST['ordre_image2'],
-                                                         $id_evenement
-                                                        );
-                                                        
+        $eventImagesModify = $controller->modifyImagesEvent( $_FILES['image_en_avant'],
+        $_POST['legende_en_avant'],
+        $_POST['ordre_image_en_avant'],
+        $_FILES['image2'],
+        $_POST['legende2'],
+        $_POST['ordre_image2'],
+        $id_evenement
+       );
+       
+    }
+    else
+    {
+        echo ('passe dans le else');
 
+        $modifyImage = $controller->modifyImage($_FILES['image_en_avant'],
+                                                $_POST['legende_en_avant'],
+                                                $_POST['ordre_image_en_avant'],
+                                                $id_evenement);
+
+        $registerImage = $controller->registerImage($_FILES['image2'],
+                                                $_POST['legende2'],
+                                                $id_evenement,
+                                                $_POST['ordre_image2']
+                                              );
+    }
+    
+   
 }
+
+//si  il n'y a aucune image 2 en bdd on insert sinon on remplace.
+
+
+// l'image 1 est toujours remplie. si tu soumets le formulaire il faut dans tout les cas submit les données de l'image 1 est
+// si l'image 2 est vide il faut inserer sinon il faut udpate. 
+$imagesEvent = $controller->displayImagesByEventId($id);
 ?>
 <main>
     <section>
-        <h1>Modifier l'évènement</h1>   
+        <article>
+            <a href="artiste_gestion.php"><i class="fa-solid fa-circle-chevron-left"></i></a>
+            <h1>Modifier l'évènement</h1> 
+        </article> 
         <section>
             <h2> Informations de l'évènement:</h2>
             <form action="" method="post" >
@@ -87,7 +118,7 @@ if(isset($_POST['image']))
                     <article>
                         <div>
                             <label for="image_en_avant">Affiche:</label></br>
-                            <img src="<?= $imagesEvent[0]['chemin']?>" alt=""> </br>
+                            <img src="http://<?= $imagesEvent[0]['chemin']?>" alt=""> </br>
                         </div>  
                         <div>
                             <label for="legende_en_avant"> Légende:</label>
@@ -105,7 +136,7 @@ if(isset($_POST['image']))
                     <article>
                         <div>
                             <label for="image2">Image complémentaire:</label> </br>
-                            <img src="<?= $imagesEvent[1]['chemin'] ?? ""?>" alt=""> </br>
+                            <img src="http://<?= $imagesEvent[1]['chemin'] ?? ""?>" alt=""> </br>
                         </div>
                         <div>
                             <label for="legende2">Légende complémentaire</label>

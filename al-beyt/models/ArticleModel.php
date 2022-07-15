@@ -10,7 +10,7 @@ class ArticleModel extends Bdd
     public function getAllArticles($limit,$offset)
     {
         $bdd = $this->bdd->prepare(
-            'SELECT article.id, article.titre, article.DATE, article.auteur,article.description, image_article.chemin
+            'SELECT article.id, article.titre, article.date, article.auteur,article.description, image_article.chemin
                     FROM article
                     LEFT JOIN image_article ON image_article.id_article = article.id
                     AND image_article.ordre = 1
@@ -153,6 +153,17 @@ class ArticleModel extends Bdd
         $bdd->execute();
 
         return $id_article;
+    }
+
+    public function deleteArticle($id_article)
+    {
+        $bdd = $this->bdd->prepare('DELETE FROM article
+            WHERE id = :id 
+        '
+        );
+        $bdd->bindValue(":id", $id_article, PDO::PARAM_INT);
+        $bdd->execute();
+
     }
 
 }
