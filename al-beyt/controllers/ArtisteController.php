@@ -49,7 +49,7 @@ class ArtisteController extends Controller
             $offset = self::NBR_ARTISTE_PAR_PAGE * ($pageCourante - 1);
             $displayAllArtistsByDomain = $this->modelArtiste->getAllArtistsByDomain($id_domaine, $limit, $offset);
         }else{
-            $displayAllArtistsByDomain = $this->modelArtiste->getAllArtistsByDomain($id_domain, 100000, 0);
+            $displayAllArtistsByDomain = $this->modelArtiste->getAllArtistsByDomain($id_domaine, 100000, 0);
 
         }
         return $displayAllArtistsByDomain;
@@ -125,7 +125,7 @@ class ArtisteController extends Controller
                             if (($legendeLen <= 100) && ($legendeLen >=10))
                             {
                                     $chemin = Image::sauvegardeImage($image);
-                                $insertImageArtist = $this->modelArtiste->insertImageArtiste($chemin,$legende,$id_artiste);
+                                         $this->modelArtiste->insertImage($chemin,$legende,$id_artiste);
                             }
                             else
                             {

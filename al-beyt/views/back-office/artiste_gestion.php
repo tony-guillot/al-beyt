@@ -38,8 +38,8 @@ else
                    <th>Soundcloud</th>
                    <th>Facebook</th>
                    <th>Twitter</th>
-                   <th>Statut</th>
                    <th>Modifier</th>
+                   <th>Statut</th>
             </thead>
             <tbody>
                
@@ -66,13 +66,14 @@ else
                         <td><?= $artist['lien_soundcloud']?></td>
                         <td><?= $artist['lien_facebook']?></td>
                         <td><?= $artist['lien_twitter']?></td>
+                        <td><a href="artiste_update.php?id=<?=  $artist['id_artiste']?>"><i class="fa-solid fa-wrench"></i></td>
                         <td>
                             <?php if($artist['statut'] == 1)
-                                {echo 'affiché';}
+                                {echo '<i class="fa-solid fa-eye"></i>';}
                                 else
-                                {echo 'caché';} ?>
+                                {echo '<i class="fa-solid fa-eye-slash"></i>';} ?>
                         </td>
-                        <td><a href="artiste_update.php?id=<?=  $artist['id_artiste']?>">modifier</td>
+                        
                        
                     </tr>  
                     
