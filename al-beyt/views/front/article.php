@@ -2,46 +2,100 @@
 require_once '../../../vendor/autoload.php';
 require_once('../include/header.php');
 use AlBeyt\Controllers\ArticleController;
+$controllerArticle = new ArticleController();
 
-$article = new ArticleController();
+if(isset($_GET['id'])){
+    $id = $controllerArticle->secure($_GET['id']);
+}else{
+    header('Location: articles.php');
+    exit;
+}
+$article = $controllerArticle->displayArticleById($id);
+$images_article = $controllerArticle->displayImagesByIdArticle($id);
 
-echo '<pre>';
-echo "displayAllArticles(page : 1) :<br />";
-var_dump($article->displayAllArticles(1));
-echo "<br /><br /><br />";
-echo "displayAllArticles(page : 2) :<br />";
-var_dump($article->displayAllArticles(2));
-echo "<br /><br /><br />";
-echo "displayAllArticles(page : 3) :<br />";
-var_dump($article->displayAllArticles(3));
-echo "<br /><br /><br />";
+?>
 
-echo "displayAllArticlesByYear( page : 1) :<br />";
-var_dump($article->displayArticlesByYear(2020,1));
-echo "<br /><br /><br />";
-echo "displayAllArticlesByYear( page : 2) :<br />";
-var_dump($article->displayArticlesByYear(2020,2));
-echo "<br /><br /><br />";
+<main>
+    <section>
+        <img src="http://<?= $images_article[0]['chemin'] ?>" alt="<?= $images_article[0]['legende'] ?>">
+    </section>
+    <section>
+        <section>
+            <h2><?= $article['titre'] ?></h2>
+            <div>par <span><?= $article['auteur'] ?></span>, publié le <span><?= $article['date'] ?></span> </div>
+        </section>
+
+        <section>
 
 
-echo "displayArticleById(4) :<br />";
-var_dump($article->displayArticleById(4));
-echo "<br /><br /><br />";
-echo "displayArticleById(5) :<br />";
-var_dump($article->displayArticleById(5));
-echo "<br /><br /><br />";
-echo "displayArticleById(6) :<br />";
-var_dump($article->displayArticleById(6));
-echo "<br /><br /><br />";
 
-echo "displayImageByArticle(4) :<br />";
-var_dump($article->displayImagesByIdArticle(4));
-echo "<br /><br /><br />";
-echo "displayImageByArticle(5) :<br />";
-var_dump($article->displayImagesByIdArticle(5));
-echo "<br /><br /><br />";
-echo "displayImageByArticle(6) :<br />";
-var_dump($article->displayImagesByIdArticle(6));
-echo "<br /><br /><br />";
 
-echo '<pre />';
+
+            <!-- <article>
+                <p>
+
+                </p>
+            </article> -->
+            <article>
+                <div>
+                    <p>
+                        <?= $article['description'] ?>
+                    </p>
+                </div>
+
+               <?php if (isset($images_article[1])): ?>
+                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+                    <div id="sliderImages" class="carousel carousel-dark" data-ride="carousel" >
+                          <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#sliderImages" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#sliderImages" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#sliderImages" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                          </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="http://<?= $images_article[1]['chemin'] ?>" alt="<?= $images_article[1]['legende'] ?>" >
+                                <div class="carousel-caption d-block">
+                                    <h5><?= $images_article[1]['legende'] ?></h5>
+                                </div>
+                            </div>
+                            <?php if (isset($images_article[2])): ?>
+                                <div class="carousel-item">
+                                    <img src="http://<?= $images_article[2]['chemin'] ?>" alt="<?= $images_article[2]['legende'] ?>">
+                                    <div class="carousel-caption d-block">
+                                        <h5><?= $images_article[2]['legende'] ?></h5>
+                                    </div>
+                                </div>
+                            <?php endif ?>
+                            <?php if (isset($images_article[3])): ?>
+                                <div class="carousel-item">
+                                    <img src="http://<?= $images_article[3]['chemin'] ?>" alt="<?= $images_article[3]['legende'] ?>">
+                                   <div class="carousel-caption d-block">
+                                        <h5><?= $images_article[3]['legende'] ?></h5>
+                                    </div>
+                                </div>
+                            <?php endif ?>
+                        </div>
+                          <button class="carousel-control-prev" type="button" data-bs-target="#sliderImages" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                          </button>
+                          <button class="carousel-control-next" type="button" data-bs-target="#sliderImages" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                          </button>
+                    </div>
+                <?php endif ?>
+
+
+                <!-- <div>
+                  <img src="<?= $images_article[1]['chemin'] ?>" alt="<?= $images_article[1]['legende'] ?>">
+                  <img src="<?= $images_article[2]['chemin'] ?>" alt="<?= $images_article[2]['legende'] ?>">
+                  <img src="<?= $images_article[3]['chemin'] ?>" alt="<?= $images_article[3]['legende'] ?>">
+                    <p>
+
+                    </p>
+                </div>-->
+            </article>
+        </section>
+    </section>
+</main>

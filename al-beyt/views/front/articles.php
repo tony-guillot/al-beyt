@@ -5,7 +5,7 @@ require_once('../include/header.php');
 use AlBeyt\Controllers\ArticleController;
 $controllerArticle = new ArticleController();
 
-if(empty($_GET['page'])){
+if(isset($_GET['page'])){
     $page = $controllerArticle->secure($_GET['page']);
 }else{
     $page = 1;
