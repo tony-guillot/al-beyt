@@ -8,7 +8,7 @@ class ArtisteModel extends Bdd
     public function getAllArtists($limit,$offset)
     {
         $bdd = $this->bdd->prepare(
-            'SELECT artiste.id, artiste.nom, image_artiste.chemin 
+            'SELECT artiste.id_domaine, artiste.id, artiste.nom, image_artiste.chemin 
             FROM artiste 
             INNER JOIN image_artiste
             ON artiste.id = image_artiste.id_artiste
@@ -19,6 +19,28 @@ class ArtisteModel extends Bdd
         $bdd->execute();
         $result = $bdd->fetchall(PDO::FETCH_ASSOC);
         
+        return $result;
+    }
+
+    public function getAllArtistsByDomain($id_domaine,$limit,$offset)
+    {
+        $bdd = $this->bdd->prepare(
+            'SELECT domaine.id as domaineId, artiste.id, artiste.nom, image_artiste.chemin
+            FROM artiste
+            INNER JOIN image_artiste
+            ON artiste.id = image_artiste.id_artiste
+            INNER JOIN domaine
+            ON artiste.id_domaine = domaine.id
+            WHERE domaine.id = :id_domaine 
+            AND statut = 1
+            ORDER BY artiste.nom ASC
+            LIMIT :limit OFFSET :offset');
+        $bdd->bindValue(':limit', $limit, PDO::PARAM_INT);
+        $bdd->bindValue(':offset', $offset, PDO::PARAM_INT);
+        $bdd->bindValue(':id_domaine', $id_domaine, PDO::PARAM_INT);
+        $bdd->execute();
+        $result = $bdd->fetchall(PDO::FETCH_ASSOC);
+       
         return $result;
     }
 
@@ -38,6 +60,7 @@ class ArtisteModel extends Bdd
     }
 
     //cette fonction est conçue à destination du côté visiteurs
+    //!\
     public function getAllArtistsByStatut($statut, $limit, $offset)
     {
         $bdd = $this->bdd->prepare(
@@ -45,8 +68,8 @@ class ArtisteModel extends Bdd
             FROM artiste 
             INNER JOIN image_artiste
             ON artiste.id = image_artiste.id_artiste
-            ORDER BY artiste.nom ASC
             WHERE statut = :statut
+            ORDER BY artiste.nom ASC
             LIMIT :limit OFFSET :offset');
         $bdd->bindValue(':limit',$limit, PDO::PARAM_INT);
         $bdd->bindValue(':offset',$offset,PDO::PARAM_INT);
@@ -59,26 +82,7 @@ class ArtisteModel extends Bdd
     
     
     // page artistes.php côté visiteurs
-    public function getAllArtistsByDomain($id_domaine,$limit,$offset)
-    {
-        $bdd = $this->bdd->prepare(
-            'SELECT artiste.id, artiste.nom, image_artiste.chemin
-            FROM artiste
-            INNER JOIN image_artiste
-            ON artiste.id = image_artiste.id_artiste
-            INNER JOIN domaine
-            ON artiste.id_domaine = domaine.id
-            WHERE domaine.id = :id_domaine 
-            ORDER BY artiste.nom ASC
-            LIMIT :limit OFFSET :offset');
-        $bdd->bindValue(':limit',$limit, PDO::PARAM_INT);
-        $bdd->bindValue(':offset',$offset, PDO::PARAM_INT);
-        $bdd->bindValue(':id_domaine',$id_domaine, PDO::PARAM_INT);
-        $bdd->execute();
-        $result = $bdd->fetchall(PDO::FETCH_ASSOC);
-        
-        return $result;
-    }
+  
 
     public function getArtistById($id_artiste)
     {

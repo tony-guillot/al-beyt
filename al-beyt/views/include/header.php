@@ -22,9 +22,9 @@
 <body>
     <header>
         <nav>
-            <!-- <ul>
+            <ul>
                 <li>
-                    <a href="">Les artistes</a>
+                    <a href="artistes.php">Les artistes</a>
                         <ul>
                             <li>
                                 <a href="">Pôle Exposition</a>
@@ -37,7 +37,7 @@
                         </ul>
                 </li>
                 <li>
-                    <a href="">Nos Evènements</a>
+                    <a href="evenements.php">Nos Evènements</a>
                         <ul>
                             <li>
                                 <a href="">2021</a>
@@ -48,7 +48,7 @@
                         </ul>
                     </li>
                 <li>
-                    <a href=""> Actualités </a>
+                    <a href="articles.php"> Actualités </a>
                         <ul>
                             <li>
                                 <a href="">2021</a>
@@ -61,6 +61,6 @@
                 <li>
                     <a href=""> A propos</a>
                 </li>
-            </ul> -->
+            </ul>
         </nav>
     </header>
