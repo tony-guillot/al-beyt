@@ -32,7 +32,7 @@ $domaines = $controller->displayAllDomains()
         <nav>
             <ul>
                 <li><a href="index.php">Accueil</a></li>
-                <li><a href="artiste.php">Artistes</a></li>
+                <li><a href="artistes.php">Artistes</a></li>
                         <ul>
                             <?php foreach ($domaines as $domaine)
                             { ?>
