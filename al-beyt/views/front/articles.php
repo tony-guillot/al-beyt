@@ -1,6 +1,6 @@
 <?php
 require_once '../../../vendor/autoload.php';
-$title = "El-Beyt : Articles";
+$title = "Articles";
 require_once('../include/header.php');
 use AlBeyt\Controllers\ArticleController;
 $controllerArticle = new ArticleController();

@@ -1,4 +1,5 @@
 <?php
+$title = "A propos";
 require_once('../include/header.php');
 ?>
 <main>

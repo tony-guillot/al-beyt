@@ -1,5 +1,6 @@
 <?php
 require_once '../../../vendor/autoload.php';
+$title = "Artistes";
 require_once('../include/header.php');
 use AlBeyt\Controllers\ArtisteController;
 $controller = New ArtisteController;

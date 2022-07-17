@@ -60,7 +60,7 @@ $domaines = $controller->displayAllDomains()
                                 </li>
                     <?php } ?>
                     </ul>
-                <li><a href="presentation.php">Présentation</a></li>    
+                <li><a href="presentation.php">A propos</a></li>    
             </ul>
         </nav>
     </header>

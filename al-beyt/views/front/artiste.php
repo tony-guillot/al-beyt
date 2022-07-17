@@ -1,5 +1,6 @@
 <?php
 require_once '../../../vendor/autoload.php';
+$title = "Artiste";
 require_once('../include/header.php');
 use AlBeyt\Controllers\ArtisteController;
 use AlBeyt\Library\Affichage;
