@@ -38,6 +38,12 @@ class  EvenementController extends Controller {
            }
            return $display;
        }
+
+    public function displayLastEvent()
+    {
+        $lastEvent = $this->modelEvenement->getLastEvent();
+        return $lastEvent;
+    }
    
    public function displayArtistsByEventId($id_evenement)
    {
