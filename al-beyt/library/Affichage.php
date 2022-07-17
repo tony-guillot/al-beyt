@@ -1,12 +1,15 @@
 <?php
 
 namespace AlBeyt\Library;
+use AlBeyt\Controllers\ArtisteController;
 
-/**
- * @author Daouda SARR
- */
+
 class Affichage
 {
+    public function __construct()
+    {
+        $this->controllerArtiste = new ArtisteController();
+    }
     /**
      * nombre de listes déroulantes à afficher sur la page via la fonction printSelectForArtists()
      */
@@ -57,6 +60,43 @@ class Affichage
     public function printAllEventByIdArtist($eventsByIdArtist)
     {
 
+    }
+
+    public static function printLinks($email, $website, $instagram, $twitter, $soundcloud, $facebook)
+    {   
+        $print = "";
+        $print .= '<div class="">';
+            if(!empty($email))
+            {
+                $print .= '<a href="'.$email.'"><i class="fa-solid fa-envelope"></i>'.$email.'</a>';
+            }
+            if(!empty($website))
+            {
+                $print .= '<a href="'.$website.'"><i class="fa-solid fa-globe"></i>'.$website.'</a>';
+            }
+        $print .= '</div>';
+
+        $print .= '<div>';
+        if(!empty($instagram))
+        {
+            $print .= '<a href="'.$instagram.'"><i class="fa-brands fa-instagram"></i></a>';
+        }
+        if(!empty($twitter))
+        {
+            $print .= '<a href="'.$twitter.'"><i class="fa-brands fa-twitter"></i></a>';
+        }
+        if(!empty($soundcloud))
+        {
+            $print .= '<a href="'.$soundcloud.'"><i class="fa-brands fa-soundcloud"></i></a>';
+        }
+        if(!empty($facebook))
+        {
+            $print .= '<a href="'.$facebook.'"><i class="fa-brands fa-facebook"></i></a>';
+        }
+        $print .= '</div>';
+
+        return $print;
+        
     }
 }
 

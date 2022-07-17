@@ -12,7 +12,7 @@ class ArtisteController extends Controller
     protected $modelEvenement;
     protected $modelDomaine;
     protected $modelArtiste;
-    const NBR_ARTISTE_PAR_PAGE = 10;
+    const NBR_ARTISTE_PAR_PAGE = 15;
     const NBR_EVENEMENT_PAGE_ARTISTE = 4;
     
 
@@ -48,20 +48,32 @@ class ArtisteController extends Controller
             $limit = self::NBR_ARTISTE_PAR_PAGE;
             $offset = self::NBR_ARTISTE_PAR_PAGE * ($pageCourante - 1);
             $displayAllArtistsByDomain = $this->modelArtiste->getAllArtistsByDomain($id_domaine, $limit, $offset);
-        }else{
+        }else
+        {
             $displayAllArtistsByDomain = $this->modelArtiste->getAllArtistsByDomain($id_domaine, 100000, 0);
 
         }
         return $displayAllArtistsByDomain;
     }
-    
-    public function displayArtistById($id_artiste)
+    public function displayAllArtistsByStatut($statut, $pageCourante)
     {
+        if($pageCourante != null)
+        {
+            $limit = self::NBR_ARTISTE_PAR_PAGE;
+            $offset = self::NBR_ARTISTE_PAR_PAGE * ($pageCourante - 1);
+            $displayAllArtistBystatut= $this->modelArtiste->getAllArtistsByStatut($statut, $limit, $offset);
+        }
+        return $displayAllArtistBystatut;
+    }
+
+    public function displayArtistById($id_artiste)
+    {   
         $displayArtistById = $this->modelArtiste->getArtistById($id_artiste);
+        // var_dump($displayArtistById);
         return $displayArtistById;
     }
 
-    public function displayEventsByIdArtist($id_artiste,$pageCourante)
+    public function displayEventsByIdArtist($id_artiste, $pageCourante = null)
     {
         if($pageCourante != null){
             $limit = self::NBR_EVENEMENT_PAGE_ARTISTE;
