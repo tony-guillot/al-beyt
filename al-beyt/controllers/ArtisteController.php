@@ -255,7 +255,12 @@ class ArtisteController extends Controller
             echo 'Veuillez choisir une image';
         }
     }
-       
+
+    public function modifyLegende($legende,$id_artiste)
+    {
+        $this->modelArtiste->updateLegende($legende,$id_artiste);
+    }
+
 }
                         
 

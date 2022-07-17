@@ -44,6 +44,7 @@ if(isset($_POST['replace_image']))
 {
     $id_artiste = intval($id);
     $retriveImage = $controller->modifyImageArtist($_FILES['image'], $_POST['legende'], $id_artiste);
+    $controller->modifyLegende($_POST['legende'], $id_artiste);
     $artist = $controller->displayArtistById($id);
 }
 

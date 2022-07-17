@@ -198,6 +198,17 @@ class ArtisteModel extends Bdd
 
     }
 
+    public function updateLegende($legende, $id_artiste)
+    {
+        $bdd = $this->bdd->prepare('UPDATE image_artiste
+                                    SET legende= :legende
+                                    WHERE id_artiste = :id_artiste');
+        $bdd->bindValue(':legende', $legende, PDO::PARAM_STR);
+        $bdd->bindValue(':id_artiste', $id_artiste, PDO::PARAM_INT);
+
+        $bdd->execute();
+    }
+
 
 }
 
