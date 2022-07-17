@@ -1,10 +1,8 @@
 <?php
 require_once '../../../vendor/autoload.php';
 $title = "Evènement";
-require_once('../include/header.php');
 use AlBeyt\Controllers\EvenementController;
 use AlBeyt\Library\Affichage;
-
 $controllerEvenement = new EvenementController;
 
 if(isset($_GET['id'])){
@@ -13,9 +11,12 @@ if(isset($_GET['id'])){
     header('Location: evenements.php');
     exit;
 }
+
 $event = $controllerEvenement->displayEventById($id);
 $images_event = $controllerEvenement->displayImagesByEventId($id);
 $artistes = $controllerEvenement->displayArtistsByEventId($id);
+
+require_once('../include/header.php');
 ?>
 
 <main>
