@@ -3,7 +3,7 @@ require_once '../../../vendor/autoload.php';
 require_once('../include/header.php');
 use AlBeyt\Controllers\ArtisteController;
 $controller = New ArtisteController;
-if(isset($_GET['page']) && empty($_GET['page']))
+if(isset($_GET['page']) && !empty($_GET['page']))
 {   
     $pageCourante = intval($_GET['page']);
 }
