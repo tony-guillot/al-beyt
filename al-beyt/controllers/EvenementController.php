@@ -7,7 +7,7 @@ use AlBeyt\Models\ArtisteModel;
 class  EvenementController extends Controller {
 
     protected $modelEvenement;
-    const NB_EVENEMENT_PAR_PAGE = 2;
+    const NB_EVENEMENT_PAR_PAGE = 10;
 
     public function __construct()
     {
