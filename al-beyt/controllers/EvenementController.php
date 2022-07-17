@@ -185,4 +185,9 @@ class  EvenementController extends Controller {
         $this->modelEvenement->deleteEvent($id);
     }
 
+    public function modifyLegende($legende, $ordre, $id_evenement)
+    {
+        $this->modelEvenement->updateLegende($legende,$ordre,$id_evenement);
+    }
+
 }

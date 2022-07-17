@@ -15,7 +15,7 @@ if(isset($_GET['id']))
 
 $displayImagesByEventId = $controller->displayImagesByEventId($id);
 // echo '<pre>';
-var_dump($displayImagesByEventId[1]);  
+//var_dump($displayImagesByEventId[1]);
 // echo '</pre>';
 
 if(isset($_POST['valider']))
@@ -40,7 +40,7 @@ if(isset($_POST['image']))
      $id_evenement = intval($id);
     if(!empty($displayImagesByEventId[1]) )
     {     
-        echo ('passe dans le if');
+        //echo ('passe dans le if');
 
         $eventImagesModify = $controller->modifyImagesEvent( $_FILES['image_en_avant'],
         $_POST['legende_en_avant'],
@@ -50,22 +50,26 @@ if(isset($_POST['image']))
         $_POST['ordre_image2'],
         $id_evenement
        );
-       
+
+       $controller->modifyLegende($_POST['legende_en_avant'],$_POST['ordre_image_en_avant'],$id_evenement);
+       $controller->modifyLegende($_POST['legende2'],$_POST['ordre_image2'],$id_evenement);
+
     }
     else
     {
-        echo ('passe dans le else');
+        //echo ('passe dans le else');
 
         $modifyImage = $controller->modifyImage($_FILES['image_en_avant'],
                                                 $_POST['legende_en_avant'],
                                                 $_POST['ordre_image_en_avant'],
                                                 $id_evenement);
-
+        $controller->modifyLegende($_POST['legende_en_avant'],$_POST['ordre_image_en_avant'],$id_evenement);
         $registerImage = $controller->registerImage($_FILES['image2'],
                                                 $_POST['legende2'],
                                                 $id_evenement,
                                                 $_POST['ordre_image2']
                                               );
+
     }
     
    

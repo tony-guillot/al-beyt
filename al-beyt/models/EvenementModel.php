@@ -173,7 +173,7 @@ class EvenementModel extends Bdd {
         $bdd = $this->bdd->prepare('UPDATE evenement
                                     SET titre = :titre,
                                         adresse = :adresse,
-                                        date = :date,
+                                        date_evenement = :date,
                                         heure = :heure,
                                         description = :description
                                         WHERE id = :id');
@@ -208,6 +208,19 @@ class EvenementModel extends Bdd {
     {
         $bdd = $this->bdd->prepare('DELETE FROM evenement WHERE id = :id');
         $bdd->execute(array(':id' => $id));
+    }
+
+    public function updateLegende($legende, $ordre, $id_evenement)
+    {
+        $bdd = $this->bdd->prepare('UPDATE image_evenement
+                                    SET legende = :legende
+                                    WHERE id_evenement = :id_evenement 
+                                    AND ordre = :ordre');
+
+        $bdd->execute(array(':legende' => $legende,
+                            ':ordre' => $ordre,
+                            ':id_evenement' => $id_evenement
+        ));
     }
 
 
