@@ -70,3 +70,4 @@ if(isset($_GET['year']))
 </main>
 <?php
 require_once('../include/footer.php');
+?>

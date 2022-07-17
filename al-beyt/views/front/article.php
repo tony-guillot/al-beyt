@@ -43,3 +43,6 @@ $images_article = $controllerArticle->displayImagesByIdArticle($id);
         </section>
     </section>
 </main>
+<?php 
+require_once('../include/footer.php');
+?>

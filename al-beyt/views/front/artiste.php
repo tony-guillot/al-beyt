@@ -108,3 +108,6 @@ $pageMax = ceil($totalEventsByPage / ArtisteController::NBR_EVENEMENT_PAGE_ARTIS
         </section>
     </section>
 </main>
+<?php 
+require_once('../include/footer.php');
+?>

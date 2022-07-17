@@ -68,3 +68,6 @@ if(isset($_GET['year']))
         <?php endif ?>
     </section>
 </main>
+<?php 
+require_once('../include/footer.php');
+?>

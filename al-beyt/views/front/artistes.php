@@ -78,5 +78,8 @@ else
   <?php }
     ?>
     </section>
-</main>    
+</main>
+<?php 
+require_once('../include/footer.php');
+?>
 
