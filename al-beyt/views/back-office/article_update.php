@@ -1,8 +1,5 @@
 <?php
 require_once '../../../vendor/autoload.php';
-require_once('../include/header.php');
-require_once('../include/sidebar.php');
-
 use AlBeyt\Controllers\ArticleController;
 
 $controllerArticle = new ArticleController();
@@ -22,19 +19,32 @@ if(!empty($_POST['validerImages']))
 {
     if(!empty($_FILES['image_en_avant']['name'])) {
         $controllerArticle->modifyImage($id_article, $_FILES['image_en_avant'], $_POST['legende_en_avant'], 1);
+    }elseif (!empty($_POST['legende_en_avant']))
+    {
+        $controllerArticle->modifyLegende($id_article,$_POST['legende_en_avant'], 1);
     }
     if(!empty($_FILES['image2']['name']))
     {
         $controllerArticle->modifyImage($id_article, $_FILES['image2'], $_POST['legende2'], 2);
+    }elseif (!empty($_POST['legende2']))
+    {
+        $controllerArticle->modifyLegende($id_article,$_POST['legende2'], 2);
     }
     if(!empty($_FILES['image3']['name']))
     {
         $controllerArticle->modifyImage($id_article, $_FILES['image3'], $_POST['legende3'], 3);
+    }elseif (!empty($_POST['legende3']))
+    {
+        $controllerArticle->modifyLegende($id_article,$_POST['legende3'], 3);
     }
     if(!empty($_FILES['image4']['name']))
     {
         $controllerArticle->modifyImage($id_article, $_FILES['image4'], $_POST['legende4'], 4);
+    }elseif (!empty($_POST['legende4']))
+    {
+        $controllerArticle->modifyLegende($id_article,$_POST['legende4'], 4);
     }
+
 }
 
 if(!empty($_POST['valider']))
@@ -45,6 +55,10 @@ if(!empty($_POST['valider']))
 
 $article = $controllerArticle->displayArticleById($id_article);
 $images_article = $controllerArticle->displayImagesByIdArticle($id_article);
+
+$title = 'Back-Office';
+require_once('../include/header.php');
+require_once('../include/sidebar.php');
 
 ?>
 <main>

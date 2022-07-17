@@ -165,4 +165,19 @@ class ArticleModel extends Bdd
 
     }
 
+    public function updateLegende($id_article, $legende, $ordre)
+    {
+        $bdd = $this->bdd->prepare('UPDATE image_article
+            SET legende = :legende
+            WHERE id_article = :id AND ordre = :ordre
+        '
+        );
+        $bdd->bindValue(":legende", $legende, PDO::PARAM_STR);
+        $bdd->bindValue(":ordre", $ordre, PDO::PARAM_INT);
+        $bdd->bindValue(":id", $id_article, PDO::PARAM_INT);
+        $bdd->execute();
+
+        return $id_article;
+    }
+
 }
