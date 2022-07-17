@@ -4,7 +4,7 @@ use AlBeyt\Library\Image;
 use AlBeyt\Models\EvenementModel;
 use AlBeyt\Models\ArtisteModel;
 
-class  EvenementController{
+class  EvenementController extends Controller {
 
     protected $modelEvenement;
     const NB_EVENEMENT_PAR_PAGE = 2;
