@@ -4,7 +4,7 @@ require_once('../include/header.php');
 use AlBeyt\Controllers\ArtisteController;
 $controller = New ArtisteController;
 if(isset($_GET['page']) && empty($_GET['page']))
-{
+{   
     $pageCourante = intval($_GET['page']);
 }
 else
@@ -16,16 +16,16 @@ $pageMax = ceil($totalArtists / ArtisteController::NBR_ARTISTE_PAR_PAGE);
 
 $domaines = $controller->displayAllDomains();
 
-    if(isset($_GET['id']))
-    {
-        $id_domaine= intval($_GET['id']);
-        $artists = $controller->displayAllArtistsByDomain($id_domaine, $pageCourante);
-    
-    }
-    else
-    {
-        $artists = $controller->displayAllArtistsByStatut(1, $pageCourante);
-    }
+if(isset($_GET['id']))
+{
+    $id_domaine= intval($_GET['id']);
+    $artists = $controller->displayAllArtistsByDomain($id_domaine, $pageCourante);
+
+}
+else
+{
+    $artists = $controller->displayAllArtistsByStatut(1, $pageCourante);
+}
     ?>
 <main>
     <section>
@@ -47,8 +47,14 @@ $domaines = $controller->displayAllDomains();
             { ?>
                 <article>
                     <a href="artiste.php?id=<?= $domaine['id']?>"> 
-                        <img src="http://<?= $artist['chemin']?>">
-                        <span><?= $artist['nom']?></span>
+                        <div>
+                            <img src="http://<?= $artist['chemin']?>">
+                        </div>
+                        <div>
+                            <span><?= $artist['nom']?></span>
+                            <i class="fa-solid fa-circle-plus"></i>
+                        </div>
+
                     </a>
                 </article>
       <?php }

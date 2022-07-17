@@ -13,7 +13,7 @@ class ArtisteController extends Controller
     protected $modelDomaine;
     protected $modelArtiste;
     const NBR_ARTISTE_PAR_PAGE = 15;
-    const NBR_EVENEMENT_PAGE_ARTISTE = 6;
+    const NBR_EVENEMENT_PAGE_ARTISTE = 4;
     
 
     public function __construct()
@@ -67,12 +67,13 @@ class ArtisteController extends Controller
     }
 
     public function displayArtistById($id_artiste)
-    {
+    {   
         $displayArtistById = $this->modelArtiste->getArtistById($id_artiste);
+        // var_dump($displayArtistById);
         return $displayArtistById;
     }
 
-    public function displayEventsByIdArtist($id_artiste,$pageCourante)
+    public function displayEventsByIdArtist($id_artiste, $pageCourante = null)
     {
         if($pageCourante != null){
             $limit = self::NBR_EVENEMENT_PAGE_ARTISTE;

@@ -2,37 +2,109 @@
 require_once '../../../vendor/autoload.php';
 require_once('../include/header.php');
 use AlBeyt\Controllers\ArtisteController;
-$artist = New ArtisteController;
+use AlBeyt\Library\Affichage;
+$controller = New ArtisteController;
+$affichage = New Affichage;
+if(isset($_GET['page']) && !empty($_GET['page']))
+{   
+    $pageCourante = $_GET['page'];
+    
+}
+else
+{
+    $pageCourante = 1;
+}
+if(isset($_GET['id']) && !empty($_GET['id']) )
+{
+    $id_artiste = intval($_GET['id']);
+    // var_dump($id_artiste);
+    $artist = $controller->displayArtistById($id_artiste);
+    // var_dump($artist);
+    $events = $controller->displayEventsByIdArtist($id_artiste, $pageCourante);
+    // echo '<pre>';
+    // var_dump($artist);
+    // echo '</pre>';
+}
+else
+{
+    header('Location: artiste.php?id='.$id_artiste.'');
+    // echo 'Cet évènement a été supprimé.';
+   
+}
 
 
-
-
-$displayArtistById = $artist->displayArtistById($id_artiste);
-$displayEventByIdArtist = $artist->displayEventsByIdArtist($id_artiste,$pageCourante);
-
-echo '<pre>';
-var_dump($displayArtistById = $artist->displayArtistById(1));
-var_dump($displayArtistById = $artist->displayArtistById(2));
-var_dump($displayArtistById = $artist->displayArtistById(3));
-var_dump($displayArtistById = $artist->displayArtistById(10));
-echo '</pre>';
-
-
-echo '<pre>';
-var_dump($displayEventByIdArtist = $artist->displayEventsByIdArtist(1));
-var_dump($displayEventByIdArtist = $artist->displayEventsByIdArtist(2));
-
-echo '</pre>';
-
+$id_artiste = intval($_GET['id']);
+$totalEventsByPage = count($controller->displayEventsByIdArtist($id_artiste));
+$pageMax = ceil($totalEventsByPage / ArtisteController::NBR_EVENEMENT_PAGE_ARTISTE);
+// var_dump('TOTAL EVENT',$controller->displayEventsByIdArtist($id_artiste));
 
 ?>
 <main>
     <section>
-        
-    </section>
-    <section>
-        <article>
-           
-        </article>
+        <section>
+            <article>
+                <div>
+                    <h1><?php echo $artist['nom']?></h1>
+                    <p><?= $artist['description']?></p>
+                </div>
+                <?= Affichage::printLinks($artist['email'],
+                                        $artist['website'],
+                                        $artist['lien_insta'],
+                                        $artist['lien_twitter'],
+                                        $artist['lien_soundcloud'],
+                                        $artist['lien_facebook'])
+                ?>
+
+            </article>
+            <article>
+                <img src="http://<?= $artist['chemin']?>" alt="">
+                <p><?= $artist['legende']?></p>
+            </article>
+        </section>
+        <hr>
+        <section>
+            <?php foreach($events as $event)
+            { 
+                // var_dump($event)
+                ?>
+            <article>
+                <a href="evenement.php?id=<?= $event['id']?>">
+                    <div>
+                        <img src="http://<?= $event['chemin']?>" alt="">
+                    </div>
+                    <div>
+                        <div>
+                            <h1><?= $event['titre']?></h1>
+                            <p><?= $event['date_evenement']?></p>
+                        </div>
+                        <div>
+                            <i class="fa-solid fa-circle-plus"></i>
+                        </div>
+                    </div>
+                </a>
+            </article>
+      <?php }?>    
+                <article>
+                
+                        <?php 
+                     
+                        if($pageCourante != 1)
+                {   ?>
+                    <a href="artiste.php?page=<?= $pageCourante - 1?>&id=<?=$id_artiste?>">Page précédente</a>
+        <?php }?>
+                <?php for ($i=1; $i <= $pageMax; $i++)
+                { ?>
+
+                    <a href="artiste.php?page=<?= $i?>&id=<?=$id_artiste?>"><?= $i?></a>
+        <?php  }?>
+                <?php if($pageCourante != $pageMax)
+                {?>
+                    <a href="artiste.php?page=<?= $pageCourante + 1 ?>&id=<?=$id_artiste?>">Page suivante</a>
+        <?php }
+    ?>
+
+                </article>
+
+        </section>
     </section>
 </main>

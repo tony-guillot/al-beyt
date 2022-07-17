@@ -87,20 +87,19 @@ class ArtisteModel extends Bdd
     public function getArtistById($id_artiste)
     {
         $bdd = $this->bdd->prepare(
-            'SELECT  domaine.nom as nom_domaine, domaine.id as id_domaine, artiste.id as id_artiste ,website, artiste.nom, description, email, lien_insta, lien_soundcloud, lien_facebook, lien_twitter, chemin,legende, statut
+            'SELECT domaine.nom as nom_domaine, domaine.id as id_domaine, artiste.id as id_artiste ,website, artiste.nom, description, email, lien_insta, lien_soundcloud, lien_facebook, lien_twitter, chemin,legende, statut
             FROM artiste
             INNER JOIN image_artiste
             ON artiste.id = image_artiste.id_artiste
             INNER JOIN domaine
             ON artiste.id_domaine = domaine.id
-            WHERE artiste.id = :id_artiste
-            ORDER BY artiste.nom ASC');
+            WHERE artiste.id = :id_artiste');
         $bdd->bindValue(':id_artiste',$id_artiste, PDO::PARAM_INT);
         $bdd->execute();
         $result = $bdd->fetch(PDO::FETCH_ASSOC);
-
         return $result;
     }
+    
     public function getAllInfoArtists()
     {
         $bdd = $this->bdd->prepare(
