@@ -3,6 +3,8 @@ require_once '../../../vendor/autoload.php';
 $title = "Evènement";
 require_once('../include/header.php');
 use AlBeyt\Controllers\EvenementController;
+use AlBeyt\Library\Affichage;
+
 $controllerEvenement = new EvenementController;
 
 if(isset($_GET['id'])){
@@ -24,7 +26,7 @@ $artistes = $controllerEvenement->displayArtistsByEventId($id);
             </article>
             <article>
                 <span><?= $event['adresse'] ?></span>
-                <span><?= $event['date_evenement'] ?> à <?= $event['heure'] ?></span>
+                <span><?= Affichage::printDate($event['date_evenement']) ?> à <?= $event['heure'] ?></span>
                 <span> avec
                     <?php
                     foreach ($artistes as $artiste) {

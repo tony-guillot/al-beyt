@@ -3,6 +3,8 @@ require_once '../../../vendor/autoload.php';
 $title = "Evènements";
 require_once('../include/header.php');
 use AlBeyt\Controllers\EvenementController;
+use AlBeyt\Library\Affichage;
+
 $controllerEvenement = new EvenementController();
 
 if(isset($_GET['page'])){
@@ -45,7 +47,7 @@ if(isset($_GET['year']))
                         <img src="http://<?= $event['chemin'] ?>" alt="<?= $event['titre'] ?>">
                         <div>
                             <div><h2><?= $event['titre'] ?></h2>
-                                <span><?= $event['date_evenement'] ?></span>
+                                <span><?= Affichage::printDate($event['date_evenement']) ?></span>
                             </div>
                             <i class="fa-solid fa-circle-plus"></i>
                         </div>

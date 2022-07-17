@@ -25,7 +25,7 @@ class ArtisteModel extends Bdd
     public function getArtistsByEventId($id_evenement)
     {
         $bdd = $this->bdd->prepare(
-            'SELECT artiste.nom
+            'SELECT artiste.id, artiste.nom
              FROM artiste
              INNER JOIN artiste_evenement
              ON artiste.id = artiste_evenement.id_artiste

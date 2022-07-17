@@ -44,6 +44,11 @@ class Affichage
         return $displayTags;
     }
 
+    public static function printDate($date)
+    {
+       return date_format(date_create($date),'d/m/Y');
+    }
+
     public function printAllArtists()
     {
 
