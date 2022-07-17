@@ -2,46 +2,44 @@
 require_once '../../../vendor/autoload.php';
 require_once('../include/header.php');
 use AlBeyt\Controllers\ArticleController;
+use AlBeyt\Library\Affichage;
 
-$article = new ArticleController();
+$controllerArticle = new ArticleController();
 
-echo '<pre>';
-echo "displayAllArticles(page : 1) :<br />";
-var_dump($article->displayAllArticles(1));
-echo "<br /><br /><br />";
-echo "displayAllArticles(page : 2) :<br />";
-var_dump($article->displayAllArticles(2));
-echo "<br /><br /><br />";
-echo "displayAllArticles(page : 3) :<br />";
-var_dump($article->displayAllArticles(3));
-echo "<br /><br /><br />";
+if(isset($_GET['id'])){
+    $id = $controllerArticle->secure($_GET['id']);
+}else{
+    header('Location: articles.php');
+    exit;
+}
+$article = $controllerArticle->displayArticleById($id);
+$images_article = $controllerArticle->displayImagesByIdArticle($id);
 
-echo "displayAllArticlesByYear( page : 1) :<br />";
-var_dump($article->displayArticlesByYear(2020,1));
-echo "<br /><br /><br />";
-echo "displayAllArticlesByYear( page : 2) :<br />";
-var_dump($article->displayArticlesByYear(2020,2));
-echo "<br /><br /><br />";
+?>
 
+<main>
+    <section>
+        <img src="http://<?= $images_article[0]['chemin'] ?>" alt="<?= $images_article[0]['legende'] ?>">
+    </section>
+    <section>
+        <section>
+            <h2><?= $article['titre'] ?></h2>
+            <div>par <span><?= $article['auteur'] ?></span>, publié le <span><?= $article['date'] ?></span> </div>
+        </section>
 
-echo "displayArticleById(4) :<br />";
-var_dump($article->displayArticleById(4));
-echo "<br /><br /><br />";
-echo "displayArticleById(5) :<br />";
-var_dump($article->displayArticleById(5));
-echo "<br /><br /><br />";
-echo "displayArticleById(6) :<br />";
-var_dump($article->displayArticleById(6));
-echo "<br /><br /><br />";
-
-echo "displayImageByArticle(4) :<br />";
-var_dump($article->displayImagesByIdArticle(4));
-echo "<br /><br /><br />";
-echo "displayImageByArticle(5) :<br />";
-var_dump($article->displayImagesByIdArticle(5));
-echo "<br /><br /><br />";
-echo "displayImageByArticle(6) :<br />";
-var_dump($article->displayImagesByIdArticle(6));
-echo "<br /><br /><br />";
-
-echo '<pre />';
+        <section>
+            <!-- <article>
+                <p>
+                </p>
+            </article> -->
+            <article>
+                <div>
+                    <p>
+                        <?= $article['description'] ?>
+                    </p>
+                </div>
+                <?php echo Affichage::printImageSliderForArticles($images_article); ?>
+            </article>
+        </section>
+    </section>
+</main>
