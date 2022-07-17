@@ -59,6 +59,9 @@ if(isset($_GET['delete']))
         </table>
     </section>    
 </main>
+<?php 
+require_once('../include/footer.php');
+?>
 
 
 

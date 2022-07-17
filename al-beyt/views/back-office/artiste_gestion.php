@@ -71,4 +71,7 @@ echo '</pre>';
             </tbody>
         </table>
     </section>
-</main>    
+</main>
+<?php 
+require_once('../include/footer.php');
+?>  

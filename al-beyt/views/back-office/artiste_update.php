@@ -158,4 +158,7 @@ if(isset($_POST['replace_image']))
         </section>
     </section>   
 </main>
+<?php 
+require_once('../include/footer.php');
+?>
   

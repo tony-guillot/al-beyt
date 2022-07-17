@@ -167,3 +167,6 @@ $images_article = $controllerArticle->displayImagesByIdArticle($id_article);
         </form>
     </section>
 </main>
+<?php 
+require_once('../include/footer.php');
+?>

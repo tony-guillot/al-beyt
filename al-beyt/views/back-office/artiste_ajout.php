@@ -106,3 +106,6 @@ if(isset($_POST['submit']))
             </form>
     </section>
 </main>
+<?php 
+require_once('../include/footer.php');
+?>

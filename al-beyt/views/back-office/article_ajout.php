@@ -90,3 +90,6 @@ if(!empty($_POST['valider']))
         </form>
     </section>
 </main>
+<?php 
+require_once('../include/footer.php');
+?>

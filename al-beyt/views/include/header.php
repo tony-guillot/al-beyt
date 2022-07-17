@@ -19,48 +19,48 @@
     />
     <title> <?= $title?> </title>
 </head>
+<?php
+require_once '../../../vendor/autoload.php';
+use AlBeyt\Controllers\ArtisteController;
+$controller = New ArtisteController;
+
+$domaines = $controller->displayAllDomains()
+   
+?>
 <body>
     <header>
         <nav>
-            <!-- <ul>
-                <li>
-                    <a href="">Les artistes</a>
+            <ul>
+                <li><a href="index.php">Accueil</a></li>
+                <li><a href="artiste.php">Artistes</a></li>
                         <ul>
-                            <li>
-                                <a href="">Pôle Exposition</a>
-                                <a href="">Pôle Musique</a>
-                                <a href="">Pôle Cinéma</a>
-                                <a href="">Pôle Art vivants</a>
-                                <a href="">Pôle Collectifs</a>
-                                <a href="">Pôle Stands</a>
-                            </li>
+                            <?php foreach ($domaines as $domaine)
+                            { ?>
+                                <li>
+                                    <a href="artistes.php?id=<?=$domaine['id']?>"><?= $domaine['nom']?></a>
+                                </li>
+
+                    <?php } ?>
                         </ul>
-                </li>
-                <li>
-                    <a href="">Nos Evènements</a>
-                        <ul>
+                <li><a href="evenements.php">Evènements</a></li>
+                    <ul>
+                        <?php for($y = date('Y'); $y >= 2021; $y--)
+                        { ?>
                             <li>
-                                <a href="">2021</a>
-                                <a href="">2022</a>
-                                <a href="">2023</a>
-                                <a href="">2024</a>
+                                <a href="evenements.php?year=<?= $y ?>"><?= $y ?></a>
                             </li>
-                        </ul>
-                    </li>
-                <li>
-                    <a href=""> Actualités </a>
-                        <ul>
-                            <li>
-                                <a href="">2021</a>
-                                <a href="">2022</a>
-                                <a href="">2023</a>
-                                <a href="">2024</a>
-                            </li>
-                        </ul>
-                </li>
-                <li>
-                    <a href=""> A propos</a>
-                </li>
-            </ul> -->
+                 <?php } ?>
+                    </ul>
+                <li><a href="articles.php">Actualité</a></li> 
+                    <ul>
+                        <?php for($y = date('Y'); $y >= 2022; $y--)
+                            { ?>
+                                <li>
+                                    <a href="articles.php?year=<?= $y ?>"><?=$y ?></a>
+                                </li>
+                    <?php } ?>
+                    </ul>
+                <li><a href="presentation.php">Présentation</a></li>    
+            </ul>
         </nav>
     </header>

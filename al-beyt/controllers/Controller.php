@@ -39,4 +39,5 @@ class Controller
         if($_SESSION['user'][0]['nom'] != 'admin')
         header("Location: index.php");
     }
+
 }

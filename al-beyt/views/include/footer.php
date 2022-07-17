@@ -1,11 +1,11 @@
     <footer>
         <section>
             <article>
-                <img src="../../../images/logo.png" alt="logo al-beyt">
+                <img style="width: 100px;"src="../../../images/logo.png" alt="logo al-beyt">
             </article>
             <article>
                 <h1>Contact</h1>
-                <a href="mailto:collectif.albeyt@gmail.com">collectif.albeyt@gmail.com</a>
+                <p>collectif.albeyt@gmail.com</p>
             </article>
             <article>
                 <a href="">Mentions égales</a>

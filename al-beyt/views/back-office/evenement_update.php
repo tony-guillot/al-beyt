@@ -162,3 +162,6 @@ $imagesEvent = $controller->displayImagesByEventId($id);
         </section>
     </section>
 </main>
+<?php 
+require_once('../include/footer.php');
+?>

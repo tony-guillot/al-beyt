@@ -72,3 +72,6 @@ $allArticles = $controllerArticle->displayAllArticles($page);
 <?php endif ?>
 
 </main>
+<?php 
+require_once('../include/footer.php');
+?>
