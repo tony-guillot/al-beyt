@@ -10,12 +10,12 @@
     $artists = $controllerArtist->displayAllArtists();
     echo '<pre>';
     // var_dump($artists);
-     var_dump($lastEvent);
-    echo '<pre>';
+     //var_dump($lastEvent);
+    echo '</pre>';
     $shuffleArtists = shuffle($artists);
     echo '<pre>';
     // var_dump($artists);
-    echo '<pre>';
+    echo '</pre>';
     
 ?>
 <main>
