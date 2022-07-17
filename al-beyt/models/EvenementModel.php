@@ -30,12 +30,26 @@ class EvenementModel extends Bdd {
             LEFT JOIN image_evenement as image_e
             ON image_e.id_evenement = e.id
             AND image_e.ordre = 1
-                LIMIT :limit OFFSET :offset ;'
+            LIMIT :limit OFFSET :offset ;'
         );
         $bdd->bindValue(":limit" , $limit,PDO::PARAM_INT);
         $bdd->bindValue(":offset" , $offset, PDO::PARAM_INT);
         $bdd->execute();
         $result = $bdd->fetchAll(PDO::FETCH_ASSOC);
+
+        return $result;
+    }
+    
+    public function getLastEvent()
+    {
+        $bdd = $this->bdd->prepare('SELECT e.id, e.titre, e.adresse, e.date_evenement, e.heure, image_e.chemin
+            FROM evenement as e
+            LEFT JOIN image_evenement as image_e
+            ON image_e.id_evenement = e.id
+            AND image_e.ordre = 1
+            ORDER BY e.date_evenement DESC LIMIT 1');
+        $bdd->execute();
+        $result = $bdd->fetch(PDO::FETCH_ASSOC);
 
         return $result;
     }
