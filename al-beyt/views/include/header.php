@@ -4,7 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!----- Google font Inter ----->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500&display=swap" rel="stylesheet">     
+    <!------Google font Merriweather Sans ----->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/front.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
@@ -23,38 +32,51 @@ $domaines = $controller->displayAllDomains()
 ?>
 <body>
     <header>
+        <h1 class='al-beyt'>AL-BEYT</h1>    
+    </header>
         <nav>
             <ul>
-                <li><a href="index.php">Accueil</a></li>
-                <li><a href="artistes.php">Artistes</a></li>
+                <li class="active"><a class="link-header" href="index.php">Accueil</a></li>
+
+                <li class="active"><a class="link-header" href="artistes.php">Artistes</a>
+
+                    <div class="sub-menu-1">
                         <ul>
                             <?php foreach ($domaines as $domaine)
                             { ?>
                                 <li>
-                                    <a href="artistes.php?id=<?=$domaine['id']?>"><?= $domaine['nom']?></a>
+                                    <a class="link-header" href="artistes.php?id=<?=$domaine['id']?>"><?= $domaine['nom']?></a>
                                 </li>
 
                     <?php } ?>
                         </ul>
-                <li><a href="evenements.php">Evènements</a></li>
-                    <ul>
+                    </div>  
+                </li>      
+                <li class="active"><a class="link-header" href="evenements.php">Evènements</a>
+                    <div class="sub-menu-1">
+                        <ul>
                         <?php for($y = date('Y'); $y >= 2021; $y--)
                         { ?>
                             <li>
-                                <a href="evenements.php?year=<?= $y ?>"><?= $y ?></a>
+                                <a class="link-header" href="evenements.php?year=<?= $y ?>"><?= $y ?></a>
                             </li>
-                 <?php } ?>
-                    </ul>
-                <li><a href="articles.php">Actualité</a></li> 
-                    <ul>
-                        <?php for($y = date('Y'); $y >= 2022; $y--)
-                            { ?>
-                                <li>
-                                    <a href="articles.php?year=<?= $y ?>"><?=$y ?></a>
-                                </li>
-                    <?php } ?>
-                    </ul>
-                <li><a href="presentation.php">A propos</a></li>    
+                         <?php } ?>
+                        </ul>
+                    </div>
+                </li>      
+                <li class="active"><a class="link-header" href="articles.php">Actualité</a>
+                    <div class="sub-menu-1">
+                        <ul>
+                            <?php for($y = date('Y'); $y >= 2022; $y--)
+                                { ?>
+                                    <li>
+                                        <a class="link-header" href="articles.php?year=<?= $y ?>"><?=$y ?></a>
+                                    </li>
+                        <?php } ?>
+                        </ul>
+                    </div>
+                </li>     
+                <li class="active"><a class="link-header" href="presentation.php">A propos</a></li>    
             </ul>
         </nav>
-    </header>
+   
