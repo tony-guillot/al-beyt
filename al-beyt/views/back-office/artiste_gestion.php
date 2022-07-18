@@ -1,13 +1,19 @@
 <?php
 require_once '../../../vendor/autoload.php';
 use AlBeyt\Controllers\ArtisteController;
+use AlBeyt\Library\Affichage;
+
 $controller = New ArtisteController;
-// $domains = $controller->displayAllDomains();
-$artists = $controller->displayAllArtists();
-$allInfoArtists = $controller->displayAllInfoArtists();
-echo '<pre>';
-// var_dump($allInfoArtists);
-echo '</pre>';
+
+if(isset($_GET['page'])){
+    $page = intval($_GET['page']);
+}else{
+    $page = 1;
+}
+
+$allInfoArtists = $controller->displayAllInfoArtists($page);
+$totalArtists = count($controller->displayAllInfoArtists());
+$pageMax = ceil($totalArtists / ArtisteController::NBR_ARTISTE_PAR_PAGE);
 
 $title = 'Gestion artistes';
 require_once('../include/headerBo.php');
@@ -38,7 +44,7 @@ require_once('../include/headerBo.php');
                 <?php foreach($allInfoArtists as $artist)
                 {  ?>
                     <tr>
-                        <td><?= $artist['chemin']?></td>
+                        <td><img class="imageGestion" src="http://<?= $artist['chemin']?>" alt="Image principale"></td>
                         <td><?= $artist['legende']?></td>
                         <td><?= $artist['nom']?></td>
                         <td><?= $artist['description']?></td>
@@ -65,14 +71,25 @@ require_once('../include/headerBo.php');
                                 else
                                 {echo '<i class="fa-solid fa-eye-slash"></i>';} ?>
                         </td>
-                        
-                       
                     </tr>  
                     
             <?php } ?>
             
             </tbody>
         </table>
+    </section>
+    <section>
+    <?php if ($page != 1): ?>
+        <a href="artiste_gestion.php?page=<?= $page - 1 ?>">Page précédente</a>
+    <?php endif ?>
+
+    <?php for ($i = 1; $i <= $pageMax ; $i++): ?>
+        <a <?= ($i == $page) ? Affichage::stylizeCurrentPage() : "" ?> href="artiste_gestion.php?page=<?= $i ?>"> <?= $i ?> </a>
+    <?php endfor ?>
+
+    <?php if ($page != $pageMax): ?>
+        <a href="artiste_gestion.php?page=<?= $page + 1 ?>">Page suivante</a>
+    <?php endif ?>
     </section>
 </main>
 <?php 

@@ -13,7 +13,7 @@ $displayImagesByEventId = $controller->displayImagesByEventId($id);
 
 if(isset($_POST['valider']))
 {   
-    $eventModify = $controller->modifyEvent(  $_POST['titre'],
+    $controller->modifyEvent(  $_POST['titre'],
                                                 $_POST['adresse'],
                                                 $_POST['date'],
                                                 $_POST['heure'],
@@ -27,7 +27,7 @@ if(isset($_POST['image']))
      $id_evenement = intval($id);
     if(!empty($displayImagesByEventId[1]) )
     {     
-        $eventImagesModify = $controller->modifyImagesEvent( $_FILES['image_en_avant'],
+        $controller->modifyImagesEvent( $_FILES['image_en_avant'],
         $_POST['legende_en_avant'],
         $_POST['ordre_image_en_avant'],
         $_FILES['image2'],
@@ -42,7 +42,7 @@ if(isset($_POST['image']))
     }
     else
     {
-        $modifyImage = $controller->modifyImage($_FILES['image_en_avant'],
+        $controller->modifyImage($_FILES['image_en_avant'],
                                                 $_POST['legende_en_avant'],
                                                 $_POST['ordre_image_en_avant'],
                                                 $id_evenement);

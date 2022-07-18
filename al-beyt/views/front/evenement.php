@@ -1,6 +1,6 @@
 <?php
 require_once '../../../vendor/autoload.php';
-$title = "Evènement";
+
 use AlBeyt\Controllers\EvenementController;
 use AlBeyt\Library\Affichage;
 $controllerEvenement = new EvenementController;
@@ -16,6 +16,7 @@ $event = $controllerEvenement->displayEventById($id);
 $images_event = $controllerEvenement->displayImagesByEventId($id);
 $artistes = $controllerEvenement->displayArtistsByEventId($id);
 
+$title = "Evènement";
 require_once('../include/header.php');
 ?>
 

@@ -25,10 +25,9 @@
 <?php
 require_once '../../../vendor/autoload.php';
 use AlBeyt\Controllers\ArtisteController;
-$controller = New ArtisteController;
+$controllerDomaine = new ArtisteController;
 
-$domaines = $controller->displayAllDomains()
-
+$domaines = $controllerDomaine->displayAllDomains();
 ?>
 
 <script>
@@ -39,7 +38,6 @@ $domaines = $controller->displayAllDomains()
 </script>
 <body>
     <header>
-
         <nav>
             <div class="nav-wrapper">
                 <ul>

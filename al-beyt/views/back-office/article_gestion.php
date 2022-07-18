@@ -1,6 +1,8 @@
 <?php
 require_once '../../../vendor/autoload.php';
 use AlBeyt\Controllers\ArticleController;
+use AlBeyt\Library\Affichage;
+
 $controllerArticle = new ArticleController();
 
 if(isset($_GET['delete'])){
@@ -68,7 +70,7 @@ require_once('../include/headerBo.php');
     <?php endif ?>
 
     <?php for ($i = 1; $i <= $pageMax ; $i++): ?>
-        <a href="article_gestion.php?page=<?= $i ?>"> <?= $i ?> </a>
+        <a  <?= ($i == $page) ? Affichage::stylizeCurrentPage() : "" ?> href="article_gestion.php?page=<?= $i ?>"> <?= $i ?> </a>
     <?php endfor ?>
 
     <?php if ($page != $pageMax): ?>

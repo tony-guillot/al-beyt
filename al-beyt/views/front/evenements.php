@@ -1,7 +1,6 @@
 <?php
 require_once '../../../vendor/autoload.php';
-$title = "Evènements";
-require_once('../include/header.php');
+
 use AlBeyt\Controllers\EvenementController;
 use AlBeyt\Library\Affichage;
 
@@ -24,6 +23,8 @@ if(isset($_GET['year']))
     $events = $controllerEvenement->displayAllInfosEvent($page);
 }
 
+$title = "Evènements";
+require_once('../include/header.php');
 ?>
 
 <main>
@@ -58,13 +59,13 @@ if(isset($_GET['year']))
     </section>
     <section>
         <?php if ($page != 1): ?>
-            <a href="evenement.php?page=<?= $page - 1 ?>">Page précédente</a>
+            <a href="evenements.php?page=<?= $page - 1 ?><?= isset($year) ? "&year=".$year : "" ?>">Page précédente</a>
         <?php endif ?>
         <?php for ($i = 1; $i <= $pageMax; $i++): ?>
-            <a href="evenement.php?page=<?= $i ?>"> <?= $i ?> </a>
+            <a  <?= ($i == $page) ? Affichage::stylizeCurrentPage() : "" ?> href="evenements.php?page=<?= $i ?><?= isset($year) ? "&year=".$year : "" ?>"> <?= $i ?> </a>
         <?php endfor ?>
         <?php if ($page != $pageMax): ?>
-            <a href="evenement.php?page=<?= $page + 1 ?>">Page suivante</a>
+            <a href="evenements.php?page=<?= $page + 1 ?><?= isset($year) ? "&year=".$year : "" ?>">Page suivante</a>
         <?php endif ?>
     </section>
 </main>

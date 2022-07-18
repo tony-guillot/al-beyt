@@ -100,7 +100,7 @@ class ArtisteModel extends Bdd
         return $result;
     }
     
-    public function getAllInfoArtists()
+    public function getAllInfoArtists($limit, $offset)
     {
         $bdd = $this->bdd->prepare(
             'SELECT  artiste.id as id_artiste, domaine.nom as domaine, artiste.nom, description, email, lien_insta, lien_soundcloud, lien_facebook, lien_twitter, chemin,legende, statut,website
@@ -109,8 +109,11 @@ class ArtisteModel extends Bdd
             ON artiste.id = image_artiste.id_artiste 
             INNER JOIN domaine 
             ON artiste.id_domaine = domaine.id 
-            ORDER BY artiste.nom ASC ');
-        $bdd->execute();
+            ORDER BY artiste.nom ASC 
+            LIMIT :limit OFFSET :offset');
+        $bdd->bindValue(':limit',$limit, PDO::PARAM_INT);
+        $bdd->bindValue(':offset',$offset,PDO::PARAM_INT);
+            $bdd->execute();
         $result = $bdd->fetchall(PDO::FETCH_ASSOC);
 
         return $result;
