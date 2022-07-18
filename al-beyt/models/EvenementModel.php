@@ -30,6 +30,7 @@ class EvenementModel extends Bdd {
             LEFT JOIN image_evenement as image_e
             ON image_e.id_evenement = e.id
             AND image_e.ordre = 1
+            ORDER BY date_evenement DESC
             LIMIT :limit OFFSET :offset ;'
         );
         $bdd->bindValue(":limit" , $limit,PDO::PARAM_INT);

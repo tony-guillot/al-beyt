@@ -13,15 +13,15 @@ if(!empty($_POST['valider']))
 $title ="Ajout article";
 require_once('../include/headerBo.php');
 ?>
-<main>
+<?php require_once('../include/sidebar.php');?>
+<main class="container">
     <section>
-        <?php require_once('../include/sidebar.php');?>
     </section>
-    <section>
-        <section>
+    <section class="row formulaire">
+        <section class="col s12">
             <h1>Ajouter un nouvel article</h1>
         </section>
-        <section>
+        <section class="col s6">
             <form action="" method="post" enctype="multipart/form-data">
             <h2>Informations de l'article</h2>
             <article>
@@ -45,7 +45,7 @@ require_once('../include/headerBo.php');
             </article>
 
         </section>
-        <section>
+        <section class="col s6">
             <h2>Choisissez les images complémentaires</h2>
 
             <article>
@@ -83,18 +83,21 @@ require_once('../include/headerBo.php');
                 </div>
             </article>
         </section>
-        <section>
+        <section class="col s12">
             <h2>Corps de l'article :</h2>
             <article>
-                <textarea name="description"> <?= $_POST['description'] ?? "" ?> </textarea>
+                <textarea style="height: 200px;border: 0.5px solid gray" class="materialize-textarea" name="description"> <?= $_POST['description'] ?? "" ?> </textarea>
             </article>
         </section>
         <section>
-            <input type="submit" name="valider" value="submit">
+            <button class="btn waves-effect btn-large waves-light col s12" type="submit" name="valider">Ajouter un article
+                <i class="material-icons right">note_add</i>
+            </button>
+           <!-- <input type="submit" name="valider" value="submit">-->
         </section>
         </form>
     </section>
 </main>
 <?php 
-require_once('../include/footer.php');
+require_once('../include/footerBo.php');
 ?>

@@ -13,5 +13,5 @@ require_once('../include/headerBo.php');
     </section>
 </main>
 <?php 
-require_once('../include/footer.php');
+require_once('../include/footerBo.php');
 ?>

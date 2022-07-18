@@ -47,14 +47,19 @@ if(!empty($_POST['valider']))
 $title = 'Ajout evenement';
 require_once('../include/headerBo.php');
 ?>
-<main>
+<?php require_once('../include/sidebar.php');?>
+<script>
+    $(document).ready(function(){
+    $('select').formSelect();
+  });
+</script>
+<main class="container">
     <section>
-        <?php require_once('../include/sidebar.php');?>
     </section>
-    <section>
-        <h1>Ajouter un nouvel évènement</h1>
+    <section class="row formulaire">
+        <h1 class="col s12">Ajouter un nouvel évènement</h1>
         <form action="" method="post" enctype="multipart/form-data">
-            <section>
+            <section class="col s6">
                 <h2>Informations de l'évènement</h2>
                 <article>
                     <div>
@@ -76,10 +81,10 @@ require_once('../include/headerBo.php');
                 </article>
                 <article>
                     <label for="description">Description de l'évènement:</label>
-                    <textarea name="description" ><?= $_POST['description'] ?? "" ?></textarea>
+                    <textarea class="materialize-textarea" style="height: 100px;border: 0.5px solid gray" name="description" ><?= $_POST['description'] ?? "" ?></textarea>
                 </article>
             </section>
-            <section>
+            <section class="col s6">
                 <h2>Choisissez les images</h2>
                 <article>
                     <div>
@@ -99,12 +104,12 @@ require_once('../include/headerBo.php');
                         <input type="hidden" name="ordre_image2" value="2">
                     </div>
                     <div>
-                        <label for="legende2">Légende complémentaire</label>
+                        <label for="legende2">Légende complémentaire:</label>
                         <input type="text" value="<?= $_POST['legende2'] ?? "" ?>" name="legende2" placeholder="Exemple : crédits photographiques, nom des personnes sur la photo, etc...">
                     </div>
                 </article>
             </section>
-            <section>
+            <section class="col s12 input-field ">
                 <h2>Choisissez les artistes</h2>
                 <article>
                     <?php
@@ -128,10 +133,13 @@ require_once('../include/headerBo.php');
                     ?>
                 </article>
             </section>
-            <input type="submit" name="valider" value="submit">
+            <button class="btn waves-effect btn-large waves-light col s12" type="submit" name="valider">Ajouter un évènement
+                <i class="material-icons right">date_range</i>
+            </button>
+           <!--  <input class="col s12" type="submit" name="valider" value="Ajouter un évènement"> -->
         </form>
     </section>
 </main>
 <?php 
-require_once('../include/footer.php');
+require_once('../include/footerBo.php');
 ?>

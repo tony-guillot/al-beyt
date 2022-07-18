@@ -25,7 +25,7 @@ class Affichage
         {
             $selectedDefault = !empty($selected[$i-1]) ? "selected" : "";
             $displayArticle = '<label for="artiste'.$i.'">Artiste'.$i.':</label>
-                                <select name="id_artiste'.$i.'">
+                                <select class="browser-default" name="id_artiste'.$i.'">
                                 <option '.$selectedDefault.' value="">veuillez selectionner un artiste</option>';
             foreach($artists as $artist)
             {

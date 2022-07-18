@@ -129,7 +129,7 @@ require_once('../include/headerBo.php');
                             <img src="http://<?= $imagesEvent[1]['chemin'] ?? ""?>" alt=""> </br>
                         </div>
                         <div>
-                            <label for="legende2">Légende complémentaire</label>
+                            <label for="legende2">Légende complémentaire:</label>
                             <input type="text" value="<?= $imagesEvent[1]['legende'] ?? "" ?>" name="legende2">
                         </div>
                     </article>
@@ -148,5 +148,5 @@ require_once('../include/headerBo.php');
     </section>
 </main>
 <?php 
-require_once('../include/footer.php');
+require_once('../include/footerBo.php');
 ?>

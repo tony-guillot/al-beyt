@@ -80,5 +80,5 @@ require_once('../include/headerBo.php');
 </main>
 
 <?php
-require_once('../include/footer.php');
+require_once('../include/footerBo.php');
 ?>
