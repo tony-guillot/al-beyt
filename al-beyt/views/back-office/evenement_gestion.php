@@ -27,12 +27,13 @@ $pageMax = ceil($totalEvents / EvenementController::NB_EVENEMENT_PAR_PAGE);
 $title = 'Gestion evenement';
 require_once('../include/headerBo.php');
 ?>
-<main>
+<?php require_once('../include/sidebar.php');?>
+<main class="container">
+    <h1 class="header">Gestion des évènements</h1>
     <section>
-        <?php require_once('../include/sidebar.php');?>
     </section>
     <section>
-        <table>
+        <table class="stripped highlight">
             <thead>
                 <th>Affiche</th>
                 <th>Titre</th>
@@ -73,7 +74,7 @@ require_once('../include/headerBo.php');
             </tbody>
         </table>
     </section>
-    <section>
+    <section class="container pagination center-align">
     <?php if ($page != 1): ?>
         <a href="evenement_gestion.php?page=<?= $page - 1 ?>">Page précédente</a>
     <?php endif ?>

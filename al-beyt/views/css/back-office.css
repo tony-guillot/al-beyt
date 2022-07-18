@@ -1,17 +1,22 @@
 .dropdown-content{
-   top: 64px!important; ;
+   top: 64px!important;
 }
 
-img.imageGestion {
-   max-width: 200px;
+h1.header {
+   font-size: 3em;
 }
+
+.container{
+   width: 80%!important;
+}
+
 
 section.table-gestion{
    width: 80%;
 }
 
-h1.header {
-   font-size: 3em;
+img.imageGestion {
+   max-width: 200px;
 }
 
 section.pagination{
