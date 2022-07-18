@@ -1,6 +1,6 @@
 <?php
 require_once '../../../vendor/autoload.php';
-require_once('../include/sidebar.php');
+$title = 'Modif evenement';
 require_once('../include/header.php');
 use AlBeyt\Controllers\EvenementController;
 $controller = New EvenementController;
@@ -84,10 +84,13 @@ $imagesEvent = $controller->displayImagesByEventId($id);
 ?>
 <main>
     <section>
-        <article>
+        <?php require_once('../include/sidebar.php');?>
+    </section>
+    <section>
+        <section>
             <a href="artiste_gestion.php"><i class="fa-solid fa-circle-chevron-left"></i></a>
             <h1>Modifier l'évènement</h1> 
-        </article> 
+        </section>
         <section>
             <h2> Informations de l'évènement:</h2>
             <form action="" method="post" >

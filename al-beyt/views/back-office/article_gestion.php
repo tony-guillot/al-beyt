@@ -1,7 +1,7 @@
 <?php
 require_once '../../../vendor/autoload.php';
+$title = 'Gestion Article';
 require_once('../include/header.php');
-require_once('../include/sidebar.php');
 
 use AlBeyt\Controllers\ArticleController;
 
@@ -26,6 +26,10 @@ $allArticles = $controllerArticle->displayAllArticles($page);
 
 ?>
 <main>
+    <section>
+            <?php require_once('../include/sidebar.php');?>
+    </section>
+    <section>
         <table>
             <thead>
                 <th>Image principale</th>
@@ -58,20 +62,22 @@ $allArticles = $controllerArticle->displayAllArticles($page);
             <?php   } ?>
             </tbody>
         </table>
-
-<?php if ($page != 1): ?>
-    <a href="article_gestion.php?page=<?= $page - 1 ?>">Page précédente</a>
-<?php endif ?>
-
-<?php for ($i = 1; $i <= $pageMax ; $i++): ?>
-    <a href="article_gestion.php?page=<?= $i ?>"> <?= $i ?> </a>
-<?php endfor ?>
-
-<?php if ($page != $pageMax): ?>
-    <a href="article_gestion.php?page=<?= $page + 1 ?>">Page suivante</a>
-<?php endif ?>
-
+</section>
+<section>
+    <?php if ($page != 1): ?>
+        <a href="article_gestion.php?page=<?= $page - 1 ?>">Page précédente</a>
+    <?php endif ?>
+    
+    <?php for ($i = 1; $i <= $pageMax ; $i++): ?>
+        <a href="article_gestion.php?page=<?= $i ?>"> <?= $i ?> </a>
+    <?php endfor ?>
+    
+    <?php if ($page != $pageMax): ?>
+        <a href="article_gestion.php?page=<?= $page + 1 ?>">Page suivante</a>
+    <?php endif ?>
+    </section>
 </main>
+
 <?php 
 require_once('../include/footer.php');
 ?>

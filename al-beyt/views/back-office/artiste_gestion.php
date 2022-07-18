@@ -1,6 +1,6 @@
 <?php
 require_once '../../../vendor/autoload.php';
-require_once('../include/sidebar.php');
+$title = 'Gestion artistes';
 require_once('../include/header.php');
 use AlBeyt\Controllers\ArtisteController;
 $controller = New ArtisteController;
@@ -13,6 +13,9 @@ echo '</pre>';
 
 ?>
 <main>
+    <section>
+        <?php require_once('../include/sidebar.php');?>
+    </section>
     <section>
         <table>
             <thead>

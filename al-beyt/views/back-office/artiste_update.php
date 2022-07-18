@@ -1,6 +1,6 @@
 <?php
 require_once '../../../vendor/autoload.php';
-require_once('../include/sidebar.php');
+$title = 'Modif Artiste';
 require_once('../include/header.php');
 use AlBeyt\Controllers\ArtisteController;
 $controller = New ArtisteController;
@@ -50,6 +50,9 @@ if(isset($_POST['replace_image']))
 
 ?>
 <main>
+    <section>
+        <?php require_once('../include/sidebar.php');?>
+    </section>
     <section>
         <section>
             <article>

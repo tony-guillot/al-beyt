@@ -24,7 +24,7 @@ if(isset($_GET['year']))
 ?>
 
 <main>
-    <section>
+     <section>
         <section>
             <ul>
                 <li>

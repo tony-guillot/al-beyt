@@ -1,6 +1,6 @@
 <?php
 require_once '../../../vendor/autoload.php';
-require_once('../include/sidebar.php');
+$title = 'Gestion evenement';
 require_once('../include/header.php');
 use AlBeyt\Controllers\EvenementController;
 $controller = New EvenementController;
@@ -16,6 +16,9 @@ if(isset($_GET['delete']))
 ?>
 
 <main>
+    <section>
+        <?php require_once('../include/sidebar.php');?>
+    </section>
     <section>
         <table>
             <thead>
