@@ -23,9 +23,9 @@ if(isset($_GET['year']))
 
 ?>
 
-<main>
-     <section>
-        <section>
+<main  class="contener">
+     <section class="sous-contener">
+        <section class="filtre">
             <ul>
                 <li>
                     <a href="articles.php">tous les articles</a>

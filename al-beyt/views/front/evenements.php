@@ -26,9 +26,9 @@ if(isset($_GET['year']))
 
 ?>
 
-<main>
-    <section>
-        <section>
+<main class="contener">
+    <section  class="sous-contener">
+        <section class="filtre" >
             <ul>
                 <li>
                     <a href="evenements.php">tous les evenements</a>
@@ -40,9 +40,9 @@ if(isset($_GET['year']))
                 <?php endfor ?>
             </ul>
         </section>
-        <section>
+        <section class="box-cards-evenements">
             <?php foreach ($events as $event) { ?>
-                <article>
+                <article class="cards-evenements">
                     <a href="evenement.php?id=<?= $event['id'] ?>">
                         <img src="http://<?= $event['chemin'] ?>" alt="<?= $event['titre'] ?>">
                         <div>
@@ -56,7 +56,7 @@ if(isset($_GET['year']))
             <?php } ?>
         </section>
     </section>
-    <section>
+    <section class="conteneur-page">
         <?php if ($page != 1): ?>
             <a href="evenement.php?page=<?= $page - 1 ?>">Page précédente</a>
         <?php endif ?>
