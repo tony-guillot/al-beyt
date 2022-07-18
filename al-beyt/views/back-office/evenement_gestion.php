@@ -50,7 +50,7 @@ require_once('../include/headerBo.php');
                    $artistsByEventId = $controllerEvenement->displayArtistsByEventId($id_evenement);
                     ?>
                     <tr>
-                        <td><img src="http://<?= $allEvent['chemin']?>" alt="Affiche de l'evenement"></td>
+                        <td><img class="imageGestion" src="http://<?= $allEvent['chemin']?>" alt="Affiche de l'evenement"></td>
                         <td><?= $allEvent['titre']?></td>
                         <td><?= $allEvent['description']?></td>
                         <td>

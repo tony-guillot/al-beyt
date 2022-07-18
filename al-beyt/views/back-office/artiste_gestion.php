@@ -44,7 +44,7 @@ require_once('../include/headerBo.php');
                 <?php foreach($allInfoArtists as $artist)
                 {  ?>
                     <tr>
-                        <td><img src="http://<?= $artist['chemin']?>" alt="Image principale"></td>
+                        <td><img class="imageGestion" src="http://<?= $artist['chemin']?>" alt="Image principale"></td>
                         <td><?= $artist['legende']?></td>
                         <td><?= $artist['nom']?></td>
                         <td><?= $artist['description']?></td>
