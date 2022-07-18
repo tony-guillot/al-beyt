@@ -23,7 +23,7 @@ if(isset($_POST['submit']))
         $statut = 0;
     }
 
-    $retrieveData = $controller->modifyArtist(
+    $controller->modifyArtist(
     $_POST['website'],
     $_POST['nom'],
     $_POST['description'],
@@ -43,7 +43,7 @@ if(isset($_POST['submit']))
 if(isset($_POST['replace_image']))
 {
     $id_artiste = intval($id);
-    $retriveImage = $controller->modifyImageArtist($_FILES['image'], $_POST['legende'], $id_artiste);
+    $controller->modifyImageArtist($_FILES['image'], $_POST['legende'], $id_artiste);
     $controller->modifyLegende($_POST['legende'], $id_artiste);
     $artist = $controller->displayArtistById($id);
 }

@@ -12,7 +12,7 @@
     // var_dump($artists);
      //var_dump($lastEvent);
     echo '</pre>';
-    $shuffleArtists = shuffle($artists);
+    shuffle($artists);
     echo '<pre>';
     // var_dump($artists);
     echo '</pre>';

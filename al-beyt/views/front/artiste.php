@@ -1,7 +1,5 @@
 <?php
 require_once '../../../vendor/autoload.php';
-$title = "Artiste";
-require_once('../include/header.php');
 use AlBeyt\Controllers\ArtisteController;
 use AlBeyt\Library\Affichage;
 $controller = New ArtisteController;
@@ -28,7 +26,7 @@ if(isset($_GET['id']) && !empty($_GET['id']) )
 }
 else
 {
-    header('Location: artiste.php?id='.$id_artiste.'');
+    header('Location: artistes.php');
     // echo 'Cet évènement a été supprimé.';
    
 }
@@ -39,6 +37,8 @@ $totalEventsByPage = count($controller->displayEventsByIdArtist($id_artiste));
 $pageMax = ceil($totalEventsByPage / ArtisteController::NBR_EVENEMENT_PAGE_ARTISTE);
 // var_dump('TOTAL EVENT',$controller->displayEventsByIdArtist($id_artiste));
 
+$title = "Artiste";
+require_once('../include/header.php');
 ?>
 <main>
     <section>

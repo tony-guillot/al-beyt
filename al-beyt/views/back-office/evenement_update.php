@@ -21,13 +21,13 @@ $displayImagesByEventId = $controller->displayImagesByEventId($id);
 if(isset($_POST['valider']))
 {   
  
-    $eventModify = $controller->modifyEvent(  $_POST['titre'],
-                                                $_POST['adresse'],
-                                                $_POST['date'],
-                                                $_POST['heure'],
-                                                $_POST['description'],
-                                                $id
-                                            );
+    $controller->modifyEvent(  $_POST['titre'],
+                                $_POST['adresse'],
+                                $_POST['date'],
+                                $_POST['heure'],
+                                $_POST['description'],
+                                $id
+                            );
 
 }
 // echo '<pre>';
@@ -42,7 +42,7 @@ if(isset($_POST['image']))
     {     
         //echo ('passe dans le if');
 
-        $eventImagesModify = $controller->modifyImagesEvent( $_FILES['image_en_avant'],
+        $controller->modifyImagesEvent( $_FILES['image_en_avant'],
         $_POST['legende_en_avant'],
         $_POST['ordre_image_en_avant'],
         $_FILES['image2'],
@@ -59,12 +59,12 @@ if(isset($_POST['image']))
     {
         //echo ('passe dans le else');
 
-        $modifyImage = $controller->modifyImage($_FILES['image_en_avant'],
+        $controller->modifyImage($_FILES['image_en_avant'],
                                                 $_POST['legende_en_avant'],
                                                 $_POST['ordre_image_en_avant'],
                                                 $id_evenement);
         $controller->modifyLegende($_POST['legende_en_avant'],$_POST['ordre_image_en_avant'],$id_evenement);
-        $registerImage = $controller->registerImage($_FILES['image2'],
+        $controller->registerImage($_FILES['image2'],
                                                 $_POST['legende2'],
                                                 $id_evenement,
                                                 $_POST['ordre_image2']

@@ -1,7 +1,6 @@
 <?php
 require_once '../../../vendor/autoload.php';
 $title = 'Modif article';
-require_once('../include/header.php');
 use AlBeyt\Controllers\ArticleController;
 $controllerArticle = new ArticleController();
 
@@ -44,6 +43,7 @@ if(!empty($_POST['valider']))
 $article = $controllerArticle->displayArticleById($id_article);
 $images_article = $controllerArticle->displayImagesByIdArticle($id_article);
 
+require_once('../include/header.php');
 ?>
 <main>
     <section>

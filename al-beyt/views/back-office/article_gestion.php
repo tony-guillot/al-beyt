@@ -1,7 +1,6 @@
 <?php
 require_once '../../../vendor/autoload.php';
 $title = 'Gestion Article';
-require_once('../include/header.php');
 
 use AlBeyt\Controllers\ArticleController;
 
@@ -24,6 +23,7 @@ $pageMax = ceil($totalArticles / ArticleController::NB_ARTICLE_PAR_PAGE);
 
 $allArticles = $controllerArticle->displayAllArticles($page);
 
+require_once('../include/header.php');
 ?>
 <main>
     <section>
@@ -67,17 +67,17 @@ $allArticles = $controllerArticle->displayAllArticles($page);
     <?php if ($page != 1): ?>
         <a href="article_gestion.php?page=<?= $page - 1 ?>">Page précédente</a>
     <?php endif ?>
-    
+
     <?php for ($i = 1; $i <= $pageMax ; $i++): ?>
         <a href="article_gestion.php?page=<?= $i ?>"> <?= $i ?> </a>
     <?php endfor ?>
-    
+
     <?php if ($page != $pageMax): ?>
         <a href="article_gestion.php?page=<?= $page + 1 ?>">Page suivante</a>
     <?php endif ?>
     </section>
 </main>
 
-<?php 
+<?php
 require_once('../include/footer.php');
 ?>

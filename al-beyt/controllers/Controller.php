@@ -34,6 +34,12 @@ class Controller
         $url = htmlspecialchars(trim(strip_tags(strtolower(filter_var($url,FILTER_VALIDATE_URL)))));
         return $url; 
     }
+
+    /**
+     * Fonction à apeller en premier afin de sécuriser la partie admin
+     * Note : attention a ne pas inclure de header avant l'appel de cette fonction
+     * @return void
+     */
     public function secureBackOffice()
     {
         if($_SESSION['user'][0]['nom'] != 'admin')

@@ -11,7 +11,7 @@ echo '</pre>';
 
 if(isset($_POST['submit']))
 {
-    $retrieveData = $controller->registerArtist(
+    $controller->registerArtist(
     $_POST['id_domaine'],
     $_POST['nom'],
     $_POST['description'],

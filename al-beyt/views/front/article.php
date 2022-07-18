@@ -1,7 +1,6 @@
 <?php
 require_once '../../../vendor/autoload.php';
-$title = "Article";
-require_once('../include/header.php');
+
 use AlBeyt\Controllers\ArticleController;
 use AlBeyt\Library\Affichage;
 
@@ -16,6 +15,8 @@ if(isset($_GET['id'])){
 $article = $controllerArticle->displayArticleById($id);
 $images_article = $controllerArticle->displayImagesByIdArticle($id);
 
+$title = "Article";
+require_once('../include/header.php');
 ?>
 
 <main>

@@ -10,7 +10,7 @@ $allEvents = $controller->displayAllInfosEvent();
 if(isset($_GET['delete']))
 {   
     $id = $_GET['delete'];
-    $supprime = $controller->supprimeEvent($id);
+    $controller->supprimeEvent($id);
    
 }
 ?>
