@@ -25,7 +25,7 @@ require_once('../include/headerBo.php');
 ?>
 <main>
     <section>
-            <?php require_once('../include/sidebar.php');?>
+            <?php //require_once('../include/sidebar.php');?>
     </section>
     <section>
         <table>
@@ -45,7 +45,7 @@ require_once('../include/headerBo.php');
                 $image = $controllerArticle->displayImagesByIdArticle($id_article);
                 ?>
                 <tr>
-                    <td><img src="http://<?= $image[0]['chemin']?>"></td>
+                    <td><img class="imageGestion" src="http://<?= $image[0]['chemin']?>"></td>
                     <td><?= $allArticle['titre']?></td>
                     <td><?= $allArticle['date']?></td>
                     <td><?= $allArticle['auteur']?></td>
