@@ -142,8 +142,9 @@ class Affichage
         $print .= '</div>';
 
         return $print;
-
     }
+
+
 }
 
 ?>

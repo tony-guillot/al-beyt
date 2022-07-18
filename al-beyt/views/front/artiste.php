@@ -1,9 +1,11 @@
 <?php
 require_once '../../../vendor/autoload.php';
+
 use AlBeyt\Controllers\ArtisteController;
 use AlBeyt\Library\Affichage;
 $controller = New ArtisteController;
 $affichage = New Affichage;
+
 if(isset($_GET['page']) && !empty($_GET['page']))
 {   
     $pageCourante = $_GET['page'];
@@ -30,7 +32,6 @@ else
     // echo 'Cet évènement a été supprimé.';
    
 }
-
 
 $id_artiste = intval($_GET['id']);
 $totalEventsByPage = count($controller->displayEventsByIdArtist($id_artiste));

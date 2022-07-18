@@ -1,7 +1,6 @@
 <?php
 require_once '../../../vendor/autoload.php';
-$title = "Articles";
-require_once('../include/header.php');
+
 use AlBeyt\Controllers\ArticleController;
 $controllerArticle = new ArticleController();
 
@@ -21,6 +20,8 @@ if(isset($_GET['year']))
     $articles = $controllerArticle->displayAllArticles($page);
 }
 
+$title = "Articles";
+require_once('../include/header.php');
 ?>
 
 <main>
@@ -56,15 +57,15 @@ if(isset($_GET['year']))
     </section>
     <section>
         <?php if ($page != 1): ?>
-            <a href="articles.php?page=<?= $page - 1 ?>">Page précédente</a>
+            <a href="articles.php?page=<?= $page - 1 ?><?= isset($year) ? "&year=".$year : "" ?>">Page précédente</a>
         <?php endif ?>
 
         <?php for ($i = 1; $i <= $pageMax; $i++): ?>
-            <a href="articles.php?page=<?= $i ?>"> <?= $i ?> </a>
+            <a href="articles.php?page=<?= $i ?><?= isset($year) ? "&year=".$year : "" ?>"> <?= $i ?> </a>
         <?php endfor ?>
 
         <?php if ($page != $pageMax): ?>
-            <a href="articles.php?page=<?= $page + 1 ?>">Page suivante</a>
+            <a href="articles.php?page=<?= $page + 1 ?><?= isset($year) ? "&year=".$year : "" ?>">Page suivante</a>
         <?php endif ?>
     </section>
 </main>

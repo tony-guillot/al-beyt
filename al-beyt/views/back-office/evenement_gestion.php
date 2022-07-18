@@ -1,16 +1,28 @@
 <?php
 require_once '../../../vendor/autoload.php';
 use AlBeyt\Controllers\EvenementController;
-$controller = New EvenementController;
-$allEvents = $controller->displayAllInfosEvent();
+use AlBeyt\Library\Affichage;
+
+$controllerEvenement = new EvenementController;
 
 // supprimer un évènement.
 if(isset($_GET['delete']))
 {   
     $id = $_GET['delete'];
-    $controller->supprimeEvent($id);
-   
+    $controllerEvenement->supprimeEvent($id);
 }
+
+if(isset($_GET['page'])){
+    $page = $controllerEvenement->secure($_GET['page']);
+}else{
+    $page = 1;
+}
+
+$allEvents = $controllerEvenement->displayAllInfosEvent($page);
+
+$totalEvents = count($controllerEvenement->displayAllInfosEvent());
+$pageMax = ceil($totalEvents / EvenementController::NB_EVENEMENT_PAR_PAGE);
+
 
 $title = 'Gestion evenement';
 require_once('../include/headerBo.php');
@@ -35,10 +47,10 @@ require_once('../include/headerBo.php');
             <tbody>
                 <?php foreach($allEvents as $allEvent)
                 {  $id_evenement = $allEvent['id'];
-                   $artistsByEventId = $controller->displayArtistsByEventId($id_evenement);
+                   $artistsByEventId = $controllerEvenement->displayArtistsByEventId($id_evenement);
                     ?>
                     <tr>
-                        <td><?= $allEvent['chemin']?></td>
+                        <td><img src="http://<?= $allEvent['chemin']?>" alt="Affiche de l'evenement"></td>
                         <td><?= $allEvent['titre']?></td>
                         <td><?= $allEvent['description']?></td>
                         <td>
@@ -60,7 +72,20 @@ require_once('../include/headerBo.php');
                 <?php } ?>            
             </tbody>
         </table>
-    </section>    
+    </section>
+    <section>
+    <?php if ($page != 1): ?>
+        <a href="evenement_gestion.php?page=<?= $page - 1 ?>">Page précédente</a>
+    <?php endif ?>
+
+    <?php for ($i = 1; $i <= $pageMax ; $i++): ?>
+        <a href="evenement_gestion.php?page=<?= $i ?>"> <?= $i ?> </a>
+    <?php endfor ?>
+
+    <?php if ($page != $pageMax): ?>
+        <a href="evenement_gestion.php?page=<?= $page + 1 ?>">Page suivante</a>
+    <?php endif ?>
+    </section>
 </main>
 <?php 
 require_once('../include/footer.php');

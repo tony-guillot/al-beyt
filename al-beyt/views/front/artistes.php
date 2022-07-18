@@ -1,9 +1,9 @@
 <?php
 require_once '../../../vendor/autoload.php';
-$title = "Artistes";
-require_once('../include/header.php');
+
 use AlBeyt\Controllers\ArtisteController;
 $controller = New ArtisteController;
+
 if(isset($_GET['page']) && !empty($_GET['page']))
 {   
     $pageCourante = intval($_GET['page']);
@@ -27,7 +27,10 @@ else
 {
     $artists = $controller->displayAllArtistsByStatut(1, $pageCourante);
 }
-    ?>
+
+$title = "Artistes";
+require_once('../include/header.php');
+?>
 <main>
     <section>
         <ul>
@@ -59,23 +62,20 @@ else
                     </a>
                 </article>
       <?php }
-                
-
         } ?>
     </section>
     <section>
         <?php if($pageCourante != 1)
         {   ?>
-            <a href="artistes.php?page=<?= $pageCourante - 1?>">Page précédente</a>
+            <a href="artistes.php?page=<?= $pageCourante - 1?><?= isset($id_domaine) ? "&id=".$id_domaine : "" ?>">Page précédente</a>
   <?php }?>
         <?php for ($i=1; $i <= $pageMax; $i++)
         { ?>
-
-            <a href="artistes.php?page=<?= $i?>"><?= $i?></a>
+            <a href="artistes.php?page=<?= $i?><?= isset($id_domaine) ? "&id=".$id_domaine : "" ?>"><?= $i?></a>
  <?php  }?>
         <?php if($pageCourante != $pageMax)
         {?>
-            <a href="artistes.php?page=<?= $pageCourante + 1 ?>">Page suivante</a>
+            <a href="artistes.php?page=<?= $pageCourante + 1 ?><?= isset($id_domaine) ? "&id=".$id_domaine : "" ?>">Page suivante</a>
   <?php }
     ?>
     </section>

@@ -23,9 +23,9 @@
 <?php
 require_once '../../../vendor/autoload.php';
 use AlBeyt\Controllers\ArtisteController;
-$controller = New ArtisteController;
+$controllerDomaine = new ArtisteController;
 
-$domaines = $controller->displayAllDomains()
+$domaines = $controllerDomaine->displayAllDomains();
    
 ?>
 <body>

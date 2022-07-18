@@ -86,9 +86,15 @@ class ArtisteController extends Controller
     }
 
     //****/Gestion des requetes d'affichage  front pour l'administrateur\***
-    public function displayAllInfoArtists()
+    public function displayAllInfoArtists($pageCourante = null)
     {
-        $AllInfoArtists = $this->modelArtiste->getAllInfoArtists();
+        if($pageCourante != null){
+            $limit = self::NBR_ARTISTE_PAR_PAGE;
+            $offset = self::NBR_ARTISTE_PAR_PAGE * ($pageCourante - 1);
+            $AllInfoArtists = $this->modelArtiste->getAllInfoArtists($limit, $offset);
+        }else{
+            $AllInfoArtists = $this->modelArtiste->getAllInfoArtists(100000, 0);
+        }
         return $AllInfoArtists;
     }
 
