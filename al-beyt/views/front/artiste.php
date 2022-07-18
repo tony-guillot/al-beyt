@@ -87,23 +87,21 @@ require_once('../include/header.php');
             </article>
       <?php }?>    
                 <article>
-                
-                        <?php 
-                     
-                        if($pageCourante != 1)
-                {   ?>
-                    <a href="artiste.php?page=<?= $pageCourante - 1?>&id=<?=$id_artiste?>">Page précédente</a>
-        <?php }?>
-                <?php for ($i=1; $i <= $pageMax; $i++)
-                { ?>
 
-                    <a href="artiste.php?page=<?= $i?>&id=<?=$id_artiste?>"><?= $i?></a>
-        <?php  }?>
-                <?php if($pageCourante != $pageMax)
-                {?>
-                    <a href="artiste.php?page=<?= $pageCourante + 1 ?>&id=<?=$id_artiste?>">Page suivante</a>
-        <?php }
-    ?>
+                    <?php
+                    if($pageCourante != 1)
+                    {   ?>
+                        <a href="artiste.php?page=<?= $pageCourante - 1?>&id=<?=$id_artiste?>">Page précédente</a>
+                    <?php }?>
+                    <?php for ($i=1; $i <= $pageMax; $i++)
+                    { ?>
+                        <a  <?= ($i == $pageCourante) ? Affichage::stylizeCurrentPage() : "" ?> href="artiste.php?page=<?= $i?>&id=<?=$id_artiste?>"><?= $i?></a>
+                    <?php  }?>
+                    <?php if($pageCourante != $pageMax)
+                    {?>
+                        <a href="artiste.php?page=<?= $pageCourante + 1 ?>&id=<?=$id_artiste?>">Page suivante</a>
+                    <?php }
+                    ?>
 
                 </article>
 

@@ -2,6 +2,8 @@
 require_once '../../../vendor/autoload.php';
 
 use AlBeyt\Controllers\ArtisteController;
+use AlBeyt\Library\Affichage;
+
 $controller = New ArtisteController;
 
 if(isset($_GET['page']) && !empty($_GET['page']))
@@ -71,7 +73,7 @@ require_once('../include/header.php');
   <?php }?>
         <?php for ($i=1; $i <= $pageMax; $i++)
         { ?>
-            <a href="artistes.php?page=<?= $i?><?= isset($id_domaine) ? "&id=".$id_domaine : "" ?>"><?= $i?></a>
+            <a  <?= ($i == $pageCourante) ? Affichage::stylizeCurrentPage() : "" ?> href="artistes.php?page=<?= $i?><?= isset($id_domaine) ? "&id=".$id_domaine : "" ?>"><?= $i?></a>
  <?php  }?>
         <?php if($pageCourante != $pageMax)
         {?>

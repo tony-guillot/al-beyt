@@ -62,7 +62,7 @@ require_once('../include/header.php');
             <a href="evenements.php?page=<?= $page - 1 ?><?= isset($year) ? "&year=".$year : "" ?>">Page précédente</a>
         <?php endif ?>
         <?php for ($i = 1; $i <= $pageMax; $i++): ?>
-            <a href="evenements.php?page=<?= $i ?><?= isset($year) ? "&year=".$year : "" ?>"> <?= $i ?> </a>
+            <a  <?= ($i == $page) ? Affichage::stylizeCurrentPage() : "" ?> href="evenements.php?page=<?= $i ?><?= isset($year) ? "&year=".$year : "" ?>"> <?= $i ?> </a>
         <?php endfor ?>
         <?php if ($page != $pageMax): ?>
             <a href="evenements.php?page=<?= $page + 1 ?><?= isset($year) ? "&year=".$year : "" ?>">Page suivante</a>

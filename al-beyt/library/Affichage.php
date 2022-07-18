@@ -98,6 +98,12 @@ class Affichage
         return $displayTags;
     }
 
+    public static function stylizeCurrentPage()
+    {
+        $style = 'style="color: pink;"'; //TODO: if (back-office) -> on met un style, else on met un autre style
+        return $style;
+    }
+
     public function printAllArtists()
     {
 

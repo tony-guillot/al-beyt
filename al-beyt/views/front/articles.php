@@ -2,6 +2,8 @@
 require_once '../../../vendor/autoload.php';
 
 use AlBeyt\Controllers\ArticleController;
+use AlBeyt\Library\Affichage;
+
 $controllerArticle = new ArticleController();
 
 if(isset($_GET['page'])){
@@ -61,7 +63,7 @@ require_once('../include/header.php');
         <?php endif ?>
 
         <?php for ($i = 1; $i <= $pageMax; $i++): ?>
-            <a href="articles.php?page=<?= $i ?><?= isset($year) ? "&year=".$year : "" ?>"> <?= $i ?> </a>
+            <a  <?= ($i == $page) ? Affichage::stylizeCurrentPage() : "" ?> href="articles.php?page=<?= $i ?><?= isset($year) ? "&year=".$year : "" ?>"> <?= $i ?> </a>
         <?php endfor ?>
 
         <?php if ($page != $pageMax): ?>
