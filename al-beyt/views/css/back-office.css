@@ -1,3 +1,41 @@
 .dropdown-content{
    top: 64px!important; ;
 }
+
+img.imageGestion {
+   max-width: 200px;
+}
+
+section.table-gestion{
+   width: 80%;
+}
+
+h1.header {
+   font-size: 3em;
+}
+
+section.pagination{
+      margin-top: 15px;
+}
+
+section.pagination a{
+   text-align: center;
+}
+
+.contact h1 {
+   font-size: 1.5em;
+   font-weight: bold;
+   margin-bottom: 5px;
+}
+.contact p {
+   margin-top: 2px;
+}
+
+.bottom-links a {
+   font-size: 3em;
+}
+
+img.sidenav-background {
+   max-width:100%;
+   max-height:100%;
+}

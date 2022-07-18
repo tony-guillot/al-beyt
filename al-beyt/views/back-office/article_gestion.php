@@ -20,15 +20,16 @@ $pageMax = ceil($totalArticles / ArticleController::NB_ARTICLE_PAR_PAGE);
 
 $allArticles = $controllerArticle->displayAllArticles($page);
 
-$title ="Ajout article";
+$title ="Gestion article";
 require_once('../include/headerBo.php');
 ?>
-<main>
+<?php require_once('../include/sidebar.php');?>
+<main class="container">
+    <h1 class="header">Gestion des articles</h1>
     <section>
-            <?php //require_once('../include/sidebar.php');?>
     </section>
     <section>
-        <table>
+        <table class="stripped highlight">
             <thead>
                 <th>Image principale</th>
                 <th>Titre</th>
@@ -61,7 +62,7 @@ require_once('../include/headerBo.php');
             </tbody>
         </table>
 </section>
-<section>
+<section class="container pagination center-align">
     <?php if ($page != 1): ?>
         <a href="article_gestion.php?page=<?= $page - 1 ?>">Page précédente</a>
     <?php endif ?>
