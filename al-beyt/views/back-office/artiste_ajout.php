@@ -1,14 +1,8 @@
 <?php
 require_once '../../../vendor/autoload.php';
-$title = 'Ajout artiste';
-require_once('../include/header.php');
 use AlBeyt\Controllers\ArtisteController;
 $controller = New ArtisteController;
 $domains = $controller->displayAllDomains();
-echo '<pre>';
-// var_dump($controller->displayAllDomains());
-echo '</pre>';
-
 if(isset($_POST['submit']))
 {
     $controller->registerArtist(
@@ -24,6 +18,8 @@ if(isset($_POST['submit']))
     $_FILES['image'],
     $_POST['legende']);
 }
+$title ="Ajout article";
+require_once('../include/headerBo.php');
 ?>
 <main>
     <section>

@@ -1,9 +1,6 @@
 <?php
 require_once '../../../vendor/autoload.php';
-$title = 'Gestion Article';
-
 use AlBeyt\Controllers\ArticleController;
-
 $controllerArticle = new ArticleController();
 
 if(isset($_GET['delete'])){
@@ -23,7 +20,8 @@ $pageMax = ceil($totalArticles / ArticleController::NB_ARTICLE_PAR_PAGE);
 
 $allArticles = $controllerArticle->displayAllArticles($page);
 
-require_once('../include/header.php');
+$title ="Ajout article";
+require_once('../include/headerBo.php');
 ?>
 <main>
     <section>

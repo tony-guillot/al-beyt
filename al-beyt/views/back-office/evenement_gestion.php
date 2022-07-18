@@ -1,7 +1,5 @@
 <?php
 require_once '../../../vendor/autoload.php';
-$title = 'Gestion evenement';
-require_once('../include/header.php');
 use AlBeyt\Controllers\EvenementController;
 $controller = New EvenementController;
 $allEvents = $controller->displayAllInfosEvent();
@@ -13,8 +11,10 @@ if(isset($_GET['delete']))
     $controller->supprimeEvent($id);
    
 }
-?>
 
+$title = 'Gestion evenement';
+require_once('../include/headerBo.php');
+?>
 <main>
     <section>
         <?php require_once('../include/sidebar.php');?>

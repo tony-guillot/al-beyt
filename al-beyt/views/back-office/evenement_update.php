@@ -1,7 +1,5 @@
 <?php
 require_once '../../../vendor/autoload.php';
-$title = 'Modif evenement';
-require_once('../include/header.php');
 use AlBeyt\Controllers\EvenementController;
 $controller = New EvenementController;
 
@@ -9,40 +7,27 @@ if(isset($_GET['id']))
 {
     $id = intval($_GET['id']);
     $event = $controller->displayEventById($id);
-    // var_dump($event);
-    
 }
 
 $displayImagesByEventId = $controller->displayImagesByEventId($id);
-// echo '<pre>';
-//var_dump($displayImagesByEventId[1]);
-// echo '</pre>';
 
 if(isset($_POST['valider']))
 {   
- 
-    $controller->modifyEvent(  $_POST['titre'],
-                                $_POST['adresse'],
-                                $_POST['date'],
-                                $_POST['heure'],
-                                $_POST['description'],
-                                $id
-                            );
-
+    $eventModify = $controller->modifyEvent(  $_POST['titre'],
+                                                $_POST['adresse'],
+                                                $_POST['date'],
+                                                $_POST['heure'],
+                                                $_POST['description'],
+                                                $id
+                                            );
 }
-// echo '<pre>';
-// var_dump( $_FILES['image_en_avant']);
-// var_dump( $_FILES['image2']['name']);
-// echo '</pre>';
 
 if(isset($_POST['image']))
 {   
      $id_evenement = intval($id);
     if(!empty($displayImagesByEventId[1]) )
     {     
-        //echo ('passe dans le if');
-
-        $controller->modifyImagesEvent( $_FILES['image_en_avant'],
+        $eventImagesModify = $controller->modifyImagesEvent( $_FILES['image_en_avant'],
         $_POST['legende_en_avant'],
         $_POST['ordre_image_en_avant'],
         $_FILES['image2'],
@@ -57,9 +42,7 @@ if(isset($_POST['image']))
     }
     else
     {
-        //echo ('passe dans le else');
-
-        $controller->modifyImage($_FILES['image_en_avant'],
+        $modifyImage = $controller->modifyImage($_FILES['image_en_avant'],
                                                 $_POST['legende_en_avant'],
                                                 $_POST['ordre_image_en_avant'],
                                                 $id_evenement);
@@ -67,20 +50,15 @@ if(isset($_POST['image']))
         $controller->registerImage($_FILES['image2'],
                                                 $_POST['legende2'],
                                                 $id_evenement,
-                                                $_POST['ordre_image2']
-                                              );
-
+                                                $_POST['ordre_image2']);
     }
     
    
 }
-
-//si  il n'y a aucune image 2 en bdd on insert sinon on remplace.
-
-
-// l'image 1 est toujours remplie. si tu soumets le formulaire il faut dans tout les cas submit les données de l'image 1 est
-// si l'image 2 est vide il faut inserer sinon il faut udpate. 
 $imagesEvent = $controller->displayImagesByEventId($id);
+
+$title = 'Modif evenement';
+require_once('../include/headerBo.php');
 ?>
 <main>
     <section>

@@ -1,8 +1,17 @@
 <?php
 require_once '../../../vendor/autoload.php';
-require_once('../include/sidebar.php');
-require_once('../include/header.php');
+
+$title = '💜';
+require_once('../include/headerBo.php');
 ?>
+<main>
+    <section>
+        <?php require_once('../include/sidebar.php');?>
+    </section>
+    <section>
+
+    </section>
+</main>
 <?php 
 require_once('../include/footer.php');
 ?>

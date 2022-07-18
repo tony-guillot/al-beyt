@@ -1,11 +1,6 @@
 <?php
 require_once '../../../vendor/autoload.php';
-$title ="Ajout article";
-require_once('../include/header.php');
-
-
 use AlBeyt\Controllers\ArticleController;
-
 $controllerArticle = new ArticleController();
 
 if(!empty($_POST['valider']))
@@ -15,6 +10,8 @@ if(!empty($_POST['valider']))
     echo "Success : id_Article = ".$id_article ;
     echo "</pre>";
 }
+$title ="Ajout article";
+require_once('../include/headerBo.php');
 ?>
 <main>
     <section>

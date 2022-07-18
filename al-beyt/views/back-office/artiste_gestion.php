@@ -1,7 +1,5 @@
 <?php
 require_once '../../../vendor/autoload.php';
-$title = 'Gestion artistes';
-require_once('../include/header.php');
 use AlBeyt\Controllers\ArtisteController;
 $controller = New ArtisteController;
 // $domains = $controller->displayAllDomains();
@@ -11,6 +9,8 @@ echo '<pre>';
 // var_dump($allInfoArtists);
 echo '</pre>';
 
+$title = 'Gestion artistes';
+require_once('../include/headerBo.php');
 ?>
 <main>
     <section>

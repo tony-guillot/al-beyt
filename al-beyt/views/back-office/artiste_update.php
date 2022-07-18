@@ -1,7 +1,5 @@
 <?php
 require_once '../../../vendor/autoload.php';
-$title = 'Modif Artiste';
-require_once('../include/header.php');
 use AlBeyt\Controllers\ArtisteController;
 $controller = New ArtisteController;
 $domains = $controller->displayAllDomains();
@@ -48,6 +46,8 @@ if(isset($_POST['replace_image']))
     $artist = $controller->displayArtistById($id);
 }
 
+$title = 'Modif Artiste';
+require_once('../include/headerBo.php');
 ?>
 <main>
     <section>

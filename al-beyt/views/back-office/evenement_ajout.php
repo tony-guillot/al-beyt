@@ -1,12 +1,8 @@
 <?php
 require_once '../../../vendor/autoload.php';
-$title = 'Ajout evenement';
 use AlBeyt\Controllers\ArtisteController;
 use AlBeyt\Controllers\EvenementController;
 use AlBeyt\Library\Affichage;
-
-$title = "Ajouter un évènement";
-require_once('../include/header.php');
 $controllerEvenement = new EvenementController();
 $controllerArtiste = new ArtisteController();
 
@@ -43,11 +39,13 @@ if(!empty($_POST['valider']))
             $_POST['id_artiste15']
         ]
     );
-    echo '<pre>';
-    var_dump($controllerEvenement->displayEventById($id_event));
-    echo '</pre>';
-    }
+// echo '<pre>';
+// var_dump($controllerEvenement->displayEventById($id_event));
+// echo '</pre>';
+}
 
+$title = 'Ajout evenement';
+require_once('../include/headerBo.php');
 ?>
 <main>
     <section>
