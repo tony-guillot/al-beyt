@@ -10,7 +10,7 @@
     $artists = $controllerArtist->displayAllArtists();
     echo '<pre>';
     // var_dump($artists);
-     //var_dump($lastEvent);
+    //  var_dump($lastEvent);
     echo '</pre>';
     shuffle($artists);
     echo '<pre>';
@@ -18,29 +18,45 @@
     echo '</pre>';
     
 ?>
-<main>
-    <section>
-        <?php for($i = 0; $i < 15; $i++):?>
-        <article>
-            <a href="artiste.php?id=<?= $artists[$i]['id']?>"><em><?= $artists[$i]['nom'];?></em></a>
+<main class="global-box">
+    <section class="parent-shuffle">
+        <?php for($i = 0; $i < 15; $i++):?>    
+        <article class="names">
+          <a class="link-names" href="artiste.php?id=<?= $artists[$i]['id']?>"><em><?=$artists[$i]['nom'];?></em></a>
         </article>
+    <!--✹ -->   
         <?php endfor;?>
     </section>
-    <section>
-        <article>
-            <img src="http://<?= $lastEvent['chemin'] ?>" alt="Affiche Prochain évènement Al-Beyt">
+    <section class="index-parent-event">
+        <article class="parent-index-affiche">
+            <a href="evenement.php?id=<?= $lastEvent['id']?>">
+                <img  class="index-affiche" src="http://<?= $lastEvent['chemin'] ?>" alt="Affiche Prochain évènement Al-Beyt">
+            </a>
         </article>
-        <article>
-            <div>
-                <h1><?= $lastEvent['titre'] ?></h1>
-                <p><?= $lastEvent['date_evenement']?> à <?= $lastEvent['heure']?></p>
-                <p><?= $lastEvent['adresse'] ?></p>
+        <article class="index-parent-infos">
+            <div class="index-infos">
+                <h1 class="index-text-style event-titre"><?= $lastEvent['titre'] ?></h1>
+
+                <div class="parent-date-heure">
+                    <div class="flex">
+                        <p class=" index-text-style date-heure"><?= $lastEvent['date_evenement']?></p>&emsp;<p class=" index-text-style à">à</p>&emsp;<p class=" index-text-style date-heure"><?= $lastEvent['heure']?></p>
+                    </div>
+                    <p class="index-text-style adresse"><?= $lastEvent['adresse'] ?></p>
+                    
+            
+                </div>
             </div>
-            <div>
-                <p>On vous attend Nombreux.ses </p>
-            </div>
+            <div class="index-plus">
+                <a href="evenement.php?id=<?= $lastEvent['id']?>">
+                    <i class="fa-solid fa-circle-plus index-icon"></i>
+                </a>    
+            </div>    
         </article>
+    </section>
+    <section class="mignon">
+    <p class="froufrou">On vous attend Nombreux.ses </p>
     </section>
 </main>
 <?php
+    require_once('../include/footer.php');
 ?>

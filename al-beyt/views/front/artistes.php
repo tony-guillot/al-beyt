@@ -33,38 +33,39 @@ else
 $title = "Artistes";
 require_once('../include/header.php');
 ?>
-<main>
-    <section>
-        <ul>
-                <li>
-                    <a href="artistes.php">Tous les artistes</a>
-                </li>
-            <?php foreach ($domaines as $domaine)
-            { ?>
-             <li>
-                    <a href="artistes.php?id=<?= $domaine['id'] ?>"><?= $domaine['nom']?></a>
-                </li>
-        <?php }?>
-        </ul>
-    </section>
-    <section>
-        <?php foreach($artists as $artist)
-        { 
-            { ?>
-                <article>
-                    <a href="artiste.php?id=<?= $domaine['id']?>"> 
-                        <div>
-                            <img src="http://<?= $artist['chemin']?>">
-                        </div>
-                        <div>
-                            <span><?= $artist['nom']?></span>
-                            <i class="fa-solid fa-circle-plus"></i>
-                        </div>
+<main class="contener" >
+    <section class="sous-contener">
+        <section class="filtre">
+            <ul>
+                    <li>
+                        <a href="artistes.php">Tous les artistes</a>
+                    </li>
+                <?php foreach ($domaines as $domaine)
+                { ?>
+                    <li>
+                        <a href="artistes.php?id=<?= $domaine['id'] ?>"><?= $domaine['nom']?></a>
+                    </li>
+            <?php }?>
+            </ul>
+        </section>
+        <section  class="cards-artists">
+            <?php foreach($artists as $artist)
+            {
+                { ?>
+                    <article>
+                        <a href="artiste.php?id=<?= $domaine['id']?>">
+                            <div>
+                                <img src="http://<?= $artist['chemin']?>">
+                            </div>
+                            <div>
+                                <span><?= $artist['nom']?></span>
+                                <i class="fa-solid fa-circle-plus"></i>
+                            </div>
 
                     </a>
                 </article>
       <?php }
-        } ?>
+        } ?></section>
     </section>
     <section>
         <?php if($pageCourante != 1)

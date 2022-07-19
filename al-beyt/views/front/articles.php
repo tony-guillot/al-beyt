@@ -26,9 +26,9 @@ $title = "Articles";
 require_once('../include/header.php');
 ?>
 
-<main>
-     <section>
-        <section>
+<main  class="contener">
+     <section class="sous-contener">
+        <section class="filtre">
             <ul>
                 <li>
                     <a href="articles.php">tous les articles</a>

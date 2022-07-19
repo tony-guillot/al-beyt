@@ -27,9 +27,9 @@ $title = "Evènements";
 require_once('../include/header.php');
 ?>
 
-<main>
-    <section>
-        <section>
+<main class="contener">
+    <section  class="sous-contener">
+        <section class="filtre" >
             <ul>
                 <li>
                     <a href="evenements.php">tous les evenements</a>
@@ -41,9 +41,9 @@ require_once('../include/header.php');
                 <?php endfor ?>
             </ul>
         </section>
-        <section>
+        <section class="box-cards-evenements">
             <?php foreach ($events as $event) { ?>
-                <article>
+                <article class="cards-evenements">
                     <a href="evenement.php?id=<?= $event['id'] ?>">
                         <img src="http://<?= $event['chemin'] ?>" alt="<?= $event['titre'] ?>">
                         <div>
@@ -57,7 +57,7 @@ require_once('../include/header.php');
             <?php } ?>
         </section>
     </section>
-    <section>
+    <section class="conteneur-page">
         <?php if ($page != 1): ?>
             <a href="evenements.php?page=<?= $page - 1 ?><?= isset($year) ? "&year=".$year : "" ?>">Page précédente</a>
         <?php endif ?>
