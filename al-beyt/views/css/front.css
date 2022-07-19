@@ -71,6 +71,14 @@ body
     background-color:#fdfff0d9;
     color:#502D60;
 }
+img
+{
+    width: 100%;
+    object-fit:cover;
+    margin-bottom: 20px;
+    height: 200px;
+    /* z-index: -1; */
+}
 /***********Header************/
 
 header
@@ -444,6 +452,7 @@ img.index-affiche:hover
     height: 40vh;
     background-color:#62d09d;
     margin-top: 20px;
+    z-index: 4;
 }
 
 /******Evenement*******/
