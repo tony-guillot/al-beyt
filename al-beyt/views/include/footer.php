@@ -4,11 +4,11 @@
                 <img style="width: 100px;"src="../../../images/logo.png" alt="logo al-beyt">
             </article>
             <article class="contact-box">
-                <h1 class="footer-title inter taille0.huit">Contact</h1>
+                <h1 class="footer-title inter taille0-huit">Contact</h1>
                 <p class="inter footer-mail ">collectif.albeyt@gmail.com</p>
             </article>
             <article>
-                <a class="inter footer-mentions taille0.huit " href="">Mentions légales</a>
+                <a class="inter footer-mentions taille0-huit " href="">Mentions légales</a>
             </article>
             <article>
                     <div class="footer-reseaux">
