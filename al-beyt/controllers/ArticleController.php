@@ -72,7 +72,8 @@ class ArticleController extends Controller
                     if ($cheminImageEnAvant != "") {
                         $this->modelArticle->insertImage($cheminImageEnAvant, $legende_en_avant, $id_article, 1);
                     }
-                    if (empty($image2['name']) || (!empty($image2['name']) && $image2['size'] < Image::TAILLE_LIMITE)) {
+                    //if (empty($image2['name']) || (!empty($image2['name']) && $image2['size'] < Image::TAILLE_LIMITE)) {
+                    if (!empty($image2) && !empty($legende2)) {
                         $cheminImage2 = Image::sauvegardeImage($image2);
                         if ($cheminImage2 != "") {
                             $this->modelArticle->insertImage($cheminImage2, $legende2, $id_article, 2);
