@@ -63,7 +63,7 @@ class ArticleController extends Controller
 
         if(!empty($titre) && !empty($auteur) && !empty($description) )
         {
-            if (strlen($titre) > 150)
+            if (strlen($titre) < 150)
             {
                 if (!empty($image_en_avant['name']))
                 {

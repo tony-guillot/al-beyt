@@ -90,7 +90,7 @@ require_once('../include/headerBo.php');
             </article>
         </section>
         <section>
-            <button class="btn waves-effect btn-large waves-light col s12" type="submit" name="valider">Ajouter un article
+            <button class="btn waves-effect btn-large waves-light col s12" type="submit" name="valider" value="1">Ajouter un article
                 <i class="material-icons right">note_add</i>
             </button>
            <!-- <input type="submit" name="valider" value="submit">-->

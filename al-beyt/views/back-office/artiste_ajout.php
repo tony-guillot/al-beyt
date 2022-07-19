@@ -104,7 +104,7 @@ require_once('../include/headerBo.php');
             </article>
             <!--<input type="submit" name="submit" value="Ajouter l'artiste">-->
         </section>
-        <button class="btn waves-effect btn-large waves-light col s12" type="submit" name="valider">Ajouter un artiste
+        <button class="btn waves-effect btn-large waves-light col s12" type="submit" value="1" name="valider">Ajouter un artiste
             <i class="material-icons right">person_add</i>
         </button>
     </section>

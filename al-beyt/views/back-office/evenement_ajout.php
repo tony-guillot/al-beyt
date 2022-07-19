@@ -133,7 +133,7 @@ require_once('../include/headerBo.php');
                     ?>
                 </article>
             </section>
-            <button class="btn waves-effect btn-large waves-light col s12" type="submit" name="valider">Ajouter un évènement
+            <button class="btn waves-effect btn-large waves-light col s12" type="submit" name="valider" value="1">Ajouter un évènement
                 <i class="material-icons right">date_range</i>
             </button>
            <!--  <input class="col s12" type="submit" name="valider" value="Ajouter un évènement"> -->
