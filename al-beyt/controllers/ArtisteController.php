@@ -116,7 +116,7 @@ class ArtisteController extends Controller
         {
 
             $descriptionLen = strlen($description);
-            if(($descriptionLen <= 1600) && ($descriptionLen >= 50))
+            if(($descriptionLen <= 1600) && ($descriptionLen >= 20))
             {
                 if(empty($email) || filter_var($email,FILTER_VALIDATE_EMAIL))
                 {
@@ -172,7 +172,7 @@ class ArtisteController extends Controller
             }
             else
             {
-                echo "La description doit être comprise entre 50 et 1600 caractères.";
+                echo "La description doit être comprise entre 20 et 1600 caractères.";
             }
           
         }

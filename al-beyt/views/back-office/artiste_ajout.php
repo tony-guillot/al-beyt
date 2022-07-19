@@ -38,7 +38,7 @@ require_once('../include/headerBo.php');
             </article>
             <article>
                 <label for="id_domaine">Pôle</label>
-                <select name="id_domaine">
+                <select class="browser-default" name="id_domaine">
                         <option value="">sélectionner une pratique artistique</option>
                     
                     <?php  foreach($domains as $domain) 
@@ -104,7 +104,7 @@ require_once('../include/headerBo.php');
             </article>
             <!--<input type="submit" name="submit" value="Ajouter l'artiste">-->
         </section>
-        <button class="btn waves-effect btn-large waves-light col s12" type="submit" value="1" name="valider">Ajouter un artiste
+        <button class="btn waves-effect btn-large waves-light col s12" type="submit" value="1" name="submit">Ajouter un artiste
             <i class="material-icons right">person_add</i>
         </button>
     </section>
