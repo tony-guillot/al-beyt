@@ -79,7 +79,7 @@ require_once('../include/headerBo.php');
                     </article>
                     <article>
                         <label for="id_domaine">Pôle:</label>
-                            <select name="id_domaine">
+                            <select class="" name="id_domaine">
                                     <option value="<?= $artist['id_domaine']?>"><?= $artist['nom_domaine']?></option>
                                 
                                 <?php  foreach($domains as $domain) 

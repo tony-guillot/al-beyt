@@ -59,17 +59,17 @@ $imagesEvent = $controller->displayImagesByEventId($id);
 
 $title = 'Modif evenement';
 require_once('../include/headerBo.php');
+require_once('../include/sidebar.php');
 ?>
-<main>
+<main class="container">
     <section>
-        <?php require_once('../include/sidebar.php');?>
     </section>
-    <section>
-        <section>
+    <section class="row formulaire">
+        <section class="col s12">
             <a href="artiste_gestion.php"><i class="fa-solid fa-circle-chevron-left"></i></a>
             <h1>Modifier l'évènement</h1> 
         </section>
-        <section>
+        <section class="col s6">
             <h2> Informations de l'évènement:</h2>
             <form action="" method="post" >
                 <article>
@@ -93,15 +93,18 @@ require_once('../include/headerBo.php');
                 <article>
                     <div>
                         <label for="description">Description de l'évènement:</label>
-                        <textarea name="description"><?= $event['description'] ?></textarea>
+                        <textarea class="materialize-textarea" style="height: 100px;border: 0.5px solid gray" name="description"><?= $event['description'] ?></textarea>
                     </div>
                 </article> 
-                <article>
-                    <input type="submit" name="valider" value="sauvegarder">
-                </article>
+                <button class="btn waves-effect btn-large waves-light col s12" type="submit" name="image" value="Sauvegarder">Mettre à jour les informations de l'évènement
+            <i class="material-icons right">date_range</i>
+        </button>
+        <!--<input type="submit" name="image" value="Sauvegarder">-->
+
+
             </form>
-        </section>
-        <section>
+        </section class="col s6">
+        <section class="col s6">
             <h2> Images de l'évènement:</h2>
             <form action="" method="post" enctype="multipart/form-data">
                 <article>
@@ -140,11 +143,15 @@ require_once('../include/headerBo.php');
                         </div>
                     </article>
                 </article>
-                <article>
-                    <input type="submit" name="image" value="Sauvegarder">
-                </article>
             </form>
         </section>
+        <section>
+            <button class="btn waves-effect waves-light col s6" type="submit" name="valider" value="sauvegarder">Mettre
+                a jour les images
+                <i class="material-icons right">photo_library</i>
+            </button>
+        </section>
+        <!--<input type="submit" name="valider" value="sauvegarder">-->
     </section>
 </main>
 <?php 
