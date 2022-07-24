@@ -18,7 +18,7 @@ if(isset($_POST['submit']))
     $_FILES['image'],
     $_POST['legende']);
 }
-$title ="Ajout article";
+$title ="Ajout artiste";
 require_once('../include/headerBo.php');
 ?>
         <?php require_once('../include/sidebar.php');?>

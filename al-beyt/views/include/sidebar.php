@@ -63,7 +63,6 @@
 <script>
        $(document).ready(function(){
         $('.sidenav').sidenav();
-        $('.sidenav').open();
         });
 </script>
 <!-- <ul id="slide-out" class="sidenav">
