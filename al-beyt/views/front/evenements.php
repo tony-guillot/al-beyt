@@ -45,7 +45,8 @@ require_once('../include/header.php');
             <?php foreach ($events as $event) { ?>
                 <article class="cards-evenements">
                     <a href="evenement.php?id=<?= $event['id'] ?>">
-                        <img src="http://<?= $event['chemin'] ?>" alt="<?= $event['titre'] ?>">
+                        <div class="box-parallax">
+                            <img class="parallax" src="http://<?= $event['chemin'] ?>" alt="<?= $event['titre'] ?>"></div>
                         <div>
                             <div><h2><?= $event['titre'] ?></h2>
                                 <span><?= Affichage::printDate($event['date_evenement']) ?></span>
