@@ -31,9 +31,9 @@ require_once('../include/header.php');
         <section class="filtre">
             <ul>
                 <li>
-                    <a href="articles.php">tous les articles</a>
+                    <a href="articles.php">toute l'actualité</a>
                 </li>
-                <?php for ($y = date("Y"); $y >= 2021; $y--): ?>
+                <?php for ($y = date("Y"); $y > 2021; $y--): ?>
                     <li>
                         <a href="articles.php?year=<?= $y ?>"><?= $y ?></a>
                     </li>
