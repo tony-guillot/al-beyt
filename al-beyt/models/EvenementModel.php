@@ -188,9 +188,6 @@ class EvenementModel extends Bdd {
 
     public function updateImagesEvent($chemin, $legende, $ordre, $id_evenement)
     {   $id_evenement = intval($id_evenement);
-        // echo '<pre>';
-        // var_dump($chemin, $legende, $ordre,$id_evenement);
-        // echo '</pre>';
         $bdd = $this->bdd->prepare('UPDATE image_evenement
                                     SET chemin = :chemin,
                                         legende = :legende

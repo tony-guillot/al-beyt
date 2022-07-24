@@ -188,9 +188,6 @@ class ArtisteController extends Controller
         $id_domaine = $this->secure(intval($id_domaine));
         $nom = $this->secure($nom);
         $description = $this->secure($description);
-        //!\ upload image comment sécuriser le champs faille upload.    
-        // $chemin = $this->secure($chemin);
-        // $legende =$this->secureWithoutTrim($legende);
     
 
         if(!empty($id_domaine) && !empty($nom) && !empty($description))

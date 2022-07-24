@@ -452,7 +452,7 @@ img.index-affiche:hover
     height: 40vh;
     background-color:#62d09d;
     margin-top: 20px;
-    z-index: 4;
+    /*z-index: 4;*/
 }
 
 /******Evenement*******/
