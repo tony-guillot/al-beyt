@@ -13,6 +13,7 @@ if(isset($_GET['page'])){
 }
 $totalArticles = count($controllerArticle->displayAllArticles());
 $pageMax = ceil($totalArticles / ArticleController::NB_ARTICLE_PAR_PAGE);
+$startYear = date("Y", strtotime($controllerArticle->displayAllArticles()[$totalArticles-1]['date']));
 
 if(isset($_GET['year']))
 {
@@ -33,10 +34,12 @@ require_once('../include/header.php');
                 <li>
                     <a href="articles.php">tous les articles</a>
                 </li>
-                <?php for ($y = date("Y"); $y >= 2021; $y--): ?>
-                    <li>
-                        <a href="articles.php?year=<?= $y ?>"><?= $y ?></a>
-                    </li>
+                <?php for ($y = date("Y"); $y >= $startYear; $y--): ?>
+                    <?php if (!empty($controllerArticle->displayArticlesByYear($y,1))): ?>
+                        <li>
+                            <a href="articles.php?year=<?= $y ?>"><?= $y ?></a>
+                        </li>
+                    <?php endif ?>
                 <?php endfor ?>
             </ul>
         </section>

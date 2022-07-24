@@ -13,7 +13,7 @@ if(isset($_GET['page'])){
 }
 $totalEvenements = count($controllerEvenement->displayAllInfosEvent());
 $pageMax = ceil($totalEvenements / EvenementController::NB_EVENEMENT_PAR_PAGE);
-
+$startYear = date("Y", strtotime($controllerEvenement->displayAllInfosEvent()[$totalEvenements-1]['date_evenement']));
 
 if(isset($_GET['year']))
 {
@@ -34,10 +34,12 @@ require_once('../include/header.php');
                 <li>
                     <a href="evenements.php">tous les evenements</a>
                 </li>
-                <?php for ($y = date("Y"); $y >= 2021; $y--): ?>
-                    <li>
-                        <a href="evenements.php?year=<?= $y ?>"><?= $y ?></a>
-                    </li>
+                <?php for ($y = date("Y"); $y >= $startYear; $y--): ?>
+                    <?php if (!empty($controllerEvenement->displayEventsByYear($y,1))): ?>
+                        <li>
+                            <a href="evenements.php?year=<?= $y ?>"><?= $y ?></a>
+                        </li>
+                    <?php endif ?>
                 <?php endfor ?>
             </ul>
         </section>
