@@ -29,31 +29,34 @@ require_once('../include/header.php');
 
 <main  class="contener">
      <section class="sous-contener">
-        <section class="filtre">
-            <ul class="merryweather liens-filtre taille0-six">
+        <section class="filtre  ">
+            <ul class="merryweather liens-filtre taille0-huit">
                 <li class="filtre">
                     <a class="filtre" <?= (empty($year)) ? Affichage::stylizeCurrentFilter() : "" ?> href="articles.php">Tous les articles</a>
                 </li>
                 <?php for ($y = date("Y"); $y > 2021; $y--): ?>
                     <li class="filtre">
-                        <a class="filtre"  <?= ($y == $year) ? Affichage::stylizeCurrentFilter() : "" ?>  href="articles.php?year=<?= $y ?>"><?= $y ?></a>
+                        <a class="filtre"  <?= ($y == $year) ? Affichage::stylizeCurrentFilter() : "" ?>  href="articles.php?year=<?= $y ?>"> &emsp; &emsp; &emsp; &emsp;  &emsp;<?= $y ?> &emsp; &emsp; &emsp; &emsp;&emsp;  &emsp;</a>
                     </li>
                 <?php endfor ?>
             </ul>
         </section>
         <section class="box-cards">
             <?php foreach ($articles as $article) { ?>
-                <article class="cards">
+                <article class="cards box-shadow animation2">
                     <a class="link-img" href="article.php?id=<?= $article['id'] ?>">
                         <img  class="boucle" src="http://<?= $article['chemin'] ?>" alt="<?= $article['titre'] ?>">
                     </a>    
                     <div class="block-infos">
                             <div class="titre-auteur">
-                                <h2 class="infos merryweather taille1"><?= $article['titre'] ?></h2>
-                                <span class="infos merryweather taille0-huit">Par <?= $article['auteur'] ?>, publié le <?= $article['date'] ?></span>
+                                <h2 class="infos merryweather taille1-trois "><?= $article['titre'] ?></h2>
+                                <span class="infos merryweather taille0-huit">Par <em><b> <?= $article['auteur'] ?> </em></b> , publié le <em><?= $article['date'] ?></em></span>
                             </div>
                             <div>
-                                <i class="fa-solid fa-circle-plus plus taille1"></i>
+                                <a class="link-img" href="article.php?id=<?= $article['id'] ?>">
+                                    <i class="fa-solid fa-circle-plus plus taille1"></i>
+                                </a>    
+
                             </div>
                     </div>
                 </article>

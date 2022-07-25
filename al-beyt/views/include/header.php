@@ -31,7 +31,7 @@ $domaines = $controller->displayAllDomains()
 ?>
 <body>
     <header>
-        <h1 class='al-beyt'>AL-BEYT</h1>    
+        <h1 class='al-beyt taille2' >Al-Beyt</h1>    
     </header>
         <nav>
             <ul>

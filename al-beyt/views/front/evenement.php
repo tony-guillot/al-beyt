@@ -20,13 +20,13 @@ $title = "Evènement";
 require_once('../include/header.php');
 ?>
 
-<main>
-    <section>
-        <section>
-            <article>
+<main class="event">
+    <section class="contener1">
+        <section class="bloc-info">
+            <article class="titre">
                     <h1><?= $event['titre'] ?></h1>
             </article>
-            <article>
+            <article class="infos">
                 <span><?= $event['adresse'] ?></span>
                 <span><?= Affichage::printDate($event['date_evenement']) ?> à <?= $event['heure'] ?></span>
                 <span> avec
@@ -38,24 +38,24 @@ require_once('../include/header.php');
                 </span>
             </article>
         </section>
-        <section>
+        <section class="affiche">
             <article>
-                <img src="http://<?= $images_event[0]['chemin'] ?>" alt="<?= $images_event[0]['legende'] ?>">
+                <img style="width:300px" src="http://<?= $images_event[0]['chemin'] ?>" alt="<?= $images_event[0]['legende'] ?>">
                 <span><?= $images_event[0]['legende'] ?></span>
             </article>
         </section>
     </section>
     <hr />
-    <section>
-        <article>
+    <section class="contener2">
+        <article class="description">
             <p>
                 <?= $event['description'] ?>
             </p>
-        </article>
+        </article >
         <?php if (isset($images_event[1])): ?>
-            <article>
+            <article class="image2">
                 <div>
-                    <img src="http://<?= $images_event[1]['chemin'] ?>" alt="<?= $images_event[1]['legende'] ?>">
+                    <img  style="width:300px"  src="http://<?= $images_event[1]['chemin'] ?>" alt="<?= $images_event[1]['legende'] ?>">
                     <span><?= $images_event[1]['legende'] ?></span>
                 </div>
             </article>
