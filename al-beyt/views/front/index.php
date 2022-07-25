@@ -4,15 +4,19 @@
     require_once('../include/header.php');
     use AlBeyt\Controllers\ArtisteController;
     use AlBeyt\Controllers\EvenementController;
-    $controllerEvent = New EvenementController;
+    use AlBeyt\Library\Affichage;
+
+$controllerEvent = New EvenementController;
     $controllerArtist = New ArtisteController;
     $lastEvent = $controllerEvent->displayLastEvent();
     $artists = $controllerArtist->displayAllArtists();
+    shuffle($artists);
+
+
     echo '<pre>';
     // var_dump($artists);
     //  var_dump($lastEvent);
     echo '</pre>';
-    shuffle($artists);
     echo '<pre>';
     // var_dump($artists);
     echo '</pre>';
@@ -39,7 +43,7 @@
 
                 <div class="parent-date-heure">
                     <div class="flex">
-                        <p class=" index-text-style date-heure"><?= $lastEvent['date_evenement']?></p>&emsp;<p class=" index-text-style à">à</p>&emsp;<p class=" index-text-style date-heure"><?= $lastEvent['heure']?></p>
+                        <p class=" index-text-style date-heure"><?= Affichage::printDateFull($lastEvent['date_evenement'])?></p>&emsp;<p class=" index-text-style à">à</p>&emsp;<p class=" index-text-style date-heure"><?= $lastEvent['heure']?></p>
                     </div>
                     <p class="index-text-style adresse"><?= $lastEvent['adresse'] ?></p>
                     
@@ -54,8 +58,9 @@
         </article>
     </section>
     <section class="mignon">
-    <p class="froufrou">On vous attend Nombreux.ses </p>
+        <p class="froufrou">On vous attend Nombreux.ses </p>
     </section>
+
 </main>
 <?php
     require_once('../include/footer.php');

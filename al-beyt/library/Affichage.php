@@ -3,6 +3,9 @@
 namespace AlBeyt\Library;
 
 
+use \DateTime;
+use \IntlDateFormatter as IntlDateFormatter;
+
 class Affichage
 {
     /**
@@ -45,6 +48,12 @@ class Affichage
     public static function printDate($date)
     {
        return date_format(date_create($date),'d/m/Y');
+    }
+
+    public static function printDateFull($date)
+    {
+        $formatter = new IntlDateFormatter('fr_FR', IntlDateFormatter::FULL, IntlDateFormatter::NONE);
+       return ucfirst($formatter->format(date_create($date)));
     }
 
     public static function printImageSliderForArticles($images_article)
