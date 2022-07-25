@@ -20,7 +20,15 @@ $controllerEvent = New EvenementController;
     echo '<pre>';
     // var_dump($artists);
     echo '</pre>';
-    
+
+    if(isset($_GET['page'])){
+        $page = intval($_GET['page']);
+    }else{
+        $page = 1;
+    }
+
+    $start = ($page-1) * 8;
+    $stop = $page * 8;
 ?>
 <main class="global-box">
     <section class="parent-shuffle">
@@ -60,7 +68,13 @@ $controllerEvent = New EvenementController;
     <section class="mignon">
         <p class="froufrou">On vous attend Nombreux.ses </p>
     </section>
+    <section class="news">
+        <?php for ($i = $start;$i < $stop; $i++): ?>
+            <article class="tile-<?= intdiv($i,8) ?>">
 
+            </article>
+        <?php endfor ?>
+    </section>
 </main>
 <?php
     require_once('../include/footer.php');
