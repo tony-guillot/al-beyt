@@ -110,22 +110,22 @@ class  EvenementController extends Controller {
                             }
                         }
                     }else{
-                        echo 'Veuillez choisir une image complémentaire valide. (Taille limite = 2Mo maximum)';
+                        echo  Error::displayError('Veuillez choisir une image complémentaire valide. (Taille limite = 2Mo maximum)');
                     }
                 }
                 else
                 {
-                    echo 'Veuillez choisir une image d\'affiche valide. (Taille limite = 2Mo maximum)';
+                    echo Error::displayError('Veuillez choisir une image d\'affiche valide. (Taille limite = 2Mo maximum)');
                 }
             }
             else
             {
-               echo 'La longueur du titre ne doit pas exceder 150 caracteres.';
+               echo Error::displayError('La longueur du titre ne doit pas exceder 150 caracteres.');
             }
         }
         else
         {
-            echo "Veuillez remplir les champ Titre, Adresse, Date, Heure et Description.";
+            echo Error::displayError("Veuillez remplir les champ Titre, Adresse, Date, Heure et Description.");
         }
 
 

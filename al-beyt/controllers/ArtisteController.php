@@ -218,23 +218,23 @@ class ArtisteController extends Controller
                         }
                         else
                         {
-                            echo 'Veuillez rentrer un format d\'adresse URL valide.';
+                            echo Error::displayError('Veuillez rentrer un format d\'adresse URL valide.');
                         }
                 }
                 else 
                 {
-                    echo 'Veuillez vérifier le format de l\' adresse email';
+                    echo Error::displayError('Veuillez vérifier le format de l\' adresse email');
                 }
 
             }
             else
             {
-                echo "La description doit être comprise entre 50 et 1600 caractères.";
+                echo Error::displayError("La description doit être comprise entre 50 et 1600 caractères.");
             }
         }
         else
         {
-            echo 'Veuillez choisir une pratique et remplir les champs "alias" ou "description".';
+            echo Error::displayError('Veuillez choisir une pratique et remplir les champs "alias" ou "description".');
         }
         
     }
@@ -251,12 +251,12 @@ class ArtisteController extends Controller
             }
             else
             {
-                echo 'La légende doit comporter entre 10 et 100 caractères.';
+                echo Error::displayError('La légende doit comporter entre 10 et 100 caractères.');
             }
         }
         else
         {
-            echo 'Veuillez choisir une image';
+            echo Error::displayError('Veuillez choisir une image');
         }
     }
 
