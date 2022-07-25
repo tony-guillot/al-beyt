@@ -174,9 +174,12 @@ header
     margin:10px;
 }
 
-nav
+.header * {
+    z-index: 2;
+}
+
+nav.header
 {
-    
    background-color: #FFE1F0;
    height:40px;
    width: 100%;
@@ -184,7 +187,16 @@ nav
 a.link-header
 {
     text-decoration:none;
- 
+    font-weight: 300;
+}
+
+.active > a {
+    font-weight: 400;
+}
+
+nav.header > ul {
+    align-items: stretch;
+    height: 100%;
 }
 
 nav ul
@@ -192,22 +204,25 @@ nav ul
     display: flex;
     justify-content: space-around;
     flex-direction: row;
-    height: 5vh;
+    /*height: 5vh;*/
     /* background-color: rgb(182, 127, 255); */
 }
 nav ul li
-{ 
+{
+
      /* display: flex;
-     position: relative;
+
     justify-content: center;
     align-items: center;
     text-align: center; */
     font-family: 'molgak_classyregular','arial';
-    /* font-family:'Merriweather Sans', sans-serif; */
-    font-weight: 100;
+    /* font-family:'Merriweather Sans', sans-serif;*/
+    /*font-weight: 100;*/
     font-size: 0.9em;
     letter-spacing: 2px;
-    padding: 12px;
+    padding: 10px;
+    position: relative;
+    object-fit: contain;
     /* margin-top:10px; */
     
 }
@@ -215,14 +230,16 @@ nav ul li:hover
 {
     cursor: pointer;
     background-color:#ffecf6;
-    height: 5vh;
+    /*height: 5vh;*/
 }
 .sub-menu-1
 {
+    position: absolute;
+    left: 0;
+    top:100%;
     display:none;
-    
-    /* right: 40px; */
-    width :150px;
+    width: 19vw;
+
    
 }
 .sub-menu-1 ul li

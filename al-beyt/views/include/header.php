@@ -33,7 +33,7 @@ $domaines = $controller->displayAllDomains()
     <header>
         <h1 class='al-beyt'>AL-BEYT</h1>    
     </header>
-        <nav>
+        <nav class="header">
             <ul>
                 <li class="active"><a class="link-header" href="index.php">Accueil</a></li>
 
@@ -75,7 +75,7 @@ $domaines = $controller->displayAllDomains()
                         </ul>
                     </div>
                 </li>     
-                <li class="active"><a class="link-header" href="presentation.php">A propos</a></li>    
+                <li class="active"><a class="link-header" href="presentation.php">A propos</a></li>
             </ul>
         </nav>
    
