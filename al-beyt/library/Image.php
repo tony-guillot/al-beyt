@@ -21,12 +21,10 @@ class Image
                 move_uploaded_file($image['tmp_name'],$cheminDestination);
                 $urlDestination = $_SERVER['HTTP_HOST']."/images/".$nomFichierSurServeur;
             }else{
-                //TODO: gestion des erreurs
-                echo "Extension mauvaise";
+                echo Error::displayError("Verifiez le type de fichier (types .jpeg, .png, .gif)");
             }
         }else{
-            //TODO: gestion des erreurs
-                echo " Erreur Upload fichier";
+                echo Error::displayError("Le serveur a rencontré une erreur lors du chargement de la photo, merci de réessayer");
         }
         return $urlDestination;
     }

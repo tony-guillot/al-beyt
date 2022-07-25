@@ -139,7 +139,7 @@ class ArticleController extends Controller
         }
         else
         {
-            echo Error::displayError('Veuillez remplir les champs.');
+            echo Error::displayError('Veuillez remplir les champs Titre, Auteur et Description.');
         }
 
         return $id_article;

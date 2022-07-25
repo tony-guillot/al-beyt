@@ -1,5 +1,6 @@
 <?php
 namespace AlBeyt\Controllers;
+use AlBeyt\Library\Error;
 use AlBeyt\Library\Image;
 use AlBeyt\Models\EvenementModel;
 use AlBeyt\Models\ArtisteModel;
@@ -142,12 +143,12 @@ class  EvenementController extends Controller {
             }
             else
             {
-                echo 'La longueur du titre ne doit pas exceder 150 caracteres.';
+                echo Error::displayError('La longueur du titre ne doit pas exceder 150 caracteres.');
             }
         }
         else
         {
-            echo "Veuillez remplir les champ Titre, Adresse, Date, Heure et Description.";
+            echo Error::displayError("Veuillez remplir les champ Titre, Adresse, Date, Heure et Description.");
         }
     }
 
