@@ -37,7 +37,7 @@ class ArtisteController extends Controller
         }
         else
         {
-            $displayAllArtists = $this->modelArtiste->getAllArtists(1000000,0);
+            $displayAllArtists = $this->modelArtiste->getAllArtists(100000, 0);
         }
         return $displayAllArtists;
     }

@@ -15,19 +15,19 @@ class  EvenementController extends Controller {
         $this->modelArtiste = new ArtisteModel();
     }
     
-    public function displayAllEvents($pageCourante)
+    public function displayAllEvents($pageCourante = null)
     {
         $limit = self::NB_EVENEMENT_PAR_PAGE ;
         $offset = self::NB_EVENEMENT_PAR_PAGE * ($pageCourante-1) ;
         $display = $this->modelEvenement->getAllEvents($limit,$offset);
         return $display;
     }
- 
+
     public function displayAllInfosEvent($pageCourante = null)
-       {  
+       {
            if($pageCourante != null)
            {
-              
+
                $limit = self::NB_EVENEMENT_PAR_PAGE ;
                $offset = self::NB_EVENEMENT_PAR_PAGE * ($pageCourante-1) ;
                $display = $this->modelEvenement->getAllInfosEvents($limit,$offset);
@@ -44,7 +44,7 @@ class  EvenementController extends Controller {
         $lastEvent = $this->modelEvenement->getLastEvent();
         return $lastEvent;
     }
-   
+
    public function displayArtistsByEventId($id_evenement)
    {
         $display = $this->modelArtiste->getArtistsByEventId($id_evenement);
@@ -131,42 +131,34 @@ class  EvenementController extends Controller {
 
         return $id_evenement;
     }
-    //---------------------------------------------------------------------------------\\
-    // Dans le cas où il n'y a pas de deuxième image:
-    // - insertion de l'image 2 et update de l'image_en_avant
-    // dans  2 requetes indépendantes.
-    public function registerImage($image2, $legende2, $id_evenement, $ordre_image2)
-    {
-        $this->modelEvenement->insertImage($image2,$legende2, $id_evenement, $ordre_image2);
-    } 
-
-    public function modifyImage($image_en_avant, $legende_en_avant, $id_evenement, $ordre_image_en_avant)
-    {
-        $this->modelEvenement->updateImagesEvent($image_en_avant, $legende_en_avant, $id_evenement, $ordre_image_en_avant);
-    }
-
-    //---------------------------------------------------------------------------------\\
-
 
     public function modifyEvent($titre, $adresse, $date, $heure, $description, $id)
     {       
-         $this->modelEvenement->updateEvent($titre, $adresse, $date, $heure, $description, $id);
+        if (!empty($titre) && !empty($adresse) && !empty($date) && !empty($heure)  && !empty($description))
+        {
+            if (strlen($titre) < 150)
+            {
+                $this->modelEvenement->updateEvent($titre, $adresse, $date, $heure, $description, $id);
+            }
+            else
+            {
+                echo 'La longueur du titre ne doit pas exceder 150 caracteres.';
+            }
+        }
+        else
+        {
+            echo "Veuillez remplir les champ Titre, Adresse, Date, Heure et Description.";
+        }
     }
 
     public function modifyImagesEvent($image_en_avant, $legende_en_avant, $ordre_image_en_avant, $image2, $legende2, $ordre_image2, $id_evenement)
-    {   
-        // var_dump('controller');
-        // var_dump($image_en_avant); 
-        // echo '</br>';
+    {
         if(!empty($image_en_avant['name']))
         {   
-
-             $chemin_en_avant = Image::sauvegardeImage($image_en_avant);
+            $chemin_en_avant = Image::sauvegardeImage($image_en_avant);
             if(!empty($chemin_en_avant))
             {   
-
-                 $this->modelEvenement->updateImagesEvent($chemin_en_avant, $legende_en_avant, $ordre_image_en_avant, $id_evenement);
-
+                $this->modelEvenement->updateImagesEvent($chemin_en_avant, $legende_en_avant, $ordre_image_en_avant, $id_evenement);
             }
         }
         if(!empty($image2['name']))
@@ -179,6 +171,36 @@ class  EvenementController extends Controller {
         }
         
     }
+
+    //---------------------------------------------------------------------------------\\
+    // Dans le cas où il n'y a pas de deuxième image en base de donnée :
+    // - insertion de l'image 2 et update de l'image_en_avant
+    // dans  2 requetes indépendantes.
+    public function registerImage($image2, $legende2, $id_evenement, $ordre_image2)
+    {
+        if(!empty($image2['name']))
+        {
+            $chemin2 = Image::sauvegardeImage($image2);
+            if(!empty($chemin2))
+            {
+                $this->modelEvenement->insertImage($chemin2,$legende2, $id_evenement, $ordre_image2);
+            }
+        }
+    }
+
+    public function modifyImage($image_en_avant, $legende_en_avant, $id_evenement, $ordre_image_en_avant)
+    {
+        if(!empty($image_en_avant['name']))
+        {
+            $chemin_en_avant = Image::sauvegardeImage($image_en_avant);
+            if(!empty($chemin_en_avant))
+            {
+                $this->modelEvenement->updateImagesEvent($chemin_en_avant, $legende_en_avant, $id_evenement, $ordre_image_en_avant);
+            }
+        }
+
+    }
+    //---------------------------------------------------------------------------------\\
 
     public function supprimeEvent($id)
     {

@@ -4,7 +4,7 @@ namespace AlBeyt\Library;
 
 class Image
 {
-    const SOUS_REPERTOIRE_IMAGES = '/../../images/';
+    const SOUS_REPERTOIRE_IMAGES = '/../../images/'; // repertoire_images.
     const TYPES_AUTORISES = ['image/jpeg','image/png','image/gif'];
     const TAILLE_LIMITE = 2000000; // = 2 Mo
 
