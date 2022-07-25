@@ -100,7 +100,17 @@ class Affichage
 
     public static function stylizeCurrentPage()
     {
-        $style = 'style="color: pink;"'; //TODO: if (back-office) -> on met un style, else on met un autre style
+        $style = 'style="color: #FF7272;"'; //TODO: if (back-office) -> on met un style, else on met un autre style
+        return $style;
+    }
+
+    public static function stylizeCurrentFilter()
+    {
+        $style = 'style="
+                  color: #FF7272;
+                  font-size: 1em;
+                   
+                  "';
         return $style;
     }
 

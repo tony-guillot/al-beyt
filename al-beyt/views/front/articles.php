@@ -20,6 +20,7 @@ if(isset($_GET['year']))
     $articles = $controllerArticle->displayArticlesByYear($year,$page);
 }else{
     $articles = $controllerArticle->displayAllArticles($page);
+    $year = 0;
 }
 
 $title = "Articles";
@@ -29,22 +30,22 @@ require_once('../include/header.php');
 <main  class="contener">
      <section class="sous-contener">
         <section class="filtre">
-            <ul>
-                <li>
-                    <a href="articles.php">toute l'actualité</a>
+            <ul class="merryweather liens-filtre taille0-six">
+                <li class="filtre">
+                    <a class="filtre" <?= (empty($year)) ? Affichage::stylizeCurrentFilter() : "" ?> href="articles.php">Tous les articles</a>
                 </li>
                 <?php for ($y = date("Y"); $y > 2021; $y--): ?>
-                    <li>
-                        <a href="articles.php?year=<?= $y ?>"><?= $y ?></a>
+                    <li class="filtre">
+                        <a class="filtre"  <?= ($y == $year) ? Affichage::stylizeCurrentFilter() : "" ?>  href="articles.php?year=<?= $y ?>"><?= $y ?></a>
                     </li>
                 <?php endfor ?>
             </ul>
         </section>
-        <section>
+        <section class="box-cards">
             <?php foreach ($articles as $article) { ?>
-                <article>
+                <article class="cards">
                     <a href="article.php?id=<?= $article['id'] ?>">
-                        <img src="http://<?= $article['chemin'] ?>" alt="<?= $article['titre'] ?>">
+                        <img style="width:200px;" class="boucle" src="http://<?= $article['chemin'] ?>" alt="<?= $article['titre'] ?>">
                         <div>
 
                             <div><h2><?= $article['titre'] ?></h2>
@@ -57,7 +58,7 @@ require_once('../include/header.php');
             <?php } ?>
         </section>
     </section>
-    <section>
+    <section class="conteneur-page">
         <?php if ($page != 1): ?>
             <a href="articles.php?page=<?= $page - 1 ?><?= isset($year) ? "&year=".$year : "" ?>">Page précédente</a>
         <?php endif ?>
