@@ -29,6 +29,8 @@ $controllerEvent = New EvenementController;
 
     $start = ($page-1) * 8;
     $stop = $page * 8;
+    $arrayNews = $controllerEvent->displayLastArticlesAndEvents($page);
+
 ?>
 <main class="global-box">
     <section class="parent-shuffle">
@@ -68,10 +70,24 @@ $controllerEvent = New EvenementController;
     <section class="mignon">
         <p class="froufrou">On vous attend Nombreux.ses </p>
     </section>
-    <section class="news">
+        <section class="news">
         <?php for ($i = $start;$i < $stop; $i++): ?>
-            <article class="tile-<?= intdiv($i,8) ?>">
-
+            <article class="tile tile-<?= fmod($i,8) ?>">
+                <?php if (!empty($arrayNews[$i]['id_article'])): ?>
+                    <a href="article.php?id=<?= $arrayNews[$i]['id_article'] ?>">
+                        <img src="http://<?= $arrayNews[$i]['chemin_article'] ?>" alt="Aliquam excepturi at architecto.">
+                        <div class="info">
+                            <div><h2><?= $arrayNews[$i]['titre'] ?></h2>
+                                <span>Par <?= $arrayNews[$i]['auteur'] ?>, publié le <?= Affichage::printDate($arrayNews[$i]['date_news']) ?></span>
+                            </div>
+                            <i class="fa-solid fa-circle-plus"></i>
+                        </div>
+                    </a>
+                <?php else: ?>
+                    <a href="evenement.php?id=<?= $arrayNews[$i]['id_evenement'] ?>">
+                        <img src="http://<?= $arrayNews[$i]['chemin_evenement'] ?>" alt="Aliquam excepturi at architecto.">
+                    </a>
+                <?php endif ?>
             </article>
         <?php endfor ?>
     </section>

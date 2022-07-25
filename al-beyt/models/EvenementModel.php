@@ -221,6 +221,22 @@ class EvenementModel extends Bdd {
         ));
     }
 
+    public function getLastArticlesAndEvents($offset){
+        $bdd = $this->bdd->prepare(
+            'SELECT a.id AS id_article, titre, auteur, i.chemin AS chemin_article, NULL AS id_evenement, NULL AS chemin_evenement, date AS date_news
+            FROM article a
+            INNER JOIN image_article i ON a.id = i.id_article
+            UNION
+            SELECT NULL AS id_article, NULL as titre, NULL as auteur, NULL AS chemin_article, e.id AS id_evenement, i.chemin AS chemin_evenement, e.date_evenement AS date_news
+            FROM evenement e
+            INNER JOIN image_evenement i ON e.id = i.id_evenement
+            ORDER BY date_news DESC
+            LIMIT 8 OFFSET :offset;'
+        );
+        $bdd->bindValue(":offset" , $offset, PDO::PARAM_INT);
+        $bdd->execute();
+        return $bdd->fetchAll(PDO::FETCH_ASSOC);
+    }
 
 }
 
