@@ -47,7 +47,7 @@ require_once('../include/header.php');
                 <article class="cards">
                     <a href="evenement.php?id=<?= $event['id'] ?>">
                         <img class="boucle" src="http://<?= $event['chemin'] ?>" alt="<?= $event['titre'] ?>">
-                        <div>
+                        <div class="block-infos">
                             <div><h2><?= $event['titre'] ?></h2>
                                 <span><?= Affichage::printDate($event['date_evenement']) ?></span>
                             </div>

@@ -44,16 +44,18 @@ require_once('../include/header.php');
         <section class="box-cards">
             <?php foreach ($articles as $article) { ?>
                 <article class="cards">
-                    <a href="article.php?id=<?= $article['id'] ?>">
-                        <img style="width:200px;" class="boucle" src="http://<?= $article['chemin'] ?>" alt="<?= $article['titre'] ?>">
-                        <div>
-
-                            <div><h2><?= $article['titre'] ?></h2>
-                                <span>Par <?= $article['auteur'] ?>, publié le <?= $article['date'] ?></span>
+                    <a class="link-img" href="article.php?id=<?= $article['id'] ?>">
+                        <img  class="boucle" src="http://<?= $article['chemin'] ?>" alt="<?= $article['titre'] ?>">
+                    </a>    
+                    <div class="block-infos">
+                            <div class="titre-auteur">
+                                <h2 class="infos merryweather taille1"><?= $article['titre'] ?></h2>
+                                <span class="infos merryweather taille0-huit">Par <?= $article['auteur'] ?>, publié le <?= $article['date'] ?></span>
                             </div>
-                            <i class="fa-solid fa-circle-plus"></i>
-                        </div>
-                    </a>
+                            <div>
+                                <i class="fa-solid fa-circle-plus plus taille1"></i>
+                            </div>
+                    </div>
                 </article>
             <?php } ?>
         </section>
