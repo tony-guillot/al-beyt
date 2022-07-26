@@ -1,4 +1,4 @@
-/*****font******/
+/******************* Font ************************/
 @font-face
 {
     font-family: 'molgak_classyregular';
@@ -13,8 +13,19 @@
 {
     font-family:'inter',sans-serif;
 }
-/*****font******/
-/***** police size*****/
+
+.merryweather
+{
+    font-family:'Merriweather Sans', sans-serif;
+}
+
+.molgak
+{
+    font-family: 'molgak_classyregular','serif';
+}
+/******************* \Font/ ************************/
+
+/******************* Police-Size *******************/
 .taille4
 {
     font-size:4em;
@@ -49,10 +60,9 @@
 {
     font-size:0.5em;
 }
+/******************* \Police-Size/ *******************/
 
-
-/***** police size*****/
-*
+*, ::before, ::after
 {
     padding:0;
     margin:0;
@@ -61,6 +71,8 @@
 a
 {
     text-decoration:none;
+
+
 }
 li
 {
@@ -68,18 +80,89 @@ li
 }
 body
 {
-    background-color:#fdfff0d9;
-    color:#502D60;
+    /* background-color:#140f16; */
+    background-color:#fffffd;
+    color:rgb(0, 0, 0);
 }
-img
+
+main
 {
-    width: 100%;
-    object-fit:cover;
-    margin-bottom: 20px;
-    height: 200px;
-    /* z-index: -1; */
+    min-height: 70vh;
 }
-/***********Header************/
+footer
+{
+    /* background-color:#fffffd; */
+    background-color:#140f16;
+    position:relative;
+    bottom:0;
+    width:100%;
+}
+
+
+/******************* Filtre ********************/
+
+section.filtre
+{
+    display:flex;
+    width: 15%;
+    /* justify-content: center; */
+    margin-top: 20px;
+    margin-right: 20px;
+}
+ul.liens-filtre
+{
+ font-weight: 100;
+ display: flex;
+ flex-direction: column;
+ justify-content: flex-start;
+ margin-top: 60px;
+}
+
+li.filtre
+{
+   display:flex;
+   justify-content: center;
+   /* justify-content: space-between; */
+   margin-bottom: 10px;
+   background-color:#ffffff;
+   border:#000000 1px solid;
+   border-radius: 40px;
+   padding:5px 25px 5px 25px;
+
+
+    /* background-color:#ff0180; */
+}
+a.filtre
+{
+    display: flex;
+
+    color: rgb(0, 0, 0);
+
+    /* color: #360750; */
+}
+a.filtre:hover
+{
+    /* color:#2d6030cc; */
+    color: rgba(251, 225, 255, 0.795);
+
+}
+
+/********************* \Filtre/ **********************/
+
+
+/********************* Pagination *******************/
+.conteneur-page
+{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:5vh;
+    width: 100%;
+}
+/********************* \Pagination/ ****************/
+
+
+/********************* Header **********************/
 
 header
 {  
@@ -90,19 +173,22 @@ header
     background-color: #FF7272;
     font-family: 'molgak_classyregular','arial';
     width: 100%;
-    height: 10vh;
+    height: 13h;
     font-size: 1.5em;
-
+    /* color:#351842; */
+    color: #360750;
 }
+
 .al-beyt
 {   
-    margin:10px;
+    margin:15px;
 }
 
 nav
 {
     
    background-color: #FFE1F0;
+   height:40px;
    width: 100%;
 }
 a.link-header
@@ -126,9 +212,11 @@ nav ul li
     justify-content: center;
     align-items: center;
     text-align: center; */
-    font-family:'Merriweather Sans', sans-serif;
-    font-weight: 200;
-    font-size: 0.8em;
+    font-family: 'molgak_classyregular','arial';
+    /* font-family:'Merriweather Sans', sans-serif; */
+    font-weight: 100;
+    font-size: 0.9em;
+    letter-spacing: 2px;
     padding: 12px;
     /* margin-top:10px; */
     
@@ -150,7 +238,7 @@ nav ul li:hover
 .sub-menu-1 ul li
 {
     background-color: #FFE1F0;
-    border-bottom: #ff0180 solid 0.5px;
+    /* border-bottom: #ff0180 solid 0.5px; */
     font-family:'Merriweather Sans', sans-serif;
     display:flex;
     justify-content: center;
@@ -171,26 +259,30 @@ nav ul li:hover .sub-menu-1 ul
 {
   display: block;
 }
-/************Header***********/
-/************Footer***********/
+/************************* \Header/ ***********************/
+
+
+/************************* Footer **************************/
 .footer-box
 {
     display:flex;
     justify-content:space-around;
     width: 100%;
-    background-color:#fdfff0d9;
     align-items: center;
     color:#502D60;
     border-top:1px solid  #502D60;
 }
+
 .footer-mail
 {
     font-size: 0.8em;
 }
+
 .footer-mail:hover
 {
     
 }
+
 .footer-mentions
 {
     font-size: 0.8em;
@@ -213,9 +305,71 @@ nav ul li:hover .sub-menu-1 ul
     color:#502d60a5;
 }
 
-/************Footer***********/
+/************************* \Footer/ **************************/
 
-/************INDEX***********/
+
+/************ Trame Articles-Evenements-Artistes *************/
+.contener
+{
+    display:flex;
+    flex-direction:column;
+    width: 100%;
+}
+.sous-contener
+{
+    display:flex;
+    justify-content:center;
+    margin-top:30px;
+
+}
+
+
+.box-shadow
+{
+     box-shadow: rgba(100, 100, 111, 0.336) 0px 7px 29px 0px;;
+
+}
+.animation
+{
+    filter: brightness(80%);
+    transition: all 1s ease;
+    transition: transform .5s;
+}
+
+.animation:hover
+{
+    filter: brightness(100%);
+    transform: scale(1.01);
+}
+
+.animation2
+{
+    filter: brightness(90%);
+    transition: all 0.5s ease;
+
+}
+
+.animation2:hover
+{
+    filter: brightness(100%);
+
+}
+
+/**************** Icon *************************/
+
+.plus
+{
+
+}
+
+
+/**************** \Icon/ *************************/
+
+
+/************\Trame Articles-Evenements-Artistes/************/
+
+
+/*********************** INDEX ****************************/
 .global-box
 {
     display: flex;
@@ -251,6 +405,7 @@ nav ul li:hover .sub-menu-1 ul
     /* background-color: #b4a0a0; */
     transition: transform .5s;
 }
+
 .link-names:hover
 {
     font-family: 'molgak_classyregular','arial';
@@ -261,6 +416,7 @@ nav ul li:hover .sub-menu-1 ul
     
     /* background-color: #b4a0a0; */
 }
+
 .index-parent-event
 {
     
@@ -268,13 +424,12 @@ nav ul li:hover .sub-menu-1 ul
     flex-direction: column;
     justify-content: center;
     width: 60%;
-   
 }
+
 .parent-index-affiche
 {
     height: 100vh;
     background-color: #62d09d;
-
 }
 
 img.index-affiche
@@ -287,8 +442,8 @@ img.index-affiche
     filter: brightness(60%);
     transition: background-color 0.5s ease-out;
     transition: filter 0.5s ease-out;
-
 }
+
 img.index-affiche:hover
 {
     filter: brightness(110%);
@@ -304,17 +459,16 @@ img.index-affiche:hover
     justify-content:space-between;
     align-items: center;
 }
+
 .index-infos
 {
-    /* width: 60%; */
+
     margin:40px;
     padding-left:5%;
-    /* background-color:#ff0180; */
     display:flex;
     flex-direction:column;
-   
-    
 }
+
 .index-text-style
 {
     font-family: 'molgak_classyregular','arial';
@@ -322,14 +476,14 @@ img.index-affiche:hover
     font-weight: 100;
     padding-bottom: 20px;
 }
+
 .index-parent-infos .event-titre
 {
    font-size: 3em;
-   
    flex-wrap: wrap;
-   
 }
-.flex 
+
+.flex
 {
     display: flex;
     /* padding-bottom: 10px; */
@@ -340,8 +494,6 @@ img.index-affiche:hover
     font-size: 1.3em;
     text-decoration: underline;
     font-family: 'Merriweather Sans';
-    
-    
 }
 
 .à
@@ -350,6 +502,7 @@ img.index-affiche:hover
     font-size: 1.3em; 
     font-family: 'Merriweather Sans'; 
 }
+
 .adresse
 { 
     font-weight: 100;
@@ -371,27 +524,14 @@ img.index-affiche:hover
     font-size:10em;
     color:#502d60;
     opacity: 0.8;
-    background-color:#ffffffc2;
-    border-radius: 10em;
-    transition: 0.3s;
-    -moz-transition: all .4s ease-in-out;
-    -o-transition: all .4s ease-in-out;
-    -webkit-transition: all .4s ease-in-out;
-    transition: all .4s ease-in-out;
+
 }
 
 .index-icon:hover
 {
-    background-position: 100% 0;
-    -moz-transition: all .4s ease-in-out;
-    -o-transition: all .4s ease-in-out;
-    -webkit-transition: all .4s ease-in-out;
-    transition: all .4s ease-in-out;
-    opacity: 1;
-   font-size: 11em;
-
-    
+  opacity: 1;
 }
+
 .mignon
 {
     display:flex;
@@ -400,14 +540,18 @@ img.index-affiche:hover
     width: 60%;
     height:15vh;
     background-color:#ff7272cb;
+    margin-top: 20px;
+    margin-bottom: 40px;
 }
+
 .froufrou
 {
     font-family:'Merriweather Sans', sans-serif;
     color:rgba(255, 255, 255, 0.712);
-    font-size:2em;
+    font-size:1.4em;
     font-weight: 100;
     font-style: italic;
+
 }
 
 .news {
@@ -460,62 +604,217 @@ img.index-affiche:hover
     }
 
 
-/************INDEX***********/
-/***********************************************/
-.contener
-{
-    display:flex;
-    flex-direction:column;
-    width: 100%;
-}
-.sous-contener
-{
-    display:flex;
-    justify-content:center;
-    
-}
-.conteneur-page
-{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:5vh;
-    width: 100%;
-}
-.filtre
-{
-    display:flex;
-    justify-content:center;
-}
-/******Evenement*******/
-.box-cards-evenements
+/*********************** \INDEX/ ****************************/
+
+
+
+/************** Template Evenements Articles ***************/
+.box-cards
 {
     display:flex;
     flex-direction:column;
     justify-content:center;
-    width:80%;
     align-items:center;
+    width:70%;
+    margin-bottom: 40px;
+    /* background-color:#62d09d; */
+
 }
 
-.cards-evenements
+article.cards
 {
-    width:100%;
-    height: 40vh;
-    background-color:#62d09d;
+    position: relative;
+    background-color:#140f16;
+    height: 300px;
+    background-color:#d0aa62;
+    display: flex;
+    justify-content:flex-end;
+    margin-bottom: 40px;
+    width: 100%;
+    overflow : hidden;
+    border-radius: 2px;
+
+    /* flex-shrink: 20;  */
+
+}
+
+a.link-img
+{
+
+    /* height:200px; */
+    /* margin-bottom: 40px; */
+    width: 100%;
+    /* background-color:#360750; */
+
+}
+
+img.boucle
+{
+    /* display:block; */
+
+    width: 100%;
+    background-color: #08A95D;
+    object-fit: cover;
+
+    /* margin-bottom: 20px;*/
+    /* height: auto;  */
+    z-index: 0;
+
+}
+
+div.block-infos
+{
+
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    /* background-color:#c7c7c7a5; */
+    width: 60%;
+    height: 130px;
+    z-index: 3;
+    bottom:20px;
+    right: 30px;
+    background: linear-gradient(#c7c7c773, #0000004f,#c7c7c7a5);
+}
+div.block-infos:hover
+{
+    background: linear-gradient(#c7c7c7c5, #00000044,#c7c7c7c5);
+}
+.box-cards .titre-auteur
+{
+    padding-left:20px;
+    font-weight: 100;
+}
+
+.block-infos .infos
+{
+    color: white;
+
+}
+.box-cards .fa-circle-plus
+{
+    font-size: 4em;
+    margin-right: 40px;
+    background: linear-gradient(0.25turn, #00000056, #c7c7c7a1, #00000056,);
+   color: rgba(255, 255, 255, 0.822);
+   opacity: 0.8;
+   border-radius: 70px;
+   transition: all 0.3s ease;
+
+}
+
+.box-cards .fa-circle-plus:hover
+{
+    color: rgb(248, 241, 241);
+    opacity: 1;
+}
+
+
+
+
+/************** \Template Evenements Articles/ **************/
+
+/************** Template Artistes *****************/
+
+section.artistes-filtre
+{
+    display:flex;
+    width: 15%;
+    justify-content: center;
     margin-top: 20px;
-    /*z-index: 4;*/
+    margin-left: 20px;
 }
 
-/******Evenement*******/
+.artistes-box-cards
+{
+    display: flex;
+    justify-content: center;
+    width: 80%;
 
-
-
-
-
-
-
-.cards-artists
+    /* background-color:#08a95e42; */
+}
+.artistes-sous-box
 {
     display: flex;
     flex-wrap: wrap;
+    /* background-color:#d0b662; */
+    width: 95%;
+
+
 }
+
+.artistes-cards
+{
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    filter: brightness(80%);
+    transition: all 1s ease;
+    color: #fff;
+    transition: transform .7s; /*Animation*/
+
+}
+.artistes-cards:hover
+{
+
+    filter: brightness(100%);
+    transform: scale(1.02);
+
+
+}
+
+img.artistes-boucle
+{
+    width: 300px;
+    height: 190px;
+    object-fit:cover;
+    display:block;
+    border-top-left-radius: 2px;
+    border-top-right-radius:2px;
+
+
+}
+
+.artistes-infos
+{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #502d60;
+    color: #fff;
+    height: 80px;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius:2px;
+}
+
+i.artistes.fa-solid
+{
+   color: rgba(255, 255, 255, 0.842);
+   font-size:2em;
+   transition: all 0.5s;
+}
+
+i.artistes.fa-solid:hover
+{
+   color: rgb(255, 255, 255);
+   font-size:2.1em;
+
+}
+
+/************** \Template Artistes/ *****************/
+
+/************** Evenement *****************/
+.contener1
+{
+    display:flex;
+}
+
+/************** \Evenement/ *****************/
+
+
+
+
+
+
+

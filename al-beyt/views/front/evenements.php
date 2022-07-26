@@ -21,6 +21,7 @@ if(isset($_GET['year']))
     $events = $controllerEvenement->displayEventsByYear($year,$page);
 }else{
     $events = $controllerEvenement->displayAllInfosEvent($page);
+    $year = 0;
 }
 
 $title = "Evènements";
@@ -29,33 +30,39 @@ require_once('../include/header.php');
 
 <main class="contener">
     <section  class="sous-contener">
-        <section class="filtre" >
-            <ul>
-                <li>
-                    <a href="evenements.php">tous les evenements</a>
+        <section class="filtre">
+            <ul class="merryweather liens-filtre taille0-huit">
+                <li class="filtre">
+                    <a  class="filtre" <?= (empty($year)) ? Affichage::stylizeCurrentFilter() : "" ?> class="" href="evenements.php">Tous les évènements</a>
                 </li>
                 <?php for ($y = date("Y"); $y >= $startYear; $y--): ?>
                     <?php if (!empty($controllerEvenement->displayEventsByYear($y,1))): ?>
-                        <li>
-                            <a href="evenements.php?year=<?= $y ?>"><?= $y ?></a>
+                        <li class="filtre">
+                            <a class="filtre" <?= ($y == $year) ? Affichage::stylizeCurrentFilter() : "" ?> href="evenements.php?year=<?= $y ?>"><?= $y ?></a>
                         </li>
                     <?php endif ?>
                 <?php endfor ?>
             </ul>
         </section>
-        <section class="box-cards-evenements">
+        <section class="box-cards">
             <?php foreach ($events as $event) { ?>
-                <article class="cards-evenements">
-                    <a href="evenement.php?id=<?= $event['id'] ?>">
-                        <div class="box-parallax">
-                            <img class="parallax" src="http://<?= $event['chemin'] ?>" alt="<?= $event['titre'] ?>"></div>
-                        <div>
-                            <div><h2><?= $event['titre'] ?></h2>
-                                <span><?= Affichage::printDate($event['date_evenement']) ?></span>
-                            </div>
-                            <i class="fa-solid fa-circle-plus"></i>
-                        </div>
+                <article class="cards box-shadow animation2">
+                    <a class="link-img" href="evenement.php?id=<?= $event['id'] ?>">
+                        <img class="boucle" src="http://<?= $event['chemin'] ?>" alt="<?= $event['titre'] ?>">
                     </a>
+                    <div class="block-infos">
+
+                        <div class="titre-auteur">
+                            <h2 class="infos merryweather taille1-trois "><?= $event['titre'] ?></h2>
+                            <span class="infos merryweather taille0-huit"> <em><b> <?= Affichage::printDate($event['date_evenement']) ?> </em></b></span>
+                        </div>
+                        <div>
+                            <a class="link-img" href="evenement.php?id=<?= $event['id'] ?>">
+                                <i class="fa-solid fa-circle-plus plus taille1"></i>
+                            </a>
+                        </div>
+                    </div>
+
                 </article>
             <?php } ?>
         </section>
@@ -65,7 +72,7 @@ require_once('../include/header.php');
             <a href="evenements.php?page=<?= $page - 1 ?><?= isset($year) ? "&year=".$year : "" ?>">Page précédente</a>
         <?php endif ?>
         <?php for ($i = 1; $i <= $pageMax; $i++): ?>
-            <a  <?= ($i == $page) ? Affichage::stylizeCurrentPage() : "" ?> href="evenements.php?page=<?= $i ?><?= isset($year) ? "&year=".$year : "" ?>"> <?= $i ?> </a>
+            <a  <?= ($i == $page) ? Affichage::stylizeCurrentPage() : "" ?> href="evenements.php?page=<?= $i ?><?= !empty($year) ? "&year=".$year : "" ?>"> <?= $i ?> </a>
         <?php endfor ?>
         <?php if ($page != $pageMax): ?>
             <a href="evenements.php?page=<?= $page + 1 ?><?= isset($year) ? "&year=".$year : "" ?>">Page suivante</a>

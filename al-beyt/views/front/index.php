@@ -34,7 +34,7 @@ $controllerEvent = New EvenementController;
 ?>
 <main class="global-box">
     <section class="parent-shuffle">
-        <?php for($i = 0; $i < 15; $i++):?>    
+        <?php for($i = 0; $i < 10; $i++):?>
         <article class="names">
           <a class="link-names" href="artiste.php?id=<?= $artists[$i]['id']?>"><em><?=$artists[$i]['nom'];?></em></a>
         </article>
@@ -68,7 +68,7 @@ $controllerEvent = New EvenementController;
         </article>
     </section>
     <section class="mignon">
-        <p class="froufrou">On vous attend Nombreux.ses </p>
+        <p class="froufrou"> 	。.:☆*:･'(*⌒―⌒*))) &nbsp; On vous attend nombreux.ses   &nbsp; 	\(★ω★)/ ✧˖° 。.</p>
     </section>
         <section class="news">
         <?php for ($i = $start;$i < $stop; $i++): ?>
