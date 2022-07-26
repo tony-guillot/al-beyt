@@ -80,8 +80,8 @@ li
 }
 body
 {
-    /* background-color:#140f16; */
-    background-color:#fffffd;
+    background-color:#140f16;
+    /* background-color:#fffffd; */
     color:rgb(0, 0, 0);
 }
   
@@ -755,9 +755,173 @@ i.artistes.fa-solid:hover
 /************** \Template Artistes/ *****************/
 
 /************** Evenement *****************/
-.contener1
+.event
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.event .contener1
+{
+    position: relative;
+    display:flex;
+    flex-direction: column;
+    /* align-items:center; */
+    /* justify-content: center; */
+    width: 80%;
+    height: 120vh;
+    /* background-color:#4b5852; */
+    margin-top:50px;
+
+}
+.event .titre-affiche
+{
+    display: flex;
+    justify-content:flex-end;
+    position: relative;
+    Width:100%;
+    height: 120vh;
+    /* background-color:#6dcfa2; */
+}
+.event .titre
+{   
+    position: absolute;
+    display: flex;
+    font-family: 'molgak_classyregular','arial';
+    color:#ffcce6;
+    /* text-shadow: 0 0 2px #360750; */
+    /* -webkit-text-stroke: 0.06px #360750; */
+    width:80%;
+    /* background-color:#00d9ffa2; */
+    z-index: 3;
+    left: 5%;
+    top:15%;
+}
+
+.event h1.titre
+{
+    font-size: 4em;
+    line-height: 1.2;
+}
+.event .affiche
+{   
+    
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    width:50%;
+   
+    
+    /* background-color:#ff009da2; */
+    z-index: 0;
+    
+}
+.event img
+{
+    width:100%;
+    /* z-index: 0; */
+}
+
+
+/************** Legende *****************/
+
+.legende
+{
+ display: flex;
+ font-size: 0.7em;
+ font-weight: 100;
+ color:#5e5a5d;
+ padding-top:5px;
+  
+}
+/************** Legende *****************/
+.bloc-info
 {
     display:flex;
+    flex-direction: column;
+    width: 40%;
+    position : absolute;
+    bottom: 10%;
+    left: 5%;
+    font-weight: 200;
+    color:#ffe9fb;
+    
+
+}
+
+hr.hr-event
+{
+    border: 0.3px solid #dac9d686;
+    width: 50%;
+    margin:40px;
+}
+
+.contener2
+{
+    width: 65%;
+}
+.event .description
+{
+    display: flex;
+    flex-direction: column;
+    font-weight: 200;
+    color:#ffe9fb;
+    line-height: 1.5;
+    font-size: 0.8em;
+    
+}
+
+.event .adresse
+{
+    /* font-weight: 100; */
+}   
+.event .sub-infos
+{
+    font-weight: 100;
+    font-size: 1em;
+    
+}
+
+
+.event .artistes
+{
+    color: #FF7272;
+    border-bottom: 0.5px solid #FF7272;
+    transition: all 1s;
+    transform: all 1s;
+    font-size: 0.8em;
+}
+.event .artistes:hover
+{
+    border-bottom: 0.5px solid #FF7272;
+    font-style: italic;
+}
+.event .bloc-image2
+{   
+    margin-top: 50px;
+    margin-bottom: 70px;
+    display:flex;
+    flex-direction: column;
+    width: 50%;
+    
+
+}
+.bloc-image2 img
+{
+    width: 100%;
+
+}
+
+.bloc-image2 .legende2
+{
+    display: flex;
+     justify-content:flex-end;
+     font-size: 0.7em;
+ font-weight: 100;
+ color:#5e5a5d;
+ padding-top:5px;
 }
 
 /************** \Evenement/ *****************/
