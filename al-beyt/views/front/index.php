@@ -27,9 +27,12 @@ $controllerEvent = New EvenementController;
         $page = 1;
     }
 
+    /*Ici on gère la pagination depuis la vue et non depuis le modèle*/
     $start = ($page-1) * 8;
     $stop = $page * 8;
-    $arrayNews = $controllerEvent->displayLastArticlesAndEvents($page);
+    $arrayNews = $controllerEvent->displayLastArticlesAndEvents();
+    $pageMax = ceil(count($arrayNews)/8);
+
 
 ?>
 <main class="global-box">
@@ -70,7 +73,7 @@ $controllerEvent = New EvenementController;
     <section class="mignon">
         <p class="froufrou"> 	。.:☆*:･'(*⌒―⌒*))) &nbsp; On vous attend nombreux.ses   &nbsp; 	\(★ω★)/ ✧˖° 。.</p>
     </section>
-        <section class="news">
+        <section id="news" class="news">
         <?php for ($i = $start;$i < $stop; $i++): ?>
             <article class="tile tile-<?= fmod($i,8) ?>">
                 <?php if (!empty($arrayNews[$i]['id_article'])): ?>
@@ -90,6 +93,19 @@ $controllerEvent = New EvenementController;
                 <?php endif ?>
             </article>
         <?php endfor ?>
+    </section>
+    <section class="pagination">
+            <?php if ($page != 1): ?>
+                <a href="index.php?page=<?= $page - 1 ?>#news"> &larr; </a>
+            <?php endif ?>
+
+            <?php for ($i = 1; $i <= $pageMax ; $i++): ?>
+                <a <?= ($i == $page) ? Affichage::stylizeCurrentPage() : "" ?> href="index.php?page=<?= $i ?>#news"> <?= $i ?> </a>
+            <?php endfor ?>
+
+            <?php if ($page != $pageMax): ?>
+                <a href="index.php?page=<?= $page + 1 ?>#news"> &rarr; </a>
+            <?php endif ?>
     </section>
 </main>
 <?php

@@ -563,8 +563,11 @@ img.index-affiche:hover
 
 .tile{
     height: 200px;
-    margin: 5px 0;
+    margin: 4px 0;
     position: relative;
+    -webkit-box-shadow: 2px 5px 8px -1px rgba(0,0,0,0.83);
+    box-shadow: 2px 5px 8px -1px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
 }
 
 .tile .info {
@@ -575,33 +578,52 @@ img.index-affiche:hover
 }
 
 .tile img{
+    width: 100%;
+    object-fit:cover;
+    margin-bottom: 20px;
     height: 200px;
+
 }
 
-    .tile-0 {
-        width: 29%;
-    }
-    .tile-1 {
-        width: 69%;
-    }
-    .tile-2 {
-        width: 100%;
-    }
-    .tile-3 {
-        width: 69%;
-    }
-    .tile-4 {
-        width: 29%;
-    }
-    .tile-5 {
-        width: 100%;
-    }
-    .tile-6 {
-        width: 69%;
-    }
-    .tile-7 {
-        width: 29%;
-    }
+.tile:hover{
+    -moz-transform: scale(1.01) skew(-1deg, 0deg);
+    -webkit-transform: scale(1.01) skew(-1deg, 0deg);
+    -o-transform: scale(1.01) skew(-1deg, 0deg);
+    -ms-transform: scale(1.01) skew(-1deg, 0deg);
+    transform: scale(1.01) skew(-1deg, 0deg);
+}
+
+.tile-0 {
+    width: 49.5%;
+}
+.tile-1 {
+    width: 49.5%;
+}
+.tile-2 {
+    width: 100%;
+}
+.tile-3 {
+    width: 49.5%;
+}
+.tile-4 {
+    width: 49.5%;
+}
+.tile-5 {
+    width: 100%;
+}
+.tile-6 {
+    width: 49.5%;
+}
+.tile-7 {
+    width: 49.5%;
+}
+
+.pagination{
+    width: 60%;
+    text-align: center;
+    margin:20px 0;
+    font-size: 1.6em;
+}
 
 
 /*********************** \INDEX/ ****************************/
