@@ -226,7 +226,7 @@ class EvenementModel extends Bdd {
      * @param $offset
      * @return array contenant les colones des articles et des evenements en même temps
      */
-    public function getLastArticlesAndEvents($offset){
+    public function getLastArticlesAndEvents($limit,$offset){
         $bdd = $this->bdd->prepare(
             'SELECT a.id AS id_article, titre, auteur, i.chemin AS chemin_article, NULL AS id_evenement, NULL AS chemin_evenement, date AS date_news
             FROM article a
@@ -239,8 +239,9 @@ class EvenementModel extends Bdd {
             INNER JOIN image_evenement i ON e.id = i.id_evenement  AND ordre = 1
             
             ORDER BY date_news DESC
-            LIMIT 8 OFFSET :offset;'
+            LIMIT :limit OFFSET :offset;'
         );
+        $bdd->bindValue(":limit" , $limit, PDO::PARAM_INT);
         $bdd->bindValue(":offset" , $offset, PDO::PARAM_INT);
         $bdd->execute();
         return $bdd->fetchAll(PDO::FETCH_ASSOC);

@@ -570,7 +570,7 @@ img.index-affiche:hover
     transition: all 0.3s ease;
 }
 
-.tile .info {
+.tile .tile-info {
     position: absolute;
     bottom: 0;
     right: 0;

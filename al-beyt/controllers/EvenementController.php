@@ -213,8 +213,15 @@ class  EvenementController extends Controller {
         $this->modelEvenement->updateLegende($legende,$ordre,$id_evenement);
     }
 
-    public function displayLastArticlesAndEvents(){
-        return $this->modelEvenement->getLastArticlesAndEvents();
+    public function displayLastArticlesAndEvents($page){
+        $limit = 8;
+        $offset = 8 * ($page-1) ;
+        return $this->modelEvenement->getLastArticlesAndEvents($limit, $offset);
+    }
+
+    public function displayCountLastArticlesAndEvents()
+    {
+        return count($this->modelEvenement->getLastArticlesAndEvents(1000000,0));
     }
 
 }
