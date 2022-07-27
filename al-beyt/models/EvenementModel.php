@@ -76,7 +76,7 @@ class EvenementModel extends Bdd {
     }
 
     public function getEventById($id)
-    {
+    {  
         $bdd = $this->bdd->prepare(
             'SELECT id,titre ,adresse ,date_evenement, heure , description
             FROM evenement

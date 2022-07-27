@@ -790,9 +790,10 @@ i.artistes.fa-solid:hover
     display: flex;
     font-family: 'molgak_classyregular','arial';
     color:#ffcce6;
+    text-shadow: 2px 8px 6px rgba(0,0,0,0.2);
     /* text-shadow: 0 0 2px #360750; */
     /* -webkit-text-stroke: 0.06px #360750; */
-    width:80%;
+    width:50vw;
     /* background-color:#00d9ffa2; */
     z-index: 3;
     left: 5%;
@@ -801,7 +802,7 @@ i.artistes.fa-solid:hover
 
 .event h1.titre
 {
-    font-size: 4em;
+    font-size: 12vh;
     line-height: 1.2;
 }
 .event .affiche
@@ -820,6 +821,7 @@ i.artistes.fa-solid:hover
 }
 .event img
 {
+    
     width:100%;
     /* z-index: 0; */
 }

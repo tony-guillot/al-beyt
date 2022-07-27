@@ -24,7 +24,7 @@ require_once('../include/header.php');
     <section class="contener1">
         <section class="titre-affiche">
             <article class="titre ">
-                    <h1 class="titre "><?= $event['titre'] ?></h1>
+                    <h1 class="titre"><?= $event['titre'] ?></h1>
             </article>
             <article class="affiche">
                 <img  src="http://<?= $images_event[0]['chemin'] ?>" alt="<?= $images_event[0]['legende'] ?>">
@@ -51,8 +51,7 @@ require_once('../include/header.php');
     <section class="contener2">
         <article class="description inter">
             <p> 
-                &ensp; &ensp;
-                <?= $event['description'] ?>
+                <?= nl2br($event['description']) ?>
             </p>
         </article>
         <?php if (isset($images_event[1])): ?>

@@ -16,7 +16,7 @@ abstract class Bdd
     { 
         try 
         {
-            $this->bdd = new PDO('mysql:host='.$this->host.';dbname='.$this->name, $this->user,$this->password);
+            $this->bdd = new PDO('mysql:host='.$this->host.';dbname='.$this->name.';charset=utf8mb4',$this->user,$this->password);
             // Activation des erreurs PDO
             $this->bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             // mode de fetch par défaut : FETCH_ASSOC / FETCH_OBJ / FETCH_BOTH
