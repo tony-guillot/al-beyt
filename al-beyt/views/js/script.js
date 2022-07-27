@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function() {
-    var page = 1
 
     let images = document.getElementsByClassName('parallax');
     for (var i =0; i < images.length; i++) {
@@ -18,7 +17,8 @@ document.addEventListener("DOMContentLoaded", function() {
         errorSection.style.display = "flex";
     }
 
-    loadActu(1)
+    var page = 1;
+    loadActu(1);
 
     let prevButton = document.getElementById('actu-prev');
     let nextButton = document.getElementById('actu-next');
