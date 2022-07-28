@@ -12,5 +12,7 @@
         }
     },
     "minimum-stability": "dev",
-    "require": {}
+    "require": {
+        "dompdf/dompdf": "dev-master"
+    }
 }
