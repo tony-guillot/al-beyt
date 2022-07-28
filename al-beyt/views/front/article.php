@@ -19,25 +19,32 @@ $title = "Article";
 require_once('../include/header.php');
 ?>
 
-<main>
-    <section>
-        <img src="http://<?= $images_article[0]['chemin'] ?>" alt="<?= $images_article[0]['legende'] ?>">
+<main class="article">
+    <section class="box-cover-article">
+        <img class="img" src="http://<?= $images_article[0]['chemin'] ?>" alt="<?= $images_article[0]['legende'] ?>">
+        <span class=" legende inter"> <?= $images_article[0]['legende'] ?></span>
     </section>
-    <section>
-        <section>
-            <h2><?= $article['titre'] ?></h2>
-            <div>par <span><?= $article['auteur'] ?></span>, publié le <span><?= $article['date'] ?></span> </div>
+    <section class="contener-article merryweather">
+        <section class="sous-contener-article">
+        <div class="icones">
+                <a title="Télécharger l'article au format PDF" href="download_pdf.php?id_article=<?=$id?>"><i class="fa-solid fa-download" ></i></a>
+                <a title="Partager sur twitter" href=""><i class="fa-brands fa-twitter"></i></a>
+                <a  title="Partager sur facebook" href=""><i class="fa-brands fa-facebook"></i></a>
+            </div>
+            <div class="infos-article">
+                <h2 class="titre-article "><?= $article['titre'] ?></h2>
+                <div class="auteur-date">par &emsp14;<span><?= $article['auteur'] ?></span>,&emsp14;publié le &emsp14;<span><?= $article['date'] ?></span> </div>
+            </div>
+       
         </section>
 
-        <section>
-            <!-- <article>
-                <p>
-                </p>
-            </article> -->
+            <hr class="hr-article">
+
+        <section class="box-description inter">
             <article>
                 <div>
-                    <p>
-                        <?= $article['description'] ?>
+                    <p class="taille0-huit">
+                        <?= nl2br($article['description']) ?>
                     </p>
                 </div>
                 <?php echo Affichage::printImageSliderForArticles($images_article); ?>

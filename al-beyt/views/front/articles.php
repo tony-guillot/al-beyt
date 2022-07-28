@@ -47,7 +47,7 @@ require_once('../include/header.php');
                     <a class="link-img" href="article.php?id=<?= $article['id'] ?>">
                         <img  class="boucle" src="http://<?= $article['chemin'] ?>" alt="<?= $article['titre'] ?>">
                     </a>    
-                    <div class="block-infos">
+                    <div class="block-infos articles">
                             <div class="titre-auteur">
                                 <h2 class="infos merryweather taille1-trois "><?= $article['titre'] ?></h2>
                                 <span class="infos merryweather taille0-huit">Par <em><b> <?= $article['auteur'] ?> </em></b> , publié le <em><?= $article['date'] ?></em></span>

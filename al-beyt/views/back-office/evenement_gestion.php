@@ -66,7 +66,7 @@ require_once('../include/headerBo.php');
                         <td> <a href="evenement_update.php?id=<?= $id_evenement?>"><i class="fa-solid fa-wrench"></i></a> </td>
                         <form action="" methode='get'>
                             <td>
-                                <button name="delete" type="submit" value='<?= $id_evenement?>'><i class="fa-solid fa-trash"></i></button>
+                                <button class="button-trash" name="delete" type="submit" value='<?= $id_evenement?>'><i class="fa-solid fa-trash"></i></button>
                             </td>
                         </form>
                     </tr>

@@ -58,7 +58,7 @@ require_once('../include/header.php');
                         <article class="template-card artistes-cards">
                             <div>
 
-                                <a href="artiste.php?id=<?= $domaine['id']?>">
+                                <a href="artiste.php?id=<?= $artist['id']?>">
                                 
                                         <img class="artistes-boucle" src="http://<?= $artist['chemin']?>">
         

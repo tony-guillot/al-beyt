@@ -61,7 +61,7 @@ class Affichage
                           </div>
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="http://'. $images_article[1]['chemin'] .'" alt="'. $images_article[1]['legende'] .'" >
+                                <img style="width:300px;" src="http://'. $images_article[1]['chemin'] .'" alt="'. $images_article[1]['legende'] .'" >
                                 <div class="carousel-caption d-block">
                                     <h5>'. $images_article[1]['legende'] .'</h5>
                                 </div>
@@ -69,7 +69,7 @@ class Affichage
            if(isset($images_article[2]))
            {
                 $displayTags .= '<div class="carousel-item">
-                                    <img src="http://'. $images_article[2]['chemin'] .'" alt="'. $images_article[2]['legende'] .'">
+                                    <img  style="width:300px;" src="http://'. $images_article[2]['chemin'] .'" alt="'. $images_article[2]['legende'] .'">
                                     <div class="carousel-caption d-block">
                                         <h5>'. $images_article[2]['legende'] .'</h5>
                                     </div>
@@ -78,7 +78,7 @@ class Affichage
            if(isset($images_article[3]))
            {
                 $displayTags .= '<div class="carousel-item">
-                                    <img src="http://'. $images_article[3]['chemin'] .'" alt="'. $images_article[3]['legende'] .'">
+                                    <img style="width:300px;" src="http://'. $images_article[3]['chemin'] .'" alt="'. $images_article[3]['legende'] .'">
                                     <div class="carousel-caption d-block">
                                         <h5>'. $images_article[3]['legende'] .'</h5>
                                     </div>
@@ -127,18 +127,18 @@ class Affichage
     public static function printLinks($email, $website, $instagram, $twitter, $soundcloud, $facebook)
     {
         $print = "";
-        $print .= '<div class="">';
+        $print .= '<div class="email-siteweb">';
             if(!empty($email))
             {
-                $print .= '<a href="'.$email.'"><i class="fa-solid fa-envelope"></i>'.$email.'</a>';
+                $print .= '<a href="'.$email.'"><i class="fa-solid fa-envelope"></i>&ensp;'.$email.'</a>';
             }
             if(!empty($website))
             {
-                $print .= '<a href="'.$website.'"><i class="fa-solid fa-globe"></i>'.$website.'</a>';
+                $print .= '<a href="'.$website.'"><i class="fa-solid fa-globe"></i>&ensp;'.$website.'</a>';
             }
         $print .= '</div>';
 
-        $print .= '<div>';
+        $print .= '<div class="reseaux">';
         if(!empty($instagram))
         {
             $print .= '<a href="'.$instagram.'"><i class="fa-brands fa-instagram"></i></a>';

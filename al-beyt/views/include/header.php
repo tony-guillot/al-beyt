@@ -2,6 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title> <?='Al-Beyt | '.$title?> </title>
+    <mеtа nаmе="dеѕсrірtіоn" соntеnt=" Nous sommes le collectif Al-Beyt. Al-Beyt met en avant la culture syrienne
+                                       et arabophone à travers des évènements culturels et festifs organisés bénévolement.
+                                       Informez-vous sur nos évènements, découvrez des artistes fabuleux.ses
+                                       et tenez-vous au courant de nos actualités!">
+    <link rel="al-beyt" href="al-beyt.com">
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,7 +26,7 @@
     crossorigin="anonymous" referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="../css/front.css">
-    <title> <?='Al-Beyt | '.$title?> </title>
+  
 </head>
 <?php
 ini_set('default_charset','utf-8');
@@ -33,52 +39,52 @@ $domaines = $controller->displayAllDomains()
    
 ?>
 <body>
-    <header>
-        <h1 class='al-beyt taille2' >Al-Beyt</h1>    
-    </header>
+    <!-- <header>
+        <h1 class='al-beyt taille2' ></h1>    
+    </header> -->
         <nav>
             <ul>
-                <li class="active"><a class="link-header" href="index.php">Accueil</a></li>
+                <li class="active"><a class="link-nav" href="index.php">Al-Beyt</a></li>
 
-                <li class="active"><a class="link-header" href="artistes.php">Artistes</a>
+                <li class="active"><a class="link-nav" href="artistes.php">Artistes</a>
 
                     <div class="sub-menu-1">
                         <ul>
                             <?php foreach ($domaines as $domaine)
                             { ?>
                                 <li>
-                                    <a class="link-header" href="artistes.php?id=<?=$domaine['id']?>"><?= $domaine['nom']?></a>
+                                    <a class="link-nav" href="artistes.php?id=<?=$domaine['id']?>"><?= $domaine['nom']?></a>
                                 </li>
 
                     <?php } ?>
                         </ul>
                     </div>  
                 </li>      
-                <li class="active"><a class="link-header" href="evenements.php">Evènements</a>
+                <li class="active"><a class="link-nav" href="evenements.php">Evènements</a>
                     <div class="sub-menu-1">
                         <ul>
                         <?php for($y = date('Y'); $y >= 2021; $y--)
                         { ?>
                             <li>
-                                <a class="link-header" href="evenements.php?year=<?= $y ?>"><?= $y ?></a>
+                                <a class="link-nav" href="evenements.php?year=<?= $y ?>"><?= $y ?></a>
                             </li>
                          <?php } ?>
                         </ul>
                     </div>
                 </li>      
-                <li class="active"><a class="link-header" href="articles.php">Actualité</a>
+                <li class="active"><a class="link-nav" href="articles.php">Actualité</a>
                     <div class="sub-menu-1">
                         <ul>
                             <?php for($y = date('Y'); $y >= 2022; $y--)
                                 { ?>
                                     <li>
-                                        <a class="link-header" href="articles.php?year=<?= $y ?>"><?=$y ?></a>
+                                        <a class="link-nav" href="articles.php?year=<?= $y ?>"><?=$y ?></a>
                                     </li>
                         <?php } ?>
                         </ul>
                     </div>
                 </li>     
-                <li class="active"><a class="link-header" href="presentation.php">A propos</a></li>    
+                <li class="active"><a class="link-nav" href="presentation.php">A propos</a></li>    
             </ul>
         </nav>
    

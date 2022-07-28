@@ -53,10 +53,10 @@ require_once('../include/headerBo.php');
                     <td><?= $allArticle['date']?></td>
                     <td><?= $allArticle['auteur']?></td>
                     <td><?= $allArticle['description']?></td>
-                    <td> <a href="article_update.php?id=<?= $id_article?>">Modifier l'article</a> </td>
+                    <td> <a href="article_update.php?id=<?= $id_article?>"><i class="fa-solid fa-wrench"></i></a> </td>
                     <form action="" methode='get'>
                         <td>
-                            <button name="delete" type="submit" value='<?= $id_article?>'>Supprimer</button>
+                            <button class="button-trash" name="delete" type="submit" value='<?= $id_article?>'><i class="fa-solid fa-trash button-trash "></i></button>
                         </td>
                     </form>
                 </tr>

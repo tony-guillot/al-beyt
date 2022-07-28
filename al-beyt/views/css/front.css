@@ -9,6 +9,29 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'ragnorthbold';
+    src: url('../css/wagon/wagon-bold_copie-webfont.woff2') format('woff2'),
+         url('../css/wagon/wagon-bold_copie-webfont.woff') format('woff'),
+         url('../css/wagon/wagon-bold_copie-webfont.ttf') format('ttf');
+         
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'victory_history_demoregular';
+    src: url('../css/victory_history/victory_history_demo-webfont.woff2') format('woff2'),
+         url('../css/victory_history/victory_history_demo-webfont.woff') format('woff'),
+         url('../css/victory_history/victory_history_demo-webfont.ttf') format('ttf'),
+         url('../css/victory_history/victory_history_demo-webfont.otf') format('otf');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 .inter
 {
     font-family:'inter',sans-serif;
@@ -82,7 +105,7 @@ body
 {
     background-color:#140f16;
     /* background-color:#fffffd; */
-    color:rgb(0, 0, 0);
+    color:#ffe9fb;
 }
   
 main
@@ -166,17 +189,16 @@ a.filtre:hover
 
 header
 {  
-     /* position:fixed; */
-    display: flex;
+    /* display: flex;
     justify-content: center;
     text-align: center;
-    background-color: #FF7272;
+    background-color: #FFE1F0;
     font-family: 'molgak_classyregular','arial';
     width: 100%;
-    height: 13h;
+    height: 10vh;
     font-size: 1.5em;
-    /* color:#351842; */
-    color: #360750;
+    
+    color: #360750; */
 }
 
 .al-beyt
@@ -188,12 +210,13 @@ nav
 {
     
    background-color: #FFE1F0;
-   height:40px;
+   height:50px;
    width: 100%;
 }
-a.link-header
+a.link-nav
 {
     text-decoration:none;
+    color:#140f16;
  
 }
 
@@ -212,10 +235,12 @@ nav ul li
     justify-content: center;
     align-items: center;
     text-align: center; */
-    font-family: 'molgak_classyregular','arial';
+    /* font-family: 'ragnorthbold'; */
+    font-family: 'victory_history_demoregular';
+    /* font-family: 'molgak_classyregular','arial'; */
     /* font-family:'Merriweather Sans', sans-serif; */
-    font-weight: 100;
-    font-size: 0.9em;
+    font-weight: 200;
+    font-size: 1.2em;
     letter-spacing: 2px;
     padding: 12px;
     /* margin-top:10px; */
@@ -314,7 +339,9 @@ nav ul li:hover .sub-menu-1 ul
     display:flex;
     flex-direction:column;
     width: 100%;
+    position: relative 
 }
+
 .sous-contener
 {
     display:flex;
@@ -326,7 +353,7 @@ nav ul li:hover .sub-menu-1 ul
 
 .box-shadow
 {   
-     box-shadow: rgba(100, 100, 111, 0.336) 0px 7px 29px 0px;;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   
 }
 .animation
@@ -560,7 +587,7 @@ img.index-affiche:hover
 
 /************** Template Evenements Articles ***************/
 .box-cards
-{
+{   
     display:flex;
     flex-direction:column;
     justify-content:center;
@@ -572,7 +599,8 @@ img.index-affiche:hover
 }
 
 article.cards
-{
+{   
+    border:solid 0.5px rgb(65, 65, 65);
     position: relative;
     background-color:#140f16;
     height: 300px;   
@@ -631,6 +659,24 @@ div.block-infos:hover
 {
     background: linear-gradient(#c7c7c7c5, #00000044,#c7c7c7c5);
 }
+div.block-infos.articles
+{
+    
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    text-shadow: 0px 1px 3px #5c5c5c;
+    /* background-color:#c7c7c7a5; */
+    width: 90%;
+    height: 130px;
+    z-index: 3;
+    bottom:20px;
+    right: 30px;
+    background: linear-gradient(#c7c7c773, #0000004f,#c7c7c7a5);
+}
+
+
 .box-cards .titre-auteur 
 {
     padding-left:20px;
@@ -826,16 +872,26 @@ i.artistes.fa-solid:hover
     /* z-index: 0; */
 }
 
+/************** Button-trash *****************/
+
+button .button-trash
+{
+    border-style: none;
+    text-decoration: none;
+}
+
+/************** \Button-trash/ *****************/
 
 /************** Legende *****************/
 
 .legende
 {
  display: flex;
- font-size: 0.7em;
+ font-size: 0.8em;
  font-weight: 100;
- color:#5e5a5d;
+ color:#808080;
  padding-top:5px;
+ 
   
 }
 /************** Legende *****************/
@@ -853,7 +909,7 @@ i.artistes.fa-solid:hover
 
 }
 
-hr.hr-event
+.hr-event
 {
     border: 0.3px solid #dac9d686;
     width: 50%;
@@ -928,7 +984,309 @@ hr.hr-event
 
 /************** \Evenement/ *****************/
 
+/************** Article *****************/
 
+main.article
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.article
+{
+    background-color:#fcf7fc;
+    color:#221925;
+}
+.box-cover-article
+{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.box-cover-article img
+{
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+   
+}
+
+.contener-article
+{
+    width: 80%;
+    /* background-color:#95c6d4; */
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    
+    flex-direction: column;
+    margin-top: 50px;
+}
+.sous-contener-article
+{
+    display: flex;
+}
+.contener-article .icones
+{
+    width: 20%;
+    /* background-color:#9ad495; */
+    display: flex;
+    justify-content: center;
+    align-items:flex-start;
+    
+}
+.icones i
+{
+    margin:15px;
+    font-size:2em;
+    color:#999999;
+}
+.infos-article
+{
+    /* background-color:#212409; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 70%;
+    height: 30vh;
+}
+
+.infos-article .titre-article
+{
+    font-size: 2em;
+}
+
+.infos-article .auteur-date
+{
+    font-weight:100;
+    display:flex;
+    justify-content: flex-end;
+}
+
+.contener-article .box-description
+{
+    font-weight:100;
+    width:70%;
+    font-weight: 300;
+    /* margin-top: */
+}
+.hr-article
+{
+
+    border: 0.3px solid #dac9d686;
+    width: 50%;
+    margin-top:60px;
+    margin-bottom:80px;
+}
+
+.article .legende
+{
+    margin-right: 20px;
+    padding-top: 10px;
+}
+/************** \Article/ *****************/
+
+/************** Artiste *****************/
+.artiste .contener
+{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items:center;
+}
+
+.artiste .contener1
+{   
+    
+    width: 80%;
+    /* height: 150vh; */
+    margin-top:100px;
+    margin-bottom:40px;
+    display:flex;
+    justify-content:center;
+}
+
+.infos-artiste
+{   
+    width:50%;
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    /* background-color:#870000 ; */
+}
+.artiste .nom-description
+{   
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    
+}
+.artiste .nom
+{
+    font-family: 'victory_history_demoregular';
+    margin-bottom: 40px;
+
+}
+.artiste .description
+{
+      display:flex;
+      width:80%;
+      font-family: 'inter';
+      font-weight: 100;
+      font-size:0.8em;
+        
+
+}
+.artiste .email-siteweb > *
+{
+    /* display:flex; */
+    /* flex-direction: column; */
+    display:block;
+}
+.artiste .links
+{   
+    display:flex;
+    flex-direction: column;
+    align-items:flex-start;
+    justify-content: space-between;
+    /* background-color:#08A95D; */
+
+    width:80%;
+    height:20vh;
+    margin-top: 100px;
+}
+.artiste .email-siteweb a
+{
+    color:#ffe6e6;
+    font-style: italic;
+    font-family: 'inter';
+    font-weight: 100;
+    font-size:0.8em;
+    text-decoration:overline;
+    
+}
+.artiste .reseaux a
+{   
+    margin-right: 40px;
+    font-size:1.8em;
+    color:#ffe6e6;
+    
+}
+.artiste .box-image
+{
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    Width:50%;
+    
+    height:100%;
+    /* background-color:#ededed ; */
+}
+
+.artiste img
+{
+    width:100%;
+    /* height: 90vh; */
+    object-fit: cover;
+    height: 100%;
+   
+    
+}
+.box-image .legende 
+{  
+
+    display:flex;
+    margin-top:5px;
+    font-weight: 300;
+    justify-content:flex-end;
+}
+.artiste .stars
+{
+    display:inline-block;
+}
+
+.artiste .box-cards
+{
+    margin-top: 40px;
+}
+
+/************** \Artiste/ *****************/
+
+/************** Presentation *************/
+.presentation
+{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    margin-top: 100px;
+}
+.presentation .contener1
+{
+    display:flex;
+    flex-direction: column;
+    width: 80%;
+}
+.presentation .couverture
+{
+    display:flex;
+
+}
+
+
+
+.presentation .reseaux
+{
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin-left:40px;
+}
+
+.presentation .reseaux a
+{
+    margin-top: 20px;
+    font-size:1.5em;
+    color:#ffe6e6;
+}
+
+.presentation .contener2-pres
+{
+    display:flex;
+   justify-content:center;
+    /* width: 100%; */
+    margin-top: 50px;
+    
+}
+.presentation .bloc2
+{
+    display:flex;
+    justify-content:center;
+  
+}
+
+.presentation .sous-bloc2
+{
+    display:flex;
+    flex-direction: column;
+    /* align-items: space-between; */
+    width:30%;
+}
+.presentation .image-pres
+{
+    display:flex;
+    align-items:flex-end;
+    background-color:#08A95D;
+    /* width: 50%; */
+}
+
+.presentation
+.presentation
+.presentation
+
+
+/************** \Presentation/ *************/
 
 
 
