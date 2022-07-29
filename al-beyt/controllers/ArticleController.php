@@ -178,7 +178,10 @@ class ArticleController extends Controller
         return $id_article;
     }
 
-
+    public function modifyLegende($id_article, $legende, $ordre)
+    {
+        $this->modelArticle->updateLegende($id_article,$legende,$ordre);
+    }
 
 
 }
