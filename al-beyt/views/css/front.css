@@ -116,6 +116,7 @@ footer
 {
     /* background-color:#fffffd; */
     background-color:#140f16;
+    color: #FFE1F0;
     position:relative;
     bottom:0;
     width:100%;
@@ -294,40 +295,43 @@ nav ul li:hover .sub-menu-1 ul
     justify-content:space-around;
     width: 100%;
     align-items: center;
-    color:#502D60;
-    border-top:1px solid  #502D60;
+    border-top: 0.5px solid  #ffe1f080;
+
 }
+
 
 .footer-mail
 {
     font-size: 0.8em;
-}
-
-.footer-mail:hover
-{
-    
+    margin-top: 15px;
 }
 
 .footer-mentions
-{
+{   
+    margin-top: 60px;
     font-size: 0.8em;
-    color:#502D60;  
+    color: #FFE1F0;
+ 
 }
 .footer-mentions:hover
 {
     font-size: 0.8em;
-    color:#502d60a5; 
+    color: #FFE1F0;
+
+
 }
 
 .footer-liens
 {
-    margin: 10px;
-    color:#502D60; 
+    margin-right: 30px;
+   color: #FFE1F0;
+   font-size:1.5em;
 }
 
 .footer-liens:hover
 {
-    color:#502d60a5;
+   color: #ffe1f0bd;
+   
 }
 
 /************************* \Footer/ **************************/
@@ -1227,13 +1231,17 @@ main.article
     flex-direction: column;
     width: 80%;
 }
+.presentation .bloc1
+{
+    width: 70%;
+    margin-bottom: 40px;
+}
+
 .presentation .couverture
 {
     display:flex;
 
 }
-
-
 
 .presentation .reseaux
 {
@@ -1257,12 +1265,15 @@ main.article
    justify-content:center;
     /* width: 100%; */
     margin-top: 50px;
+    margin-bottom: 100px;
+    width: 80%;
     
 }
 .presentation .bloc2
 {
     display:flex;
-    justify-content:center;
+    justify-content:space-between;
+    
   
 }
 
@@ -1270,19 +1281,34 @@ main.article
 {
     display:flex;
     flex-direction: column;
-    /* align-items: space-between; */
-    width:30%;
+    align-items: space-between;
+    width:55%;
+    margin-right:100px;
+    /* height: 40%; */
+}
+
+.presentation .bloc-texte2
+{
+    margin-bottom:40px;
 }
 .presentation .image-pres
 {
     display:flex;
     align-items:flex-end;
-    background-color:#08A95D;
-    /* width: 50%; */
+
 }
 
-.presentation
-.presentation
+.presentation h1
+{
+    font-size:2em;
+    font-weight: 300;
+    margin-bottom: 20px ;
+}
+.presentation p
+{
+    font-weight: 200;
+    font-size: 0.9em;
+}
 .presentation
 
 

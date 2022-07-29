@@ -3,15 +3,15 @@ $title = "A propos";
 require_once('../include/header.php');
 ?>
 <main>
-    <section class="presentation">
+    <section class="presentation inter">
         <section class="contener1">
             <article class="bloc1">
                 <h1>Qui sommes nous ? </h1>
                 <p>
                 
-                    AL-BEYT (qui veut dire «la maison » en arabe) est un collectif événementiel syrien basé à Paris,
-                    fondé en avril 2021.Le Collectif Al-Beyt met en avant la culture syrienne et arabophone à travers
-                    des évènements culturels et festifs organisés bénévolement.Ces évènements offrent un espace aux exilé.es
+                    AL-BEYT -qui veut dire «la maison » en arabe- est un collectif d'événementiel syrien basé à Paris,
+                    fondé en avril 2021. Le Collectif Al-Beyt met en avant la culture syrienne et arabophone à travers
+                    des évènements culturels et festifs organisés bénévolement. Ces évènements offrent un espace aux exilé.es
                     de différents pays pour se réunir, échanger. Pour Al-Beyt, la fête permet de partager nos pensées, est vectrice
                     de rencontres et fondatrice d’amitités politiques. Il est aussi précieux pour nous de mettre en avant une scène
                     artistique émergente par la valorisation des cultures en exil qui constituent un apport à la culture française.
