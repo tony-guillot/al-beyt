@@ -25,10 +25,19 @@
 </head>
 <?php
 require_once '../../../vendor/autoload.php';
-use AlBeyt\Controllers\ArtisteController;
-$controllerDomaine = new ArtisteController;
 
-$domaines = $controllerDomaine->displayAllDomains();
+use AlBeyt\Controllers\ArtisteController;
+use AlBeyt\Controllers\EvenementController;
+use AlBeyt\Controllers\ArticleController;
+
+$controller = new ArtisteController;
+$controllerEvent = new EvenementController();
+$controArticle = new ArticleController();
+
+$domaines = $controller->displayAllDomains();
+
+$eventYearFilter = $controllerEvent->displayYearFilters();
+$articleYearFilter = $controArticle->displayYearFilters();
 ?>
 
 <script>
@@ -60,16 +69,16 @@ $domaines = $controllerDomaine->displayAllDomains();
             <?php } ?>
         </ul>
         <ul id="eventYears" class="dropdown-content">
-            <?php for ($y = date('Y'); $y >= 2021; $y--) { ?>
+            <?php foreach($eventYearFilter as $y) { ?>
                 <li>
-                    <a href="../front/evenements.php?year=<?= $y ?>" target="_blank"><?= $y ?></a>
+                    <a href="../front/evenements.php?year=<?= $y['year'] ?>" target="_blank"><?= $y['year'] ?></a>
                 </li>
             <?php } ?>
         </ul>
         <ul id="articleYears" class="dropdown-content">
-            <?php for ($y = date('Y'); $y >= 2022; $y--) { ?>
+           <?php foreach($articleYearFilter as $y) { ?>
                 <li>
-                    <a href="../front/articles.php?year=<?= $y ?>" target="_blank"><?= $y ?></a>
+                    <a href="../front/articles.php?year=<?= $y['year'] ?>" target="_blank"><?= $y['year'] ?></a>
                 </li>
             <?php } ?>
         </ul>
