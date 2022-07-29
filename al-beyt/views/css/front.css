@@ -1135,6 +1135,7 @@ main.article
 .sous-contener-article
 {
     display: flex;
+    justify-content: space-between;
 }
 .contener-article .icones
 {
