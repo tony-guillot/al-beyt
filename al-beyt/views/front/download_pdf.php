@@ -117,7 +117,7 @@ ob_start();
 </style>
 <header>
     <h1 class='al-beyt'>AL-BEYT</h1>
-    <img class='logo' src="http://<?= $_SERVER['SERVER_NAME'] ?>/images/logo.jpg" alt="logo al-beyt">
+    <img class='logo' src="http://<?= $_SERVER['SERVER_NAME'] ?>/images/logo.png" alt="logo al-beyt">
 </header>
 <main>
         <section>
