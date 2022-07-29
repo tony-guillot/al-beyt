@@ -610,6 +610,20 @@ img.index-affiche:hover
     display: flex;
     flex-wrap: wrap;
     justify-content : space-between;
+    flex-direction: row!important;
+    margin-bottom: 10px!important;
+}
+
+.news .titre-auteur{
+    font-weight: 100;
+}
+
+.news .fa-circle-plus{
+    font-size: 3em!important;
+}
+
+#actu-next, #actu-prev {
+    color: #FFE1F0;
 }
 
 .tile{
@@ -623,9 +637,9 @@ img.index-affiche:hover
 
 .tile .tile-info {
     position: absolute;
-    bottom: 0;
-    right: 0;
     background-color: rgba(0, 0, 0, 0.47);
+    bottom: 10px!important;
+    right: 10px!important;
 }
 
 .tile img{
@@ -669,7 +683,7 @@ img.index-affiche:hover
     width: 49.5%;
 }
 
-.pagination{
+.pagination-actu{
     width: 60%;
     text-align: center;
     margin:20px 0;

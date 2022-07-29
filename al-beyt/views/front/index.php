@@ -85,24 +85,24 @@ $controllerEvent = New EvenementController;
 <!--            </article>-->
 <!--        --><?php //endfor ?>
 <!--    </section>-->
-    <section id="news" class="news">
+    <section id="news" class="news box-cards" style="flex-direction: row; margin-bottom: ">
         <?php for ($i = 0;$i < 8; $i++):?>
             <article id="tile-<?=$i?>" class="tile tile-<?=$i?>">
-                    <a id="link-<?=$i?>" >
+                    <a id="link-<?=$i?>">
                         <img id="link-img-<?=$i?>">
-                        <div id="tile-info-<?=$i?>" class="tile-info block-infos articles">
-                            <div class="titre-auteur"><h2 class="infos merryweather taille1-trois " id="titre-<?=$i?>" ></h2>
-                                <span class="infos merryweather taille0-huit" id="auteur-date-<?=$i?>"></span>
-                            </div>
-                            <div>
-                                <a id="link-plus" class="link-img"><i class="fa-solid fa-circle-plus taille1"></i></a>
-                            </div>
-                        </div>
                     </a>
+                    <div id="tile-info-<?=$i?>" class="tile-info block-infos articles">
+                        <div class="titre-auteur"><h2 class="infos merryweather taille1-trois " id="titre-<?=$i?>" ></h2>
+                            <span class="infos merryweather taille0-huit" id="auteur-date-<?=$i?>"></span>
+                        </div>
+                        <div>
+                            <a id="link-plus-<?=$i?>" class="link-img"><i class="fa-solid fa-circle-plus taille1"></i></a>
+                        </div>
+                    </div>
             </article>
         <?php endfor ?>
     </section>
-    <section class="pagination">
+    <section class="pagination-actu">
         <a id="actu-prev" href="#news"> &larr; </a>
         <a id="actu-next" href="#news"> &rarr; </a>
     </section>

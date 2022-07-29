@@ -21,16 +21,18 @@ function loadActu(page) {
 
                     } else {
                         //articles
-                        document.getElementById('tile-info-' + i).style.display = "block";
+                        document.getElementById('tile-info-' + i).style.display = "flex";
 
                         let aTag = document.getElementById('link-' + i);
                         aTag.href = 'article.php?id=' + response.news[i].id_article;
+                        let aPlusTag = document.getElementById('link-plus-' + i);
+                        aPlusTag.href = 'article.php?id=' + response.news[i].id_article;
 
                         let imgTag = document.getElementById('link-img-' + i);
                         imgTag.src = 'http://' + response.news[i].chemin_article;
 
                         let spanTag = document.getElementById('auteur-date-' + i);
-                        spanTag.innerHTML = 'Par ' + response.news[i].auteur + ', publié le ' + response.news[i].date_news;
+                        spanTag.innerHTML = 'Par <em><b>' + response.news[i].auteur + '</b></em>, publié le ' + response.news[i].date_news;
 
                         let hTag = document.getElementById('titre-' + i);
                         hTag.innerHTML = response.news[i].titre;
