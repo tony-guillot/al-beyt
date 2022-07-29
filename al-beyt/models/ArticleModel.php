@@ -73,7 +73,18 @@ class ArticleModel extends Bdd
         return $result;
     }
 
-  
+    public function getYearFilters()
+    {
+        $bdd = $this->bdd->prepare(
+            'SELECT DISTINCT YEAR(date) as year
+                    FROM article
+                    ORDER BY date DESC;');
+        $bdd->execute();
+        $result = $bdd->fetchAll();
+
+        return $result;
+    }
+
     public function insertArticle($titre, $auteur, $description)
     {
         $bdd = $this->bdd->prepare(

@@ -36,10 +36,18 @@ ini_set('default_charset','utf-8');
 
 require_once '../../../vendor/autoload.php';
 use AlBeyt\Controllers\ArtisteController;
-$controller = New ArtisteController;
+use AlBeyt\Controllers\EvenementController;
+use AlBeyt\Controllers\ArticleController;
 
-$domaines = $controller->displayAllDomains()
-   
+$controller = new ArtisteController;
+$controllerEvent = new EvenementController();
+$controArticle = new ArticleController();
+
+$domaines = $controller->displayAllDomains();
+
+$eventYearFilter = $controllerEvent->displayYearFilters();
+$articleYearFilter = $controArticle->displayYearFilters();
+
 ?>
 <body>
     <!-- <header>
@@ -58,32 +66,29 @@ $domaines = $controller->displayAllDomains()
                                 <li>
                                     <a class="link-nav" href="artistes.php?id=<?=$domaine['id']?>"><?= $domaine['nom']?></a>
                                 </li>
-
-                    <?php } ?>
+                            <?php } ?>
                         </ul>
                     </div>  
                 </li>      
                 <li class="active"><a class="link-nav" href="evenements.php">Evenements</a>
                     <div class="sub-menu-1">
                         <ul>
-                        <?php for($y = date('Y'); $y >= 2021; $y--)
-                        { ?>
-                            <li>
-                                <a class="link-nav" href="evenements.php?year=<?= $y ?>"><?= $y ?></a>
-                            </li>
-                         <?php } ?>
+                            <?php foreach($eventYearFilter as $y) { ?>
+                                <li>
+                                    <a class="link-nav" href="evenements.php?year=<?= $y['year'] ?>"><?= $y['year'] ?></a>
+                                </li>
+                             <?php } ?>
                         </ul>
                     </div>
                 </li>      
                 <li class="active"><a class="link-nav" href="articles.php">ActualitE</a>
                     <div class="sub-menu-1">
                         <ul>
-                            <?php for($y = date('Y'); $y >= 2022; $y--)
-                                { ?>
-                                    <li>
-                                        <a class="link-nav" href="articles.php?year=<?= $y ?>"><?=$y ?></a>
-                                    </li>
-                        <?php } ?>
+                            <?php foreach($articleYearFilter as $y) { ?>
+                                <li>
+                                    <a class="link-nav" href="articles.php?year=<?= $y['year'] ?>"><?=$y['year'] ?></a>
+                                </li>
+                             <?php } ?>
                         </ul>
                     </div>
                 </li>     
