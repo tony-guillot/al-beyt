@@ -13,7 +13,7 @@ if(isset($_GET['page'])){
 }
 $totalEvenements = count($controllerEvenement->displayAllInfosEvent());
 $pageMax = ceil($totalEvenements / EvenementController::NB_EVENEMENT_PAR_PAGE);
-
+$startYear = date("Y", strtotime($controllerEvenement->displayAllInfosEvent()[$totalEvenements-1]['date_evenement']));
 
 if(isset($_GET['year']))
 {
@@ -35,10 +35,12 @@ require_once('../include/header.php');
                 <li class="filtre">
                     <a  class="filtre" <?= (empty($year)) ? Affichage::stylizeCurrentFilter() : "" ?> class="" href="evenements.php">Tous les évènements</a>
                 </li>
-                <?php for ($y = date("Y"); $y >= 2021; $y--): ?>
-                    <li class="filtre">
-                        <a class="filtre" <?= ($y == $year) ? Affichage::stylizeCurrentFilter() : "" ?> href="evenements.php?year=<?= $y ?>"><?= $y ?></a>
-                    </li>
+                <?php for ($y = date("Y"); $y >= $startYear; $y--): ?>
+                    <?php if (!empty($controllerEvenement->displayEventsByYear($y,1))): ?>
+                        <li class="filtre">
+                            <a class="filtre" <?= ($y == $year) ? Affichage::stylizeCurrentFilter() : "" ?> href="evenements.php?year=<?= $y ?>"><?= $y ?></a>
+                        </li>
+                    <?php endif ?>
                 <?php endfor ?>
             </ul>
         </section>
@@ -47,20 +49,20 @@ require_once('../include/header.php');
                 <article class="cards box-shadow animation2">
                     <a class="link-img" href="evenement.php?id=<?= $event['id'] ?>">
                         <img class="boucle" src="http://<?= $event['chemin'] ?>" alt="<?= $event['titre'] ?>">
-                    </a>    
+                    </a>
                     <div class="block-infos">
 
-                        <div class="titre-auteur"> 
+                        <div class="titre-auteur">
                             <h2 class="infos merryweather taille1-trois "><?= $event['titre'] ?></h2>
                             <span class="infos merryweather taille0-huit"> <em><b> <?= Affichage::printDate($event['date_evenement']) ?> </em></b></span>
                         </div>
                         <div>
                             <a class="link-img" href="evenement.php?id=<?= $event['id'] ?>">
                                 <i class="fa-solid fa-circle-plus plus taille1"></i>
-                            </a> 
+                            </a>
                         </div>
                     </div>
-                  
+
                 </article>
             <?php } ?>
         </section>

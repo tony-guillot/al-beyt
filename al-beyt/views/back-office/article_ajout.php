@@ -5,10 +5,8 @@ $controllerArticle = new ArticleController();
 
 if(!empty($_POST['valider']))
 {
-    echo "<pre>";
-    $id_article = $controllerArticle->registerArticle($_POST['titre'], $_POST['auteur'], $_POST['description'], $_FILES['image_en_avant'], $_POST['legende_en_avant'],  $_FILES['image2'],  $_POST['legende2'], $_FILES['image3'],  $_POST['legende3'], $_FILES['image4'],  $_POST['legende4']);
-    echo "Success : id_Article = ".$id_article ;
-    echo "</pre>";
+    $controllerArticle->registerArticle($_POST['titre'], $_POST['auteur'], $_POST['description'], $_FILES['image_en_avant'], $_POST['legende_en_avant'],  $_FILES['image2'],  $_POST['legende2'], $_FILES['image3'],  $_POST['legende3'], $_FILES['image4'],  $_POST['legende4']);
+
 }
 $title ="Ajout article";
 require_once('../include/headerBo.php');

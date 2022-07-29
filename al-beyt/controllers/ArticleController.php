@@ -79,7 +79,7 @@ class ArticleController extends Controller
                         if ($cheminImage2 != "") {
                             $this->modelArticle->insertImage($cheminImage2, $legende2, $id_article, 2);
                         }else{
-                            echo 'Veuillez choisir une image 2 valide. (Taille limite = 2Mo maximum)';
+                            echo Error::displayError('Veuillez choisir une image 2 valide. (Taille limite = 2Mo maximum)');
                         }
                     }
                     if (!empty($image3) && !empty($legende3)) {
@@ -87,7 +87,7 @@ class ArticleController extends Controller
                         if ($cheminImage3 != "") {
                             $this->modelArticle->insertImage($cheminImage3, $legende3, $id_article, 3);
                         }else{
-                            echo 'Veuillez choisir une image 3 valide. (Taille limite = 2Mo maximum)';
+                            echo Error::displayError('Veuillez choisir une image 3 valide. (Taille limite = 2Mo maximum)');
                         }
                     }
                     if (!empty($image4) && !empty($legende4)) {
@@ -95,20 +95,20 @@ class ArticleController extends Controller
                         if ($cheminImage4 != "") {
                             $this->modelArticle->insertImage($cheminImage4, $legende4, $id_article, 4);
                         }else{
-                            echo 'Veuillez choisir une image 4 valide. (Taille limite = 2Mo maximum)';
+                            echo Error::displayError('Veuillez choisir une image 4 valide. (Taille limite = 2Mo maximum)');
                         }
                     }
                 } else {
-                    echo 'Veuillez choisir une image de présentation valide (Taille limite = 2Mo maximum).';
+                    echo Error::displayError('Veuillez choisir une image de présentation valide (Taille limite = 2Mo maximum).');
                 }
             }
             else{
-                echo 'La longueur du titre ne doit pas exceder 150 caracteres.';
+                echo Error::displayError('La longueur du titre ne doit pas exceder 150 caracteres.');
             }
         }
         else
         {
-            echo 'Veuillez remplir les champ Titre, Auteur et Texte de l\'article';
+            echo Error::displayError('Veuillez remplir les champ Titre, Auteur et Texte de l\'article');
         }
 
         return $id_article;
@@ -130,17 +130,17 @@ class ArticleController extends Controller
                 }
                 else
                 {
-                    echo('Le nom de l\'auteur ne doit pas dépasser 50 caracteres.');
+                    echo Error::displayError('Le nom de l\'auteur ne doit pas dépasser 50 caracteres.');
                 }
             }
             else
             {
-                echo('Le titre ne doit pas dépasser 150 caracteres.');
+                echo Error::displayError('Le titre ne doit pas dépasser 150 caracteres.');
             }
         }
         else
         {
-            echo('Veuillez remplir les champs.');
+            echo Error::displayError('Veuillez remplir les champs Titre, Auteur et Description.');
         }
 
         return $id_article;
@@ -159,7 +159,7 @@ class ArticleController extends Controller
             }
 
         }else{
-           echo('La légende doit compter moins de 100 caracteres.');
+           echo Error::displayError('La légende doit compter moins de 100 caracteres.');
         }
     }
 

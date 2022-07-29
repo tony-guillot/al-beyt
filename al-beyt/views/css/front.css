@@ -14,7 +14,7 @@
     src: url('../css/wagon/wagon-bold_copie-webfont.woff2') format('woff2'),
          url('../css/wagon/wagon-bold_copie-webfont.woff') format('woff'),
          url('../css/wagon/wagon-bold_copie-webfont.ttf') format('ttf');
-         
+
     font-weight: normal;
     font-style: normal;
 
@@ -94,8 +94,8 @@
 a
 {
     text-decoration:none;
-    
-    
+
+
 }
 li
 {
@@ -107,7 +107,7 @@ body
     /* background-color:#fffffd; */
     color:#ffe9fb;
 }
-  
+
 main
 {
     min-height: 70vh;
@@ -198,7 +198,7 @@ header
     width: 100%;
     height: 10vh;
     font-size: 1.5em;
-    
+
     color: #360750; */
 }
 
@@ -218,7 +218,7 @@ a.link-nav
 {
     text-decoration:none;
     color:#140f16;
- 
+
 }
 
 nav ul
@@ -307,11 +307,11 @@ nav ul li:hover .sub-menu-1 ul
 }
 
 .footer-mentions
-{   
+{
     margin-top: 60px;
     font-size: 0.8em;
     color: #FFE1F0;
- 
+
 }
 .footer-mentions:hover
 {
@@ -331,7 +331,7 @@ nav ul li:hover .sub-menu-1 ul
 .footer-liens:hover
 {
    color: #ffe1f0bd;
-   
+
 }
 
 /************************* \Footer/ **************************/
@@ -343,7 +343,7 @@ nav ul li:hover .sub-menu-1 ul
     display:flex;
     flex-direction:column;
     width: 100%;
-    position: relative 
+    position: relative
 }
 
 .sous-contener
@@ -585,13 +585,85 @@ img.index-affiche:hover
     
 }
 
+.news {
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content : space-between;
+}
+
+.tile{
+    height: 200px;
+    margin: 4px 0;
+    position: relative;
+    -webkit-box-shadow: 2px 5px 8px -1px rgba(0,0,0,0.83);
+    box-shadow: 2px 5px 8px -1px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+.tile .tile-info {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.47);
+}
+
+.tile img{
+    width: 100%;
+    object-fit:cover;
+    margin-bottom: 20px;
+    height: 200px;
+
+}
+
+.tile:hover{
+    -moz-transform: scale(1.01) skew(-1deg, 0deg);
+    -webkit-transform: scale(1.01) skew(-1deg, 0deg);
+    -o-transform: scale(1.01) skew(-1deg, 0deg);
+    -ms-transform: scale(1.01) skew(-1deg, 0deg);
+    transform: scale(1.01) skew(-1deg, 0deg);
+}
+
+.tile-0 {
+    width: 49.5%;
+}
+.tile-1 {
+    width: 49.5%;
+}
+.tile-2 {
+    width: 100%;
+}
+.tile-3 {
+    width: 49.5%;
+}
+.tile-4 {
+    width: 49.5%;
+}
+.tile-5 {
+    width: 100%;
+}
+.tile-6 {
+    width: 49.5%;
+}
+.tile-7 {
+    width: 49.5%;
+}
+
+.pagination{
+    width: 60%;
+    text-align: center;
+    margin:20px 0;
+    font-size: 1.6em;
+}
+
+
 /*********************** \INDEX/ ****************************/
 
 
 
 /************** Template Evenements Articles ***************/
 .box-cards
-{   
+{
     display:flex;
     flex-direction:column;
     justify-content:center;
@@ -603,7 +675,7 @@ img.index-affiche:hover
 }
 
 article.cards
-{   
+{
     border:solid 0.5px rgb(65, 65, 65);
     position: relative;
     background-color:#140f16;
@@ -665,7 +737,7 @@ div.block-infos:hover
 }
 div.block-infos.articles
 {
-    
+
     display:flex;
     justify-content: space-between;
     align-items: center;
@@ -681,7 +753,7 @@ div.block-infos.articles
 }
 
 
-.box-cards .titre-auteur 
+.box-cards .titre-auteur
 {
     padding-left:20px;
     font-weight: 100;
@@ -835,7 +907,7 @@ i.artistes.fa-solid:hover
     /* background-color:#6dcfa2; */
 }
 .event .titre
-{   
+{
     position: absolute;
     display: flex;
     font-family: 'molgak_classyregular','arial';
@@ -856,22 +928,22 @@ i.artistes.fa-solid:hover
     line-height: 1.2;
 }
 .event .affiche
-{   
-    
+{
+
     display: flex;
     flex-direction: column;
     align-items: flex-end;
 
     width:50%;
-   
-    
+
+
     /* background-color:#ff009da2; */
     z-index: 0;
-    
+
 }
 .event img
 {
-    
+
     width:100%;
     /* z-index: 0; */
 }
@@ -895,8 +967,8 @@ button .button-trash
  font-weight: 100;
  color:#808080;
  padding-top:5px;
- 
-  
+
+
 }
 /************** Legende *****************/
 .bloc-info
@@ -909,7 +981,7 @@ button .button-trash
     left: 5%;
     font-weight: 200;
     color:#ffe9fb;
-    
+
 
 }
 
@@ -932,18 +1004,18 @@ button .button-trash
     color:#ffe9fb;
     line-height: 1.5;
     font-size: 0.8em;
-    
+
 }
 
 .event .adresse
 {
     /* font-weight: 100; */
-}   
+}
 .event .sub-infos
 {
     font-weight: 100;
     font-size: 1em;
-    
+
 }
 
 
@@ -961,13 +1033,13 @@ button .button-trash
     font-style: italic;
 }
 .event .bloc-image2
-{   
+{
     margin-top: 50px;
     margin-bottom: 70px;
     display:flex;
     flex-direction: column;
     width: 50%;
-    
+
 
 }
 .bloc-image2 img
@@ -1012,7 +1084,7 @@ main.article
     width: 100vw;
     height: 100vh;
     object-fit: cover;
-   
+
 }
 
 .contener-article
@@ -1022,7 +1094,7 @@ main.article
     display: flex;
     justify-content: center;
     align-items:center;
-    
+
     flex-direction: column;
     margin-top: 50px;
 }
@@ -1037,7 +1109,7 @@ main.article
     display: flex;
     justify-content: center;
     align-items:flex-start;
-    
+
 }
 .icones i
 {
@@ -1100,8 +1172,8 @@ main.article
 }
 
 .artiste .contener1
-{   
-    
+{
+
     width: 80%;
     /* height: 150vh; */
     margin-top:100px;
@@ -1111,7 +1183,7 @@ main.article
 }
 
 .infos-artiste
-{   
+{
     width:50%;
     display:flex;
     flex-direction: column;
@@ -1119,11 +1191,11 @@ main.article
     /* background-color:#870000 ; */
 }
 .artiste .nom-description
-{   
+{
     display:flex;
     flex-direction: column;
     align-items:center;
-    
+
 }
 .artiste .nom
 {
@@ -1138,7 +1210,7 @@ main.article
       font-family: 'inter';
       font-weight: 100;
       font-size:0.8em;
-        
+
 
 }
 .artiste .email-siteweb > *
@@ -1148,7 +1220,7 @@ main.article
     display:block;
 }
 .artiste .links
-{   
+{
     display:flex;
     flex-direction: column;
     align-items:flex-start;
@@ -1167,14 +1239,14 @@ main.article
     font-weight: 100;
     font-size:0.8em;
     text-decoration:overline;
-    
+
 }
 .artiste .reseaux a
-{   
+{
     margin-right: 40px;
     font-size:1.8em;
     color:#ffe6e6;
-    
+
 }
 .artiste .box-image
 {
@@ -1182,7 +1254,7 @@ main.article
     flex-direction: column;
     /* align-items: center; */
     Width:50%;
-    
+
     height:100%;
     /* background-color:#ededed ; */
 }
@@ -1193,11 +1265,11 @@ main.article
     /* height: 90vh; */
     object-fit: cover;
     height: 100%;
-   
-    
+
+
 }
-.box-image .legende 
-{  
+.box-image .legende
+{
 
     display:flex;
     margin-top:5px;
@@ -1267,14 +1339,14 @@ main.article
     margin-top: 50px;
     margin-bottom: 100px;
     width: 80%;
-    
+
 }
 .presentation .bloc2
 {
     display:flex;
     justify-content:space-between;
-    
-  
+
+
 }
 
 .presentation .sous-bloc2

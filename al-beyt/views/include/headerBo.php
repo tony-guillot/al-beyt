@@ -19,6 +19,7 @@
      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
     crossorigin="anonymous" referrerpolicy="no-referrer"
     />
+    <script src="../js/script.js"></script>
     <link rel="stylesheet" href="../css/back-office.css">
     <title> <?='Back-office | '.$title?> </title>
 </head>
@@ -74,3 +75,9 @@ $domaines = $controllerDomaine->displayAllDomains();
         </ul>
 
     </header>
+
+<section id="error-section" class="valign-wrapper z-depth-3 card-panel">
+    <i class="material-icons">error</i>
+     <p id="error-text">
+     </p>
+</section>

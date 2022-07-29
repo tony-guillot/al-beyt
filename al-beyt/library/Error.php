@@ -3,11 +3,10 @@ namespace AlBeyt\Library;
 
 class Error 
 {
-    public function __construct()
-    {
-
+    public static function displayError($message){
+        return '<script>
+                var error = "'.$message.'" ;
+            </script>';
     }
-
-  
 }
 ?>

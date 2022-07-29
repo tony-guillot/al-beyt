@@ -13,8 +13,9 @@ class DomaineModel extends Bdd
         $result = $bdd->fetchAll(PDO::FETCH_ASSOC);
        
         return $result;
-    
     }
+
+    
 }
 
 ?>

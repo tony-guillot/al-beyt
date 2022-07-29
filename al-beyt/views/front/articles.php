@@ -13,6 +13,7 @@ if(isset($_GET['page'])){
 }
 $totalArticles = count($controllerArticle->displayAllArticles());
 $pageMax = ceil($totalArticles / ArticleController::NB_ARTICLE_PAR_PAGE);
+$startYear = date("Y", strtotime($controllerArticle->displayAllArticles()[$totalArticles-1]['date']));
 
 if(isset($_GET['year']))
 {
@@ -34,10 +35,12 @@ require_once('../include/header.php');
                 <li class="filtre">
                     <a class="filtre" <?= (empty($year)) ? Affichage::stylizeCurrentFilter() : "" ?> href="articles.php">Tous les articles</a>
                 </li>
-                <?php for ($y = date("Y"); $y > 2021; $y--): ?>
-                    <li class="filtre">
-                        <a class="filtre"  <?= ($y == $year) ? Affichage::stylizeCurrentFilter() : "" ?>  href="articles.php?year=<?= $y ?>"> &emsp; &emsp; &emsp; &emsp;  &emsp;<?= $y ?> &emsp; &emsp; &emsp; &emsp;&emsp;  &emsp;</a>
-                    </li>
+                <?php for ($y = date("Y"); $y >= $startYear; $y--): ?>
+                    <?php if (!empty($controllerArticle->displayArticlesByYear($y,1))): ?>
+                        <li>
+                            <a class="filtre" <?= ($y == $year) ? Affichage::stylizeCurrentFilter() : "" ?> href="articles.php?year=<?= $y ?>">&emsp; &emsp; &emsp; &emsp;  &emsp;<?= $y ?> &emsp; &emsp; &emsp; &emsp;&emsp;  &emsp;</a>
+                        </li>
+                    <?php endif ?>
                 <?php endfor ?>
             </ul>
         </section>
@@ -46,7 +49,7 @@ require_once('../include/header.php');
                 <article class="cards box-shadow animation2">
                     <a class="link-img" href="article.php?id=<?= $article['id'] ?>">
                         <img  class="boucle" src="http://<?= $article['chemin'] ?>" alt="<?= $article['titre'] ?>">
-                    </a>    
+                    </a>
                     <div class="block-infos articles">
                             <div class="titre-auteur">
                                 <h2 class="infos merryweather taille1-trois "><?= $article['titre'] ?></h2>
