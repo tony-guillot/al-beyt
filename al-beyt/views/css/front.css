@@ -159,9 +159,9 @@ li.filtre
 a.filtre
 {
     display: flex;
-    
+
     color: rgb(0, 0, 0);
-   
+
     /* color: #360750; */
 }
 a.filtre:hover
@@ -207,9 +207,12 @@ header
     margin:15px;
 }
 
-nav
+.header * {
+    z-index: 2;
+}
+
+nav.header
 {
-    
    background-color: #FFE1F0;
    height:50px;
    width: 100%;
@@ -219,6 +222,16 @@ a.link-nav
     text-decoration:none;
     color:#140f16;
 
+    font-weight: 300;
+}
+
+.active > a {
+    font-weight: 400;
+}
+
+nav.header > ul {
+    align-items: stretch;
+    height: 100%;
 }
 
 nav ul
@@ -226,13 +239,14 @@ nav ul
     display: flex;
     justify-content: space-around;
     flex-direction: row;
-    height: 5vh;
+    /*height: 5vh;*/
     /* background-color: rgb(182, 127, 255); */
 }
 nav ul li
-{ 
+{
+
      /* display: flex;
-     position: relative;
+
     justify-content: center;
     align-items: center;
     text-align: center; */
@@ -243,7 +257,9 @@ nav ul li
     font-weight: 200;
     font-size: 1.2em;
     letter-spacing: 2px;
-    padding: 12px;
+    padding: 10px;
+    position: relative;
+    object-fit: contain;
     /* margin-top:10px; */
     
 }
@@ -251,14 +267,16 @@ nav ul li:hover
 {
     cursor: pointer;
     background-color:#ffecf6;
-    height: 5vh;
+    /*height: 5vh;*/
 }
 .sub-menu-1
 {
+    position: absolute;
+    left: 0;
+    top:100%;
     display:none;
-    
-    /* right: 40px; */
-    width :150px;
+    width: 19vw;
+
    
 }
 .sub-menu-1 ul li
@@ -381,16 +399,16 @@ nav ul li:hover .sub-menu-1 ul
 }
 
 .animation2:hover
-{   
+{
     filter: brightness(100%);
-   
+
 }
 
 /**************** Icon *************************/
 
 .plus
 {
-    
+
 }
 
 
@@ -762,7 +780,7 @@ div.block-infos.articles
 .block-infos .infos 
 {
     color: white;
-    
+
 }
 .box-cards .fa-circle-plus
 {
@@ -773,7 +791,7 @@ div.block-infos.articles
    opacity: 0.8;
    border-radius: 70px;
    transition: all 0.3s ease;
-   
+
 }
 
 .box-cards .fa-circle-plus:hover

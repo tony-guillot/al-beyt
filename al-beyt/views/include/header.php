@@ -28,7 +28,7 @@
     <script src="https://cdn.jsdelivr.net/npm/simple-parallax-js@5.5.1/dist/simpleParallax.min.js"></script>
     <script src="../js/script.js"></script>
     <link rel="stylesheet" href="../css/front.css">
-  
+
 </head>
 <?php
 ini_set('default_charset','utf-8');
@@ -42,9 +42,9 @@ $domaines = $controller->displayAllDomains()
 ?>
 <body>
     <!-- <header>
-        <h1 class='al-beyt taille2' ></h1>    
+        <h1 class='al-beyt taille2' ></h1>
     </header> -->
-        <nav>
+        <nav class="header">
             <ul>
                 <li class="active"><a class="link-nav" href="index.php">Al-Beyt</a></li>
 
@@ -86,7 +86,7 @@ $domaines = $controller->displayAllDomains()
                         </ul>
                     </div>
                 </li>     
-                <li class="active"><a class="link-nav" href="presentation.php">A propos</a></li>    
+                <li class="active"><a class="link-nav" href="presentation.php">A propos</a></li>
             </ul>
         </nav>
    
