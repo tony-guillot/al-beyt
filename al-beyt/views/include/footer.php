@@ -8,7 +8,9 @@
                 <p class="inter footer-mail ">collectif.albeyt@gmail.com</p>
             </article>
             <article>
-                <a class="inter footer-mentions taille0-huit " href="">Mentions légales</a>
+                <a class="inter footer-mentions taille0-huit" href="mentions_legales.pdf" target="_blank">
+                    Mentions légales
+                </a>
             </article>
             <article>
                     <div class="footer-reseaux">
