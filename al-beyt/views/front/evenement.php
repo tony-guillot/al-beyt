@@ -20,45 +20,47 @@ $title = "Evènement";
 require_once('../include/header.php');
 ?>
 
-<main>
-    <section>
-        <section>
-            <article>
-                    <h1><?= $event['titre'] ?></h1>
+<main class="event">
+    <section class="contener1">
+        <section class="titre-affiche">
+            <article class="titre ">
+                    <h1 class="titre"><?= $event['titre'] ?></h1>
             </article>
-            <article>
-                <span><?= $event['adresse'] ?></span>
-                <span><?= Affichage::printDate($event['date_evenement']) ?> à <?= $event['heure'] ?></span>
-                <span> avec
+            <article class="affiche">
+                <img  src="http://<?= $images_event[0]['chemin'] ?>" alt="<?= $images_event[0]['legende'] ?>">
+                <span class="legende merryweather"><?= $images_event[0]['legende'] ?></span>
+            </article>
+        </section>
+
+        <section class="bloc-info inter ">
+          <article class="infos">
+                <span class="adresse merryweather"><?= $event['adresse'] ?></span> </br>
+                <span class="sub-infos"> <?= Affichage::printDate($event['date_evenement']) ?>  à  <?= $event['heure'] ?></span> </br>
+                <span class="sub-infos">  
+                    avec
                     <?php
                     foreach ($artistes as $artiste) {
-                    ?>
-                        <a href="artiste.php?id=<?= $artiste['id'] ?>"><?= $artiste['nom'] ?></a>
+                    ?>  
+                        <a  class="artistes" href="artiste.php?id=<?= $artiste['id'] ?>"><?= $artiste['nom'] ?></a> ❥
                     <?php } ?>
                 </span>
             </article>
         </section>
-        <section>
-            <article>
-                <img src="http://<?= $images_event[0]['chemin'] ?>" alt="<?= $images_event[0]['legende'] ?>">
-                <span><?= $images_event[0]['legende'] ?></span>
-            </article>
-        </section>
     </section>
-    <hr />
-    <section>
-        <article>
-            <p>
-                <?= $event['description'] ?>
+    <hr class="hr-event">
+    <section class="contener2">
+        <article class="description inter">
+            <p> 
+                <?= nl2br($event['description']) ?>
             </p>
         </article>
         <?php if (isset($images_event[1])): ?>
-            <article>
-                <div>
-                    <img src="http://<?= $images_event[1]['chemin'] ?>" alt="<?= $images_event[1]['legende'] ?>">
-                    <span><?= $images_event[1]['legende'] ?></span>
-                </div>
-            </article>
+        <article class="bloc-image2">
+                
+                    <img  src="http://<?= $images_event[1]['chemin'] ?>" alt="<?= $images_event[1]['legende'] ?>">
+                    <span class="legende2  merryweather"><?= $images_event[1]['legende'] ?></span>
+    
+        </article>
         <?php endif ?>
     </section>
 </main>

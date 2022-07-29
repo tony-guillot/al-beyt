@@ -52,6 +52,7 @@ class ArticleController extends Controller
 
     public function reorderImages($images)
     {
+        $images_article = [];
         foreach ($images as $imgArticle) {
             $images_article[$imgArticle['ordre'] - 1] = $imgArticle;
         }

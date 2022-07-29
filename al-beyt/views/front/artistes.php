@@ -28,46 +28,58 @@ if(isset($_GET['id']))
 else
 {
     $artists = $controller->displayAllArtistsByStatut(1, $pageCourante);
+    $id_domaine=0;
 }
 
 $title = "Artistes";
 require_once('../include/header.php');
 ?>
-<main class="contener" >
+<main class="contener">
     <section class="sous-contener">
-        <section class="filtre">
-            <ul>
-                    <li>
-                        <a href="artistes.php">Tous les artistes</a>
-                    </li>
+        <section class="artistes-filtre">
+            <ul class="merryweather liens-filtre taille0-huit">
+                <li class="filtre">
+                    <a  class="filtre" <?= (empty($id_domaine)) ? Affichage::stylizeCurrentFilter() : "" ?> href="artistes.php">Tous les artistes</a>
+                </li>
                 <?php foreach ($domaines as $domaine)
                 { ?>
-                    <li>
-                        <a href="artistes.php?id=<?= $domaine['id'] ?>"><?= $domaine['nom']?></a>
+                    <li class="filtre">
+                        <a class="filtre" <?= (($domaine['id'] == $id_domaine)) ? Affichage::stylizeCurrentFilter() : "" ?> href="artistes.php?id=<?= $domaine['id'] ?>"><?= $domaine['nom']?></a>
                     </li>
             <?php }?>
             </ul>
         </section>
-        <section  class="cards-artists">
-            <?php foreach($artists as $artist)
-            {
-                { ?>
-                    <article>
-                        <a href="artiste.php?id=<?= $domaine['id']?>">
+        <section class=" artistes-box-cards">
+            <section class="artistes-sous-box">
+
+                <?php foreach($artists as $artist)
+                {
+                    { ?>
+                        <article class="template-card artistes-cards">
                             <div>
-                                <img src="http://<?= $artist['chemin']?>">
+
+                                <a href="artiste.php?id=<?= $artist['id']?>">
+                                
+                                        <img class="artistes-boucle" src="http://<?= $artist['chemin']?>">
+        
+                                </a>    
                             </div>
-                            <div>
+                            <div class="artistes-infos molgak taille1 ">
                                 <span><?= $artist['nom']?></span>
-                                <i class="fa-solid fa-circle-plus"></i>
+
+                                <a href="artiste.php?id=<?= $domaine['id']?>">
+                                <i class=" artistes fa-solid fa-circle-plus "></i>
+                                </a>     
                             </div>
 
-                    </a>
-                </article>
-      <?php }
-        } ?></section>
+                            
+                        </article>
+                <?php   }
+                } ?>
+            </section>
+        </section>
     </section>
-    <section>
+    <section class="conteneur-page">
         <?php if($pageCourante != 1)
         {   ?>
             <a href="artistes.php?page=<?= $pageCourante - 1?><?= isset($id_domaine) ? "&id=".$id_domaine : "" ?>">Page précédente</a>

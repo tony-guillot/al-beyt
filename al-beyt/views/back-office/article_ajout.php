@@ -13,8 +13,6 @@ require_once('../include/headerBo.php');
 ?>
 <?php require_once('../include/sidebar.php');?>
 <main class="container">
-    <section>
-    </section>
     <section class="row formulaire">
         <section class="col s12">
             <h1>Ajouter un nouvel article</h1>

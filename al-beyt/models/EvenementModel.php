@@ -76,7 +76,7 @@ class EvenementModel extends Bdd {
     }
 
     public function getEventById($id)
-    {
+    {  
         $bdd = $this->bdd->prepare(
             'SELECT id,titre ,adresse ,date_evenement, heure , description
             FROM evenement
@@ -221,6 +221,31 @@ class EvenementModel extends Bdd {
         ));
     }
 
+    /**
+     * Cette requete SQL retourne les derniers evenenements et les derniers articles (triés par date).
+     * @param $offset
+     * @return array contenant les colones des articles et des evenements en même temps
+     */
+    public function getLastArticlesAndEvents($limit,$offset){
+        $bdd = $this->bdd->prepare(
+            'SELECT a.id AS id_article, titre, auteur, i.chemin AS chemin_article, NULL AS id_evenement, NULL AS chemin_evenement, date AS date_news
+            FROM article a
+            INNER JOIN image_article i ON a.id = i.id_article AND ordre = 1
+            
+            UNION
+            
+            SELECT NULL AS id_article, NULL as titre, NULL as auteur, NULL AS chemin_article, e.id AS id_evenement, i.chemin AS chemin_evenement, e.date_evenement AS date_news
+            FROM evenement e
+            INNER JOIN image_evenement i ON e.id = i.id_evenement  AND ordre = 1
+            
+            ORDER BY date_news DESC
+            LIMIT :limit OFFSET :offset;'
+        );
+        $bdd->bindValue(":limit" , $limit, PDO::PARAM_INT);
+        $bdd->bindValue(":offset" , $offset, PDO::PARAM_INT);
+        $bdd->execute();
+        return $bdd->fetchAll(PDO::FETCH_ASSOC);
+    }
 
 }
 
