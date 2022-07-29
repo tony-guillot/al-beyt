@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title> <?='Al-Beyt | '.$title?> </title>
-    <mеtа nаmе="dеѕсrірtіоn" соntеnt=" Nous sommes le collectif Al-Beyt. Al-Beyt met en avant la culture syrienne
+    <meta name="dеѕсrірtіоn" content=" Nous sommes le collectif Al-Beyt. Al-Beyt met en avant la culture syrienne
                                        et arabophone à travers des évènements culturels et festifs organisés bénévolement.
                                        Informez-vous sur nos évènements, découvrez des artistes fabuleux.ses
-                                       et tenez-vous au courant de nos actualités!">
+                                       et tenez-vous au courant de nos actualités!" >
+
     <link rel="al-beyt" href="al-beyt.com">
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -62,7 +63,7 @@ $domaines = $controller->displayAllDomains()
                         </ul>
                     </div>  
                 </li>      
-                <li class="active"><a class="link-nav" href="evenements.php">Evènements</a>
+                <li class="active"><a class="link-nav" href="evenements.php">Evenements</a>
                     <div class="sub-menu-1">
                         <ul>
                         <?php for($y = date('Y'); $y >= 2021; $y--)
@@ -74,7 +75,7 @@ $domaines = $controller->displayAllDomains()
                         </ul>
                     </div>
                 </li>      
-                <li class="active"><a class="link-nav" href="articles.php">Actualité</a>
+                <li class="active"><a class="link-nav" href="articles.php">ActualitE</a>
                     <div class="sub-menu-1">
                         <ul>
                             <?php for($y = date('Y'); $y >= 2022; $y--)

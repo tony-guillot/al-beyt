@@ -213,9 +213,10 @@ header
 
 nav.header
 {
-   background-color: #FFE1F0;
-   height:50px;
-   width: 100%;
+    background-color: #FFE1F0;
+    height: 50px;
+    width: 100%;
+    line-height: 35px;
 }
 a.link-nav
 {
