@@ -1,7 +1,7 @@
     <footer>
         <section class="footer-box">
             <article>
-                <img style="width: 100px; margin:20px"src="../../../images/logo-rose.svg" alt="logo al-beyt">
+                <img style="width: 100px; margin:20px" src="../../../images/logo-rose.svg" alt="logo al-beyt">
             </article>
             <article class="contact-box">
                 <h1 class="footer-title inter taille0-huit">Contactez-nous!</h1>

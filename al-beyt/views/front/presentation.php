@@ -51,7 +51,7 @@ require_once('../include/header.php');
                             Le projet solidaire, moteur d’Al-Beyt, concrétise notre volonté d’apporter du soutien
                             par nous-mêmes aux personnes restées en Syrie.
                             Cet objectif réinvestit du sens dans nos existences en tant qu’éxilé-es politiques.
-                            Ce projet solidaire prendra de nombreuses formes au long terme : favoriser la produc-tion artistique,
+                            Ce projet solidaire prendra de nombreuses formes au long terme : favoriser la production artistique,
                             l’éducation... mais notre premier objectif est de rendre aux syrien-nes leurs propres terres.
                             Tous les bénéfices récoltés lors de nos évènements sont dédiés à l’achat d’un terrain agricole
                             dans la région d’Idleb. Plus d’1 million de déplacé-es intérieurs se trouvent immobilisé-es dans

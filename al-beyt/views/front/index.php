@@ -90,11 +90,13 @@ $controllerEvent = New EvenementController;
             <article id="tile-<?=$i?>" class="tile tile-<?=$i?>">
                     <a id="link-<?=$i?>" >
                         <img id="link-img-<?=$i?>">
-                        <div id="tile-info-<?=$i?>" class="tile-info">
-                            <div><h2 id="titre-<?=$i?>" ></h2>
-                                <span id="auteur-date-<?=$i?>"></span>
+                        <div id="tile-info-<?=$i?>" class="tile-info block-infos articles">
+                            <div class="titre-auteur"><h2 class="infos merryweather taille1-trois " id="titre-<?=$i?>" ></h2>
+                                <span class="infos merryweather taille0-huit" id="auteur-date-<?=$i?>"></span>
                             </div>
-                            <i class="fa-solid fa-circle-plus"></i>
+                            <div>
+                                <a id="link-plus" class="link-img"><i class="fa-solid fa-circle-plus taille1"></i></a>
+                            </div>
                         </div>
                     </a>
             </article>
