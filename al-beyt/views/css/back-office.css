@@ -1,3 +1,12 @@
+main.accueil
+{
+   min-height: 65vh;
+}
+footer
+{
+   border-top: 0.5px solid rgb(211, 211, 211);
+   height:35%;
+}
 .dropdown-content{
    top: 64px!important;
 }
@@ -71,4 +80,10 @@ section#error-section i {
 
 section#error-section p {
    font-size: 1.2em;
+}
+
+.icone-deconnexion
+{
+   margin-right: 50px;
+   font-size:2em;
 }

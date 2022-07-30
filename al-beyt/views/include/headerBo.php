@@ -1,3 +1,8 @@
+<?php
+session_start();
+var_dump($_SESSION);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,6 +29,7 @@
     <title> <?='Back-office | '.$title?> </title>
 </head>
 <?php
+
 require_once '../../../vendor/autoload.php';
 use AlBeyt\Controllers\ArtisteController;
 $controllerDomaine = new ArtisteController;
@@ -47,7 +53,10 @@ $domaines = $controllerDomaine->displayAllDomains();
                     <li><a class="dropdown-trigger" href="../front/evenements.php" target="_blank" data-target="eventYears">Evènements</a></li>
                     <li><a class="dropdown-trigger" href="../front/articles.php" target="_blank" data-target="articleYears">Actualité</a></li>
                     <li><a href="../front/presentation.php" target="_blank">A propos</a></li>
+                    <a class="right icone-deconnexion" href="deconnexion.php"><i  class="fa-solid fa-right-from-bracket"></i></a>
                 </ul>
+                
+                
             </div>
         </nav>
 
@@ -73,6 +82,7 @@ $domaines = $controllerDomaine->displayAllDomains();
                 </li>
             <?php } ?>
         </ul>
+        
 
     </header>
 

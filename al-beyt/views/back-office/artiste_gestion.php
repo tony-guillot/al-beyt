@@ -1,5 +1,10 @@
 <?php
 require_once '../../../vendor/autoload.php';
+
+use AlBeyt\Controllers\Controller;
+$controller = new Controller();
+Controller::secureBackOffice();
+
 use AlBeyt\Controllers\ArtisteController;
 use AlBeyt\Library\Affichage;
 

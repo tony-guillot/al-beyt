@@ -4,5 +4,11 @@
         "bold": "C:\\Users\\leroi\\PhpstormProjects\\al-beyt\\vendor\\dompdf\\dompdf\/lib\/fonts\/molgakclassyregular-nrodg-webfont",
         "italic": "C:\\Users\\leroi\\PhpstormProjects\\al-beyt\\vendor\\dompdf\\dompdf\/lib\/fonts\/molgakclassyregular-nrodg-webfont",
         "bold_italic": "C:\\Users\\leroi\\PhpstormProjects\\al-beyt\\vendor\\dompdf\\dompdf\/lib\/fonts\/molgakclassyregular-nrodg-webfont"
+    },
+    "molgak_classyregular": {
+        "normal": "\/Applications\/MAMP\/htdocs\/al-beyt\/vendor\/dompdf\/dompdf\/lib\/fonts\/molgakclassyregular-nrodg-webfont",
+        "bold": "\/Applications\/MAMP\/htdocs\/al-beyt\/vendor\/dompdf\/dompdf\/lib\/fonts\/molgakclassyregular-nrodg-webfont",
+        "italic": "\/Applications\/MAMP\/htdocs\/al-beyt\/vendor\/dompdf\/dompdf\/lib\/fonts\/molgakclassyregular-nrodg-webfont",
+        "bold_italic": "\/Applications\/MAMP\/htdocs\/al-beyt\/vendor\/dompdf\/dompdf\/lib\/fonts\/molgakclassyregular-nrodg-webfont"
     }
 }

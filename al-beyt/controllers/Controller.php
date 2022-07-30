@@ -34,10 +34,16 @@ class Controller
      * Note : attention a ne pas inclure de header avant l'appel de cette fonction
      * @return void
      */
-    public function secureBackOffice()
+
+    public static function secureBackOffice()
     {
-        if($_SESSION['user'][0]['nom'] != 'admin')
-        header("Location: index.php");
+        var_dump($_SESSION);
+        if($_SESSION['admin']['identifiant'] != 'administrateur@gmail.com')
+        {
+            // var_dump($_SESSION);
+            // header('Location: ../front/index.php');
+        }
+       
     }
 
 }
