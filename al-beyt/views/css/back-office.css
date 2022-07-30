@@ -88,3 +88,13 @@ section#error-section p {
    margin-right: 50px;
    font-size:2em;
 }
+
+
+.connexion
+{
+   height:85vh;
+   display: flex;
+   justify-content:center;
+}
+
+
