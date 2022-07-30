@@ -1,13 +1,15 @@
 <?php
 namespace AlBeyt\Controllers;
 
+use AlBeyt\Models\UtilisateurModel;
+
 class Controller
 {
    
 
     public function __construct()
     {
-
+        $this->modelUtilisateur = new UtilisateurModel;
     }
 
     public function secure($value)
@@ -37,13 +39,16 @@ class Controller
 
     public static function secureBackOffice()
     {
-        var_dump($_SESSION);
-        if($_SESSION['admin']['identifiant'] != 'administrateur@gmail.com')
+        $utilisateurModel = new UtilisateurModel;
+        $adminData = $utilisateurModel->getAdminByIdentifiant('administrateur@gmail.com');
+
+        if($_SESSION['admin']['identifiant'] != $adminData['identifiant'] ||
+         $_SESSION['admin']['mot_de_passe'] != $adminData['mot_de_passe'])
         {
-            // var_dump($_SESSION);
-            // header('Location: ../front/index.php');
+            header('Location: connexion.php');
         }
        
     }
 
 }
+

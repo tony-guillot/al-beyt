@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require_once '../../../vendor/autoload.php';
 
 use AlBeyt\Controllers\ConnexionController;
@@ -37,8 +37,8 @@ if(isset($_POST['submit']))
     </section>     
 </main>
 <?php
-var_dump('connexion');
-var_dump($_SESSION);
+// var_dump('connexion');
+// var_dump($_SESSION);
 ?>
 
 

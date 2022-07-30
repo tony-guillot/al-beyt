@@ -27,16 +27,12 @@ class ConnexionController extends Controller
 
                 if($identifiant == $adminData['identifiant'])
                 {
-                     // var_dump($adminData['mot_de_passe']);
                 
                     $mdp_hash = $adminData['mot_de_passe'];
-                // var_dump($mdp_hash);
                 
-                    var_dump(password_verify($mot_de_passe,$mdp_hash));
                     if(password_verify($mot_de_passe, $mdp_hash))
                     {   
                         $_SESSION['admin'] = $adminData;
-                        var_dump($_SESSION);
                         header('Location: accueil.php');
                     }
                     else
