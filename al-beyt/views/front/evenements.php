@@ -6,13 +6,13 @@ use AlBeyt\Library\Affichage;
 
 $controllerEvenement = new EvenementController();
 
-if(isset($_GET['page'])){
+if(isset($_GET['page']) && !empty($_GET['page'])){
     $page = $controllerEvenement->secure($_GET['page']);
 }else{
     $page = 1;
 }
 
-if(isset($_GET['year']))
+if(isset($_GET['year']) && !empty($_GET['year']))
 {
     $year = $controllerEvenement->secure($_GET['year']);
     $events = $controllerEvenement->displayEventsByYear($year,$page);
@@ -69,13 +69,13 @@ require_once('../include/header.php');
     </section>
     <section class="conteneur-page inter">
         <?php if ($page != 1): ?>
-            <a href="evenements.php?page=<?= $page - 1 ?><?= isset($year) ? "&year=".$year : "" ?>">&lt;&lt;</a>
+            <a href="evenements.php?page=<?= $page - 1 ?><?= !empty($year) ? "&year=".$year : "" ?>">&lt;&lt;</a>
         <?php endif ?>
         <?php for ($i = 1; $i <= $pageMax; $i++): ?>
             <a  <?= ($i == $page) ? 'class="page-active"' : "" ?> href="evenements.php?page=<?= $i ?><?= !empty($year) ? "&year=".$year : "" ?>"> <?= $i ?> </a>
         <?php endfor ?>
         <?php if ($page != $pageMax): ?>
-            <a href="evenements.php?page=<?= $page + 1 ?><?= isset($year) ? "&year=".$year : "" ?>">&gt;&gt;</a>
+            <a href="evenements.php?page=<?= $page + 1 ?><?= !empty($year) ? "&year=".$year : "" ?>">&gt;&gt;</a>
         <?php endif ?>
     </section>
 </main>

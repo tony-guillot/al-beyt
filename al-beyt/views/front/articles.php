@@ -6,13 +6,13 @@ use AlBeyt\Library\Affichage;
 
 $controllerArticle = new ArticleController();
 
-if(isset($_GET['page'])){
+if(isset($_GET['page']) && !empty($_GET['page'])){
     $page = $controllerArticle->secure($_GET['page']);
 }else{
     $page = 1;
 }
 
-if(isset($_GET['year']))
+if(isset($_GET['year']) && !empty($_GET['year']))
 {
     $year = $controllerArticle->secure($_GET['year']);
     $articles = $controllerArticle->displayArticlesByYear($year,$page);
@@ -68,15 +68,15 @@ require_once('../include/header.php');
     </section>
     <section class="conteneur-page inter">
         <?php if ($page != 1): ?>
-            <a href="articles.php?page=<?= $page - 1 ?><?= isset($year) ? "&year=".$year : "" ?>"> &lt;&lt; </a>
+            <a href="articles.php?page=<?= $page - 1 ?><?= !empty($year) ? "&year=".$year : "" ?>"> &lt;&lt; </a>
         <?php endif ?>
 
         <?php for ($i = 1; $i <= $pageMax; $i++): ?>
-            <a  <?= ($i == $page) ? 'class="page-active"' : "" ?> href="articles.php?page=<?= $i ?><?= isset($year) ? "&year=".$year : "" ?>"> <?= $i ?> </a>
+            <a  <?= ($i == $page) ? 'class="page-active"' : "" ?> href="articles.php?page=<?= $i ?><?= !empty($year) ? "&year=".$year : "" ?>"> <?= $i ?> </a>
         <?php endfor ?>
 
         <?php if ($page != $pageMax): ?>
-            <a href="articles.php?page=<?= $page + 1 ?><?= isset($year) ? "&year=".$year : "" ?>"> &gt;&gt;</a>
+            <a href="articles.php?page=<?= $page + 1 ?><?= !empty($year) ? "&year=".$year : "" ?>"> &gt;&gt;</a>
         <?php endif ?>
     </section>
 </main>

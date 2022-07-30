@@ -18,7 +18,7 @@ else
 
 $domaines = $controller->displayAllDomains();
 
-if(isset($_GET['id']))
+if(isset($_GET['id']) && !empty($_GET['id']))
 {
     $id_domaine= intval($_GET['id']);
     $artists = $controller->displayAllArtistsByDomain($id_domaine, $pageCourante);
@@ -83,15 +83,15 @@ require_once('../include/header.php');
     <section class="conteneur-page inter">
         <?php if($pageCourante != 1)
         {   ?>
-            <a href="artistes.php?page=<?= $pageCourante - 1?><?= isset($id_domaine) ? "&id=".$id_domaine : "" ?>">Page précédente</a>
+            <a href="artistes.php?page=<?= $pageCourante - 1?><?= !empty($id_domaine) ? "&id=".$id_domaine : "" ?>">Page précédente</a>
   <?php }?>
         <?php for ($i=1; $i <= $pageMax; $i++)
         { ?>
-            <a  <?= ($i == $pageCourante) ? 'class="page-active"' : "" ?> href="artistes.php?page=<?= $i?><?= isset($id_domaine) ? "&id=".$id_domaine : "" ?>"><?= $i?></a>
+            <a  <?= ($i == $pageCourante) ? 'class="page-active"' : "" ?> href="artistes.php?page=<?= $i?><?= !empty($id_domaine) ? "&id=".$id_domaine : "" ?>"><?= $i?></a>
  <?php  }?>
         <?php if($pageCourante != $pageMax)
         {?>
-            <a href="artistes.php?page=<?= $pageCourante + 1 ?><?= isset($id_domaine) ? "&id=".$id_domaine : "" ?>">Page suivante</a>
+            <a href="artistes.php?page=<?= $pageCourante + 1 ?><?= !empty($id_domaine) ? "&id=".$id_domaine : "" ?>">Page suivante</a>
   <?php }
     ?>
     </section>
