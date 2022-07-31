@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
             orientation : "down",
         });
     }
-
+/************************************************************************* */
     if(typeof error !== "undefined"){
         let errorTag = document.getElementById('error-text');
         let textError = document.createTextNode(error);
@@ -17,6 +17,8 @@ document.addEventListener("DOMContentLoaded", function() {
         errorSection.style.display = "flex";
     }
 
+
+/************************************************************************* */
     var page = 1;
     loadActu(1);
 

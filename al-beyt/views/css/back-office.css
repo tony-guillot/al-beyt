@@ -1,13 +1,38 @@
+
 main.accueil
 {
-   min-height: 65vh;
+   min-height: 75vh;
+   position: relative;
 }
 
+/********* Footer ****************/
 footer
 {
    border-top: 0.5px solid rgb(211, 211, 211);
-   height:35%;
+   /* height:35%; */
+   /* position: absolute;
+   bottom: 0; */
+   
+   background-color: #7b1fa2;
+   display:flex;
 }
+
+
+.bottom-links
+{
+   font-size: 0.8em;
+  
+}
+
+.bottom-links a i
+{
+   
+  margin-right: 15px;
+}
+
+
+/***********Footer ***************/
+
 .dropdown-content{
    top: 64px!important;
 }
@@ -17,9 +42,13 @@ h1.header {
 }
 
 .container{
-   width: 80%!important;
+   width: 90%!important;
+   padding: 20px;
 }
-
+.container2
+{
+   width: 100%!important;
+}
 
 section.table-gestion{
    width: 80%;
@@ -27,6 +56,12 @@ section.table-gestion{
 
 img.imageGestion {
    max-width: 200px;
+}
+
+.row .col.s6
+{
+   width: 40%;
+   margin-left: 50px;
 }
 
 .formulaire img {
@@ -83,21 +118,57 @@ section#error-section p {
    font-size: 1.2em;
 }
 
+div#error-section
+{
+   display:none;
+}
+
 .icone-deconnexion
 {
    margin-right: 50px;
    font-size:2em;
 }
 
-
+/******************************/
+.body-connexion
+{
+   background-image: url('../../../images/logo.png');
+   
+   /* background-image: element(img); */
+   /* background-color: #1fe0;      /* Fully transparent shorthand  * */
+   background-repeat: space;
+   background-position: bottom;
+   background-origin: padding-box;
+   
+   /* background-clip: content-box; */
+   opacity: 0.9;
+   background-color:#260039
+}
+/* img
+{
+   width:10%;
+} */
 .connexion
 {
    height:85vh;
    display: flex;
    justify-content:center;
+   
+}
+.connexion section img
+{
+   margin-bottom:40px;  
+}
+.connexion img
+{
+   
+   display:block;
+   margin:auto;
 }
 
 
+
+/******************************/
 .event-description
 {
    width: 20%;
@@ -116,7 +187,7 @@ tr.row > *
 {
    border : 1px solid rgb(232, 232, 232);
 }
-
+/************* formulaires ****************/
 form.typo div > *
 {
    font-size:1em;
@@ -139,7 +210,32 @@ form.typo section article > *
 {
    margin-bottom:20px;
 }
-/* form section article > *
+.padding-card
 {
-   font-size:1em; 
-} */
+   padding: 30px;
+   margin:20px;
+}
+
+.cards
+{
+
+   /* background-color:#260039; */
+ 
+   margin:20px;
+   display: inline;
+   /* float: none !important; */
+   /* float:inline-end; */
+   width:31%!important;
+
+}
+.row .col.s4
+{
+   margin-left:0!important;
+}
+.row .col .s8
+{
+   padding:30px;
+}
+
+/************** Modifier article ***************/ 
+/************* Modifier article ***************/

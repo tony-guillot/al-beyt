@@ -3,6 +3,7 @@
 namespace AlBeyt\Controllers;
 
 use AlBeyt\Models\UtilisateurModel;
+use AlBeyt\library\Error;
 
 class ConnexionController extends Controller
 
@@ -10,7 +11,7 @@ class ConnexionController extends Controller
 
     public function __construct()
     {
-
+       
         $this->modelUtilisateur = new UtilisateurModel;
     }
 
@@ -24,7 +25,8 @@ class ConnexionController extends Controller
             {  
                 
                 $adminData = $this->modelUtilisateur->getAdminByIdentifiant($identifiant);
-
+                var_dump($adminData);
+                
                 if($identifiant == $adminData['identifiant'])
                 {
                 
@@ -33,33 +35,31 @@ class ConnexionController extends Controller
                     if(password_verify($mot_de_passe, $mdp_hash))
                     {   
                         $_SESSION['admin'] = $adminData;
+                        
                         header('Location: accueil.php');
                     }
                     else
                     {
 
-                        echo 'Veuillez saisir le bon mot de passe';
+                        echo Error::displayError('Mot de passe incorrect. Recommence zebi');
                     }
-
                 }
                 else
                 {
-                    echo 'Veuillez saisir le bon email.';
+                    echo Error::displayError('Email incorrect. Veuillez recommencer.');
                 }
                
             }
             else
             {
-                echo 'Veuillez saisir un format d\'email valide';
+                echo Error::displayError('Format d\'email incorrect');
             }   
         }
         else
         {
-            echo 'Veuillez remplir les champs vides.';
+            echo Error::displayError('Veuillez remplir les champs.');
         }
-        return $adminData;
+   
     }
     
 }
-
-?>
