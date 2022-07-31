@@ -52,12 +52,12 @@ require_once('../include/headerBo.php');
                 $id_article = $allArticle['id'];
                 $image = $controllerArticle->displayImagesByIdArticle($id_article);
                 ?>
-                <tr>
+                <tr class="row">
                     <td><img class="imageGestion" src="http://<?= $image[0]['chemin']?>"></td>
                     <td><?= $allArticle['titre']?></td>
                     <td><?= $allArticle['date']?></td>
                     <td><?= $allArticle['auteur']?></td>
-                    <td><?= $allArticle['description']?></td>
+                    <td><?= substr($allArticle['description'],0,300).'[...]'?></td>
                     <td> <a href="article_update.php?id=<?= $id_article?>"><i class="fa-solid fa-wrench"></i></a> </td>
                     <form action="" methode='get'>
                         <td>

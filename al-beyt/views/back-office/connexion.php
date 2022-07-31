@@ -31,11 +31,13 @@ if(isset($_POST['submit']))
 </head>
 <body>
     <main class="connexion container valign-wrapper  ">
+        
         <section class=" card-panel ">
-            <h1>Connexion</h1>
-            <form action="" method="post" class="col s12 ">
-                <div >
-                    <label for="identifiant">Email:</label>
+        <h1>Back Office</h1>
+         
+            <form class="typo" action="" method="post" class="col s12 ">
+                <div>
+                    <label for="identifiant"> Email Administrateur:</label>
                     <input type="text" name="identifiant" id="login">
                 </div>
                 <div>

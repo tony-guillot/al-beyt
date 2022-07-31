@@ -43,7 +43,7 @@ $domaines = $controllerDomaine->displayAllDomains();
 </script>
 <body>
     <header>
-        <nav>
+        <nav class="purple darken-2">
             <div class="nav-wrapper">
                 <ul>
                     <li><a href="../front/index.php" target="_blank">Accueil</a></li>

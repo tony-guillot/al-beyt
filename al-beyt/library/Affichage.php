@@ -27,7 +27,8 @@ class Affichage
         for($i=1; $i<= self::NB_LIGNES_SELECT; $i++)
         {
             $selectedDefault = !empty($selected[$i-1]) ? "selected" : "";
-            $displayArticle = '<label for="artiste'.$i.'">Artiste'.$i.':</label>
+            $displayArticle = '
+            <div class="margin"><label class=" purple-text text-lighten-3" for="artiste'.$i.'">Artiste'.$i.':</label>
                                 <select class="browser-default" name="id_artiste'.$i.'">
                                 <option '.$selectedDefault.' value="">veuillez selectionner un artiste</option>';
             foreach($artists as $artist)
@@ -38,7 +39,7 @@ class Affichage
                 }
                 $displayArticle = $displayArticle.'<option value="'.$artist["id"].'" '.$selectedAttr.' >'.$artist["nom"].'</option>' ;
             }
-            $displayArticle = $displayArticle.'</select>' ;
+            $displayArticle = $displayArticle.'</select></div>' ;
             $displayTags = $displayTags . $displayArticle;
         }
         //retour de la fonction

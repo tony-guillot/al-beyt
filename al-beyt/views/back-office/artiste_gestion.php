@@ -49,11 +49,11 @@ require_once('../include/headerBo.php');
                
                 <?php foreach($allInfoArtists as $artist)
                 {  ?>
-                    <tr>
+                    <tr class='row'>
                         <td><img class="imageGestion" src="http://<?= $artist['chemin']?>" alt="Image principale"></td>
                         <td><?= $artist['legende']?></td>
                         <td><?= $artist['nom']?></td>
-                        <td><?= $artist['description']?></td>
+                        <td><?= substr($artist['description'],0,300).'[...]'?></td>
                         <td><?= $artist['domaine']?></td>
                         <td><?php
                             if(!empty($artist['email']))

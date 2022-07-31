@@ -98,3 +98,48 @@ section#error-section p {
 }
 
 
+.event-description
+{
+   width: 20%;
+}
+
+.evenement
+{
+   /* width:100%; */
+}
+td.evenement th
+{
+   margin-right: 100px;
+}
+
+tr.row > *
+{
+   border : 1px solid rgb(232, 232, 232);
+}
+
+form.typo div > *
+{
+   font-size:1em;
+   
+}
+form.typo article > *
+{
+   font-size:1em;
+}
+
+ section article div > *
+{
+   font-size:1em;
+}
+form.typo section article > *
+{
+   font-size:1em;
+}
+.margin
+{
+   margin-bottom:20px;
+}
+/* form section article > *
+{
+   font-size:1em; 
+} */

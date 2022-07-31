@@ -38,7 +38,7 @@ require_once('../include/headerBo.php');
     <section>
     </section>
     <section>
-        <table class="stripped highlight">
+        <table class="striped highlight responsive-table evenement">
             <thead>
                 <th>Affiche</th>
                 <th>Titre</th>
@@ -47,7 +47,7 @@ require_once('../include/headerBo.php');
                 <th>Adresse</th>
                 <th>Date</th>
                 <th>Heure</th>
-                <th>Modifier</th>
+                <th class=>Modifier</th>
                 <th>Supprimer</th>
             </thead>
             <tbody>
@@ -55,10 +55,10 @@ require_once('../include/headerBo.php');
                 {  $id_evenement = $allEvent['id'];
                    $artistsByEventId = $controllerEvenement->displayArtistsByEventId($id_evenement);
                     ?>
-                    <tr>
-                        <td><img class="imageGestion" src="http://<?= $allEvent['chemin']?>" alt="Affiche de l'evenement"></td>
+                    <tr class="row">
+                        <td ><img class="imageGestion" src="http://<?= $allEvent['chemin']?>" alt="Affiche de l'evenement"></td>
                         <td><?= $allEvent['titre']?></td>
-                        <td><?= $allEvent['description']?></td>
+                        <td ><?= substr($allEvent['description'],0,300).'[...]'?></td>
                         <td>
                             <?php foreach($artistsByEventId as $artists)
                                 {   
@@ -66,7 +66,7 @@ require_once('../include/headerBo.php');
                                 }?>
                         </td>
                         <td><?= $allEvent['adresse']?></td>
-                        <td><?= $allEvent['date_evenement']?></td>
+                        <td ><?= $allEvent['date_evenement']?></td>
                         <td><?= $allEvent['heure']?></td>
                         <td> <a href="evenement_update.php?id=<?= $id_evenement?>"><i class="fa-solid fa-wrench"></i></a> </td>
                         <form action="" methode='get'>
