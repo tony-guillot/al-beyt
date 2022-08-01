@@ -14,43 +14,56 @@ if(isset($_GET['id'])){
 }
 $article = $controllerArticle->displayArticleById($id);
 $images_article = $controllerArticle->displayImagesByIdArticle($id);
+// echo '<pre>';
+// var_dump($images_article);
+// echo '</pre>';
 
 $title = "Article";
 require_once('../include/header.php');
 ?>
 
-<main class="article">
-    <section class="box-cover-article">
-        <img class="img" src="http://<?= $images_article[0]['chemin'] ?>" alt="<?= $images_article[0]['legende'] ?>">
-        <span class=" legende inter"> <?= $images_article[0]['legende'] ?></span>
-    </section>
-    <section class="contener-article merryweather">
-        <section class="sous-contener-article">
-        <div class="icones">
-                <a title="Télécharger l'article au format PDF" href="download_pdf.php?id_article=<?=$id?>"><i class="fa-solid fa-download" ></i></a>
-                <a title="Partager sur twitter" href=""><i class="fa-brands fa-twitter"></i></a>
-                <a  title="Partager sur facebook" href=""><i class="fa-brands fa-facebook"></i></a>
-            </div>
-            <div class="infos-article">
-                <h2 class="titre-article "><?= $article['titre'] ?></h2>
-                <div class="auteur-date">par &emsp14;<span><?= $article['auteur'] ?></span>,&emsp14;publié le &emsp14;<span><?= $article['date'] ?></span> </div>
-            </div>
-       
+<main class="article-main">
+    <section class="article">
+        <section class="box-cover-article">
+            <img class="img" src="http://<?= $images_article[0]['chemin'] ?>" alt="<?= $images_article[0]['legende'] ?>">
+            <span class=" legende inter"> <?= $images_article[0]['legende'] ?></span>
         </section>
+        <section class="contener-article merryweather">
+            <section class="sous-contener-article">
+                <div class="icones">
+                        <a title="Télécharger l'article au format PDF" href="download_pdf.php?id_article=<?=$id?>"><i class="fa-solid fa-download" ></i></a>
+                        <a title="Partager sur twitter" href=""><i class="fa-brands fa-twitter"></i></a>
+                        <a  title="Partager sur facebook" href=""><i class="fa-brands fa-facebook"></i></a>
+                    </div>
+                    <div class="infos-article">
+                        <h2 class="titre-article "><?= $article['titre'] ?></h2>
+                        <div class="auteur-date">par &emsp14;<span><?= $article['auteur'] ?></span>,&emsp14;publié le &emsp14;<span><?= $article['date'] ?></span> </div>
+                    </div>
+            </section>
 
-            <hr class="hr-article">
+                <hr class="hr-article">
 
-        <section class="box-description inter">
-            <article>
-                <div>
-                    <p class="taille0-huit">
-                        <?= nl2br($article['description']) ?>
-                    </p>
-                </div>
-                <?php echo Affichage::printImageSliderForArticles($images_article); ?>
-            </article>
+            <section class="box-description inter">
+                <article>
+                    <div>
+                        <p class="taille0-huit">
+                            <?= nl2br($article['description']) ?>
+                        </p>
+                    </div>
+                
+                </article>
+            </section>
         </section>
+    </section>    
+    <section class="box-slider">
+            <div id="slider">
+                <img  src="http://<?= $images_article[1]['chemin'];?>" alt="chemin 1, debut du slider" id="slide">
+                <div id="precedent" onclick="displaySlider(<?=$id ?>,-1)"><</div>
+                <div id="suivant" onclick="displaySlider(<?=$id ?>,1)">></div>
+            </div>
+        <?php #echo Affichage::printImageSliderForArticles($images_article); ?>
     </section>
+    <script>displaySlider(<?= $id.',0'?>) </script>
 </main>
 <?php 
 require_once('../include/footer.php');

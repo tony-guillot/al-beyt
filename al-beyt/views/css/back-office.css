@@ -218,16 +218,11 @@ form.typo section article > *
 
 .cards
 {
-
-   /* background-color:#260039; */
- 
    margin:20px;
    display: inline;
-   /* float: none !important; */
-   /* float:inline-end; */
    width:31%!important;
-
 }
+
 .row .col.s4
 {
    margin-left:0!important;

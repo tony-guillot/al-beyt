@@ -28,6 +28,7 @@
     />
     <script src="https://cdn.jsdelivr.net/npm/simple-parallax-js@5.5.1/dist/simpleParallax.min.js"></script>
     <script src="../js/script.js"></script>
+    <script src="../js/slider.js"></script>
     <link rel="stylesheet" href="../css/front.css">
 
 </head>

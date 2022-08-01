@@ -56,7 +56,7 @@ require_once('../include/header.php');
                                 <span class="infos merryweather taille0-huit">Par <em><b> <?= $article['auteur'] ?> </em></b> , publié le <em><?= $article['date'] ?></em></span>
                             </div>
                             <div>
-                                <a class="link-img" href="article.php?id=<?= $article['id'] ?>">
+                                <a id="<?= $article['id']?>" class="link-img" href="article.php?id=<?= $article['id'] ?>">
                                     <i class="fa-solid fa-circle-plus plus taille1"></i>
                                 </a>    
 
