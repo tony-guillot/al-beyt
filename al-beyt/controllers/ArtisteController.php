@@ -9,7 +9,7 @@ use AlBeyt\Library\image;
 
 class ArtisteController extends Controller
 {
-
+    // je déclare les attrbuts de ma classe 
     protected $modelEvenement;
     protected $modelDomaine;
     protected $modelArtiste;
@@ -19,6 +19,10 @@ class ArtisteController extends Controller
 
     public function __construct()
     {
+        //j'instancie ma classe et l'affecte à son attribut ($this->modelArtiste).
+        //cet attribut me permet d'appeler les methodes de cette classe (ArtisteModel).
+        // $this fait référence à la ArtisteController, dans laquelle je suis.
+        //
         $this->modelArtiste = new ArtisteModel();
         $this->modelEvenement = new EvenementModel();
         $this->modelDomaine = new DomaineModel();

@@ -64,27 +64,6 @@ $controllerEvent = New EvenementController;
     <section class="mignon">
         <p class="froufrou"> 	。.:☆*:･'(*⌒―⌒*))) &nbsp; On vous attend nombreux.ses   &nbsp; 	\(★ω★)/ ✧˖° 。.</p>
     </section>
-<!--    <section id="news" class="news">-->
-<!--        --><?php //for ($i = 0;$i < 8; $i++): ?>
-<!--            <article  class="tile tile---><?//= fmod($i,8) ?><!--">-->
-<!--                --><?php //if (!empty($arrayNews[$i]['id_article'])): ?>
-<!--                    <a id="link---><?//= fmod($i,8) ?><!--" href="article.php?id=--><?//= $arrayNews[$i]['id_article'] ?><!--">-->
-<!--                        <img id="link-img---><?//= fmod($i,8) ?><!--" src="http://--><?//= $arrayNews[$i]['chemin_article'] ?><!--" alt="Aliquam excepturi at architecto.">-->
-<!--                        <div class="info">-->
-<!--                            <div><h2 id="titre---><?//= fmod($i,8) ?><!--" >--><?//= $arrayNews[$i]['titre'] ?><!--</h2>-->
-<!--                                <span id="auteur-date---><?//= fmod($i,8) ?><!--">Par --><?//= $arrayNews[$i]['auteur'] ?><!--, publié le --><?//= Affichage::printDate($arrayNews[$i]['date_news']) ?><!--</span>-->
-<!--                            </div>-->
-<!--                            <i class="fa-solid fa-circle-plus"></i>-->
-<!--                        </div>-->
-<!--                    </a>-->
-<!--                --><?php //else: ?>
-<!--                    <a id="link---><?//= fmod($i,8) ?><!--" href="evenement.php?id=--><?//= $arrayNews[$i]['id_evenement'] ?><!--">-->
-<!--                        <img id="link-img---><?//= fmod($i,8) ?><!--" src="http://--><?//= $arrayNews[$i]['chemin_evenement'] ?><!--" alt="Aliquam excepturi at architecto.">-->
-<!--                    </a>-->
-<!--                --><?php //endif ?>
-<!--            </article>-->
-<!--        --><?php //endfor ?>
-<!--    </section>-->
     <section id="news" class="news box-cards" style="flex-direction: row; margin-bottom: ">
         <?php for ($i = 0;$i < 8; $i++):?>
             <article id="tile-<?=$i?>" class="tile tile-<?=$i?>">
