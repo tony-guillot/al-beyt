@@ -108,6 +108,11 @@ class Affichage
         return $displayTags;
     }
 
+    public function printSliders() 
+    {
+        
+    }
+
     public static function stylizeCurrentPage()
     {
         $style = 'style="color: #FF7272;"'; //TODO: if (back-office) -> on met un style, else on met un autre style

@@ -64,7 +64,7 @@ $controllerEvent = New EvenementController;
     <section class="mignon">
         <p class="froufrou"> 	。.:☆*:･'(*⌒―⌒*))) &nbsp; On vous attend nombreux.ses   &nbsp; 	\(★ω★)/ ✧˖° 。.</p>
     </section>
-    <section id="news" class="news box-cards" style="flex-direction: row; margin-bottom: ">
+    <section id="news" class="news box-cards" style="flex-direction: row; margin-bottom:10px">
         <?php for ($i = 0;$i < 8; $i++):?>
             <article id="tile-<?=$i?>" class="tile tile-<?=$i?>">
                     <a id="link-<?=$i?>">
