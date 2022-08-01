@@ -303,6 +303,8 @@ nav ul li:hover
     top:100%;
     display:none;
     width: 100%;
+    border-radius: 0 0 3px 3px ;
+    overflow: hidden;
 }
 .sub-menu-1 ul li
 {
@@ -494,11 +496,12 @@ nav ul li:hover .sub-menu-1 ul
 
 .index-parent-event
 {
-    
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 60%;
+    border-radius: 3px ;
+    overflow: hidden;
 }
 
 .parent-index-affiche
@@ -616,7 +619,9 @@ img.index-affiche:hover
     height:15vh;
     background-color:#ff7272cb;
     margin-top: 20px;   
-    margin-bottom: 40px;   
+    margin-bottom: 40px;
+    border-radius: 3px ;
+    overflow: hidden;
 }
 
 .froufrou
@@ -654,6 +659,8 @@ img.index-affiche:hover
     height: 200px;
     margin: 15px 10px;
     position: relative;
+    border-radius: 3px ;
+    overflow: hidden;
     -webkit-box-shadow: 4px 9px 24px -13px rgba(255,255,255,0.6);
     box-shadow: 4px 9px 24px -13px rgba(255,255,255,0.6);
     -webkit-box-shadow: 2px 5px 8px -1px rgba(0,0,0,0.83);
