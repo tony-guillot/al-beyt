@@ -78,7 +78,7 @@ class ArticleModel extends Bdd
         $bdd = $this->bdd->prepare(
             'SELECT DISTINCT YEAR(date) as year
                     FROM article
-                    ORDER BY date DESC;');
+                    ORDER BY year DESC;');
         $bdd->execute();
         $result = $bdd->fetchAll();
 

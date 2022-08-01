@@ -154,7 +154,7 @@ class EvenementModel extends Bdd {
         $bdd = $this->bdd->prepare(
             'SELECT DISTINCT YEAR(date_evenement) as year
                     FROM evenement
-                    ORDER BY date_evenement DESC;');
+                    ORDER BY year DESC;');
         $bdd->execute();
         $result = $bdd->fetchAll();
 
