@@ -226,7 +226,7 @@ nav.header
     
    background-color: #FFE1F0;
    height:50px;
-   line-height: 35px;
+   line-height: 55px;
    width: 100%;
 }
 a.link-nav
@@ -245,6 +245,9 @@ a.link-nav
 
 .active > a {
     font-weight: 400;
+    display: block;
+    width: 100%;
+    height: 100%;
 }
 
 nav.header > ul {
@@ -275,12 +278,18 @@ nav ul li
     font-weight: 200;
     /*font-size: 1.2em;*/
     letter-spacing: 2px;
-    padding: 10px;
+    /*padding: 10px;*/
     position: relative;
-    object-fit: contain;
     /* margin-top:10px; */
     
 }
+li.active {
+    text-align: center;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
 nav ul li:hover
 {
     cursor: pointer;
@@ -293,9 +302,7 @@ nav ul li:hover
     left: 0;
     top:100%;
     display:none;
-    width: 19vw;
-
-   
+    width: 100%;
 }
 .sub-menu-1 ul li
 {
@@ -303,6 +310,8 @@ nav ul li:hover
     /* border-bottom: #ff0180 solid 0.5px; */
     font-family:'Merriweather Sans', sans-serif;
     display:flex;
+    padding: 10px;
+    text-align: left;
     /*justify-content: center;*/
     /* position: absolute; */
     
@@ -387,7 +396,6 @@ nav ul li:hover .sub-menu-1 ul
     display:flex;
     justify-content:center;
     margin-top:30px;
-
 }
 
 
@@ -1436,3 +1444,145 @@ main.article
 }
 
 /************** \Presentation/ *************/
+
+
+@media all and (min-width: 405px) and (max-width: 840px){
+
+    .header li.active {
+        padding-left: 0 ;
+        padding-right: 0;
+    }
+
+    a.link-nav {
+        font-size: 0.9em;
+    }
+
+    .sub-menu-1 a.link-nav {
+        font-size: 0.8em;
+    }
+
+    .parent-shuffle .link-names {
+        font-size: 1.7rem;
+    }
+
+    .index-parent-event {
+        width: 75%;
+    }
+
+    .index-parent-event .index-affiche {
+        object-position: center;
+    }
+
+    .index-parent-infos {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .index-parent-infos .index-infos {
+        margin-bottom: 0;
+    }
+
+    .index-parent-infos .event-titre {
+        font-size: 2em;
+    }
+
+    .index-parent-infos .adresse {
+        font-size: 0.8em;
+    }
+
+    .index-parent-infos .date-heure {
+        font-size: 0.9em;
+    }
+
+    .index-plus {
+        font-size: 0.5em;
+        min-height: auto;
+        margin-bottom: 20px;
+    }
+
+    .mignon{
+        width: 75%;
+        font-size: 0.8em;
+        text-align: center;
+    }
+
+    .news {
+        display: none;
+    }
+    .pagination-actu {
+        display: none;
+    }
+}
+
+@media all and (max-width: 405px){
+    a.link-nav {
+        font-size: 0.8em;
+    }
+
+    .header li.active {
+        padding-left: 0 ;
+        padding-right: 0;
+    }
+
+
+    .sub-menu-1 a.link-nav {
+        font-size: 0.7em;
+    }
+
+    .parent-shuffle .link-names {
+        font-size: 1.5rem;
+    }
+
+     .parent-shuffle .link-names {
+        font-size: 1.7rem;
+    }
+
+    .index-parent-event {
+        width: 75%;
+    }
+
+    .index-parent-event .index-affiche {
+        object-position: center;
+    }
+
+    .index-parent-infos {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .index-parent-infos .index-infos {
+        margin-bottom: 0;
+    }
+
+    .index-parent-infos .event-titre {
+        font-size: 2em;
+    }
+
+    .index-parent-infos .adresse {
+        font-size: 0.8em;
+    }
+
+    .index-parent-infos .date-heure {
+        font-size: 0.9em;
+    }
+
+    .index-plus {
+        font-size: 0.5em;
+        min-height: auto;
+        margin-bottom: 20px;
+    }
+
+    .mignon{
+        width: 75%;
+        font-size: 0.8em;
+        text-align: center;
+    }
+
+    .news {
+        display: none;
+    }
+    .pagination-actu {
+        display: none;
+    }
+}
+
