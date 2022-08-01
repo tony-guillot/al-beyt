@@ -178,10 +178,22 @@ a.filtre:hover
 .conteneur-page
 {
     display:flex;
-    justify-content:center;
+    flex-wrap:nowrap;
+    justify-content:space-evenly;
     align-items:center;
-    height:5vh;
-    width: 100%;
+    height:50px;
+    width: 16%;
+    margin-left: 50%;
+}
+
+.conteneur-page a
+{
+    color: #FFE1F0;
+    margin: 0 5px;
+}
+
+.conteneur-page .page-active{
+    color: #FF7272;
 }
 /********************* \Pagination/ ****************/
 
@@ -225,6 +237,10 @@ a.link-nav
     color:#140f16;
 
     font-weight: 300;
+}
+
+.sub-menu-1 .link-nav{
+    font-size: 0.8em;
 }
 
 .active > a {
@@ -287,7 +303,7 @@ nav ul li:hover
     /* border-bottom: #ff0180 solid 0.5px; */
     font-family:'Merriweather Sans', sans-serif;
     display:flex;
-    justify-content: center;
+    /*justify-content: center;*/
     /* position: absolute; */
     
 }
@@ -628,8 +644,10 @@ img.index-affiche:hover
 
 .tile{
     height: 200px;
-    margin: 4px 0;
+    margin: 15px 10px;
     position: relative;
+    -webkit-box-shadow: 4px 9px 24px -13px rgba(255,255,255,0.6);
+    box-shadow: 4px 9px 24px -13px rgba(255,255,255,0.6);
     -webkit-box-shadow: 2px 5px 8px -1px rgba(0,0,0,0.83);
     box-shadow: 2px 5px 8px -1px rgba(0,0,0,0.2);
     transition: all 0.3s ease;
@@ -659,28 +677,28 @@ img.index-affiche:hover
 }
 
 .tile-0 {
-    width: 49.5%;
+    width: 48%;
 }
 .tile-1 {
-    width: 49.5%;
+    width: 48%;
 }
 .tile-2 {
     width: 100%;
 }
 .tile-3 {
-    width: 49.5%;
+    width: 48%;
 }
 .tile-4 {
-    width: 49.5%;
+    width: 48%;
 }
 .tile-5 {
     width: 100%;
 }
 .tile-6 {
-    width: 49.5%;
+    width: 48%;
 }
 .tile-7 {
-    width: 49.5%;
+    width: 48%;
 }
 
 .pagination-actu{

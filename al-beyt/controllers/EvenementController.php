@@ -52,11 +52,15 @@ class  EvenementController extends Controller {
         return $display;
    }
 
-        public function displayEventsByYear($year, $page)
+        public function displayEventsByYear($year, $page=null)
     {
-        $limit = self::NB_EVENEMENT_PAR_PAGE ;
-        $offset = self::NB_EVENEMENT_PAR_PAGE * ($page-1) ;
-        $display = $this->modelEvenement->getAllEventsByYear($year, $limit, $offset);
+        if ($page != null) {
+            $limit = self::NB_EVENEMENT_PAR_PAGE;
+            $offset = self::NB_EVENEMENT_PAR_PAGE * ($page - 1);
+            $display = $this->modelEvenement->getAllEventsByYear($year, $limit, $offset);
+        }else{
+            $display = $this->modelEvenement->getAllEventsByYear($year, 1000000, 0);
+        }
         return $display;
     }
 
@@ -70,6 +74,22 @@ class  EvenementController extends Controller {
     {
        $display = $this->modelEvenement->getImagesByEventId($id);
        return $display;
+    }
+
+        public function displayLastArticlesAndEvents($page){
+        $limit = 8;
+        $offset = 8 * ($page-1) ;
+        return $this->modelEvenement->getLastArticlesAndEvents($limit, $offset);
+    }
+
+    public function displayCountLastArticlesAndEvents()
+    {
+        return count($this->modelEvenement->getLastArticlesAndEvents(1000000,0));
+    }
+
+    public function displayYearFilters()
+    {
+        return $this->modelEvenement->getYearFilters();
     }
 
     public function registerEvent(
@@ -213,15 +233,5 @@ class  EvenementController extends Controller {
         $this->modelEvenement->updateLegende($legende,$ordre,$id_evenement);
     }
 
-    public function displayLastArticlesAndEvents($page){
-        $limit = 8;
-        $offset = 8 * ($page-1) ;
-        return $this->modelEvenement->getLastArticlesAndEvents($limit, $offset);
-    }
-
-    public function displayCountLastArticlesAndEvents()
-    {
-        return count($this->modelEvenement->getLastArticlesAndEvents(1000000,0));
-    }
 
 }

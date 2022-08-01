@@ -29,11 +29,15 @@ class ArticleController extends Controller
         return $display;
     }
 
-    public function displayArticlesByYear($year, $page)
+    public function displayArticlesByYear($year, $page = null)
     {
-        $limit = self::NB_ARTICLE_PAR_PAGE ;
-        $offset = self::NB_ARTICLE_PAR_PAGE * ($page-1) ;
-        $display = $this->modelArticle->getAllArticlesByYear($year, $limit, $offset);
+        if ($page != null) {
+            $limit = self::NB_ARTICLE_PAR_PAGE;
+            $offset = self::NB_ARTICLE_PAR_PAGE * ($page - 1);
+            $display = $this->modelArticle->getAllArticlesByYear($year, $limit, $offset);
+        }else{
+            $display = $this->modelArticle->getAllArticlesByYear($year,100000000, 0);
+        }
         return $display;
     }
 
@@ -48,6 +52,10 @@ class ArticleController extends Controller
         $images = $this->modelArticle->getImagesByIdArticle($id);
         $display = $this->reorderImages($images); //ré-arrange l'array en fonction de l'ordre des images
         return $display;
+    }
+
+    public function displayYearFilters(){
+        return $this->modelArticle->getYearFilters();
     }
 
     public function reorderImages($images)

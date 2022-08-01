@@ -60,13 +60,15 @@ class ArtisteController extends Controller
         }
         return $displayAllArtistsByDomain;
     }
-    public function displayAllArtistsByStatut($statut, $pageCourante)
+    public function displayAllArtistsByStatut($statut, $pageCourante=null)
     {
         if($pageCourante != null)
         {
             $limit = self::NBR_ARTISTE_PAR_PAGE;
             $offset = self::NBR_ARTISTE_PAR_PAGE * ($pageCourante - 1);
             $displayAllArtistBystatut= $this->modelArtiste->getAllArtistsByStatut($statut, $limit, $offset);
+        }else{
+            $displayAllArtistBystatut= $this->modelArtiste->getAllArtistsByStatut($statut, 100000, 0);
         }
         return $displayAllArtistBystatut;
     }

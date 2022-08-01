@@ -110,7 +110,7 @@ class Affichage
 
     public static function stylizeCurrentPage()
     {
-        $style = 'style="color: #FF7272;"'; //TODO: if (back-office) -> on met un style, else on met un autre style
+        $style = 'style="color: #FF7272;"';
         return $style;
     }
 
@@ -118,9 +118,7 @@ class Affichage
     {
         $style = 'style="
                   color: #FF7272;
-                  font-size: 1em;
-                   
-                  "';
+                  font-size: 1em;"';
         return $style;
     }
 
