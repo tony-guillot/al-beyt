@@ -1515,7 +1515,11 @@ section .article
 /************** \Presentation/ *************/
 
 
+
+
 @media all and (min-width: 405px) and (max-width: 840px){
+
+/*********** Nav **************/  
 
     .header li.active {
         padding-left: 0 ;
@@ -1529,6 +1533,9 @@ section .article
     .sub-menu-1 a.link-nav {
         font-size: 0.8em;
     }
+/*********** Nav **************/ 
+
+/********** Index *********/
 
     .parent-shuffle .link-names {
         font-size: 1.7rem;
@@ -1581,9 +1588,16 @@ section .article
     .pagination-actu {
         display: none;
     }
+    
+/********** Index *********/
+
 }
 
+
+
 @media all and (max-width: 405px){
+
+/*********** Nav **************/    
     a.link-nav {
         font-size: 0.8em;
     }
@@ -1597,6 +1611,8 @@ section .article
     .sub-menu-1 a.link-nav {
         font-size: 0.7em;
     }
+/*********** Nav **************/
+/********** Index *********/
 
     .parent-shuffle .link-names {
         font-size: 1.5rem;
@@ -1653,5 +1669,7 @@ section .article
     .pagination-actu {
         display: none;
     }
+
+    /********** Index *********/
 }
 
