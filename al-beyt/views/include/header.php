@@ -64,9 +64,11 @@ $articleYearFilter = $controArticle->displayYearFilters();
                         <ul>
                             <?php foreach ($domaines as $domaine)
                             { ?>
+                                <a class="link-nav" href="artistes.php?id=<?=$domaine['id']?>">
                                 <li>
-                                    <a class="link-nav" href="artistes.php?id=<?=$domaine['id']?>"><?= $domaine['nom']?></a>
+                                    <?= $domaine['nom']?>
                                 </li>
+                                </a>
                             <?php } ?>
                         </ul>
                     </div>  
@@ -75,9 +77,11 @@ $articleYearFilter = $controArticle->displayYearFilters();
                     <div class="sub-menu-1">
                         <ul>
                             <?php foreach($eventYearFilter as $y) { ?>
-                                <li>
-                                    <a class="link-nav" href="evenements.php?year=<?= $y['year'] ?>"><?= $y['year'] ?></a>
-                                </li>
+                                <a class="link-nav" href="evenements.php?year=<?= $y['year'] ?>">
+                                    <li>
+                                        <?= $y['year'] ?>
+                                    </li>
+                                </a>
                              <?php } ?>
                         </ul>
                     </div>
@@ -86,9 +90,11 @@ $articleYearFilter = $controArticle->displayYearFilters();
                     <div class="sub-menu-1">
                         <ul>
                             <?php foreach($articleYearFilter as $y) { ?>
-                                <li>
-                                    <a class="link-nav" href="articles.php?year=<?= $y['year'] ?>"><?=$y['year'] ?></a>
-                                </li>
+                                <a class="link-nav" href="articles.php?year=<?= $y['year'] ?>">
+                                    <li>
+                                    <?=$y['year'] ?>
+                                    </li>
+                                </a>
                              <?php } ?>
                         </ul>
                     </div>

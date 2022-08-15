@@ -207,7 +207,7 @@ class ArtisteController extends Controller
                 {
             
                     $email = $this->secureEmail($email);
-                    var_dump($email);
+                    //var_dump($email);
 
                     if((empty($lien_twitter) || filter_var($lien_twitter,FILTER_VALIDATE_URL))
                         && (empty($lien_insta) || filter_var($lien_insta,FILTER_VALIDATE_URL))

@@ -4,7 +4,6 @@
         <img class="sidenav-background" src="../../../images/flag.jpg" alt="logo al-beyt">
       </div>
       <a href="#"><img class="circle" src="../../../images/logo.png" alt="logo al-beyt"></a>
-      <!-- <a href="#"><span class="green-text text-darken-3 name"></span></a> -->
       <a href="#"><span class="green-text text-darken-1 email"><?= $_SESSION['admin']['identifiant']?></span></a>
     </div></li>
       <li><div class="divider"></div></li>
@@ -23,9 +22,5 @@
   </ul>
   <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 
-<script>
-       $(document).ready(function(){
-        $('.sidenav').sidenav();
-        });
-</script>
+
 

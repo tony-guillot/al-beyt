@@ -11,7 +11,7 @@ class ArticleModel extends Bdd
     {
         $bdd = $this->bdd->prepare(
             'SELECT article.id, article.titre, article.date, article.auteur,article.description, image_article.chemin
-                    FROM article
+                    FROM article 
                     LEFT JOIN image_article ON image_article.id_article = article.id
                     AND image_article.ordre = 1
                     ORDER BY article.date DESC

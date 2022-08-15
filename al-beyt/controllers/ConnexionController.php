@@ -25,7 +25,6 @@ class ConnexionController extends Controller
             {  
                 
                 $adminData = $this->modelUtilisateur->getAdminByIdentifiant($identifiant);
-                var_dump($adminData);
                 
                 if($identifiant == $adminData['identifiant'])
                 {

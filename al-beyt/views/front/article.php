@@ -55,14 +55,17 @@ require_once('../include/header.php');
             </section>
         </section>
     </section>    
+
     <section class="box-slider">
-            <div id="slider">
-                <img  src="http://<?= $images_article[1]['chemin'];?>" alt="chemin 1, debut du slider" id="slide">
-                <div id="precedent" onclick="displaySlider(<?=$id ?>,-1)"><</div>
-                <div id="suivant" onclick="displaySlider(<?=$id ?>,1)">></div>
-            </div>
-        <?php #echo Affichage::printImageSliderForArticles($images_article); ?>
+        <div id="slider">
+            <img  src="http://<?= $images_article[1]['chemin'];?>"
+             alt="<?php $_images_article[1]['legende']?>" id="slide">
+            <div id="precedent" onclick="displaySlider(<?=$id ?>,-1)"><</div>
+            <div id="suivant" onclick="displaySlider(<?=$id ?>,1)">></div>
+        </div>
     </section>
+
+
     <script>displaySlider(<?= $id.',0'?>) </script>
 </main>
 <?php 

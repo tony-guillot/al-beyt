@@ -96,7 +96,11 @@ section.pagination a{
 .bottom-links a {
    font-size: 3em;
 }
+.sidenav
+{
+   width:20%;
 
+}
 img.sidenav-background {
    max-width:100%;
    max-height:100%;
@@ -234,3 +238,40 @@ form.typo section article > *
 
 /************** Modifier article ***************/ 
 /************* Modifier article ***************/
+
+/* table > tbody > tr:nth-child(2n+1)
+{
+    background-color:#eb6e6e!important;
+} */
+table.table {
+   background-color:#ffffff!important;
+
+}
+/* table.table .color-hover:hover {
+
+   background-color:#f3e5f5!important;
+   border: 1px solid rgb(232, 232, 232)!important;
+   -webkit-transition: background-color .25s ease;
+   transition: background-color .25s ease;
+} */
+
+
+
+/* table.highlight > tbody >tr{
+   background-color: #7c09b6!important;
+   -webkit-transition: background-color .25s ease;
+   transition: background-color .25s ease;
+ }
+ tab
+ table.highlight{
+   background-color: aqua!important;   
+} */
+
+table .material-icons
+{
+   font-size:2em;
+   margin:30px
+}
+.grey-text.text-darken-4:hover {
+   color: #ab47bc  !important;
+ }

@@ -64,6 +64,7 @@ class EvenementModel extends Bdd {
                 ON image_evenement.id_evenement = evenement.id 
                 AND image_evenement.ordre = 1
                 WHERE YEAR(evenement.date_evenement) = :year
+                ORDER BY evenement.date_evenement DESC
                 LIMIT :limit OFFSET :offset ;'
         );
         $bdd->bindValue(":limit" , $limit,PDO::PARAM_INT);

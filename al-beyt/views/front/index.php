@@ -32,10 +32,11 @@ $controllerEvent = New EvenementController;
         <article class="names">
           <a class="link-names" href="artiste.php?id=<?= $artists[$i]['id']?>"><em><?=$artists[$i]['nom'];?></em></a>
         </article>
-    <!--✹ -->
+    <!-- ✹ -->
         <?php endfor;?>
     </section>
     <section class="index-parent-event">
+        <h2>Prochain évènement:</h2>
         <article class="parent-index-affiche">
             <a href="evenement.php?id=<?= $lastEvent['id']?>">
                 <img  class="index-affiche" src="http://<?= $lastEvent['chemin'] ?>" alt="Affiche Prochain évènement Al-Beyt">
@@ -64,7 +65,10 @@ $controllerEvent = New EvenementController;
     <section class="mignon">
         <p class="froufrou"> 	。.:☆*:･'(*⌒―⌒*))) &nbsp; On vous attend nombreux.ses   &nbsp; 	\(★ω★)/ ✧˖° 。.</p>
     </section>
+
+    <h2>Fils d'actu:</h2>
     <section id="news" class="news box-cards" style="flex-direction: row;">
+ 
         <?php for ($i = 0;$i < 8; $i++):?>
             <article id="tile-<?=$i?>" class="tile tile-<?=$i?>">
                     <a id="link-<?=$i?>">

@@ -39,7 +39,7 @@ require_once('../include/header.php');
     <section class="sous-contener">
         <section class="artistes-filtre">
             <ul class="merryweather liens-filtre taille0-huit">
-                <li class="filtre">
+                <li class="filtre-artistes">
                     <a  class="filtre" <?= (empty($id_domaine)) ? Affichage::stylizeCurrentFilter() : "" ?> href="artistes.php">Tous les artistes</a>
                 </li>
                 <?php foreach ($domaines as $domaine)

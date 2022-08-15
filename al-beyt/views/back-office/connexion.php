@@ -5,7 +5,7 @@ use AlBeyt\Controllers\ConnexionController;
 
 if(isset($_POST['submit']))
 {
-    $controller = New ConnexionController();
+    $controller = new ConnexionController();
     $controller->connexion($_POST['identifiant'], $_POST['mot_de_passe']);
 }
 ?>

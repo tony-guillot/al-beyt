@@ -50,48 +50,86 @@ $articleYearFilter = $controArticle->displayYearFilters();
             hover : true});
     });
 </script>
+
 <body>
     <header>
         <nav class="purple darken-2">
             <div class="nav-wrapper">
-                <ul>
+                <!-- sidenav-->
+                <a href="#"  class="sidenav-trigger" data-target="slide-out">
+                    <i class="material-icons green lighten-4">menu</i>
+                </a>        
+                <!-- link nav princpale-->
+                <ul id="link-nav" class="right show-on-med-and-down">
                     <li><a href="../front/index.php" target="_blank">Accueil</a></li>
                     <li><a class="dropdown-trigger" href="../front/artistes.php" target="_blank" data-target="domaines">Artistes<i class="material-icons right">arrow_drop_down</i></a></li>
                     <li><a class="dropdown-trigger" href="../front/evenements.php" target="_blank" data-target="eventYears">Evènements</a></li>
                     <li><a class="dropdown-trigger" href="../front/articles.php" target="_blank" data-target="articleYears">Actualité</a></li>
                     <li><a href="../front/presentation.php" target="_blank">A propos</a></li>
-                    <a class="right icone-deconnexion" href="deconnexion.php"><i  class="fa-solid fa-right-from-bracket"></i></a>
+                    <a class="right icone-deconnexion" href="deconnexion.php"><i  class="fa-solid fa-right-from-bracket  green lighten-4"></i></a>
                 </ul>
                 
-                
             </div>
+
+            <!--menu dropdown-->
+
+                <ul id="domaines" class="dropdown-content">
+                <?php foreach ($domaines as $domaine) { ?>
+                    <li>
+                        <a href="../front/artistes.php?id=<?= $domaine['id'] ?>"
+                        target="_blank"><?= $domaine['nom'] ?></a>
+                    </li>
+                <?php } ?>
+            </ul>
+            <ul id="eventYears" class="dropdown-content">
+                <?php foreach($eventYearFilter as $y) { ?>
+                    <li>
+                        <a href="../front/evenements.php?year=<?= $y['year'] ?>" target="_blank"><?= $y['year'] ?></a>
+                    </li>
+                <?php } ?>
+            </ul>
+            <ul id="articleYears" class="dropdown-content">
+            <?php foreach($articleYearFilter as $y) { ?>
+                    <li>
+                        <a href="../front/articles.php?year=<?= $y['year'] ?>" target="_blank"><?= $y['year'] ?></a>
+                    </li>
+                <?php } ?>
+            </ul>
+            
         </nav>
-
-        <ul id="domaines" class="dropdown-content">
-            <?php foreach ($domaines as $domaine) { ?>
-                <li>
-                    <a href="../front/artistes.php?id=<?= $domaine['id'] ?>"
-                       target="_blank"><?= $domaine['nom'] ?></a>
-                </li>
-            <?php } ?>
-        </ul>
-        <ul id="eventYears" class="dropdown-content">
-            <?php foreach($eventYearFilter as $y) { ?>
-                <li>
-                    <a href="../front/evenements.php?year=<?= $y['year'] ?>" target="_blank"><?= $y['year'] ?></a>
-                </li>
-            <?php } ?>
-        </ul>
-        <ul id="articleYears" class="dropdown-content">
-           <?php foreach($articleYearFilter as $y) { ?>
-                <li>
-                    <a href="../front/articles.php?year=<?= $y['year'] ?>" target="_blank"><?= $y['year'] ?></a>
-                </li>
-            <?php } ?>
-        </ul>
-        
-
     </header>
+
+    
+
+    <ul id="slide-out" class="sidenav" >
+            <li><div class="user-view">
+            <div class="background">
+                <img class="sidenav-background" src="../../../images/flag.jpg" alt="logo al-beyt">
+            </div>
+            <a href="#"><img class="circle" src="../../../images/logo.png" alt="logo al-beyt"></a>
+            
+            <a href="#"><span class="green-text text-darken-1 email"><?= $_SESSION['admin']['identifiant']?></span></a>
+            </div></li>
+            <li><div class="divider"></div></li>
+            <li><a class="subheader">Artistes</a></li>
+            <li><a href="artiste_ajout.php"><i class="material-icons waves-effect">person_add</i>Ajouter un Artiste</a></li>
+            <li><a href="artiste_gestion.php"><i class="material-icons waves-effect">settings</i>Gérer les Artistes</a></li>
+            <li><div class="divider"></div></li>
+            <li><a class="subheader">Articles</a></li>
+            <li><a href="article_ajout.php"><i class="material-icons waves-effect">note_add</i>Ajouter un Article</a></li>
+            <li><a href="article_gestion.php"><i class="material-icons waves-effect">settings</i>Gérer les Articles</a></li>
+            <li><div class="divider"></div></li>
+            <li><a class="subheader">Evenements</a></li>
+            <li><a href="evenement_ajout.php"><i class="material-icons waves-effect">date_range</i>Ajouter un Evènement</a></li>
+            <li><a href="evenement_gestion.php"><i class="material-icons waves-effect">settings</i>Gérer les Evènements</a></li>
+            <li><div class="divider"></div></li>
+        </ul>
+
+        <script>
+       $(document).ready(function(){
+        $('.sidenav').sidenav();
+        });
+</script>
 
 <section id="error-section" class="valign-wrapper z-depth-3 card-panel">
     <i class="material-icons">error</i>

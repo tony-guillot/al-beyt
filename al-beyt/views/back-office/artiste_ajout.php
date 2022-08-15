@@ -8,6 +8,8 @@ Controller::secureBackOffice();
 use AlBeyt\Controllers\ArtisteController;
 $controller = New ArtisteController;
 $domains = $controller->displayAllDomains();
+
+
 if(isset($_POST['submit']))
 {
     $controller->registerArtist(
@@ -23,6 +25,7 @@ if(isset($_POST['submit']))
     $_FILES['image'],
     $_POST['legende']);
 }
+
 $title ="Ajout artiste";
 require_once('../include/headerBo.php');
 ?>
@@ -93,6 +96,7 @@ require_once('../include/headerBo.php');
                     <textarea style="height: 160px;border: 0.5px solid gray" class="materialize-textarea" name="description"></textarea> </br></br>
                 </article>
             </section>
+            
             <section class="col s6">
                 <h2>Image de présentation:</h2>
                 <article>
@@ -105,12 +109,14 @@ require_once('../include/headerBo.php');
                         <input type="text" name="legende"></br>
                     </div>
                 </article>
-                <!--<input type="submit" name="submit" value="Ajouter l'artiste">-->
             </section>
-            <button class="btn waves-effect btn-large waves-light col s12" type="submit" value="1" name="submit">Ajouter un artiste
+            <button class="btn waves-effect btn-large waves-light col s12" type="submit" value="1" name="submit">
+                Ajouter un artiste
                 <i class="material-icons right">person_add</i>
             </button>
         </section>
+
+
     </form>
 </main>
 <?php 

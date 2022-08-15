@@ -90,8 +90,8 @@ require_once('../include/header.php');
                 </article>
             <?php } ?>
         </section>
-        <section class="conteneur-page">
-            <article>
+        <section class="conteneur-page pagination-artiste inter">
+       
                 <?php
                 if($pageCourante != 1)
                 {   ?>
@@ -106,7 +106,7 @@ require_once('../include/header.php');
                     <a href="artiste.php?page=<?= $pageCourante + 1 ?>&id=<?=$id_artiste?>">Page suivante</a>
                 <?php }
                 ?>
-            </article>
+    
         </section>
     </section>
 </main>

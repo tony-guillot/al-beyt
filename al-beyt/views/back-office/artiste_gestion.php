@@ -29,8 +29,8 @@ require_once('../include/headerBo.php');
     <section>
     </section>
     <section>
-        <table class="stripped highlight">
-            <thead>
+        <table class=" table centered  highlight  responsive-table ">
+            <thead >
                    <th>Image</th>
                    <th>Legende </th>
                    <th>Allias/Nom</th>
@@ -45,11 +45,11 @@ require_once('../include/headerBo.php');
                    <th>Modifier</th>
                    <th>Statut</th>
             </thead>
-            <tbody>
+            <tbody class="">
                
                 <?php foreach($allInfoArtists as $artist)
                 {  ?>
-                    <tr class='row'>
+                    <tr class='row color-hover border'>
                         <td><img class="imageGestion" src="http://<?= $artist['chemin']?>" alt="Image principale"></td>
                         <td><?= $artist['legende']?></td>
                         <td><?= $artist['nom']?></td>
@@ -70,12 +70,12 @@ require_once('../include/headerBo.php');
                         <td><?= $artist['lien_soundcloud']?></td>
                         <td><?= $artist['lien_facebook']?></td>
                         <td><?= $artist['lien_twitter']?></td> -->
-                        <td><a href="artiste_update.php?id=<?=  $artist['id_artiste']?>"><i class="fa-solid fa-wrench"></i></td>
+                        <td><a href="artiste_update.php?id=<?=  $artist['id_artiste']?>"><i class=" edit material-icons grey-text text-darken-4">edit</i></td>
                         <td>
                             <?php if($artist['statut'] == 1)
-                                {echo '<i class="fa-solid fa-eye"></i>';}
+                                {echo '<i class="material-icons">visibility</i>';}
                                 else
-                                {echo '<i class="fa-solid fa-eye-slash"></i>';} ?>
+                                {echo '<i class="material-icons">visibility_off</i>';} ?>
                         </td>
                     </tr>  
                     

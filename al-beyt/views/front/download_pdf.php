@@ -97,7 +97,7 @@ ob_start();
     }
 
     .image-article {
-        //width: 80%;
+         
         display: inline-block;
         margin: 10px auto;
         text-align: center;
@@ -115,56 +115,59 @@ ob_start();
         font-family:'inter',sans-serif;
     }
 </style>
-<header>
-    <h1 class='al-beyt'>AL-BEYT</h1>
-    <img class='logo' src="http://<?= $_SERVER['SERVER_NAME'] ?>/images/logo.png" alt="logo al-beyt">
-</header>
-<main>
+<body>
+    <header>
+        <h1 class='al-beyt'>AL-BEYT</h1>
+        <img class='logo' src="http://<?= $_SERVER['SERVER_NAME'] ?>/images/logo.png" alt="logo al-beyt">
+    </header>
+    <main>
         <section>
             <h2><?= $article['titre'] ?></h2>
             <div class="info">par <span><?= $article['auteur'] ?></span>, publié le <span><?= $article['date'] ?></span> </div>
         </section>
-    <section class="image-principale">
-        <img src="http://<?= $images_article[0]['chemin'] ?>" alt="<?= $images_article[0]['legende'] ?>">
-    </section>
-    <section>
-
-        <section>
-            <!-- <article>
-                <p>
-                </p>
-            </article> -->
-            <article class="description">
-                <div>
-                    <p>
-                        <?= nl2br($article['description']) ?>
-                    </p>
-                </div>
-            </article>
-            <article class="images"> <?php if (isset($images_article[1])): ?>
-                    <div class="image-article">
-                        <img src="http://<?= $images_article[1]['chemin'] ?>"
-                             alt="<?= $images_article[1]['legende'] ?>">
-                        <span class="legende"><?= $images_article[1]['legende'] ?></span>
-                    </div>
-                <?php endif ?>
-                <?php if (isset($images_article[2])): ?>
-                    <div class="image-article">
-                        <img src="http://<?= $images_article[2]['chemin'] ?>"
-                             alt="<?= $images_article[2]['legende'] ?>">
-                        <span class="legende"><?= $images_article[2]['legende'] ?></span>
-                    </div>
-                <?php endif ?>
-                <?php if (isset($images_article[3])): ?>
-                    <div class="image-article">
-                        <img src="http://<?= $images_article[3]['chemin'] ?>"
-                             alt="<?= $images_article[3]['legende'] ?>">
-                        <span class="legende"><?= $images_article[3]['legende'] ?></span>
-                    </div>
-                <?php endif ?></article>
+        <section class="image-principale">
+            <img src="http://<?= $images_article[0]['chemin'] ?>" alt="<?= $images_article[0]['legende'] ?>">
         </section>
-    </section>
-</main>
+        <section>
+
+            <section>
+                <!-- <article>
+                    <p>
+                    </p>
+                </article> -->
+                <article class="description">
+                    <div>
+                        <p>
+                            <?= nl2br($article['description']) ?>
+                        </p>
+                    </div>
+                </article>
+                <article class="images"> <?php if (isset($images_article[1])): ?>
+                        <div class="image-article">
+                            <img src="http://<?= $images_article[1]['chemin'] ?>"
+                                alt="<?= $images_article[1]['legende'] ?>">
+                            <span class="legende"><?= $images_article[1]['legende'] ?></span>
+                        </div>
+                    <?php endif ?>
+                    <?php if (isset($images_article[2])): ?>
+                        <div class="image-article">
+                            <img src="http://<?= $images_article[2]['chemin'] ?>"
+                                alt="<?= $images_article[2]['legende'] ?>">
+                            <span class="legende"><?= $images_article[2]['legende'] ?></span>
+                        </div>
+                    <?php endif ?>
+                    <?php if (isset($images_article[3])): ?>
+                        <div class="image-article">
+                            <img src="http://<?= $images_article[3]['chemin'] ?>"
+                                alt="<?= $images_article[3]['legende'] ?>">
+                            <span class="legende"><?= $images_article[3]['legende'] ?></span>
+                        </div>
+                    <?php endif ?></article>
+            </section>
+        </section>
+    </main>
+</body>
+</html>
 
 <?php
 $html = ob_get_clean();
