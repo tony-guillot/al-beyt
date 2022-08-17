@@ -35,8 +35,12 @@ $controllerEvent = New EvenementController;
     <!-- ✹ -->
         <?php endfor;?>
     </section>
+    <section class="box-title-prochain-evenement">
+
+        <h2  class="title-index prochain-evenement"><span style ="font-size:1.9em; font-weight:100;">P</span>ROChaiN  EveNeMenT</h2>
+    </section>
     <section class="index-parent-event">
-        <h2 class="title-index"><span style ="font-size:1.9em; font-weight:100;">P</span>ROChaiN Evenement :</h2>
+     
         <article class="parent-index-affiche">
             <a href="evenement.php?id=<?= $lastEvent['id']?>">
                 <img  class="index-affiche" src="http://<?= $lastEvent['chemin'] ?>" alt="Affiche Prochain évènement Al-Beyt">
@@ -65,7 +69,7 @@ $controllerEvent = New EvenementController;
     <section class="mignon">
         <p class="froufrou"> 	。.:☆*:･'(*⌒―⌒*))) &nbsp; On vous attend nombreux.ses   &nbsp; 	\(★ω★)/ ✧˖° 。.</p>
     </section>
-
+            <hr class="hr-event">
    
     <section id="news" class="news box-cards" style="flex-direction: row;">
     <h2 class="title-index fil-actu">Suivez Les Actualitees...</h2>

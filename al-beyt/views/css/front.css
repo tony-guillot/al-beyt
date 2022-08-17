@@ -514,6 +514,7 @@ nav ul li:hover .sub-menu-1 ul
     flex-direction: column;
     align-items: center;
     justify-content:center;
+    position: relative;
 }
 .parent-shuffle
 {
@@ -523,7 +524,7 @@ nav ul li:hover .sub-menu-1 ul
     justify-content: space-between;
     width: 60%;
     margin-top: 70px;
-    margin-bottom: 90px;
+    margin-bottom: 170px;
 }
 .names
 {
@@ -555,10 +556,30 @@ nav ul li:hover .sub-menu-1 ul
 {
     font-size: 3em;
     font-family: 'victory_history_demoregular';
+    color:#ffcce6;
+}
+.box-title-prochain-evenement
+{
+    position: relative;
+    width: 1250px;
+    background-color:red;
+
+}
+.prochain-evenement
+{
+    position: absolute;
+    top: -113px;
+    right: 220px;
+    z-index: 2;
+    font-size: 4em;
+    text-shadow: 6px 8px 6px rgba(0,0,0,0.2);
+    
+    /* background-color: #08A95D; */
 }
 .fil-actu
 {
     width: 100%;
+    margin-top: 13vh;
     padding:10px;
 }
 .index-parent-event
@@ -692,9 +713,9 @@ img.index-affiche:hover
     align-items:center;
     width: 60%;
     height:15vh;
-    background-color:#ff72728f;
+    background-color:#ff7272cb;
     margin-top: 20px;   
-    margin-bottom: 30vh;
+    margin-bottom: 10vh;
     border-radius: 3px ;
     overflow: hidden;
 }
