@@ -83,7 +83,7 @@ require_once('../include/header.php');
     <section class="conteneur-page inter">
         <?php if($pageCourante != 1)
         {   ?>
-            <a href="artistes.php?page=<?= $pageCourante - 1?><?= !empty($id_domaine) ? "&id=".$id_domaine : "" ?>">Page précédente</a>
+            <a href="artistes.php?page=<?= $pageCourante - 1?><?= !empty($id_domaine) ? "&id=".$id_domaine : "" ?>"><<</a>
   <?php }?>
         <?php for ($i=1; $i <= $pageMax; $i++)
         { ?>
@@ -91,7 +91,7 @@ require_once('../include/header.php');
  <?php  }?>
         <?php if($pageCourante != $pageMax)
         {?>
-            <a href="artistes.php?page=<?= $pageCourante + 1 ?><?= !empty($id_domaine) ? "&id=".$id_domaine : "" ?>">Page suivante</a>
+            <a href="artistes.php?page=<?= $pageCourante + 1 ?><?= !empty($id_domaine) ? "&id=".$id_domaine : "" ?>">>></a>
   <?php }
     ?>
     </section>

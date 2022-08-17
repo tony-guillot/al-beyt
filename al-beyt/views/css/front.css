@@ -522,8 +522,8 @@ nav ul li:hover .sub-menu-1 ul
     flex-wrap: wrap;
     justify-content: space-between;
     width: 60%;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 70px;
+    margin-bottom: 90px;
 }
 .names
 {
@@ -551,7 +551,16 @@ nav ul li:hover .sub-menu-1 ul
     
     /* background-color: #b4a0a0; */
 }
-
+.title-index
+{
+    font-size: 3em;
+    font-family: 'victory_history_demoregular';
+}
+.fil-actu
+{
+    width: 100%;
+    padding:10px;
+}
 .index-parent-event
 {
     display: flex;
@@ -575,14 +584,14 @@ img.index-affiche
     height:  100%;
     /* object-position: 40% 50%; */
     object-fit: cover;
-    filter: brightness(60%);
+    filter: brightness(80%);
     transition: background-color 0.5s ease-out;
     transition: filter 0.5s ease-out;
 }
 
 img.index-affiche:hover
 {
-    filter: brightness(110%);
+    filter: brightness(100%);
     background-color: linear-gradient(rgba(0, 0, 0, 0.619), white, black);
 }
 
@@ -731,7 +740,10 @@ img.index-affiche:hover
     box-shadow: 4px 9px 24px -13px rgba(255,255,255,0.6);
     -webkit-box-shadow: 2px 5px 8px -1px rgba(0,0,0,0.83);
     box-shadow: 2px 5px 8px -1px rgba(0,0,0,0.2);
-    transition: all 0.3s ease;
+    /* transition: all 0.3s ease; */
+    filter: brightness(95%);
+    transition: all 1s ease;
+    transition: transform .7s;
 }
 
 .tile .tile-info {
@@ -746,15 +758,15 @@ img.index-affiche:hover
     object-fit:cover;
     margin-bottom: 20px;
     height: 300px;
+    /*Animation*/
 
 }
 
 .tile:hover{
-    -moz-transform: scale(1.01) skew(-1deg, 0deg);
-    -webkit-transform: scale(1.01) skew(-1deg, 0deg);
-    -o-transform: scale(1.01) skew(-1deg, 0deg);
-    -ms-transform: scale(1.01) skew(-1deg, 0deg);
-    transform: scale(1.01) skew(-1deg, 0deg);
+
+
+    filter: brightness(100%);
+    transform: scale(1.01); 
 }
 
 .tile-0 {
@@ -935,14 +947,12 @@ section.artistes-filtre
     display: flex;
     justify-content: center;
     width: 80%;
-    
-    /* background-color:#08a95e42; */
+
 }
 .artistes-sous-box
 {
     display: flex;
     flex-wrap: wrap;
-    /* background-color:#d0b662; */
     width: 95%;
     
     
@@ -953,9 +963,9 @@ section.artistes-filtre
     display: flex;
     flex-direction: column;
     margin: 20px;
+    color: #fff;
     filter: brightness(80%);
     transition: all 1s ease;
-    color: #fff;
     transition: transform .7s; /*Animation*/
 
 }

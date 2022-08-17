@@ -20,7 +20,3 @@ $response = [
 ];
 
 echo json_encode($response);
-
-/*echo '<pre>';
-var_dump($response);
-echo '</pre>';*/
