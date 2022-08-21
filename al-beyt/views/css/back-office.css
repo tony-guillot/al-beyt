@@ -31,10 +31,14 @@ footer
 }
 
 
-/***********Footer ***************/
+/*********** \Footer/ ***************/
 
 .dropdown-content{
    top: 64px!important;
+}
+ul#link-nav li a
+{
+   outline: none; 
 }
 
 h1.header {
@@ -238,34 +242,12 @@ form.typo section article > *
 
 /************** Modifier article ***************/ 
 /************* Modifier article ***************/
-
-/* table > tbody > tr:nth-child(2n+1)
-{
-    background-color:#eb6e6e!important;
-} */
 table.table {
    background-color:#ffffff!important;
 
 }
-/* table.table .color-hover:hover {
-
-   background-color:#f3e5f5!important;
-   border: 1px solid rgb(232, 232, 232)!important;
-   -webkit-transition: background-color .25s ease;
-   transition: background-color .25s ease;
-} */
 
 
-
-/* table.highlight > tbody >tr{
-   background-color: #7c09b6!important;
-   -webkit-transition: background-color .25s ease;
-   transition: background-color .25s ease;
- }
- tab
- table.highlight{
-   background-color: aqua!important;   
-} */
 
 table .material-icons
 {
