@@ -50,7 +50,7 @@ require_once('../include/header.php');
             <?php }?>
             </ul>
         </section>
-        <section class=" artistes-box-cards">
+        <section class=" artistes-box-cards ">
             <section class="artistes-sous-box">
 
                 <?php foreach($artists as $artist)

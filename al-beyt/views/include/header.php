@@ -56,7 +56,7 @@ $articleYearFilter = $controArticle->displayYearFilters();
     </header> -->
         <nav class="header">
             <ul>
-                <li class="active"><a class="link-nav" href="index.php">Al-Beyt</a></li>
+                <li class="active"><a class="Al-Beyt" href="index.php">AL-BeYT</a></li>
 
                 <li class="active"><a class="link-nav" href="artistes.php">Artistes</a>
 
