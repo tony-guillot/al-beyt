@@ -137,6 +137,10 @@ div#error-section
    font-size:2em;
 }
 
+.icone-deconnexion i {
+   line-height: 71px!important;
+}
+
 /******************************/
 .body-connexion
 {

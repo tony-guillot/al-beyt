@@ -56,8 +56,8 @@ $articleYearFilter = $controArticle->displayYearFilters();
         <nav class="purple darken-2">
             <div class="nav-wrapper">
                 <!-- sidenav-->
-                <a href="#"  class="sidenav-trigger" data-target="slide-out">
-                    <i class="material-icons green lighten-4">menu</i>
+                <a href="#"  class="sidenav-trigger show-on-large" data-target="slide-out">
+                    <i class="material-icons">menu</i>
                 </a>        
                 <!-- link nav princpale-->
                 <ul id="link-nav" class="right show-on-med-and-down">
@@ -66,7 +66,7 @@ $articleYearFilter = $controArticle->displayYearFilters();
                     <li><a class="dropdown-trigger" href="../front/evenements.php" target="_blank" data-target="eventYears">Evènements<i class="material-icons right">arrow_drop_down</i></a></li>
                     <li><a class="dropdown-trigger" href="../front/articles.php" target="_blank" data-target="articleYears">Actualité<i class="material-icons right">arrow_drop_down</i></a></li>
                     <li><a href="../front/presentation.php" target="_blank">A propos</a></li>
-                    <a class="right icone-deconnexion" href="deconnexion.php"><i  class="fa-solid fa-right-from-bracket  green lighten-4"></i></a>
+                    <a class="right icone-deconnexion" href="deconnexion.php"><i  class="fa-solid fa-right-from-bracket"></i></a>
                 </ul>
                 
             </div>

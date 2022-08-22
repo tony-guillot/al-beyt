@@ -20,7 +20,5 @@
     <li><a href="evenement_gestion.php"><i class="material-icons waves-effect">settings</i>Gérer les Evènements</a></li>
     <li><div class="divider"></div></li>
   </ul>
-  <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-
 
 
