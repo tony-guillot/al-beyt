@@ -1444,18 +1444,12 @@ section .article
     width: 80%;
 }
 
-.presentation .bloc2
-{
-    display:flex;
-    justify-content:space-between;
-}
-
 .presentation .sous-bloc2
 {
     display:flex;
     flex-direction: column;
     align-items: space-between;
-    width:55%;
+
     margin-right:100px;
 }
 
@@ -1463,12 +1457,9 @@ section .article
 {
     margin-bottom:40px;
 }
-
-.presentation .image-pres
+.presentation .bloc-texte3
 {
-    display:flex;
-    align-items:flex-end;
-
+    margin-bottom:40px;
 }
 
 .presentation h1
@@ -1482,6 +1473,10 @@ section .article
 {
     font-weight: 200;
     font-size: 0.9em;
+}
+.presentation .image-bas
+{
+    width: 50%;
 }
 
 /************** \Presentation/ *************/

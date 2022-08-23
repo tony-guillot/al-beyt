@@ -158,7 +158,7 @@ require_once('../include/sidebar.php');
                                 if(!empty($imagesEvent[1]['chemin'])):?>
                             <img style="width:100%;" class="image" id="image1" src="http://<?= $imagesEvent[1]['chemin']?>" alt=""></br>
                             <?php else:?>
-                                <img style="width:100%" class="image" src="http://al-beyt.moi/images/placeholder.jpg" alt="">
+                                <img style="width:100%" class="image" src="http://al-beyt.moi/images/placeholder.jpg" alt="image vide">
                             <?php endif?>
                         </div>
                     </article>
@@ -171,10 +171,9 @@ require_once('../include/sidebar.php');
                     </article>
                 </section>
                 <section>
-                    <button class="btn waves-effect waves-light col s6" type="submit" name="image" value="sauvegarder">Mettre
-                        à jour les images
+                    <button class="btn waves-effect waves-light col s6" type="submit" name="image" value="sauvegarder"> 
+                        Mettre à jour les images
                         <i class="material-icons right">photo_library</i>
-                        <!--<input type="submit" name="valider" value="sauvegarder">-->
                     </button>
                 </section>
             </form>

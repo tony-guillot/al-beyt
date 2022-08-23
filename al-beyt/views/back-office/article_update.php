@@ -133,7 +133,7 @@ require_once('../include/sidebar.php');
                                         <?php if (!empty($images_article[1]['chemin'])):?>
                                             <img  style="width:100%"  class="image" id="image2" src="http://<?= $images_article[1]['chemin'] ?>" alt="<?= $images_article[1]['legende'] ?>">
                                         <?php else: ?>
-                                            <img class="image" id="image2" src="http://al-beyt.moi/images/placeholder.jpg" alt="">
+                                            <img class="image" id="image2" src="http://al-beyt.moi/images/placeholder.jpg" alt="image vide">
                                         <?php endif ?>
                                     </div>
                                 </article>
@@ -156,7 +156,7 @@ require_once('../include/sidebar.php');
                                         <?php if (!empty($images_article[2]['chemin'])): ?>
                                             <img style="width:100%"  class="image" id="image3" src="http://<?= $images_article[2]['chemin'] ?>" alt="<?= $images_article[2]['legende'] ?? "" ?>">
                                         <?php else: ?>
-                                            <img  style="width:100%"  class="image" id="image2" src="http://al-beyt.moi/images/placeholder.jpg" alt="">
+                                            <img  style="width:100%"  class="image" id="image2" src="http://al-beyt.moi/images/placeholder.jpg" alt="image vide">
                                         <?php endif ?>
                                     </div>
                                 </article>
@@ -179,7 +179,7 @@ require_once('../include/sidebar.php');
                                         <?php if (!empty($images_article[3]['chemin'])): ?>
                                             <img style="width:100%"  class="image" id="image4" src="http://<?= $images_article[3]['chemin'] ?>" alt="<?= $images_article[3]['legende'] ?? "" ?>">
                                         <?php else: ?>
-                                            <img style="width:100%" class="image" id="image2" src="http://al-beyt.moi/images/placeholder.jpg" alt="">
+                                            <img style="width:100%" class="image" id="image2" src="http://al-beyt.moi/images/placeholder.jpg" alt="image vide">
                                         <?php endif ?>
                                     </div>
                                 </article>

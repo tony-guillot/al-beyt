@@ -22,7 +22,7 @@ require_once('../include/header.php');
             </article>
             <article class="couverture">
                 <div>
-                    <img src="../../../images/couverture.png" alt="image principale">
+                    <img src="../../../images/pres-bas.jpg" alt="image principale">
                 </div>
                 <div class="reseaux">
                     <a href="https://www.instagram.com/al_beyt_collectif/"><i class="fa-brands fa-instagram"></i></a>
@@ -70,7 +70,7 @@ require_once('../include/header.php');
                     
                 </article>
                 <article class="image-pres">
-                    <img src="../../../images/photo.png" alt="image secondaire">
+                    <img  class="image-bas" src="../../../images/pres-haut.jpg" alt="image secondaire">
                 </article>
            </section> 
         </section>
