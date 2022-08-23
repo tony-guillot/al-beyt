@@ -36,7 +36,7 @@ require_once('../include/headerBo.php');
     <section>
     </section>
     <section>
-        <table class="stripped highlight table-gestion">
+        <table class="stripped centered highlight table-gestion">
             <thead>
                 <th>Image principale</th>
                 <th>Titre</th>

@@ -36,7 +36,7 @@ require_once('../include/headerBo.php');
 <main class="container">
     <h1 class="header">Gestion des évènements</h1>
     <section>
-        <table class="striped highlight table-gestion">
+        <table class="striped centered highlight table-gestion">
             <thead>
                 <th>Affiche</th>
                 <th>Titre</th>
