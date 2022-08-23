@@ -101,6 +101,7 @@ class  EvenementController extends Controller {
         $date,
         $heure,
         $description,
+        $lien_billeterie,
         $image2,
         $legende2,
         $ordre_image2,
@@ -110,34 +111,42 @@ class  EvenementController extends Controller {
         $id_evenement = 0;
         if (!empty($titre) && !empty($adresse) && !empty($date) && !empty($heure)  && !empty($description)) {
             if (strlen($titre) < 150) {
-                if (!empty($image_en_avant['name']) && $image_en_avant['size'] < Image::TAILLE_LIMITE) {
-                    if (empty($image2['name']) || (!empty($image2['name'])  && $image2['size'] < Image::TAILLE_LIMITE)) {
-                        $id_evenement = $this->modelEvenement->insertEvent($titre, $adresse, $date, $heure, $description);
-                        $cheminImageEnAvant = Image::sauvegardeImage($image_en_avant);
-                        if ($cheminImageEnAvant != "") {
-                            $this->modelEvenement->insertImage($cheminImageEnAvant, $legende_en_avant, $id_evenement, $ordre_image_en_avant);
-                        }
-                        if (!empty($image2['name'])) {
-                            $cheminImage2 = Image::sauvegardeImage($image2);
-                            if ($cheminImage2 != "") {
-                                $this->modelEvenement->insertImage($cheminImage2, $legende2, $id_evenement, $ordre_image2);
+                if(empty($lien_billeterie) || filter_var($lien_billeterie,FILTER_VALIDATE_URL))
+                {
+                    if (!empty($image_en_avant['name']) && $image_en_avant['size'] < Image::TAILLE_LIMITE) {
+                        if (empty($image2['name']) || (!empty($image2['name'])  && $image2['size'] < Image::TAILLE_LIMITE)) {
+                            $id_evenement = $this->modelEvenement->insertEvent($titre, $adresse, $date, $heure, $description, $lien_billeterie);
+                            $cheminImageEnAvant = Image::sauvegardeImage($image_en_avant);
+                            if ($cheminImageEnAvant != "") {
+                                $this->modelEvenement->insertImage($cheminImageEnAvant, $legende_en_avant, $id_evenement, $ordre_image_en_avant);
                             }
-                        }
-                        if (!empty($ids_artistes)) {
-                            foreach ($ids_artistes as $id_artiste) {
-                                if ($id_artiste != "") {
-                                    $this->modelEvenement->insertParticipationArtisteByEvent($id_artiste, $id_evenement);
+                            if (!empty($image2['name'])) {
+                                $cheminImage2 = Image::sauvegardeImage($image2);
+                                if ($cheminImage2 != "") {
+                                    $this->modelEvenement->insertImage($cheminImage2, $legende2, $id_evenement, $ordre_image2);
                                 }
                             }
+                            if (!empty($ids_artistes)) {
+                                foreach ($ids_artistes as $id_artiste) {
+                                    if ($id_artiste != "") {
+                                        $this->modelEvenement->insertParticipationArtisteByEvent($id_artiste, $id_evenement);
+                                    }
+                                }
+                            }
+                        }else{
+                            echo  Error::displayError('Veuillez choisir une image complémentaire valide. (Taille limite = 2Mo maximum)');
                         }
-                    }else{
-                        echo  Error::displayError('Veuillez choisir une image complémentaire valide. (Taille limite = 2Mo maximum)');
+                    }
+                    else
+                    {
+                        echo Error::displayError('Veuillez choisir un poids d\'affiche valide. (Taille limite = 1Mo maximum)');
                     }
                 }
                 else
                 {
-                    echo Error::displayError('Veuillez choisir une image d\'affiche valide. (Taille limite = 2Mo maximum)');
+                    echo Error::displayError('Veuillez remplir un format d\'adresse valide.');
                 }
+                
             }
             else
             {
@@ -153,13 +162,21 @@ class  EvenementController extends Controller {
         return $id_evenement;
     }
 
-    public function modifyEvent($titre, $adresse, $date, $heure, $description, $id)
+    public function modifyEvent($titre, $adresse, $date, $heure, $description, $lien_billeterie, $id)
     {       
         if (!empty($titre) && !empty($adresse) && !empty($date) && !empty($heure)  && !empty($description))
         {
             if (strlen($titre) < 150)
             {
-                $this->modelEvenement->updateEvent($titre, $adresse, $date, $heure, $description, $id);
+                 if(empty($lien_billeterie) || filter_var($lien_billeterie,FILTER_VALIDATE_URL))
+                 {
+
+                     $this->modelEvenement->updateEvent($titre, $adresse, $date, $heure, $description, $lien_billeterie, $id);
+                 }
+                 else
+                 {
+                     echo Error::displayError('Veuillez remplir un format d\'adresse valide.');
+                 }
             }
             else
             {

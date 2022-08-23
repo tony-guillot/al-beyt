@@ -1055,6 +1055,7 @@ i.artistes.fa-solid:hover
     width:100%;
 }
 
+
 /************** Button-trash *****************/
 
 button .button-trash
@@ -1091,9 +1092,34 @@ button .button-trash
     color:#ffe9fb;
 }
 
+.billeterie
+{
+    margin-bottom:30px;
+    position: relative;
+   
+}
+a.label-billeterie
+{
+    font-weight: 300;
+    font-size: 1em;
+    color:#ffe9fb;
+    border-bottom: 0.5px solid #ffe9fb;
+}
+
+.kamo
+{
+    font-size:70px;
+    color:#ffe9fb17;
+    position:absolute;
+    left:94px;
+    top: -97px;
+    
+}
+
+
 .hr-event
 {
-    border: 0.3px solid #dac9d686;
+    border: 0.3px solid #ffffff86;
     width: 50%;
     margin:40px;
 }
@@ -1112,10 +1138,6 @@ button .button-trash
     font-size: 0.8em;
 }
 
-.event .adresse
-{
-    /* font-weight: 100; */
-}
 .event .sub-infos
 {
     font-weight: 100;

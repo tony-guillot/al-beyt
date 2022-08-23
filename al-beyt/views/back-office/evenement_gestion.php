@@ -47,7 +47,8 @@ require_once('../include/headerBo.php');
                 <th>Adresse</th>
                 <th>Date</th>
                 <th>Heure</th>
-                <th class=>Modifier</th>
+                <th>Lien Billeterie</th>
+                <th>Modifier</th>
                 <th>Supprimer</th>
             </thead>
             <tbody>
@@ -68,6 +69,18 @@ require_once('../include/headerBo.php');
                         <td><?= $allEvent['adresse']?></td>
                         <td ><?= $allEvent['date_evenement']?></td>
                         <td><?= $allEvent['heure']?></td>
+                        <td><?php
+                            if(!empty($allEvent['lien_billeterie']))
+                            {
+                               echo '<a href="'.$allEvent['lien_billeterie'].'" target="_blank"> <i class="material-icons">link</i> </a>';
+                            }
+                            else
+                            {
+                                echo '<i class="fa-solid fa-link-simple-slash"></i>';
+                                
+                            }
+                            ?>
+                        </td>
                         <td> <a href="evenement_update.php?id=<?= $id_evenement?>"><i class="fa-solid fa-wrench"></i></a> </td>
                         <form action="" methode='get'>
                             <td>

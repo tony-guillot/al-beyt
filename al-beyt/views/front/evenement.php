@@ -34,11 +34,27 @@ require_once('../include/header.php');
 
         <section class="bloc-info inter ">
           <article class="infos">
-                <span class="adresse merryweather"><?= $event['adresse'] ?></span> </br>
+              <?php 
+
+                if(!empty($event['lien_billeterie']))
+                { ?>
+                    <div class="billeterie">
+                        <span><i class="fa-solid fa-ticket"></span></i> <a class="label-billeterie" href="<?=$event['lien_billeterie']?>">Billeterie  en  ligne </i></a><span class="kamo">(つ✧ω✧)つ</span></br>
+                    </div>
+           <?php
+                }
+
+                ?>
+                <span class="adresse merryweather"><?= $event['adresse'] ?></span></br>
                 <span class="sub-infos"> <?= Affichage::printDate($event['date_evenement']) ?>  à  <?= $event['heure'] ?></span> </br>
                 <span class="sub-infos">  
-                    avec
+
                     <?php
+
+                    if(!empty($artistes))
+                    {
+                        echo 'avec';
+                    }
                     foreach ($artistes as $artiste) {
                     ?>  
                         <a  class="artistes" href="artiste.php?id=<?= $artiste['id'] ?>"><?= $artiste['nom'] ?></a> ❥

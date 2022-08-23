@@ -26,6 +26,7 @@ if(isset($_POST['valider']))
                                                 $_POST['date'],
                                                 $_POST['heure'],
                                                 $_POST['description'],
+                                                $_POST['lien_billeterie'],
                                                 $id
                                             );
 }
@@ -81,8 +82,9 @@ require_once('../include/sidebar.php');
 ?>
 <main class="container">
     <section class="row formulaire container">
+    <a href="evenement_gestion.php"><i class="material-icons back">arrow_back</i></a>
         <section class="col s12 ">
-            <a href="evenement_gestion.php"><i class="fa-solid fa-circle-chevron-left"></i></a>
+          
             <h1>Modifier l'évènement</h1> 
         </section>
         <section class="form-bloc">
@@ -108,6 +110,10 @@ require_once('../include/sidebar.php');
                         <label class=" purple-text text-lighten-3" for="heure">Heure de début:</label>
                         <input class="grey-text text-darken-2"  type="text" value="<?= $event['heure'] ?>" name="heure">
                     </div>
+                    <div>
+                        <label class="purple-text text-lighten-3" for="billeterie">Adresse url du lien vers la billeterie:</label>
+                        <input class="grey-text text-darken-2" type="text" value="<?= $_POST['lien_billeterie'] ?? "" ?>" name="lien_billeterie" placeholder="Entrer un lien vers la billeterie en ligne">
+                    </div>
                 </article>
                 <article>
                     <div class="margin">
@@ -115,7 +121,7 @@ require_once('../include/sidebar.php');
                         <textarea class="materialize-textarea" style="height: 600px;border: 0.5px solid gray" name="description"><?= $event['description'] ?></textarea>
                     </div>
                 </article> 
-                <button class="btn waves-effect btn-large waves-light col s12" type="submit" name="valider" value="Sauvegarder">Mettre à jour les informations de l'évènement
+                <button class="btn waves-effect btn-large waves-light col s12" type="submit" name="valider" value="Sauvegarder">Mettre à jour les informations
             <i class="material-icons right">date_range</i>
         </button>
         <!--<input type="submit" name="image" value="Sauvegarder">-->
@@ -171,7 +177,7 @@ require_once('../include/sidebar.php');
                     </article>
                 </section>
                 <section>
-                    <button class="btn waves-effect waves-light col s6" type="submit" name="image" value="sauvegarder"> 
+                    <button class="btn waves-effect waves-light col s12" type="submit" name="image" value="sauvegarder"> 
                         Mettre à jour les images
                         <i class="material-icons right">photo_library</i>
                     </button>

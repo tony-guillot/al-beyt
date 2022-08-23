@@ -62,7 +62,7 @@ require_once('../include/headerBo.php');
                             }
                             else
                             {
-                                echo 'aucune information';
+                                echo 'aucun email enregistré';
                             }
                             ?></td>
                    <!--      <td><?= $artist['website']?></td>

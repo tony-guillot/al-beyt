@@ -25,7 +25,7 @@ class EvenementModel extends Bdd {
     public function getAllInfosEvents($limit,$offset)
     {
         $bdd = $this->bdd->prepare(
-            'SELECT e.id, e.titre, e.adresse, e.date_evenement, e.heure, e.description, image_e.chemin
+            'SELECT e.id, e.titre, e.adresse, e.date_evenement, e.heure, e.description, e.lien_billeterie, image_e.chemin
             FROM evenement as e
             LEFT JOIN image_evenement as image_e
             ON image_e.id_evenement = e.id
@@ -79,7 +79,7 @@ class EvenementModel extends Bdd {
     public function getEventById($id)
     {  
         $bdd = $this->bdd->prepare(
-            'SELECT id,titre ,adresse ,date_evenement, heure , description
+            'SELECT id,titre ,adresse ,date_evenement, heure , description, lien_billeterie
             FROM evenement
             WHERE evenement.id = :id ;'
         );
@@ -162,17 +162,19 @@ class EvenementModel extends Bdd {
         return $result;
     }
 
-    public function insertEvent($titre, $adresse, $date_evenement, $heure, $description)
+    public function insertEvent($titre, $adresse, $date_evenement, $heure, $description, $lien_billeterie)
     {
         $bdd = $this->bdd->prepare(
-            'INSERT INTO evenement (titre, adresse, date_evenement, heure, description) 
-                    VALUES (:titre, :adresse, :date_evenement, :heure, :description)'
+            'INSERT INTO evenement (titre, adresse, date_evenement, heure, description, lien_billeterie) 
+                    VALUES (:titre, :adresse, :date_evenement, :heure, :description, :lien_billeterie)'
         );
         $bdd->bindValue(":titre" , $titre, PDO::PARAM_STR);
         $bdd->bindValue(":adresse" , $adresse, PDO::PARAM_STR);
         $bdd->bindValue(":date_evenement" , $date_evenement, PDO::PARAM_STR);
         $bdd->bindValue(":heure" , $heure, PDO::PARAM_STR);
         $bdd->bindValue(":description" , $description, PDO::PARAM_STR);
+        $bdd->bindValue(":lien_billeterie" , $lien_billeterie, PDO::PARAM_STR);
+
         $bdd->execute();
         $result = $this->bdd->lastInsertId();
 
@@ -208,20 +210,22 @@ class EvenementModel extends Bdd {
         return $result;
     }
 
-    public function updateEvent($titre, $adresse, $date, $heure, $description, $id)
+    public function updateEvent($titre, $adresse, $date, $heure, $description, $lien_billeterie, $id)
     {
         $bdd = $this->bdd->prepare('UPDATE evenement
                                     SET titre = :titre,
                                         adresse = :adresse,
                                         date_evenement = :date,
                                         heure = :heure,
-                                        description = :description
+                                        description = :description,
+                                        lien_billeterie = :lien_billeterie
                                         WHERE id = :id');
         $bdd->execute(["titre" => $titre,
                       "adresse" => $adresse,
                       "date" => $date,
                       "heure" => $heure,
                       "description" => $description,
+                      "lien_billeterie" => $lien_billeterie,
                       ":id" => $id ]);
     }
 

@@ -72,7 +72,7 @@ $controllerEvent = New EvenementController;
             <hr class="hr-event">
    
     <section id="news" class="news box-cards" style="flex-direction: row;">
-    <h2 class="title-index fil-actu">Suivez Les Actualitees...</h2>
+    <h2 class="title-index fil-actu">Suivez Les Actualites...</h2>
         <?php for ($i = 0;$i < 8; $i++):?>
             <article id="tile-<?=$i?>" class="tile tile-<?=$i?>">
                     <a id="link-<?=$i?>">

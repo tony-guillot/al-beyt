@@ -23,6 +23,7 @@ if(!empty($_POST['valider']))
         $_POST['date'],
         $_POST['heure'],
         $_POST['description'],
+        $_POST['lien_billeterie'],
         $_FILES['image2'],
         $_POST['legende2'],
         $_POST['ordre_image2'],
@@ -44,9 +45,6 @@ if(!empty($_POST['valider']))
             $_POST['id_artiste15']
         ]
     );
-// echo '<pre>';
-// var_dump($controllerEvenement->displayEventById($id_event));
-// echo '</pre>';
 }
 
 $title = 'Ajout evenement';
@@ -81,10 +79,14 @@ require_once('../include/headerBo.php');
                         <label class=" purple-text text-lighten-3" for="heure">Heure de début:</label>
                         <input type="text" value="<?= $_POST['heure'] ?? "" ?>" name="heure" placeholder="20h30">
                     </div>
+                    <div>
+                        <label class=" purple-text text-lighten-3" for="billeterie">Adresse url du lien vers la billeterie:</label>
+                        <input type="text" value="<?= $_POST['lien_billeterie'] ?? "" ?>" name="lien_billeterie" placeholder="https://web.digitick.com/" >
+                    </div>
                 </article>
                 <article>
                     <label class=" purple-text text-lighten-3" for="description" >Description de l'évènement:</label>
-                    <textarea class="materialize-textarea" style="height: 100px;border: 0.5px solid gray" name="description" ><?= $_POST['description'] ?? "" ?></textarea>
+                    <textarea class="materialize-textarea" style="height: 600px;border: 0.5px solid gray" name="description" ><?= $_POST['description'] ?? "" ?></textarea>
                 </article>
             </section>
             <section class="col s6">

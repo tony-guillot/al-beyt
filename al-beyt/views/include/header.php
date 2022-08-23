@@ -86,7 +86,7 @@ $articleYearFilter = $controArticle->displayYearFilters();
                         </ul>
                     </div>
                 </li>      
-                <li class="active"><a class="link-nav" href="articles.php">ActualitE</a>
+                <li class="active"><a class="link-nav" href="articles.php">ActualitEs</a>
                     <div class="sub-menu-1">
                         <ul>
                             <?php foreach($articleYearFilter as $y) { ?>
