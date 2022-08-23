@@ -79,11 +79,13 @@ $title = 'Modif evenement';
 require_once('../include/headerBo.php');
 require_once('../include/sidebar.php');
 ?>
-<main class="container">
+<main class="<container>">
     <section class="row formulaire container">
-        <section class="col s12 ">
-            <a href="evenement_gestion.php"><i class="fa-solid fa-circle-chevron-left"></i></a>
-            <h1>Modifier l'évènement</h1> 
+        <section class="col s12 update-headings">
+            <a class="gestion-retour" href="evenement_gestion.php">
+                <i class="material-icons tooltipped medium" data-position="bottom"  data-tooltip="Retour vers la page de gestion" >keyboard_arrow_left</i>
+            </a>
+            <h1>Modifier l'évènement</h1>
         </section>
         <section class="form-bloc">
 

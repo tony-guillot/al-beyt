@@ -36,7 +36,7 @@ require_once('../include/headerBo.php');
     <section>
     </section>
     <section>
-        <table class="stripped highlight">
+        <table class="stripped highlight table-gestion">
             <thead>
                 <th>Image principale</th>
                 <th>Titre</th>
@@ -58,10 +58,10 @@ require_once('../include/headerBo.php');
                     <td><?= $allArticle['date']?></td>
                     <td><?= $allArticle['auteur']?></td>
                     <td><?= substr($allArticle['description'],0,300).'[...]'?></td>
-                    <td> <a href="article_update.php?id=<?= $id_article?>"><i class="fa-solid fa-wrench"></i></a> </td>
+                    <td class="buttons"> <a href="article_update.php?id=<?= $id_article?>"><i class="edit material-icons grey-text text-darken-4">edit</i></a> </td>
                     <form action="" methode='get'>
-                        <td>
-                            <button class="button-trash" name="delete" type="submit" value='<?= $id_article?>'><i class="fa-solid fa-trash button-trash "></i></button>
+                        <td class="buttons">
+                            <button class="button-trash" name="delete" type="submit" value='<?= $id_article?>'><i class="edit material-icons grey-text text-darken-4">delete</i></button>
                         </td>
                     </form>
                 </tr>

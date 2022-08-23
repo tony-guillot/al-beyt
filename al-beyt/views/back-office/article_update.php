@@ -67,8 +67,10 @@ require_once('../include/sidebar.php');
 ?>
 <main class="container">
    <section class="row formulaire ">
-        <section class="col s12 ">
-            <a href="article_gestion.php"><i class="fa-solid fa-circle-chevron-left"></i></a>
+        <section class="col s12 update-headings">
+            <a class="gestion-retour" href="article_gestion.php">
+                <i class="material-icons tooltipped medium" data-position="bottom"  data-tooltip="Retour vers la page de gestion" >keyboard_arrow_left</i>
+            </a>
             <h1>Modifier un article</h1>
         </section> 
         <form class="typo" action="" method="post">   

@@ -128,6 +128,7 @@ $articleYearFilter = $controArticle->displayYearFilters();
         <script>
        $(document).ready(function(){
         $('.sidenav').sidenav();
+        $('.tooltipped').tooltip();
         });
 </script>
 

@@ -27,17 +27,15 @@ require_once('../include/headerBo.php');
 <main class="container">
     <h1 class="header">Gestion des artistes</h1>
     <section>
-    </section>
-    <section>
-        <table class=" table centered  highlight  responsive-table ">
-            <thead >
+        <table class="table centered highlight table-gestion">
+            <thead>
                    <th>Image</th>
                    <th>Legende </th>
                    <th>Allias/Nom</th>
                    <th>Description</th>
                    <th>Pôle</th>
                    <th>Email</th>
-            <!--       <th>Site Web</th>
+            <!--   <th>Site Web</th>
                    <th>Instagram</th>
                    <th>Soundcloud</th>
                    <th>Facebook</th>
@@ -45,8 +43,7 @@ require_once('../include/headerBo.php');
                    <th>Modifier</th>
                    <th>Statut</th>
             </thead>
-            <tbody class="">
-               
+            <tbody>
                 <?php foreach($allInfoArtists as $artist)
                 {  ?>
                     <tr class='row color-hover border'>
@@ -64,23 +61,22 @@ require_once('../include/headerBo.php');
                             {
                                 echo 'aucune information';
                             }
-                            ?></td>
-                   <!--      <td><?= $artist['website']?></td>
+                            ?>
+                        </td>
+                   <!-- <td><?= $artist['website']?></td>
                         <td><?= $artist['lien_insta']?></td>
                         <td><?= $artist['lien_soundcloud']?></td>
                         <td><?= $artist['lien_facebook']?></td>
                         <td><?= $artist['lien_twitter']?></td> -->
-                        <td><a href="artiste_update.php?id=<?=  $artist['id_artiste']?>"><i class=" edit material-icons grey-text text-darken-4">edit</i></td>
-                        <td>
+                        <td class="buttons"><a href="artiste_update.php?id=<?=  $artist['id_artiste']?>"><i class="edit material-icons grey-text text-darken-4">edit</i></td>
+                        <td class="buttons">
                             <?php if($artist['statut'] == 1)
                                 {echo '<i class="material-icons">visibility</i>';}
                                 else
                                 {echo '<i class="material-icons">visibility_off</i>';} ?>
                         </td>
-                    </tr>  
-                    
+                    </tr>
             <?php } ?>
-            
             </tbody>
         </table>
     </section>
