@@ -141,28 +141,28 @@ class ArtisteController extends Controller
                             $lien_facebook = $this->secureUrl($lien_facebook);
                             $lien_twitter = $this->secureUrl($lien_twitter);
 
-                         $id_artiste = $this->modelArtiste->insertArtist($website, $nom, $description, $email,$lien_insta, $lien_soundcloud,$lien_facebook,$lien_twitter,$id_domaine);
 
 
                         if(!empty($image))
-                        {  
+                        {
                             $legendeLen = strlen($legende);
                             if (($legendeLen <= 100) && ($legendeLen >=10))
                             {
-                                    $chemin = Image::sauvegardeImage($image);
-                                         $this->modelArtiste->insertImage($chemin,$legende,$id_artiste);
+                                $id_artiste = $this->modelArtiste->insertArtist($website, $nom, $description, $email,$lien_insta, $lien_soundcloud,$lien_facebook,$lien_twitter,$id_domaine);
+                                $chemin = Image::sauvegardeImage($image);
+                                $this->modelArtiste->insertImage($chemin,$legende,$id_artiste);
+                                echo Error::displaySuccess("Les informations de l'artiste ont bien été enregistrées.");
                             }
                             else
                             {
                                 echo Error::displayError('La légende doit comporter etre 10 et 100 caractères.');
                             }
-                           
                         }
                         else
                         {
                             echo Error::displayError('Veuillez choisir une image et remplir le champs légende');
                         }
-                       
+
                     }
                     else
                     {
@@ -221,6 +221,7 @@ class ArtisteController extends Controller
                             $lien_twitter = $this->secureUrl($lien_twitter);
 
                             $id_artiste = $this->modelArtiste->updateArtist($website, $nom, $description, $email,$lien_insta, $lien_soundcloud,$lien_facebook,$lien_twitter, $statut, $id_domaine, $id);
+                            echo Error::displaySuccess("Les informations de l'artiste ont bien été modifiées.");
                         }
                         else
                         {
@@ -254,6 +255,7 @@ class ArtisteController extends Controller
             {
                 $chemin = Image::sauvegardeImage($image);
                 $updateImageArtist = $this->modelArtiste->updateImageArtist($chemin, $legende, $id_artiste);
+                echo Error::displaySuccess("L'image de l'artiste à bien été modifiée..");
             }
             else
             {

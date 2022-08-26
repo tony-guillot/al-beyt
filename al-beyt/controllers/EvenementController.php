@@ -133,7 +133,7 @@ class  EvenementController extends Controller {
                                     }
                                 }
                             }
-                        }else{
+                        echo Error::displaySuccess("Votre evenement à bien été enregistré.");}else{
                             echo  Error::displayError('Veuillez choisir une image complémentaire valide. (Taille limite = 2Mo maximum)');
                         }
                     }
@@ -146,7 +146,7 @@ class  EvenementController extends Controller {
                 {
                     echo Error::displayError('Veuillez remplir un format d\'adresse valide.');
                 }
-                
+
             }
             else
             {
@@ -155,9 +155,8 @@ class  EvenementController extends Controller {
         }
         else
         {
-            echo Error::displayError("Veuillez remplir les champ Titre, Adresse, Date, Heure et Description.");
+            echo Error::displayError("Les champs Titre, Adresse, Date, Heure et Description sont obligatoires.");
         }
-
 
         return $id_evenement;
     }
@@ -177,6 +176,9 @@ class  EvenementController extends Controller {
                  {
                      echo Error::displayError('Veuillez remplir un format d\'adresse valide.');
                  }
+                $this->modelEvenement->updateEvent($titre, $adresse, $date, $heure, $description, $id);
+                echo Error::displaySuccess("Votre evenement à bien été modifié.");
+
             }
             else
             {
@@ -207,7 +209,7 @@ class  EvenementController extends Controller {
                  $this->modelEvenement->updateImagesEvent($chemin2, $legende2, $ordre_image2, $id_evenement);
             }
         }
-        
+        echo Error::displaySuccess("Les images ont bien été mises à jour.");
     }
 
     //---------------------------------------------------------------------------------\\
@@ -234,6 +236,7 @@ class  EvenementController extends Controller {
             if(!empty($chemin_en_avant))
             {
                 $this->modelEvenement->updateImagesEvent($chemin_en_avant, $legende_en_avant, $id_evenement, $ordre_image_en_avant);
+                echo Error::displaySuccess("Les images ont bien été mises à jour.");
             }
         }
 
@@ -243,11 +246,13 @@ class  EvenementController extends Controller {
     public function supprimeEvent($id)
     {
         $this->modelEvenement->deleteEvent($id);
+        echo Error::displaySuccess("Votre evenement à bien été supprimé.");
     }
 
     public function modifyLegende($legende, $ordre, $id_evenement)
     {
         $this->modelEvenement->updateLegende($legende,$ordre,$id_evenement);
+        echo Error::displaySuccess("Les images ont bien été mises à jour.");
     }
 
 

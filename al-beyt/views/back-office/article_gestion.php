@@ -13,7 +13,7 @@ $controllerArticle = new ArticleController();
 if(isset($_GET['delete'])){
     $idDelete = $controllerArticle->secure($_GET['delete']);
     $controllerArticle->deleteArticle($idDelete);
-    header('Location: article_gestion.php'); //on vide les params _GET de l'url
+    //header('Location: article_gestion.php'); //on vide les params _GET de l'url
 
 }
 
