@@ -132,7 +132,7 @@ $articleYearFilter = $controArticle->displayYearFilters();
 </script>
 
 <section id="error-section" class="valign-wrapper z-depth-3 card-panel">
-    <i class="material-icons">error</i>
+    <i id="error-icon" class="material-icons"></i>
      <p id="error-text">
      </p>
 </section>

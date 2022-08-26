@@ -78,6 +78,7 @@ class ArticleController extends Controller
                 {
                     $id_article = $this->modelArticle->insertArticle($titre, $auteur, $description);
                     $cheminImageEnAvant = Image::sauvegardeImage($image_en_avant);
+                    echo Error::displaySuccess("Votre article à bien été enregistré.");
                     if ($cheminImageEnAvant != "") {
                         $this->modelArticle->insertImage($cheminImageEnAvant, $legende_en_avant, $id_article, 1);
                     }
@@ -135,6 +136,7 @@ class ArticleController extends Controller
 
                 if(strlen($auteur) < 50){
                     $this->modelArticle->updateArticle($id_article, $titre, $date, $auteur, $description);
+                    echo Error::displaySuccess("Votre article à bien été modifié.");
                 }
                 else
                 {
@@ -165,6 +167,7 @@ class ArticleController extends Controller
             }else{
                 $this->modelArticle->insertImage($chemin, $legende, $id_article , $ordre);
             }
+            echo Error::displaySuccess("Les images de l'article ont bien été enregistrées.");
 
         }else{
            echo Error::displayError('La légende doit compter moins de 100 caracteres.');
@@ -183,6 +186,7 @@ class ArticleController extends Controller
             $this->modelArticle->deleteImageByIdArticle($id_article,$image['ordre']);
          }
         $this->modelArticle->deleteArticle($id_article);
+        echo Error::displaySuccess("Votre article à bien été supprimé.");
 
         return $id_article;
     }
@@ -190,6 +194,7 @@ class ArticleController extends Controller
     public function modifyLegende($id_article, $legende, $ordre)
     {
         $this->modelArticle->updateLegende($id_article,$legende,$ordre);
+        echo Error::displaySuccess("Les images de l'article ont bien été enregistrées.");
     }
 
 
