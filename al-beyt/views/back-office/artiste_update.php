@@ -56,8 +56,10 @@ require_once('../include/headerBo.php');
 require_once('../include/sidebar.php');
 ?>
 <main class="container">
-    <section>
-        <a href="artiste_gestion.php"><i class="fa-solid fa-circle-chevron-left"></i></a>
+    <section class="update-headings">
+        <a class="gestion-retour" href="artiste_gestion.php">
+            <i class="material-icons tooltipped medium" data-position="bottom"  data-tooltip="Retour vers la page de gestion" >keyboard_arrow_left</i>
+        </a>
         <h1>Modifier <?php echo $artist['nom']?></h1>
     </section>
     <section class="row formulaire ">

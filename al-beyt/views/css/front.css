@@ -150,7 +150,7 @@ ul.liens-filtre
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    margin-top: 60px;  
+    margin-top: 60px;
 }
 
 li.filtre
@@ -215,7 +215,7 @@ a.filtre:hover
 /********************* Header **********************/
 
 header
-{  
+{
 
 }
 
@@ -581,7 +581,7 @@ nav ul li:hover .sub-menu-1 ul
 }
 
 img.index-affiche
-{   
+{
     width: 100%;
     height:  100%;
     object-fit: cover;
@@ -823,7 +823,7 @@ article.cards
     border:solid 0.5px rgb(65, 65, 65);
     position: relative;
     background-color:#140f16;
-    height: 300px;   
+    height: 300px;
     display: flex;
     justify-content:flex-end;   
     margin-bottom: 40px;
@@ -950,7 +950,7 @@ section.artistes-filtre
 
 }
 .artistes-cards:hover
-{   
+{
     filter: brightness(100%);
     transform: scale(1.02);
 }
@@ -962,7 +962,7 @@ img.artistes-boucle
     object-fit:cover;
     display:block;
     border-top-left-radius: 2px;
-    border-top-right-radius:2px; 
+    border-top-right-radius:2px;
 } 
 
 .artistes-infos
@@ -1056,15 +1056,6 @@ i.artistes.fa-solid:hover
 }
 
 
-/************** Button-trash *****************/
-
-button .button-trash
-{
-    border-style: none;
-    text-decoration: none;
-}
-
-/************** \Button-trash/ ***************/
 
 
 /************** Legende *****************/
@@ -1096,7 +1087,7 @@ button .button-trash
 {
     margin-bottom:30px;
     position: relative;
-   
+
 }
 a.label-billeterie
 {
@@ -1113,7 +1104,7 @@ a.label-billeterie
     position:absolute;
     left:94px;
     top: -97px;
-    
+
 }
 
 

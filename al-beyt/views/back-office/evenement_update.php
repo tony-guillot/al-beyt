@@ -80,12 +80,13 @@ $title = 'Modif evenement';
 require_once('../include/headerBo.php');
 require_once('../include/sidebar.php');
 ?>
-<main class="container">
+<main class="<container>">
     <section class="row formulaire container">
-    <a href="evenement_gestion.php"><i class="material-icons back">arrow_back</i></a>
-        <section class="col s12 ">
-          
-            <h1>Modifier l'évènement</h1> 
+        <section class="col s12 update-headings">
+            <a class="gestion-retour" href="evenement_gestion.php">
+                <i class="material-icons tooltipped medium" data-position="bottom"  data-tooltip="Retour vers la page de gestion" >keyboard_arrow_left</i>
+            </a>
+            <h1>Modifier l'évènement</h1>
         </section>
         <section class="form-bloc">
 
@@ -177,7 +178,7 @@ require_once('../include/sidebar.php');
                     </article>
                 </section>
                 <section>
-                    <button class="btn waves-effect waves-light col s12" type="submit" name="image" value="sauvegarder"> 
+                    <button class="btn waves-effect waves-light col s12" type="submit" name="image" value="sauvegarder">
                         Mettre à jour les images
                         <i class="material-icons right">photo_library</i>
                     </button>

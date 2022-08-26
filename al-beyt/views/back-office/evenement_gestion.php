@@ -36,9 +36,7 @@ require_once('../include/headerBo.php');
 <main class="container">
     <h1 class="header">Gestion des évènements</h1>
     <section>
-    </section>
-    <section>
-        <table class="striped highlight responsive-table evenement">
+        <table class="striped centered highlight table-gestion">
             <thead>
                 <th>Affiche</th>
                 <th>Titre</th>
@@ -59,7 +57,7 @@ require_once('../include/headerBo.php');
                     <tr class="row">
                         <td ><img class="imageGestion" src="http://<?= $allEvent['chemin']?>" alt="Affiche de l'evenement"></td>
                         <td><?= $allEvent['titre']?></td>
-                        <td ><?= substr($allEvent['description'],0,300).'[...]'?></td>
+                        <td><?= substr($allEvent['description'],0,300).'[...]'?></td>
                         <td>
                             <?php foreach($artistsByEventId as $artists)
                                 {   
@@ -77,14 +75,14 @@ require_once('../include/headerBo.php');
                             else
                             {
                                 echo '<i class="fa-solid fa-link-simple-slash"></i>';
-                                
+
                             }
                             ?>
                         </td>
-                        <td> <a href="evenement_update.php?id=<?= $id_evenement?>"><i class="fa-solid fa-wrench"></i></a> </td>
+                        <td class="buttons"> <a href="evenement_update.php?id=<?= $id_evenement?>"><i class="edit material-icons grey-text text-darken-4">edit</i></a> </td>
                         <form action="" methode='get'>
-                            <td>
-                                <button class="button-trash" name="delete" type="submit" value='<?= $id_evenement?>'><i class="fa-solid fa-trash"></i></button>
+                            <td class="buttons">
+                                <button class="button-trash" name="delete" type="submit" value='<?= $id_evenement?>'><i class="edit material-icons grey-text text-darken-4">delete</i></button>
                             </td>
                         </form>
                     </tr>

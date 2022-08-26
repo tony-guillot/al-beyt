@@ -54,13 +54,6 @@ h1.header {
    width: 100%!important;
 }
 
-section.table-gestion{
-   width: 80%;
-}
-
-img.imageGestion {
-   max-width: 200px;
-}
 
 .row .col.s6
 {
@@ -137,6 +130,10 @@ div#error-section
    font-size:2em;
 }
 
+.icone-deconnexion i {
+   line-height: 71px!important;
+}
+
 /******************************/
 .body-connexion
 {
@@ -177,9 +174,29 @@ div#error-section
 
 
 /******************************/
-.event-description
+/************** Button-trash *****************/
+
+button.button-trash
 {
-   width: 20%;
+    border-style: none;
+    text-decoration: none;
+    background: none;
+    cursor: pointer;
+}
+
+/************** \Button-trash/ *****************/
+
+
+table.table-gestion td:not(td.buttons){
+   padding: 0 20px;
+}
+
+table.table-gestion td.buttons i {
+   margin: 5px;
+}
+
+img.imageGestion {
+   max-width: 200px;
 }
 
 td.evenement th
@@ -191,7 +208,30 @@ tr.row > *
 {
    border : 1px solid rgb(232, 232, 232);
 }
+
+
 /************* formulaires ****************/
+
+section.update-headings {
+   display: flex;
+   align-items: center;
+}
+
+a.gestion-retour{
+   display: inline;
+   font-size: 2.7em;
+   margin-top: 1em;
+   margin-right: 0.4em;
+}
+
+a.gestion-retour i {
+   color: black;
+}
+
+a.gestion-retour i:hover {
+   color: grey;
+}
+
 form.typo div > *
 {
    font-size:1em;
@@ -236,15 +276,13 @@ form.typo section article > *
    padding:30px;
 }
 
-/************** Modifier  ***************/ 
+/************** Modifier  ***************/
 
 /************* Modifier ***************/
 table.table {
    background-color:#ffffff!important;
 
 }
-
-
 
 table .material-icons
 {
