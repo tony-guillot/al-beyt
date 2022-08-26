@@ -43,15 +43,6 @@ document.addEventListener("DOMContentLoaded", function() {
         loadActu(page);
     })
 
-    // Parralax
-    let images = document.getElementsByClassName('parallax');
-    for (var i =0; i < images.length; i++) {
-        new simpleParallax(images, {
-            customWrapper: '.box-parallax',
-            scale : 2,
-            orientation : "down",
-        });
-    }    
 
 });
 
