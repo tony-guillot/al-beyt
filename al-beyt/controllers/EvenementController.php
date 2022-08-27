@@ -144,7 +144,7 @@ class  EvenementController extends Controller {
                 }
                 else
                 {
-                    echo Error::displayError('Veuillez remplir un format d\'adresse valide.');
+                    echo Error::displayError('Veuillez remplir un format d\'adresse URL valide vers la billeterie.');
                 }
 
             }
@@ -171,13 +171,13 @@ class  EvenementController extends Controller {
                  {
 
                      $this->modelEvenement->updateEvent($titre, $adresse, $date, $heure, $description, $lien_billeterie, $id);
+                     echo Error::displaySuccess("Votre evenement à bien été modifié.");
+
                  }
                  else
                  {
-                     echo Error::displayError('Veuillez remplir un format d\'adresse valide.');
+                     echo Error::displayError('Veuillez remplir un format d\'adresse URL valide vers la billeterie.');
                  }
-                $this->modelEvenement->updateEvent($titre, $adresse, $date, $heure, $description, $id);
-                echo Error::displaySuccess("Votre evenement à bien été modifié.");
 
             }
             else
