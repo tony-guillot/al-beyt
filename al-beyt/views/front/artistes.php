@@ -68,7 +68,7 @@ require_once('../include/header.php');
                             <div class="artistes-infos molgak taille1 ">
                                 <span><?= $artist['nom']?></span>
 
-                                <a href="artiste.php?id=<?= $domaine['id']?>">
+                                <a href="artiste.php?id=<?= $artist['id']?>">
                                 <i class=" artistes fa-solid fa-circle-plus "></i>
                                 </a>     
                             </div>

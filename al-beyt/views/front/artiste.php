@@ -15,6 +15,7 @@ else
 {
     $pageCourante = 1;
 }
+
 if(isset($_GET['id']) && !empty($_GET['id']) )
 {
     $id_artiste = intval($_GET['id']);
@@ -67,7 +68,10 @@ require_once('../include/header.php');
             </article>
         </section>
         <hr class="hr-event">
-
+       <?php  if($pageMax ==0){
+        echo '<p class="artiste-event-placeholder"> ✿ Cet.te artiste n\'a pas encore participé à l\'un de nos évènements ✿ </p>';
+        }
+       ?>
         <section class="box-cards">
             <?php foreach ($events as $event) { ?>
                 <article class="cards box-shadow animation2">
@@ -93,18 +97,25 @@ require_once('../include/header.php');
         <section class="conteneur-page pagination-artiste inter">
        
                 <?php
-                if($pageCourante != 1)
-                {   ?>
-                    <a href="artiste.php?page=<?= $pageCourante - 1?>&id=<?=$id_artiste?>">Page précédente</a>
-                <?php }?>
-                <?php for ($i=1; $i <= $pageMax; $i++)
-                { ?>
-                    <a  <?= ($i == $pageCourante) ? Affichage::stylizeCurrentPage() : "" ?> href="artiste.php?page=<?= $i?>&id=<?=$id_artiste?>"><?= $i?></a>
-                <?php  }?>
-                <?php if($pageCourante != $pageMax)
-                {?>
-                    <a href="artiste.php?page=<?= $pageCourante + 1 ?>&id=<?=$id_artiste?>">Page suivante</a>
-                <?php }
+                if($pageMax != 0)
+                {
+                    if($pageCourante != 1)
+                    {   ?>
+                        <a href="artiste.php?page=<?= $pageCourante - 1?>&id=<?=$id_artiste?>">&#12298;</a>
+                    <?php }?>
+                    <?php for ($i=1; $i <= $pageMax; $i++)
+                    { ?>
+                        <a  <?= ($i == $pageCourante) ? Affichage::stylizeCurrentPage() : "" ?> href="artiste.php?page=<?= $i?>&id=<?=$id_artiste?>"><?= $i?> </a>
+                    <?php  }?>
+                    <?php if($pageCourante != $pageMax)
+                    {  
+                        var_dump($pageMax);
+                        ?>
+                        <a href="artiste.php?page=<?= $pageCourante + 1 ?>&id=<?=$id_artiste?>">&#12299;</a>
+                    <?php }
+                }
+                
+               
                 ?>
     
         </section>

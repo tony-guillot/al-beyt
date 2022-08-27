@@ -1077,6 +1077,14 @@ i.artistes.fa-solid:hover
     width:100%;
 }
 
+.artiste-event-placeholder
+{
+    color: #8080806e;
+    font-size: 1em;
+    font-weight: 300;
+    font-family: 'inter', sans-serif;
+    padding-top:20px;
+}
 
 
 
