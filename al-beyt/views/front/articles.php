@@ -70,7 +70,7 @@ require_once('../include/header.php');
     </section>
     <section class="conteneur-page inter">
         <?php if ($page != 1): ?>
-            <a href="articles.php?page=<?= $page - 1 ?><?= !empty($year) ? "&year=".$year : "" ?>"> &lt;&lt; </a>
+            <a href="articles.php?page=<?= $page - 1 ?><?= !empty($year) ? "&year=".$year : "" ?>"> &#12298; </a>
         <?php endif ?>
 
         <?php for ($i = 1; $i <= $pageMax; $i++): ?>
@@ -78,7 +78,7 @@ require_once('../include/header.php');
         <?php endfor ?>
 
         <?php if ($page != $pageMax): ?>
-            <a href="articles.php?page=<?= $page + 1 ?><?= !empty($year) ? "&year=".$year : "" ?>"> &gt;&gt;</a>
+            <a href="articles.php?page=<?= $page + 1 ?><?= !empty($year) ? "&year=".$year : "" ?>"> &#12299; </a>
         <?php endif ?>
     </section>
 </main>

@@ -28,6 +28,10 @@ $controllerEvent = New EvenementController;
 ?>
 <main class="global-box">
     <section class="parent-shuffle">
+        <article>
+        <img  class="logo-gif" src="../../../images/al-beyt-violet.gif" 
+    alt="file:///Users/naomimonderer/Documents/al-beyt-copie2.gif" class="transparent">
+        </article>
         <?php for($i = 0; $i < 10; $i++):?>
         <article class="names">
           <a class="link-names" href="artiste.php?id=<?= $artists[$i]['id']?>"><em><?=$artists[$i]['nom'];?></em></a>
@@ -41,7 +45,7 @@ $controllerEvent = New EvenementController;
     </section>
     <section class="index-parent-event">
      
-        <article class="parent-index-affiche">
+        <article class="parent-index-affiche linear-gradiant">
             <a href="evenement.php?id=<?= $lastEvent['id']?>">
                 <img  class="index-affiche" src="http://<?= $lastEvent['chemin'] ?>" alt="Affiche Prochain évènement Al-Beyt">
             </a>
@@ -90,8 +94,9 @@ $controllerEvent = New EvenementController;
         <?php endfor ?>
     </section>
     <section class="pagination-actu">
-        <a id="actu-prev" href="#news"> &larr; </a>
-        <a id="actu-next" href="#news"> &rarr; </a>
+        <a id="actu-prev" href="#news"> &#12298; </a>
+        &ensp;
+        <a id="actu-next" href="#news"> &#12299; </a>
     </section>
 </main>
 <script src="../js/fil_actu.js"></script>
