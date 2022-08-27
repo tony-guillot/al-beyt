@@ -16,8 +16,7 @@
 
     font-weight: normal;
     font-style: normal;
-
-}
+    }
 
 
 @font-face {
@@ -114,7 +113,7 @@ li
 
 body
 {
-    background-color:#140f16;
+    background: linear-gradient(#140f16,#250b39, #140f16);
     color:#ffe9fb;
 }
 
@@ -232,6 +231,7 @@ nav.header
 {
     
    background-color: #FFE1F0;
+   background-image: linear-gradient(45deg,#f1b8f7c0,  #FFE1F0 ,#faa7edbd);
    height:50px;
    line-height: 55px;
    width: 100%;
@@ -250,7 +250,7 @@ a.Al-Beyt
     font-size: 1.4em;
     color:#291c2e;
     text-decoration:none;
-    border-right: solid 2px #291c2e;
+   
 }
 
 
@@ -500,46 +500,77 @@ nav ul li:hover .sub-menu-1 ul
     justify-content:center;
     position: relative;
 }
+.bandeau
+{
+    display:flex;
+    margin-top: 70px;
+    margin-bottom: 170px;
+    justify-content:center;
+    /* background-color: #5c5c5c30; */
 
+}
 .parent-shuffle
 {
     display: flex;
     flex-direction: row;
     justify-content:space-around;
-    /* width: 100%; */
-    margin-top: 70px;
-    margin-bottom: 170px;
+    flex-wrap: wrap;
+    width: 90%;
+    margin-top: 30px;
+   
 }
-.logo-gif
+.logo-index
 {
-    width: 100px;
-    background-color: #8f7fe9;
+    display:flex;
+    justify-content: center;
+    width: 20%;
+    height:35vh;
+   
+}
+
+img.logo-gif
+{   
+    
+    padding:0 20px 0 20px;
+
 }
 
 .names
 {
     margin-top: 10px;
     margin-bottom: 10px;
-    Width:80%;
-    background-color: #a1e97f;
+   
     display: flex;
-     /* justify-content: space-between; */
-     flex-wrap: wrap;
+    flex-wrap: wrap;
+    /* text-shadow: 1px 0px 4px #5c5c5c; */
 }
 
 .link-names
 {
     font-family: 'molgak_classyregular','arial';
     font-size:2rem;
-    color: #08A95D;
+    color: #f8b8ffd2;
     text-justify: inter-word;
     transition: transform .5s;
+    
 }
 
 .link-names:hover
 {
-    color: #62d09d;
-    transform: scale(1.02);
+    color: #f1d4ffd2;
+    transform: scale(1.01);
+}
+
+.gradient-text
+{
+  
+    /* background-image: linear-gradient(10deg,#f1b8f7d2, #fbd5ffd2 ,#faa7edd2);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-text-fill-color: transparent; */
+    
 }
 
 .title-index
@@ -553,7 +584,7 @@ nav ul li:hover .sub-menu-1 ul
 {
     position: relative;
     width: 1250px;
-    background-color:red;
+  
 }
 
 .prochain-evenement
@@ -563,7 +594,13 @@ nav ul li:hover .sub-menu-1 ul
     right: 220px;
     z-index: 9;
     font-size: 4em;
-    text-shadow: 6px 8px 6px rgba(0,0,0,0.2);
+    text-shadow: 6px 3px 6px rgba(0,0,0,0.2);
+   
+    /* background: linear-gradient(45deg,#f1b8f7c0,  #FFE1F0 ,#faa7edbd);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color:transparent;  */
+       
+
 }
 
 .fil-actu

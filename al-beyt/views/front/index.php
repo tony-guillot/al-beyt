@@ -27,18 +27,24 @@ $controllerEvent = New EvenementController;
 
 ?>
 <main class="global-box">
-    <section class="parent-shuffle">
-        <article>
-        <img  class="logo-gif" src="../../../images/al-beyt-violet.gif" 
-    alt="file:///Users/naomimonderer/Documents/al-beyt-copie2.gif" class="transparent">
+    <section class="bandeau">
+    <article class="logo-index">
+            <img  class="logo-gif" src="../../../images/al-beyt-violet.gif" 
+            alt="file:///Users/naomimonderer/Documents/al-beyt-copie2.gif" class="transparent">
         </article>
-        <?php for($i = 0; $i < 10; $i++):?>
+        <section class="parent-shuffle">
+        <?php for($i = 0; $i < 5; $i++):?>
         <article class="names">
-          <a class="link-names" href="artiste.php?id=<?= $artists[$i]['id']?>"><em><?=$artists[$i]['nom'];?></em></a>
+          <a class="link-names gradient-text" href="artiste.php?id=<?= $artists[$i]['id']?>"><em><?=$artists[$i]['nom'];?></em></a>
         </article>
-    <!-- ✹ -->
         <?php endfor;?>
     </section>
+    <article class="logo-index">
+            <img  class="logo-gif" src="../../../images/al-beyt-violet.gif" 
+            alt="file:///Users/naomimonderer/Documents/al-beyt-copie2.gif" class="transparent">
+        </article>
+    </section>
+  
     <section class="box-title-prochain-evenement">
 
         <h2  class="title-index prochain-evenement"><span style ="font-size:1.9em; font-weight:100;">P</span>ROChaiN  EveNeMenT</h2>
