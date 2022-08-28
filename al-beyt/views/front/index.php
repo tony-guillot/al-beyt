@@ -27,62 +27,73 @@ $controllerEvent = New EvenementController;
 
 ?>
 <main class="global-box">
-    <section class="bandeau">
-    <article class="logo-index">
-            <img  class="logo-gif" src="../../../images/al-beyt-violet.gif" 
-            alt="file:///Users/naomimonderer/Documents/al-beyt-copie2.gif" class="transparent">
-        </article>
-        <section class="parent-shuffle">
-        <?php for($i = 0; $i < 5; $i++):?>
-        <article class="names">
-          <a class="link-names gradient-text" href="artiste.php?id=<?= $artists[$i]['id']?>"><em><?=$artists[$i]['nom'];?></em></a>
-        </article>
-        <?php endfor;?>
-    </section>
-    <article class="logo-index">
-            <img  class="logo-gif" src="../../../images/al-beyt-violet.gif" 
-            alt="file:///Users/naomimonderer/Documents/al-beyt-copie2.gif" class="transparent">
-        </article>
-    </section>
-  
-    <section class="box-title-prochain-evenement">
+    <section class="box1">
+        <section class="bandeau">
+        <article class="logo-index">
+                <img  class="logo-gif" src="../../../images/al-beyt-violet.gif" 
+                alt="file:///Users/naomimonderer/Documents/al-beyt-copie2.gif" class="transparent">
+            </article>
+        </section>
+        <section class="box-prochain-event">
+            <section class="box-title-prochain-evenement">
 
-        <h2  class="title-index prochain-evenement"><span style ="font-size:1.9em; font-weight:100;">P</span>ROChaiN  EveNeMenT</h2>
-    </section>
-    <section class="index-parent-event">
-     
-        <article class="parent-index-affiche linear-gradiant">
-            <a href="evenement.php?id=<?= $lastEvent['id']?>">
-                <img  class="index-affiche" src="http://<?= $lastEvent['chemin'] ?>" alt="Affiche Prochain évènement Al-Beyt">
-            </a>
-        </article>
-        <article class="index-parent-infos">
-            <div class="index-infos">
-                <h1 class="index-text-style event-titre"><?= $lastEvent['titre'] ?></h1>
+                <h2  class="title-index prochain-evenement"><span style ="font-size:1.9em; font-weight:100;">P</span>ROChaiN  EveNeMenT</h2>
+            </section>
+            <section class="index-parent-event">
+            
+                <article class="parent-index-affiche linear-gradiant">
+                    <a href="evenement.php?id=<?= $lastEvent['id']?>">
+                        <img  class="index-affiche" src="http://<?= $lastEvent['chemin'] ?>" alt="Affiche Prochain évènement Al-Beyt" >
+                    </a>
+                </article>
+                <article class="index-parent-infos">
+                    <div class="index-infos">
+                        <h1 class="index-text-style event-titre"><?= $lastEvent['titre'] ?></h1>
 
-                <div class="parent-date-heure">
-                    <div class="flex">
-                        <p class=" index-text-style date-heure"><?= Affichage::printDateFull($lastEvent['date_evenement'])?></p>&emsp;<p class=" index-text-style à">à</p>&emsp;<p class=" index-text-style date-heure"><?= $lastEvent['heure']?></p>
+                        <div class="parent-date-heure">
+                            <div class="flex">
+                                <p class=" index-text-style date-heure"><?= Affichage::printDateFull($lastEvent['date_evenement'])?></p>&emsp;<p class=" index-text-style à">à</p>&emsp;<p class=" index-text-style date-heure"><?= $lastEvent['heure']?></p>
+                            </div>
+                            <p class="index-text-style adresse"><?= $lastEvent['adresse'] ?></p>
+
+
+                        </div>
                     </div>
-                    <p class="index-text-style adresse"><?= $lastEvent['adresse'] ?></p>
+                    <div class="index-plus">
+                        <a href="evenement.php?id=<?= $lastEvent['id']?>">
+                            <i class="fa-solid fa-circle-plus index-icon"></i>
+                        </a>
+                    </div>
+                </article>
+            </section>
+            <section class="mignon">
+                <p class="froufrou"> 	。.:☆*:･'(*⌒―⌒*))) &nbsp; On vous attend nombreux.ses   &nbsp; 	\(★ω★)/ ✧˖° 。.</p>
+            </section>
+        </section>
 
+     </section>
 
-                </div>
-            </div>
-            <div class="index-plus">
-                <a href="evenement.php?id=<?= $lastEvent['id']?>">
-                    <i class="fa-solid fa-circle-plus index-icon"></i>
-                </a>
-            </div>
-        </article>
+                <!-- <hr class="hr-event"> -->
+    
+        <section class="index-artistes">
+            <section class="titre2">
+                    <h2 class="title-index ">DEcouvrez nos Artistes prEfEre.es</h2>
+            </section>
+            <section class="box-names">
+                <section class="parent-shuffle">
+                    <?php for($i = 0; $i < 20; $i++):?>
+                    <article class="names">
+                    <a class="link-names gradient-text" href="artiste.php?id=<?= $artists[$i]['id']?>"><em><?=$artists[$i]['nom'];?></em></a>
+                    <!-- <p>&emsp;&emsp;&emsp;✴</p>  -->
+                    <p>&emsp;</p> 
+                    </article>
+                    <?php endfor;?>
+                </section>
+            </section>
     </section>
-    <section class="mignon">
-        <p class="froufrou"> 	。.:☆*:･'(*⌒―⌒*))) &nbsp; On vous attend nombreux.ses   &nbsp; 	\(★ω★)/ ✧˖° 。.</p>
-    </section>
-            <hr class="hr-event">
    
     <section id="news" class="news box-cards" style="flex-direction: row;">
-    <h2 class="title-index fil-actu">Suivez Les Actualites...</h2>
+    <h2 class="title-index fil-actu">Suivez vos Actualites...</h2>
         <?php for ($i = 0;$i < 8; $i++):?>
             <article id="tile-<?=$i?>" class="tile tile-<?=$i?>">
                     <a id="link-<?=$i?>">

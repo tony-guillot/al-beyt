@@ -44,8 +44,8 @@ require_once('../include/header.php');
                 </li>
                 <?php foreach ($domaines as $domaine)
                 { ?>
-                    <li class="filtre">
-                        <a class="filtre" <?= (($domaine['id'] == $id_domaine)) ? Affichage::stylizeCurrentFilter() : "" ?> href="artistes.php?id=<?= $domaine['id'] ?>"><?= $domaine['nom']?></a>
+                    <li class="filtre-artiste">
+                        <a class="filtre-artiste" <?= (($domaine['id'] == $id_domaine)) ? Affichage::stylizeCurrentFilter() : "" ?> href="artistes.php?id=<?= $domaine['id'] ?>"><?= $domaine['nom']?></a>
                     </li>
             <?php }?>
             </ul>

@@ -25,7 +25,9 @@ require_once('../include/header.php');
 <main class="article-main">
     <section class="article">
         <section class="box-cover-article">
+            <a href="http://<?= $images_article[0]['chemin'] ?>" target="_blank">
             <img class="img" src="http://<?= $images_article[0]['chemin'] ?>" alt="<?= $images_article[0]['legende'] ?>">
+            </a>
             <span class=" legende inter"> <?= $images_article[0]['legende'] ?></span>
         </section>
         <section class="contener-article merryweather">
@@ -58,10 +60,12 @@ require_once('../include/header.php');
 
     <section class="box-slider">
         <div id="slider">
+            <!-- <a href="http://<?= $images_article[1]['chemin'];?>" target="_blank"></a> -->
             <img  src="http://<?= $images_article[1]['chemin'];?>"
              alt="<?php $_images_article[1]['legende']?>" id="slide">
-            <div id="precedent" onclick="displaySlider(<?=$id ?>,-1)"><</div>
-            <div id="suivant" onclick="displaySlider(<?=$id ?>,1)">></div>
+             
+            <div id="precedent" onclick="displaySlider(<?=$id ?>,-1)">&lsaquo;</div>
+            <div id="suivant" onclick="displaySlider(<?=$id ?>,1)">&rsaquo;</div>
         </div>
     </section>
 

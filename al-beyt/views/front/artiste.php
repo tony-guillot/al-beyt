@@ -63,7 +63,9 @@ require_once('../include/header.php');
                 </div>
             </article>
             <article class="box-image">
-                <img src="http://<?= $artist['chemin']?>" alt="">
+                <a href="http://<?= $artist['chemin']?>" target="_blank">
+                    <img src="http://<?= $artist['chemin']?>" alt="">
+                </a>
                 <p class="legende inter"><?= $artist['legende']?></p>
             </article>
         </section>
