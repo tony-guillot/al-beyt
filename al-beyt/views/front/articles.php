@@ -46,7 +46,7 @@ require_once('../include/header.php');
         </section>
         <section class="box-cards">
             <?php foreach ($articles as $article) { ?>
-                <article class="cards box-shadow animation2 animation">
+                <article class="cards animation2 animation">
                     <a class="link-img" href="article.php?id=<?= $article['id'] ?>">
                         <img  class="boucle" src="http://<?= $article['chemin'] ?>" alt="<?= $article['titre'] ?>">
                     </a>
