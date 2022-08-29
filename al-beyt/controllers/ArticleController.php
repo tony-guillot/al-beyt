@@ -78,7 +78,7 @@ class ArticleController extends Controller
                 {
                     $id_article = $this->modelArticle->insertArticle($titre, $auteur, $description);
                     $cheminImageEnAvant = Image::sauvegardeImage($image_en_avant);
-                    echo Error::displaySuccess("Votre article à bien été enregistré.");
+                    echo Error::displaySuccess("Votre article a bien été enregistré.");
                     if ($cheminImageEnAvant != "") {
                         $this->modelArticle->insertImage($cheminImageEnAvant, $legende_en_avant, $id_article, 1);
                     }
@@ -136,7 +136,7 @@ class ArticleController extends Controller
 
                 if(strlen($auteur) < 50){
                     $this->modelArticle->updateArticle($id_article, $titre, $date, $auteur, $description);
-                    echo Error::displaySuccess("Votre article à bien été modifié.");
+                    echo Error::displaySuccess("Votre article a bien été modifié.");
                 }
                 else
                 {
@@ -186,7 +186,7 @@ class ArticleController extends Controller
             $this->modelArticle->deleteImageByIdArticle($id_article,$image['ordre']);
          }
         $this->modelArticle->deleteArticle($id_article);
-        echo Error::displaySuccess("Votre article à bien été supprimé.");
+        echo Error::displaySuccess("Votre article a bien été supprimé.");
 
         return $id_article;
     }

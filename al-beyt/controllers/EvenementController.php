@@ -133,7 +133,7 @@ class  EvenementController extends Controller {
                                     }
                                 }
                             }
-                        echo Error::displaySuccess("Votre evenement à bien été enregistré.");}else{
+                        echo Error::displaySuccess("Votre evenement a bien été enregistré.");}else{
                             echo  Error::displayError('Veuillez choisir une image complémentaire valide. (Taille limite = 2Mo maximum)');
                         }
                     }
@@ -171,7 +171,7 @@ class  EvenementController extends Controller {
                  {
 
                      $this->modelEvenement->updateEvent($titre, $adresse, $date, $heure, $description, $lien_billeterie, $id);
-                     echo Error::displaySuccess("Votre evenement à bien été modifié.");
+                     echo Error::displaySuccess("Votre evenement a bien été modifié.");
 
                  }
                  else
@@ -246,7 +246,7 @@ class  EvenementController extends Controller {
     public function supprimeEvent($id)
     {
         $this->modelEvenement->deleteEvent($id);
-        echo Error::displaySuccess("Votre evenement à bien été supprimé.");
+        echo Error::displaySuccess("Votre evenement a bien été supprimé.");
     }
 
     public function modifyLegende($legende, $ordre, $id_evenement)

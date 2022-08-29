@@ -255,7 +255,7 @@ class ArtisteController extends Controller
             {
                 $chemin = Image::sauvegardeImage($image);
                 $updateImageArtist = $this->modelArtiste->updateImageArtist($chemin, $legende, $id_artiste);
-                echo Error::displaySuccess("L'image de l'artiste à bien été modifiée..");
+                echo Error::displaySuccess("L'image de l'artiste a bien été modifiée..");
             }
             else
             {
