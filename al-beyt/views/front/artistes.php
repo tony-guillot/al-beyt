@@ -44,8 +44,8 @@ require_once('../include/header.php');
                 </li>
                 <?php foreach ($domaines as $domaine)
                 { ?>
-                    <li class="filtre">
-                        <a class="filtre" <?= (($domaine['id'] == $id_domaine)) ? Affichage::stylizeCurrentFilter() : "" ?> href="artistes.php?id=<?= $domaine['id'] ?>"><?= $domaine['nom']?></a>
+                    <li class="filtre-artiste">
+                        <a class="filtre-artiste" <?= (($domaine['id'] == $id_domaine)) ? Affichage::stylizeCurrentFilter() : "" ?> href="artistes.php?id=<?= $domaine['id'] ?>"><?= $domaine['nom']?></a>
                     </li>
             <?php }?>
             </ul>
@@ -68,7 +68,7 @@ require_once('../include/header.php');
                             <div class="artistes-infos molgak taille1 ">
                                 <span><?= $artist['nom']?></span>
 
-                                <a href="artiste.php?id=<?= $domaine['id']?>">
+                                <a href="artiste.php?id=<?= $artist['id']?>">
                                 <i class=" artistes fa-solid fa-circle-plus "></i>
                                 </a>     
                             </div>
@@ -83,7 +83,7 @@ require_once('../include/header.php');
     <section class="conteneur-page inter">
         <?php if($pageCourante != 1)
         {   ?>
-            <a href="artistes.php?page=<?= $pageCourante - 1?><?= !empty($id_domaine) ? "&id=".$id_domaine : "" ?>"><<</a>
+            <a href="artistes.php?page=<?= $pageCourante - 1?><?= !empty($id_domaine) ? "&id=".$id_domaine : "" ?>">&#12298;</a>
   <?php }?>
         <?php for ($i=1; $i <= $pageMax; $i++)
         { ?>
@@ -91,7 +91,7 @@ require_once('../include/header.php');
  <?php  }?>
         <?php if($pageCourante != $pageMax)
         {?>
-            <a href="artistes.php?page=<?= $pageCourante + 1 ?><?= !empty($id_domaine) ? "&id=".$id_domaine : "" ?>">>></a>
+            <a href="artistes.php?page=<?= $pageCourante + 1 ?><?= !empty($id_domaine) ? "&id=".$id_domaine : "" ?>"> &#12299; </a>
   <?php }
     ?>
     </section>

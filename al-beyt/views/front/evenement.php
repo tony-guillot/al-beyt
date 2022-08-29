@@ -27,7 +27,9 @@ require_once('../include/header.php');
                     <h1 class="titre"><?= $event['titre'] ?></h1>
             </article>
             <article class="affiche">
+                <a href="http://<?= $images_event[0]['chemin'] ?>" target="_blank">
                 <img  src="http://<?= $images_event[0]['chemin'] ?>" alt="<?= $images_event[0]['legende'] ?>">
+                </a> 
                 <span class="legende merryweather"><?= $images_event[0]['legende'] ?></span>
             </article>
         </section>

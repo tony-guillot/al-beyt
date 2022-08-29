@@ -154,19 +154,19 @@ class Affichage
         $print .= '<div class="reseaux">';
         if(!empty($instagram))
         {
-            $print .= '<a href="'.$instagram.'"><i class="fa-brands fa-instagram"></i></a>';
+            $print .= '<a href="'.$instagram.'" title=" ↗ Me rendre sur la page instagram de l\'artiste"><i class="fa-brands fa-instagram"></i></a>';
         }
         if(!empty($twitter))
         {
-            $print .= '<a href="'.$twitter.'"><i class="fa-brands fa-twitter"></i></a>';
+            $print .= '<a href="'.$twitter.'" title=" ↗ Me rendre sur la page twitter de l\'artiste"><i class="fa-brands fa-twitter"></i></a>';
         }
         if(!empty($soundcloud))
         {
-            $print .= '<a href="'.$soundcloud.'"><i class="fa-brands fa-soundcloud"></i></a>';
+            $print .= '<a href="'.$soundcloud.'" title=" ↗ Me rendre sur la page soundcloud de l\'artiste"><i class="fa-brands fa-soundcloud"></i></a>';
         }
         if(!empty($facebook))
         {
-            $print .= '<a href="'.$facebook.'"><i class="fa-brands fa-facebook"></i></a>';
+            $print .= '<a href="'.$facebook.'" title=" ↗ Me rendre sur la page soundcloud de l\'artiste"><i class="fa-brands fa-facebook"></i></a>';
         }
         $print .= '</div>';
 

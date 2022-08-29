@@ -16,8 +16,7 @@
 
     font-weight: normal;
     font-style: normal;
-
-}
+    }
 
 
 @font-face {
@@ -114,7 +113,7 @@ li
 
 body
 {
-    background-color:#140f16;
+    background: linear-gradient(#140f16,#250b39, #140f16);
     color:#ffe9fb;
 }
 
@@ -162,10 +161,21 @@ li.filtre
 
 li.filtre-artistes
 {
-    display:flex;
-    margin-bottom: 10px;
-    padding:5px 25px 5px 25px;
+    margin-bottom:20px;
 }
+
+.filtre-artiste
+{
+    display:flex;
+    color : rgba(251, 225, 255, 0.7);
+    margin-bottom: 5px;
+}
+
+.filtre-artiste:hover
+{
+    color: rgba(251, 225, 255, 1);
+}
+
 
 a.filtre
 {
@@ -232,6 +242,7 @@ nav.header
 {
     
    background-color: #FFE1F0;
+   background-image: linear-gradient(45deg,#f1b8f7c0,  #FFE1F0 ,#faa7edbd);
    height:50px;
    line-height: 55px;
    width: 100%;
@@ -250,7 +261,7 @@ a.Al-Beyt
     font-size: 1.4em;
     color:#291c2e;
     text-decoration:none;
-    border-right: solid 2px #291c2e;
+   
 }
 
 
@@ -285,6 +296,8 @@ nav ul li
     font-weight: 200;
     letter-spacing: 2px;
     position: relative;
+    /* display: flex;
+    justify-content: center; */
 }
 
 li.active
@@ -299,6 +312,8 @@ nav ul li:hover
 {
     cursor: pointer;
     background-color:#ffecf6;
+
+  
 }
 
 .sub-menu-1
@@ -407,6 +422,7 @@ nav ul li:hover .sub-menu-1 ul
     display: flex;
     align-items: center;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+   
 }
 
 #precedent,
@@ -419,6 +435,7 @@ nav ul li:hover .sub-menu-1 ul
     font-size: 50px;
     color: rgba(255, 255, 255, 0.961);
     background-color: rgba(0, 0, 0, 0.8);
+    
     padding:10px;
 }
 
@@ -500,62 +517,122 @@ nav ul li:hover .sub-menu-1 ul
     justify-content:center;
     position: relative;
 }
+.bandeau
+{
+    /* display:flex;
+    padding-top: 30px;
+    width:100%;
+    justify-content: space-between; */
+}
 
+.logo-index
+{
+    display:flex;
+    justify-content: center;
+    width: 100%;
+    height:30vh;
+    margin-top:40px;
+   
+}
+.box1
+{
+    display:flex;
+    flex-direction: row;
+    width:100%;
+    justify-content:center;
+
+}
+
+.box-prochain-event
+{
+    display:flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width:100%;
+    margin-top: 60px;
+    margin-left: 100px;
+}
+.title-index
+{
+    font-size: 2.3em;
+    font-family: 'victory_history_demoregular';
+    color:#ffcce6;
+}
+
+
+.box-title-prochain-evenement
+{
+    /* position: relative;
+    width: 1250px; */
+  
+}
+
+.prochain-evenement
+{
+    /* position: absolute;
+    top: -107px;
+    left: 151px; */
+    z-index: 9;
+    font-size: 2.6em;
+    text-shadow: 6px 3px 6px rgba(0,0,0,0.2);
+}
+/******* Les artistes de l'index *******/
+.index-artistes
+{
+    position: relative;
+}
+
+.titre2
+{
+    display:flex;
+    justify-content: flex-end;
+    width: 95%;
+    margin-bottom: 50px;
+    margin-top: 40px;
+
+}
+
+.box-names
+{
+    display: flex;
+    justify-content: center;
+
+}
 .parent-shuffle
 {
     display: flex;
     flex-direction: row;
+    justify-content:space-around;
     flex-wrap: wrap;
-    justify-content: space-between;
-    width: 60%;
-    margin-top: 70px;
-    margin-bottom: 170px;
+    width: 70%;
+    position:static;
+   
 }
-
 .names
 {
     margin-top: 10px;
     margin-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap;
+
 }
 
 .link-names
 {
     font-family: 'molgak_classyregular','arial';
-    font-size:2rem;
-    color: #08A95D;
+    font-size:1.8rem;
+    color: #FFE1F0;
     text-justify: inter-word;
     transition: transform .5s;
+    
 }
 
 .link-names:hover
 {
-    color: #62d09d;
-    transform: scale(1.02);
+    color:#ff7272e0;
+    transform: scale(1.01);
 }
 
-.title-index
-{
-    font-size: 3em;
-    font-family: 'victory_history_demoregular';
-    color:#ffcce6;
-}
-
-.box-title-prochain-evenement
-{
-    position: relative;
-    width: 1250px;
-    background-color:red;
-}
-
-.prochain-evenement
-{
-    position: absolute;
-    top: -113px;
-    right: 220px;
-    z-index: 2;
-    font-size: 4em;
-    text-shadow: 6px 8px 6px rgba(0,0,0,0.2);
-}
 
 .fil-actu
 {
@@ -570,14 +647,15 @@ nav ul li:hover .sub-menu-1 ul
     flex-direction: column;
     justify-content: center;
     width: 60%;
-    border-radius: 3px ;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
     overflow: hidden;
 }
 
 .parent-index-affiche
 {
     height: 80vh;
-    background-color: #62d09d;
+
 }
 
 img.index-affiche
@@ -586,14 +664,23 @@ img.index-affiche
     height:  100%;
     object-fit: cover;
     filter: brightness(80%);
-    transition: background-color 0.5s ease-out;
-    transition: filter 0.5s ease-out;
+    z-index:-999;
+    transition: 1s;
+    inset:0;
+
+}
+.linear-gradiant
+{   
+    z-index: 5;
+    content:"";
+
 }
 
 img.index-affiche:hover
 {
     filter: brightness(100%);
-    background-color: linear-gradient(rgba(0, 0, 0, 0.619), white, black);
+    transition: 1s;
+ 
 }
 
 .index-parent-infos
@@ -637,7 +724,6 @@ img.index-affiche:hover
 .parent-date-heure .date-heure
 {
     font-size: 1.1em;
-    /* text-decoration: underline; */
     font-weight: 450;
     font-family: 'Merriweather Sans';
 }
@@ -648,7 +734,6 @@ img.index-affiche:hover
     font-size: 1.1em; 
     font-family: 'Merriweather Sans'; 
     font-weight: 400;
-    
 }
 
 .adresse
@@ -663,7 +748,6 @@ img.index-affiche:hover
     width: 50%;
     min-height: 50vh;
     margin-right: 20px;
-    /* background-color:#FF7272; */
     display: flex;
     justify-content:center;
     align-items:center;
@@ -676,7 +760,6 @@ img.index-affiche:hover
     font-size:6em;
     color:#502d60;
     opacity: 0.8;
-
 }
 
 .index-icon:hover
@@ -690,11 +773,11 @@ img.index-affiche:hover
     justify-content: center;
     align-items:center;
     width: 60%;
-    height:15vh;
+    height:7vh;
     background-color:#ff7272cb;
-    margin-top: 20px;   
     margin-bottom: 10vh;
-    border-radius: 3px ;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
     overflow: hidden;
 }
 
@@ -705,10 +788,10 @@ img.index-affiche:hover
     font-size:1em;
     font-weight: 100;
     font-style: italic;
-    
 }
 
-.news {
+.news
+{
     width: 60%;
     display: flex;
     flex-wrap: wrap;
@@ -729,7 +812,8 @@ img.index-affiche:hover
     color: #FFE1F0;
 }
 
-.tile{
+.tile
+{
     height: 300px;
     margin: 15px 10px;
     position: relative;
@@ -745,7 +829,8 @@ img.index-affiche:hover
     transition: transform .7s;
 }
 
-.tile .tile-info {
+.tile .tile-info
+{
     position: absolute;
     background-color: rgba(0, 0, 0, 0.47);
     bottom: 10px!important;
@@ -762,8 +847,6 @@ img.index-affiche:hover
 }
 
 .tile:hover{
-
-
     filter: brightness(100%);
     transform: scale(1.01); 
 }
@@ -1055,6 +1138,14 @@ i.artistes.fa-solid:hover
     width:100%;
 }
 
+.artiste-event-placeholder
+{
+    color: #8080806e;
+    font-size: 1em;
+    font-weight: 300;
+    font-family: 'inter', sans-serif;
+    padding-top:20px;
+}
 
 
 
@@ -1235,6 +1326,12 @@ section .article
     margin:15px;
     font-size:2em;
     color:#999999;
+    transition: 1s;
+}
+.icones i:hover
+{
+    
+    color:#9999997a;
 }
 
 .infos-article
@@ -1323,6 +1420,7 @@ section .article
 {
     font-family: 'victory_history_demoregular';
     margin-bottom: 40px;
+    color:#ffcce6;
 }
 
 .artiste .description
@@ -1353,11 +1451,18 @@ section .article
 .artiste .email-siteweb a
 {
     color:#ffe6e6;
-    font-style: italic;
+    
     font-family: 'inter';
     font-weight: 100;
     font-size:0.8em;
     text-decoration: underline;
+}
+
+.artiste .email-siteweb a:hover
+{
+    color:#FF7272;
+    font-style: italic;
+    transition: 0.3s ease-out;
 }
 
 .artiste .reseaux a
@@ -1365,6 +1470,12 @@ section .article
     margin-right: 40px;
     font-size:1.8em;
     color:#ffe6e6;
+   
+}
+.artiste .reseaux a:hover
+{
+    color:#FF7272;
+    transition: 0.3s ease-out;
 }
 
 .artiste .box-image
