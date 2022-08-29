@@ -31,7 +31,7 @@ $controllerEvent = New EvenementController;
         <section class="bandeau">
         <article class="logo-index">
                 <img  class="logo-gif" src="../../../images/al-beyt-violet.gif" 
-                alt="file:///Users/naomimonderer/Documents/al-beyt-copie2.gif" class="transparent">
+                alt="logo 3D rotatif" class="transparent">
             </article>
         </section>
         <section class="box-prochain-event">
