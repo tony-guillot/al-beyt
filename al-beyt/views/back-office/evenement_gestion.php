@@ -82,7 +82,7 @@ require_once('../include/headerBo.php');
                         <td class="buttons"> <a href="evenement_update.php?id=<?= $id_evenement?>"><i class="edit material-icons grey-text text-darken-4">edit</i></a> </td>
                         <form action="" methode='get'>
                             <td class="buttons">
-                                <button class="button-trash" name="delete" type="submit" value='<?= $id_evenement?>'><i class="edit material-icons grey-text text-darken-4">delete</i></button>
+                                <button id='btn' class="button-trash" onclick="confirmDelete('<?= $allEvent['titre']?>')" name="delete" type="submit" value='<?= $id_evenement?>'><i class="edit material-icons grey-text text-darken-4">delete</i></button>
                             </td>
                         </form>
                     </tr>
@@ -104,9 +104,13 @@ require_once('../include/headerBo.php');
     <?php endif ?>
     </section>
 </main>
+
 <?php 
 require_once('../include/footerBo.php');
+
 ?>
+
+<!-- <script>confirmDelete('test')</script> -->
 
 
 

@@ -6,13 +6,13 @@ document.addEventListener("DOMContentLoaded", function() {
         let errorTag = document.getElementById('error-text');
         errorTag.append(textError);
         let iconTag = document.getElementById('error-icon');
-        let iconContent = document.createTextNode("error");
+        let iconContent = document.createTextNode("error_outline");
         iconTag.append(iconContent);
         let errorSection = document.getElementById('error-section');
         errorSection.style.display = "flex";
     }
 
-    //Gestion des succes
+    //Gestion des succès
     if(typeof success !== "undefined")
     {
         let textError = document.createTextNode(success);
@@ -24,6 +24,29 @@ document.addEventListener("DOMContentLoaded", function() {
         let errorSection = document.getElementById('error-section');
         errorSection.style.display = "flex";
     }
+    
+   });
+    
+   
+     // Gestion des succès de suppression avec la confirmation
+    function confirmDelete(eventTitre)
+    {
+        console.log(eventTitre);
 
-});
+        // confirm('Are you sure you want?')
+        var answer =  confirm('Etes vous sûr de supprimer l\'évènement: '+eventTitre+'?');
+
+        if(answer == true)
+        {
+            alert('L\' évènement '+eventTitre+' a été supprimer avec succès.');
+        }
+        else
+        {
+            alert('Vous avez annuler la suppression.');
+        }
+
+    }
+
+
+
 

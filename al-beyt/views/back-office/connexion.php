@@ -52,8 +52,7 @@ if(isset($_POST['submit']))
                 </div>
                 <div id="error-section" class=" red-text text-lighten-3 valign-wrapper z-depth-0">
     
-                    <i class="material-icons">error_outline</i> &ensp;
-                    <!-- <i class="material-icons">favorite_border</i> -->
+                    <i id="error-icon" class="material-icons"></i> &ensp;
                     <p id="error-text"></p>
                 </div>
                 
