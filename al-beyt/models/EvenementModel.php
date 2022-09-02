@@ -251,6 +251,14 @@ class EvenementModel extends Bdd {
         $bdd->execute(array(':id' => $id));
     }
 
+    public function deleteImageComplementaire($id)
+    {
+        $bdd = $this->bdd->prepare('DELETE FROM image_evenement 
+                                    WHERE id_evenement = :id_evenement 
+                                    AND ordre = 2');
+        $bdd->execute(array(':id_evenement' => $id));
+    }
+
     public function updateLegende($legende, $ordre, $id_evenement)
     {
         $bdd = $this->bdd->prepare('UPDATE image_evenement

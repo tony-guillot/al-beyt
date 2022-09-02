@@ -17,6 +17,10 @@ if(isset($_GET['id']))
     exit;
 }
 
+if( isset($_GET['action']) && $_GET['action'] == "deleteImage"){
+    $controller->supprimeImageComplementaire($id);
+    header('Location: evenement_update.php?id='.$id); //on vide les params _GET de l'url
+}
 
 if(isset($_POST['valider']))
 {   
@@ -59,7 +63,6 @@ if(isset($_POST['image']))
                                                 $_POST['legende2'],
                                                 $id_evenement,
                                                 $_POST['ordre_image2']);
-        //$controller->modifyLegende($_POST['legende2'],$_POST['ordre_image2'],$id_evenement);
 
     }
     
@@ -176,6 +179,11 @@ require_once('../include/sidebar.php');
                             <input class="grey-text text-darken-2"  type="text" value="<?= $imagesEvent[1]['legende'] ?? "" ?>" name="legende2">
                         </div>
                     </article>
+                    <?php if(!empty($imagesEvent[1]['chemin'])):?>
+                        <a onclick="return confirmDeleteImage()"
+                           href="evenement_update.php?id=<?= $id ?>&action=deleteImage&ordre=2">Supprimer cette
+                            image</a>
+                    <?php endif ?>
                 </section>
                 <section>
                     <button class="btn waves-effect waves-light col s12" type="submit" name="image" value="sauvegarder">

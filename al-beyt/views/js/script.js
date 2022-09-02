@@ -34,11 +34,11 @@ document.addEventListener("DOMContentLoaded", function() {
             let confirmEvent = confirm('Etes vous sûr de supprimer l\'évènement: '+title+'?');
             if(confirmEvent == true)
             {
-                alert('L\' évènement '+title+' a été supprimer avec succès.');
+                alert('L\' évènement '+title+' a été supprimé avec succès.');
             }
             else
             {
-                alert('Vous avez annuler la suppression de l\'évènement');
+                alert('Vous avez annulé la suppression de l\'évènement');
             }
                 return confirmEvent;
                 // est renvoyé à l'endroit où j'appelle ma fonction  (en l'occurence dans l'attribu 'onclick');
@@ -48,15 +48,24 @@ document.addEventListener("DOMContentLoaded", function() {
             let confirmArticle = confirm('Etes vous sûr de supprimer l\'article: '+title+'?');
             if(confirmArticle == true)
             {
-                alert('L\'article '+title+' a été supprimer avec succès.');
+                alert('L\'article '+title+' a été supprimé avec succès.');
             }
             else
             {
-                alert('Vous avez annuler la suppression de l\'article');
+                alert('Vous avez annulé la suppression de l\'article');
             }
             return confirmArticle;
         }
+
+
     }
 
-   
- 
+    function confirmDeleteImage(){
+        if(confirm("Etes-vous sûr de supprimer cette image ?"))
+        {
+            alert("L'image a été supprimée avec succès.");
+            return true;
+        }else{
+            return false;
+        }
+    }

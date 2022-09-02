@@ -143,7 +143,11 @@ require_once('../include/sidebar.php');
                                     <label class=" purple-text text-lighten-3" for="legende2">Légende de l'image 1:</label></br>
                                     <input class="grey-text text-darken-2" type="text" value="<?= $images_article[1]['legende'] ?? "" ?>" name="legende2">
                                 </article>
-                                <a href="article_update.php?id=<?= $id_article ?>&action=deleteImage&ordre=2" onclick="return confirm('Etes-vous sûr de supprimer cette image ?')">Supprimer cette image</a>
+                                <?php if (!empty($images_article[1]['chemin'])): ?>
+                                    <a href="article_update.php?id=<?= $id_article ?>&action=deleteImage&ordre=2"
+                                       onclick="return confirmDeleteImage()">Supprimer
+                                        cette image</a>
+                                <?php endif ?>
                             </section>
                             <section class="z-depth-1 grey lighten-5 col s4  cards imagesForm">
                                 <h2>Image 2</h2>
@@ -166,7 +170,11 @@ require_once('../include/sidebar.php');
                                     <label class=" purple-text text-lighten-3" for="legende3">Légende de l'image 2:</label></br>
                                     <input class="grey-text text-darken-2" type="text" value="<?= $images_article[2]['legende'] ?? "" ?>" name="legende3">
                                 </article>
-                                <a href="article_update.php?id=<?= $id_article ?>&action=deleteImage&ordre=3" onclick="return confirm('Etes-vous sûr de supprimer cette image ?')">Supprimer cette image</a>
+                                <?php if (!empty($images_article[2]['chemin'])): ?>
+                                    <a href="article_update.php?id=<?= $id_article ?>&action=deleteImage&ordre=3"
+                                       onclick="return confirmDeleteImage()">Supprimer
+                                        cette image</a>
+                                <?php endif ?>
                             </section>
                             <section class="z-depth-1 grey lighten-5  col s4  cards imagesForm">
                                 <h2>Image 3</h2>
@@ -189,7 +197,11 @@ require_once('../include/sidebar.php');
                                     <label class=" purple-text text-lighten-3" for="legende4">Légende image 3:</label>
                                     <input class="grey-text text-darken-2" type="text" value="<?= $images_article[3]['legende'] ?? "" ?>" name="legende4">
                                 </article>
-                                <a href="article_update.php?id=<?= $id_article ?>&action=deleteImage&ordre=4" onclick="return confirm('Etes-vous sûr de supprimer cette image ?')">Supprimer cette image</a>
+                                <?php if (!empty($images_article[3]['chemin'])): ?>
+                                    <a href="article_update.php?id=<?= $id_article ?>&action=deleteImage&ordre=4"
+                                       onclick="return confirmDeleteImage()">Supprimer
+                                        cette image</a>
+                                <?php endif ?>
                         </section>
                     </section> 
                     <section class="row col s12">

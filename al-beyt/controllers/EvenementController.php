@@ -255,5 +255,10 @@ class  EvenementController extends Controller {
         echo Error::displaySuccess("Les images ont bien été mises à jour.");
     }
 
+    public function supprimeImageComplementaire($id)
+    {
+        $this->modelEvenement->deleteImageComplementaire($id);
+    }
+
 
 }
