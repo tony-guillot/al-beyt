@@ -188,10 +188,12 @@ button.button-trash
 
 
 table.table-gestion td:not(td.buttons){
-   padding: 0 20px;
+   padding: 30px 20px ;
+   font-size:13px;
 }
 
-table.table-gestion td.buttons i {
+table.table-gestion td.buttons i
+{
    margin: 5px;
 }
 

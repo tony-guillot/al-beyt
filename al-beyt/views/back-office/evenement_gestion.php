@@ -15,6 +15,7 @@ if(isset($_GET['delete']))
 {   
     $id = $_GET['delete'];
     $controllerEvenement->supprimeEvent($id);
+    header('location: evenement_gestion.php');
 }
 
 if(isset($_GET['page'])){
@@ -36,7 +37,7 @@ require_once('../include/headerBo.php');
 <main class="container">
     <h1 class="header">Gestion des évènements</h1>
     <section>
-        <table class="striped centered highlight table-gestion">
+        <table class="striped centered highlight table-gestion" >
             <thead>
                 <th>Affiche</th>
                 <th>Titre</th>
@@ -57,7 +58,7 @@ require_once('../include/headerBo.php');
                     <tr class="row">
                         <td ><img class="imageGestion" src="http://<?= $allEvent['chemin']?>" alt="Affiche de l'evenement"></td>
                         <td><?= $allEvent['titre']?></td>
-                        <td><?= substr($allEvent['description'],0,300).'[...]'?></td>
+                        <td ><?= substr($allEvent['description'],0,300).'[...]'?></td>
                         <td>
                             <?php foreach($artistsByEventId as $artists)
                                 {   
@@ -81,7 +82,7 @@ require_once('../include/headerBo.php');
                         <td class="buttons"> <a href="evenement_update.php?id=<?= $id_evenement?>"><i class="edit material-icons grey-text text-darken-4">edit</i></a> </td>
                         <form action="" methode='get'>
                             <td class="buttons">
-                                <button id='btn' class="button-trash" onclick="confirmDelete('<?= $allEvent['titre']?>','evenement')" name="delete" type="submit" value='<?= $id_evenement?>'><i class="edit material-icons grey-text text-darken-4">delete</i></button>
+                                <button id='btn' class="button-trash" onclick="return confirmDelete('<?= str_replace("'","&rsquo;",$allEvent['titre'])?>', 'evenement')" name="delete" type="submit" value='<?= $id_evenement?>'><i class="edit material-icons grey-text text-darken-4">delete</i></button>
                             </td>
                         </form>
                     </tr>
