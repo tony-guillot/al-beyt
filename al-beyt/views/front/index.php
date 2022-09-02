@@ -36,7 +36,6 @@ $controllerEvent = New EvenementController;
         </section>
         <section class="box-prochain-event">
             <section class="box-title-prochain-evenement">
-
                 <h2  class="title-index prochain-evenement"><span style ="font-size:1.9em; font-weight:100;">P</span>ROChaiN  EveNeMenT</h2>
             </section>
             <section class="index-parent-event">
