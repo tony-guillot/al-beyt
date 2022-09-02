@@ -61,7 +61,7 @@ require_once('../include/headerBo.php');
                     <td class="buttons"> <a href="article_update.php?id=<?= $id_article?>"><i class="edit material-icons grey-text text-darken-4">edit</i></a> </td>
                     <form action="" methode='get'>
                         <td class="buttons">
-                            <button class="button-trash" name="delete" type="submit" value='<?= $id_article?>'><i class="edit material-icons grey-text text-darken-4">delete</i></button>
+                            <button class="button-trash" onclick="confirmDelete('<?= $allArticle['titre']?>','article')" name="delete" type="submit" value='<?= $id_article?>' ><i class="edit material-icons grey-text text-darken-4">delete</i></button>
                         </td>
                     </form>
                 </tr>

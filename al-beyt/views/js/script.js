@@ -27,26 +27,25 @@ document.addEventListener("DOMContentLoaded", function() {
     
    });
     
-   
-     // Gestion des succès de suppression avec la confirmation
-    function confirmDelete(eventTitre)
-    {
-        console.log(eventTitre);
-
-        // confirm('Are you sure you want?')
-        var answer =  confirm('Etes vous sûr de supprimer l\'évènement: '+eventTitre+'?');
-
-        if(answer == true)
+    function confirmDelete(title,type)
+    {   
+        if(type == 'evenement')
         {
-            alert('L\' évènement '+eventTitre+' a été supprimer avec succès.');
+            let confirmEvent = confirm('Etes vous sûr de supprimer l\'évènement: '+title+'?');
+            if(confirmEvent == true){
+                alert('L\' évènement '+title+' a été supprimer avec succès.');}
+            else{
+                alert('Vous avez annuler la suppression de l\'évènement');}
         }
         else
         {
-            alert('Vous avez annuler la suppression.');
+            let confirmArticle = confirm('Etes vous sûr de supprimer l\'article: '+title+'?');
+            if(confirmArticle == true){
+                alert('L\'article '+title+' a été supprimer avec succès.');}
+            else{
+                alert('Vous avez annuler la suppression de l\'article');}
         }
-
     }
 
-
-
-
+   
+ 
