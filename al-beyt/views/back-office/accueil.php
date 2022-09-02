@@ -17,10 +17,9 @@ require_once('../include/headerBo.php');
 <section>
         <?php require_once('../include/sidebar.php');?>
 </section>
-<section class="center-align">
-    <img src="../../../images/al-beyt-copie2.gif" 
-    alt="file:///Users/naomimonderer/Documents/al-beyt-copie2.gif" class="transparent">
-</section>
+<section class="center-align back-office">
+    <span>مساحة الإدارة</span>
+ </section>
 </main>
 <?php 
 require_once('../include/footerBo.php');

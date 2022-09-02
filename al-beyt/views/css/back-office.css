@@ -3,8 +3,16 @@ main.accueil
 {
    min-height: 75vh;
    position: relative;
+   display:flex;
+   justify-content: center;
+   align-items: center;
+   width: 100%;
 }
-
+.back-office
+{
+   font-size:12em;
+   color:grey;
+}
 /********* Footer ****************/
 footer
 {

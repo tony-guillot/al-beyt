@@ -72,7 +72,7 @@ $imagesEvent = $controller->displayImagesByEventId($id);
 //si  il n'y a aucune image 2 en bdd on insert sinon on remplace.
 
 
-// l'image 1 est toujours remplie. si tu soumets le formulaire il faut dans tout les cas submit les données de l'image 1 est
+// l'image 1 est toujours remplie. si tu soumets le formulaire il faut dans tout les cas submwt les données de l'image 1 est
 // si l'image 2 est vide il faut inserer sinon il faut udpate.
 $imagesEvent = $controller->displayImagesByEventId($id);
 
