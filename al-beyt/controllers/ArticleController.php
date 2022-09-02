@@ -186,7 +186,6 @@ class ArticleController extends Controller
             $this->modelArticle->deleteImageByIdArticle($id_article,$image['ordre']);
          }
         $this->modelArticle->deleteArticle($id_article);
-        echo Error::displaySuccess("Votre article a bien été supprimé.");
 
         return $id_article;
     }

@@ -246,7 +246,7 @@ class  EvenementController extends Controller {
     public function supprimeEvent($id)
     {
         $this->modelEvenement->deleteEvent($id);
-        echo Error::displaySuccess("Votre evenement a bien été supprimé.");
+
     }
 
     public function modifyLegende($legende, $ordre, $id_evenement)

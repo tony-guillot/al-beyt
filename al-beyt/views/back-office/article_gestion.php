@@ -13,7 +13,10 @@ $controllerArticle = new ArticleController();
 if(isset($_GET['delete'])){
     $idDelete = $controllerArticle->secure($_GET['delete']);
     $controllerArticle->deleteArticle($idDelete);
-    //header('Location: article_gestion.php'); //on vide les params _GET de l'url
+    header('Location: article_gestion.php'); 
+    //on vide les params _GET de l'url pour éviter 
+    //de resoumettre le formulaire en cas d'actualisation de la page,
+    // ainsi on evite de renvoyer une requête de suppression au serveur qui n'a pas besoin d'être envoyé.
 
 }
 
@@ -61,7 +64,7 @@ require_once('../include/headerBo.php');
                     <td class="buttons"> <a href="article_update.php?id=<?= $id_article?>"><i class="edit material-icons grey-text text-darken-4">edit</i></a> </td>
                     <form action="" methode='get'>
                         <td class="buttons">
-                            <button class="button-trash" name="delete" type="submit" value='<?= $id_article?>'><i class="edit material-icons grey-text text-darken-4">delete</i></button>
+                            <button class="button-trash" onclick="return confirmDelete('<?= $allArticle['titre']?>','article')" name="delete" type="submit" value='<?= $id_article?>' ><i class="edit material-icons grey-text text-darken-4">delete</i></button>
                         </td>
                     </form>
                 </tr>

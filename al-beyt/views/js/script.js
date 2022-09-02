@@ -6,13 +6,13 @@ document.addEventListener("DOMContentLoaded", function() {
         let errorTag = document.getElementById('error-text');
         errorTag.append(textError);
         let iconTag = document.getElementById('error-icon');
-        let iconContent = document.createTextNode("error");
+        let iconContent = document.createTextNode("error_outline");
         iconTag.append(iconContent);
         let errorSection = document.getElementById('error-section');
         errorSection.style.display = "flex";
     }
 
-    //Gestion des succes
+    //Gestion des succès
     if(typeof success !== "undefined")
     {
         let textError = document.createTextNode(success);
@@ -24,6 +24,39 @@ document.addEventListener("DOMContentLoaded", function() {
         let errorSection = document.getElementById('error-section');
         errorSection.style.display = "flex";
     }
+    
+   });
+    
+    function confirmDelete(title,type)
+    {   
+        if(type == 'evenement')
+        {
+            let confirmEvent = confirm('Etes vous sûr de supprimer l\'évènement: '+title+'?');
+            if(confirmEvent == true)
+            {
+                alert('L\' évènement '+title+' a été supprimer avec succès.');
+            }
+            else
+            {
+                alert('Vous avez annuler la suppression de l\'évènement');
+            }
+                return confirmEvent;
+                // est renvoyé à l'endroit où j'appelle ma fonction  (en l'occurence dans l'attribu 'onclick');
+        }
+        else
+        {
+            let confirmArticle = confirm('Etes vous sûr de supprimer l\'article: '+title+'?');
+            if(confirmArticle == true)
+            {
+                alert('L\'article '+title+' a été supprimer avec succès.');
+            }
+            else
+            {
+                alert('Vous avez annuler la suppression de l\'article');
+            }
+            return confirmArticle;
+        }
+    }
 
-});
-
+   
+ 

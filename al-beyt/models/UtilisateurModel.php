@@ -39,7 +39,4 @@ class UtilisateurModel extends Bdd
 
       return $result;
     }
-
-
-    
 }
