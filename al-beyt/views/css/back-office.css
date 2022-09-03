@@ -1,0 +1,296 @@
+
+main.accueil
+{
+   min-height: 75vh;
+   position: relative;
+}
+
+/********* Footer ****************/
+footer
+{
+   border-top: 0.5px solid rgb(211, 211, 211);
+   /* height:35%; */
+   /* position: absolute;
+   bottom: 0; */
+   
+   background-color: #7b1fa2;
+   display:flex;
+}
+
+
+.bottom-links
+{
+   font-size: 0.8em;
+  
+}
+
+.bottom-links a i
+{
+   
+  margin-right: 15px;
+}
+
+
+/*********** \Footer/ ***************/
+
+.dropdown-content{
+   top: 64px!important;
+}
+ul#link-nav li a
+{
+   outline: none; 
+}
+
+h1.header {
+   font-size: 3em;
+}
+
+.container{
+   width: 90%!important;
+   padding: 20px;
+}
+.container2
+{
+   width: 100%!important;
+}
+
+
+.row .col.s6
+{
+   width: 40%;
+   margin-left: 50px;
+}
+
+.formulaire img {
+   max-width: 400px;
+}
+
+.formulaire h2{
+      font-size: 1.8em;
+}
+
+.formulaire h3{
+      font-size: 1.6em;
+}
+
+section.pagination{
+   margin-top: 15px;
+}
+
+section.pagination a{
+   text-align: center;
+}
+
+.contact h1 {
+   font-size: 1.5em;
+   font-weight: bold;
+   margin-bottom: 5px;
+}
+.contact p {
+   margin-top: 2px;
+}
+
+.bottom-links a {
+   font-size: 3em;
+}
+.sidenav
+{
+   /* width:20%; */
+
+}
+img.sidenav-background {
+   max-width:100%;
+   max-height:100%;
+}
+
+section#error-section {
+   display: none;
+   border: 1px solid rgba(49,49,49,0.24);
+   flex-wrap: wrap;
+   gap: 30px;
+   padding: 0 10%;
+}
+
+section#error-section i {
+   font-size: 2.5em;
+}
+
+section#error-section p {
+   font-size: 1.2em;
+}
+
+div#error-section
+{
+   display:none;
+}
+
+.icone-deconnexion
+{
+   margin-right: 50px;
+   font-size:2em;
+}
+
+.icone-deconnexion i {
+   line-height: 71px!important;
+}
+
+/******************************/
+.body-connexion
+{
+   background-image: url('../../../images/logo.png');
+   
+   /* background-image: element(img); */
+   /* background-color: #1fe0;      /* Fully transparent shorthand  * */
+   background-repeat: space;
+   background-position: bottom;
+   background-origin: padding-box;
+   
+   /* background-clip: content-box; */
+   opacity: 0.9;
+   background-color:#260039
+}
+/* img
+{
+   width:10%;
+} */
+.connexion
+{
+   height:85vh;
+   display: flex;
+   justify-content:center;
+   
+}
+.connexion section img
+{
+   margin-bottom:40px;  
+}
+.connexion img
+{
+   
+   display:block;
+   margin:auto;
+}
+
+
+
+/******************************/
+/************** Button-trash *****************/
+
+button.button-trash
+{
+    border-style: none;
+    text-decoration: none;
+    background: none;
+    cursor: pointer;
+}
+
+/************** \Button-trash/ *****************/
+
+
+table.table-gestion td:not(td.buttons){
+   padding: 30px 20px ;
+   font-size:13px;
+}
+
+table.table-gestion td.buttons i
+{
+   margin: 5px;
+}
+
+img.imageGestion {
+   max-width: 200px;
+}
+
+td.evenement th
+{
+   margin-right: 100px;
+}
+
+tr.row > *
+{
+   border : 1px solid rgb(232, 232, 232);
+}
+
+
+/************* formulaires ****************/
+
+section.update-headings {
+   display: flex;
+   align-items: center;
+}
+
+a.gestion-retour{
+   display: inline;
+   font-size: 2.7em;
+   margin-top: 1em;
+   margin-right: 0.4em;
+}
+
+a.gestion-retour i {
+   color: black;
+}
+
+a.gestion-retour i:hover {
+   color: grey;
+}
+
+form.typo div > *
+{
+   font-size:1em;
+   
+}
+form.typo article > *
+{
+   font-size:1em;
+}
+
+ section article div > *
+{
+   font-size:1em;
+}
+form.typo section article > *
+{
+   font-size:1em;
+}
+.margin
+{
+   margin-bottom:20px;
+}
+.padding-card
+{
+   padding: 30px;
+   margin:20px;
+}
+
+.cards
+{
+   margin:20px;
+   display: inline;
+   width:31%!important;
+}
+
+.row .col.s4
+{
+   margin-left:0!important;
+}
+.row .col .s8
+{
+   padding:30px;
+}
+
+/************** Modifier  ***************/
+
+/************* Modifier ***************/
+table.table {
+   background-color:#ffffff!important;
+
+}
+
+table .material-icons
+{
+   font-size:2em;
+   margin:30px
+}
+.grey-text.text-darken-4:hover {
+   color: #ab47bc  !important;
+ }

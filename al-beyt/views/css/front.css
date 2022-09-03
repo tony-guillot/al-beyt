@@ -1,0 +1,1770 @@
+@font-face
+{
+    font-family: 'molgak_classyregular';
+    src: url('../css/molgak-classy-regular/molgakclassyregular-nrodg-webfont.woff2') format('woff2'),
+         url('../css/molgak-classy-regular/molgakclassyregular-nrodg-webfont.woff') format('woff'),
+         url('../css/molgak-classy-regular/molgakclassyregular-nrodg-webfont.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ragnorthbold';
+    src: url('../css/wagon/wagon-bold_copie-webfont.woff2') format('woff2'),
+         url('../css/wagon/wagon-bold_copie-webfont.woff') format('woff'),
+         url('../css/wagon/wagon-bold_copie-webfont.ttf') format('ttf');
+
+    font-weight: normal;
+    font-style: normal;
+    }
+
+
+@font-face {
+    font-family: 'victory_history_demoregular';
+    src: url('../css/victory_history/victory_history_demo-webfont.woff2') format('woff2'),
+         url('../css/victory_history/victory_history_demo-webfont.woff') format('woff'),
+         url('../css/victory_history/victory_history_demo-webfont.ttf') format('ttf'),
+         url('../css/victory_history/victory_history_demo-webfont.otf') format('otf');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+/******************* Font ************************/
+
+.inter
+{
+    font-family:'inter',sans-serif;
+}
+
+.merryweather
+{
+    font-family:'Merriweather Sans', sans-serif;
+}
+
+.molgak
+{
+    font-family: 'molgak_classyregular','serif';
+}
+/******************* \Font/ ************************/
+
+
+/******************* Police-Size *******************/
+
+.taille4
+{
+    font-size:4em;
+}
+
+.taille3
+{
+    font-size:3em;
+}
+
+.taille2
+{
+    font-size:2em;
+}
+
+.taille1-cinque
+{
+    font-size:1.5em;
+}
+
+.taille1-trois
+{
+    font-size:1.3em;
+}
+
+.taille1
+{
+    font-size:1em;
+}
+
+.taille0-huit
+{
+    font-size:0.8em;
+}
+
+.taille0-cinq
+{
+    font-size:0.5em;
+}
+
+/******************* \Police-Size/ *******************/
+
+*, ::before, ::after
+{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+
+a
+{
+    text-decoration:none;
+}
+
+li
+{
+    list-style: none;
+}
+
+body
+{
+    background: linear-gradient(#140f16,#1c092b, #140f16);
+    color:#ffe9fb;
+}
+
+main
+{
+    min-height: 70vh;
+}
+
+footer
+{
+    background-color:#140f16;
+    color: #FFE1F0;
+    position:relative;
+    bottom:0;
+    width:100%;
+}
+
+
+/******************* Filtre ********************/
+
+section.filtre
+{
+    display:flex;
+    width: 15%;
+    justify-content: center;
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+ul.liens-filtre
+{
+    font-weight: 100;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 60px;
+}
+
+li.filtre
+{
+    display:flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+li.filtre-artistes
+{
+    margin-bottom:20px;
+}
+
+.filtre-artiste
+{
+    display:flex;
+    color : rgba(251, 225, 255, 0.7);
+    margin-bottom: 5px;
+}
+
+.filtre-artiste:hover
+{
+    color: rgba(251, 225, 255, 1);
+}
+
+a.filtre
+{
+    display: flex;
+    color : rgba(251, 225, 255, 0.7);
+}
+
+a.filtre:hover
+{
+    color: rgba(251, 225, 255, 1);
+}
+
+/********************* \Filtre/ **********************/
+
+
+/********************* Pagination *******************/
+
+.conteneur-page
+{
+    display:flex;
+    flex-wrap:nowrap;
+    justify-content:space-evenly;
+    align-items:center;
+    height:50px;
+    width: 16%;
+    margin-left: 50%;
+}
+
+.conteneur-page a
+{
+    color: #FFE1F0;
+    margin: 0 5px;
+}
+
+.conteneur-page .page-active{
+    color: #FF7272;
+}
+
+.pagination-artiste
+{
+    margin-left: 0%!important; 
+}
+
+/********************* \Pagination/ ****************/
+
+
+/********************* Header **********************/
+
+header
+{
+
+}
+
+.al-beyt
+{   
+    margin:15px;
+}
+
+.header * {
+    z-index: 99;
+}
+
+nav.header
+{
+    
+   background-color: #FFE1F0;
+   background-image: linear-gradient(45deg,#f1b8f7c0,  #FFE1F0 ,#faa7edbd);
+   height:50px;
+   line-height: 55px;
+   width: 100%;
+}
+
+a.link-nav
+{
+    text-decoration:none;
+    color:#291c2e;
+    font-weight: 300;
+    font-size: 1em;
+    /* line-height: 2.4em; */
+}
+a.Al-Beyt
+{
+    font-size: 1.4em;
+    color:#291c2e;
+    text-decoration:none;
+   
+}
+
+
+.sub-menu-1 .link-nav{
+    font-size: 0.9em;
+    letter-spacing: 0.02em;
+    line-height: 1em;
+}
+
+.active > a {
+    font-weight: 400;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+nav.header > ul {
+    align-items: stretch;
+    height: 100%;
+}
+
+nav ul
+{   list-style: none;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+nav ul li
+{
+    font-family: 'victory_history_demoregular';
+    font-weight: 200;
+    letter-spacing: 2px;
+    position: relative;
+    /* display: flex;
+    justify-content: center; */
+}
+
+li.active
+{
+    text-align: center;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+nav ul li:hover
+{
+    cursor: pointer;
+    background-color:#ffecf6;
+
+  
+}
+
+.sub-menu-1
+{
+    position: absolute;
+    left: 0;
+    top:100%;
+    display:none;
+    width: 100%;
+    border-radius: 0 0 3px 3px ;
+    overflow: hidden;
+}
+
+.sub-menu-1 ul li
+{
+    background-color: #FFE1F0;
+    font-family:'Merriweather Sans', sans-serif;
+    display:flex;
+    padding: 10px;
+    text-align: left;
+}
+
+nav ul li:hover .sub-menu-1
+{
+  display: block;
+  position: absolute;
+}
+
+nav ul li:hover .sub-menu-1 ul
+{
+  display: block;
+}
+
+/************************* \Header/ ***********************/
+
+
+/************************* Footer **************************/
+
+.footer-box
+{
+    display:flex;
+    justify-content:space-around;
+    width: 100%;
+    align-items: center;
+    border-top: 0.5px solid  #ffe1f080;
+
+}
+
+.footer-mail
+{
+    font-size: 0.8em;
+    margin-top: 15px;
+}
+
+.footer-mentions
+{
+    margin-top: 60px;
+    font-size: 0.8em;
+    color: #FFE1F0;
+}
+
+.footer-mentions:hover
+{
+    font-size: 0.8em;
+    color: #ffe1f0bd;
+}
+
+.footer-liens
+{
+    margin-right: 30px;
+   color: #FFE1F0;
+   font-size:1.5em;
+}
+
+.footer-liens:hover
+{
+   color: #ffe1f0bd;
+}
+
+/************************* \Footer/ **************************/
+
+
+/***************** Slider ***********************/
+
+.box-slider
+{
+    display:flex;
+    align-items:center;
+    margin-right: 100px;
+    justify-content: flex-end;
+    padding-top:60px;
+    padding-bottom:80px;
+    width:90%;
+}
+
+#slider img
+{
+    width: 100%;
+}
+
+#slider
+{
+    display:flex;
+    position: relative;
+    width: 30%;
+    display: flex;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+   
+}
+
+#precedent,
+#suivant
+{
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+    position: absolute;
+    font-size: 50px;
+    color: rgba(255, 255, 255, 0.961);
+    background-color: rgba(0, 0, 0, 0.8);
+    
+    padding:10px;
+}
+
+#precedent
+{
+    left: 0;
+}
+
+#suivant
+{
+    right: 0;
+}
+
+#slider:hover #precedent,
+#slider:hover #suivant
+{
+    opacity: 1;
+}
+
+/***************** Slider ***********************/
+
+
+/************ Trame Articles-Evenements-Artistes *************/
+
+.contener
+{
+    display:flex;
+    flex-direction:column;
+    width: 100%;
+    position: relative
+}
+
+.sous-contener
+{
+    display:flex;
+    justify-content:center;
+    margin-top:30px;
+}
+
+
+.box-shadow
+{   
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.animation
+{
+    filter: brightness(80%);
+    transition: all 1s ease;
+    transition: transform .5s;
+}
+
+.animation:hover
+{   
+    filter: brightness(100%);
+    transform: scale(1.01);
+}
+
+.animation2
+{
+    filter: brightness(90%);
+    transition: all 0.5s ease;
+}
+
+.animation2:hover
+{
+    filter: brightness(100%);
+}
+
+/************\Trame Articles-Evenements-Artistes/************/
+
+
+/*********************** INDEX ****************************/
+.global-box
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+    position: relative;
+}
+.bandeau
+{
+    /* display:flex;
+    padding-top: 30px;
+    width:100%;
+    justify-content: space-between; */
+}
+
+.logo-index
+{
+    display:flex;
+    justify-content: center;
+    width: 100%;
+    height:30vh;
+    margin-top:40px;
+   
+}
+.box1
+{
+    display:flex;
+    flex-direction: row;
+    width:100%;
+    /* justify-content:center; */
+
+}
+
+.box-prochain-event
+{
+    display:flex;
+    flex-direction: column;
+    /* align-items: flex-start; */
+    width:55%;
+    margin-top: 60px;
+    margin-left: 100px;
+}
+.title-index
+{
+    font-size: 2.3em;
+    font-family: 'victory_history_demoregular';
+    color:#ffcce6;
+}
+
+
+.box-title-prochain-evenement
+{
+    /* position: relative;
+    width: 1250px; */
+  
+}
+
+.prochain-evenement
+{
+    /* position: absolute;
+    top: -107px;
+    left: 151px; */
+    z-index: 9;
+    font-size: 2.6em;
+    text-shadow: 6px 3px 6px rgba(0,0,0,0.2);
+}
+/******* Les artistes de l'index *******/
+.index-artistes
+{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.titre2
+{
+    display:flex;
+    justify-content: flex-end;
+    width: 85%;
+    margin-bottom: 50px;
+    margin-top: 40px;
+
+}
+
+.box-names
+{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding:20px;
+}
+.parent-shuffle
+{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    flex-wrap: wrap;
+    width: 70%;
+    position:static;
+   
+}
+.names
+{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.link-names
+{
+    font-family: 'molgak_classyregular','arial';
+    font-size:1.8rem;
+    color: #FFE1F0;
+    text-justify: inter-word;
+    transition: transform .5s;
+    
+}
+
+.link-names:hover
+{
+    color:#ff7272e0;
+    transform: scale(1.01);
+}
+
+
+.fil-actu
+{
+    width: 100%;
+    margin-top: 13vh;
+    padding:10px;
+}
+
+.index-parent-event
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+ 
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    overflow: hidden;
+}
+
+.parent-index-affiche
+{
+    height: 80vh;
+
+}
+
+img.index-affiche
+{
+    width: 100%;
+    height:  100%;
+    object-fit: cover;
+    filter: brightness(80%);
+    z-index:-999;
+    transition: 1s;
+    inset:0;
+
+}
+.linear-gradiant
+{   
+    z-index: 5;
+    content:"";
+
+}
+
+img.index-affiche:hover
+{
+    filter: brightness(100%);
+    transition: 1s;
+ 
+}
+
+.index-parent-infos
+{
+
+    min-height: 20vh;
+    max-height: 30vh;
+    background-color: #FFE1F0;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+}
+
+.index-infos
+{
+    padding-left:5%;
+    display:flex;
+    flex-direction:column;
+}
+
+.index-text-style
+{
+    font-family: 'molgak_classyregular','arial';
+    color: #502D60;
+    font-weight: 100;
+    padding-bottom: 10px;
+}
+
+.index-parent-infos .event-titre
+{
+   font-size: 2em;
+   flex-wrap: wrap;
+}
+
+.flex 
+{
+    display: flex;
+    /* padding-bottom: 10px; */
+}
+
+.parent-date-heure .date-heure
+{
+    font-size: 1.1em;
+    font-weight: 450;
+    font-family: 'Merriweather Sans';
+}
+
+.à
+{   
+    font-weight: 100;
+    font-size: 1.1em; 
+    font-family: 'Merriweather Sans'; 
+    font-weight: 400;
+}
+
+.adresse
+{ 
+    font-weight: 100;
+    font-size: 1em;
+    font-family: 'Merriweather Sans';
+    font-style: italic;
+}
+.index-plus
+{
+    width: 50%;
+    min-height: 50vh;
+    margin-right: 20px;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+
+
+}
+
+.index-icon
+{
+    font-size:6em;
+    color:#502d60;
+    opacity: 0.8;
+}
+
+.index-icon:hover
+{
+  opacity: 1;
+}
+
+.mignon
+{
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    /* width: 90%; */
+    height:7vh;
+    background-color:#ff7272cb;
+    margin-bottom: 10vh;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    overflow: hidden;
+}
+
+.froufrou
+{
+    font-family:'Merriweather Sans', sans-serif;
+    color:rgba(255, 255, 255, 0.712);
+    font-size:1em;
+    font-weight: 100;
+    font-style: italic;
+}
+
+.news
+{
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content : space-between;
+    flex-direction: row!important;
+    margin-bottom: 10px!important;
+}
+
+.news .titre-auteur{
+    font-weight: 100;
+}
+
+.news .fa-circle-plus{
+    font-size: 3em!important;
+}
+
+#actu-next, #actu-prev {
+    color: #FFE1F0;
+}
+
+.tile
+{
+    height: 300px;
+    margin: 15px 10px;
+    position: relative;
+    border-radius: 3px ;
+    overflow: hidden;
+    -webkit-box-shadow: 4px 9px 24px -13px rgba(255,255,255,0.6);
+    box-shadow: 4px 9px 24px -13px rgba(255,255,255,0.6);
+    -webkit-box-shadow: 2px 5px 8px -1px rgba(0,0,0,0.83);
+    box-shadow: 2px 5px 8px -1px rgba(0,0,0,0.2);
+    /* transition: all 0.3s ease; */
+    filter: brightness(95%);
+    transition: all 1s ease;
+    transition: transform .7s;
+}
+
+.tile .tile-info
+{
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.47);
+    bottom: 10px!important;
+    right: 10px!important;
+}
+
+.tile img{
+    width: 100%;
+    object-fit:cover;
+    margin-bottom: 20px;
+    height: 300px;
+    /*Animation*/
+
+}
+
+.tile:hover{
+    filter: brightness(100%);
+    transform: scale(1.01); 
+}
+
+.tile-0 {
+    width: 48%;
+}
+.tile-1 {
+    width: 48%;
+}
+.tile-2 {
+    width: 100%;
+}
+.tile-3 {
+    width: 48%;
+}
+.tile-4 {
+    width: 48%;
+}
+.tile-5 {
+    width: 100%;
+}
+.tile-6 {
+    width: 48%;
+}
+.tile-7 {
+    width: 48%;
+}
+
+.pagination-actu{
+    width: 60%;
+    text-align: center;
+    margin:20px 0;
+    font-size: 1.6em;
+}
+
+
+/*********************** \INDEX/ ****************************/
+
+
+
+/************** Template Evenements Articles ***************/
+.box-cards
+{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    width:90%;
+    margin-bottom: 40px;
+    /* background-color:#62d09d; */
+   
+}
+
+article.cards
+{   
+    border: solid 0.5px rgb(20, 20, 20);
+    position: relative;
+    background-color:#140f16;
+    height: 300px;
+    display: flex;
+    justify-content:flex-end;   
+    margin-bottom: 40px;
+    width: 95%;
+    overflow : hidden;
+    border-radius: 2px;
+}
+
+a.link-img
+{
+    width: 100%;
+}
+
+img.boucle
+{
+
+width: 100%;
+    object-fit: cover;
+    z-index: 0;
+  
+} 
+
+div.block-infos
+{
+    
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    width: 60%;
+    height: 130px;
+    z-index: 3;
+    bottom:20px;
+    right: 30px;
+    background: linear-gradient(#c7c7c773, #0000004f,#c7c7c7a5);
+}
+
+div.block-infos:hover
+{
+    background: linear-gradient(#c7c7c7c5, #00000044,#c7c7c7c5);
+}
+
+div.block-infos.articles
+{
+
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    text-shadow: 0px 1px 3px #5c5c5c;
+    width: 90%;
+    height: 130px;
+    z-index: 3;
+    bottom:20px;
+    right: 30px;
+    background: linear-gradient(#c7c7c773, #0000004f,#c7c7c7a5);
+}
+
+.box-cards .titre-auteur
+{
+    padding-left:20px;
+    font-weight: 100;
+}
+
+.block-infos .infos 
+{
+    color: white;
+}
+
+.box-cards .fa-circle-plus
+{
+    font-size: 4em;
+    margin-right: 40px;
+    background: linear-gradient(0.25turn, #00000056, #c7c7c7a1, #00000056,);
+    color: rgba(255, 255, 255, 0.822);
+    opacity: 0.8;
+    border-radius: 70px;
+    transition: all 0.3s ease;
+}
+
+.box-cards .fa-circle-plus:hover
+{
+    color: rgb(248, 241, 241);
+    opacity: 1;
+}
+
+/************** \Template Evenements Articles/ **************/
+
+
+/************** Template Artistes *****************/
+
+section.artistes-filtre
+{
+    display:flex;
+    width: 15%;
+    justify-content: center;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.artistes-box-cards
+{
+    display: flex;
+    justify-content: center;
+    width: 80%;
+}
+
+.artistes-sous-box
+{
+    display: flex;
+    flex-wrap: wrap;
+    width: 95%;
+}
+
+.artistes-cards
+{
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    color: #fff;
+    filter: brightness(80%);
+    transition: all 1s ease;
+    transition: transform .7s; /*Animation*/
+
+}
+.artistes-cards:hover
+{
+    filter: brightness(100%);
+    transform: scale(1.02);
+}
+
+img.artistes-boucle
+{
+    width: 300px;
+    height: 190px;
+    object-fit:cover;
+    display:block;
+    border-top-left-radius: 2px;
+    border-top-right-radius:2px;
+} 
+
+.artistes-infos
+{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-image: linear-gradient(45deg,#f1b8f7, #facdff ,#faa7ed9c);
+    color:#140f16de;
+    height: 80px;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius:2px;  
+}
+
+i.artistes.fa-solid
+{
+   
+   color: #140f16ad;
+   font-size:2em; 
+   transition: all 0.5s;
+}
+
+i.artistes.fa-solid:hover
+{
+    color:  #140f16de;
+   font-size:2.1em;
+}
+
+/************** \Template Artistes/ *****************/
+
+
+/************** Evenement *****************/
+.event
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.event .contener1
+{
+    position: relative;
+    display:flex;
+    flex-direction: column;
+    width: 80%;
+    height: 120vh;
+    margin-top:50px;
+}
+
+.event .titre-affiche
+{
+    display: flex;
+    justify-content:flex-end;
+    position: relative;
+    Width:100%;
+    height: 120vh;
+}
+
+.event .titre
+{
+    position: absolute;
+    display: flex;
+    font-family: 'molgak_classyregular','arial';
+    color:#ffcce6;
+    text-shadow: 2px 8px 6px rgba(0,0,0,0.2);
+    width:50vw;
+    z-index:1;
+    left: 5%;
+    top:15%;
+}
+
+.event h1.titre
+{
+    font-size: 12vh;
+    line-height: 1.2;
+}
+
+.event .affiche
+{
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width:50%;
+    z-index: 0;
+}
+
+.event img
+{
+    width:100%;
+}
+
+.artiste-event-placeholder
+{
+    color: #8080806e;
+    font-size: 1em;
+    font-weight: 300;
+    font-family: 'inter', sans-serif;
+    padding-top:20px;
+}
+
+
+
+/************** Legende *****************/
+
+.legende
+{
+    display: flex;
+    font-size: 0.8em;
+    font-weight: 100;
+    color:#808080;
+    padding-top:5px;
+}
+
+/************** \Legende/ ****************/
+
+.bloc-info
+{
+    display:flex;
+    flex-direction: column;
+    width: 40%;
+    position : absolute;
+    bottom: 10%;
+    left: 5%;
+    font-weight: 200;
+    color:#ffe9fb;
+}
+
+.billeterie
+{
+    margin-bottom:30px;
+    position: relative;
+
+}
+a.label-billeterie
+{
+    font-weight: 300;
+    font-size: 1em;
+    color:#ffe9fb;
+    border-bottom: 0.5px solid #ffe9fb;
+}
+
+.kamo
+{
+    font-size:70px;
+    color:#ffe9fb17;
+    position:absolute;
+    left:94px;
+    top: -97px;
+
+}
+
+
+.hr-event
+{
+    border: 0.3px solid #ffffff86;
+    width: 50%;
+    margin:40px;
+}
+
+.contener2
+{
+    width: 65%;
+}
+.event .description
+{
+    display: flex;
+    flex-direction: column;
+    font-weight: 200;
+    color:#ffe9fb;
+    line-height: 1.5;
+    font-size: 0.8em;
+}
+
+.event .sub-infos
+{
+    font-weight: 100;
+    font-size: 1em;
+
+}
+
+.event .artistes
+{
+    color: #FF7272;
+    border-bottom: 0.5px solid #FF7272;
+    transition: all 1s;
+    transform: all 1s;
+    font-size: 0.8em;
+}
+
+.event .artistes:hover
+{
+    border-bottom: 0.5px solid #FF7272;
+    font-style: italic;
+}
+
+.event .bloc-image2
+{
+    margin-top: 50px;
+    margin-bottom: 70px;
+    display:flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.bloc-image2 img
+{
+    width: 100%;
+}
+
+.bloc-image2 .legende2
+{
+    display: flex;
+    justify-content:flex-end;
+    font-size: 0.7em;
+    font-weight: 100;
+    color:#5e5a5d;
+    padding-top:5px;
+}
+
+/************** \Evenement/ *****************/
+
+/************** Article *****************/
+
+section .article
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+}
+
+.article-main
+{
+    background-color:#fcf7fc;
+    color:#221925;
+}
+
+.box-cover-article
+{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.box-cover-article img
+{
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+
+}
+
+.contener-article
+{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    flex-direction: column;
+    margin-top: 50px;
+}
+
+.sous-contener-article
+{
+    display: flex;
+    justify-content: space-between;
+}
+.contener-article .icones
+{
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items:flex-start;
+}
+
+.icones i
+{
+    margin:15px;
+    font-size:2em;
+    color:#999999;
+    transition: 1s;
+}
+.icones i:hover
+{
+    
+    color:#9999997a;
+}
+
+.infos-article
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 70%;
+    height: 30vh;
+}
+
+.infos-article .titre-article
+{
+    font-size: 2em;
+}
+
+.infos-article .auteur-date
+{
+    font-weight:100;
+    display:flex;
+    justify-content: flex-end;
+}
+
+.contener-article .box-description
+{
+    font-weight:100;
+    width:50%;
+    font-weight: 300;
+}
+
+.hr-article
+{
+
+    border: 0.3px solid #dac9d686;
+    width: 50%;
+    margin-top:60px;
+    margin-bottom:80px;
+}
+
+.article .legende
+{
+    margin-right: 20px;
+    padding-top: 10px;
+}
+
+/************** \Article/ *****************/
+
+
+
+/************** Artiste *****************/
+
+.artiste .contener
+{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+}
+
+.artiste .contener1
+{
+
+    width: 80%;
+    margin-top:100px;
+    margin-bottom:40px;
+    display:flex;
+    justify-content:center;
+}
+
+.infos-artiste
+{
+    width:50%;
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+}
+
+.artiste .nom-description
+{
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+
+}
+
+.artiste .nom
+{
+    font-family: 'victory_history_demoregular';
+    margin-bottom: 40px;
+    color:#ffcce6;
+}
+
+.artiste .description
+{
+      display:flex;
+      width:80%;
+      font-family: 'inter';
+      font-weight: 100;
+      font-size:0.8em;
+}
+
+.artiste .email-siteweb > *
+{
+    display:block;
+}
+
+.artiste .links
+{
+    display:flex;
+    flex-direction: column;
+    align-items:flex-start;
+    justify-content: space-between;
+    width:80%;
+    height:20vh;
+    margin-top: 100px;
+}
+
+.artiste .email-siteweb a
+{
+    color:#ffe6e6;
+    
+    font-family: 'inter';
+    font-weight: 100;
+    font-size:0.8em;
+    text-decoration: underline;
+}
+
+.artiste .email-siteweb a:hover
+{
+    color:#FF7272;
+    font-style: italic;
+    transition: 0.3s ease-out;
+}
+
+.artiste .reseaux a
+{
+    margin-right: 40px;
+    font-size:1.8em;
+    color:#ffe6e6;
+   
+}
+.artiste .reseaux a:hover
+{
+    color:#FF7272;
+    transition: 0.3s ease-out;
+}
+
+.artiste .box-image
+{
+    display: flex;
+    flex-direction: column;
+    Width:50%;
+    height:100%;
+}
+
+.artiste img
+{
+    width:100%;
+    object-fit: cover;
+    height: 100%;
+}
+
+.box-image .legende
+{
+
+    display:flex;
+    margin-top:5px;
+    font-weight: 300;
+    justify-content:flex-end;
+}
+
+.artiste .stars
+{
+    display:inline-block;
+}
+
+.artiste .box-cards
+{
+    margin-top: 40px;
+}
+
+/************** \Artiste/ *****************/
+
+/************** Presentation *************/
+.presentation
+{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    margin-top: 100px;
+}
+
+.presentation .contener1
+{
+    display:flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+.presentation .bloc1
+{
+    width: 70%;
+    margin-bottom: 40px;
+}
+
+.presentation .couverture
+{
+    display:flex;
+
+}
+
+.presentation .reseaux
+{
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin-left:40px;
+}
+
+.presentation .reseaux a
+{
+    margin-top: 20px;
+    font-size:1.5em;
+    color:#ffe6e6;
+}
+
+.presentation .contener2-pres
+{
+    display:flex;
+    justify-content:center;
+    margin-top: 50px;
+    margin-bottom: 100px;
+    width: 80%;
+}
+
+.presentation .sous-bloc2
+{
+    display:flex;
+    flex-direction: column;
+    align-items: space-between;
+
+    margin-right:100px;
+}
+
+.presentation .bloc-texte2
+{
+    margin-bottom:40px;
+}
+.presentation .bloc-texte3
+{
+    margin-bottom:40px;
+}
+
+.presentation h1
+{
+    font-size:2em;
+    font-weight: 300;
+    margin-bottom: 20px ;
+}
+
+.presentation p
+{
+    font-weight: 200;
+    font-size: 0.9em;
+}
+.presentation .image-bas
+{
+    width: 50%;
+}
+
+/************** \Presentation/ *************/
+
+
+
+
+@media all and (min-width: 405px) and (max-width: 840px){
+
+/*********** Nav **************/  
+
+    .header li.active {
+        padding-left: 0 ;
+        padding-right: 0;
+    }
+
+    a.link-nav {
+        font-size: 0.9em;
+    }
+
+    .sub-menu-1 a.link-nav{
+        font-size: 0.8em;
+    }
+/*********** Nav **************/ 
+
+/********** Index *********/
+
+    .parent-shuffle .link-names {
+        font-size: 1.7rem;
+    }
+
+    .index-parent-event {
+        width: 75%;
+    }
+
+    .index-parent-event .index-affiche {
+        object-position: center;
+    }
+
+    .index-parent-infos {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .index-parent-infos .index-infos {
+        margin-bottom: 0;
+    }
+
+    .index-parent-infos .event-titre {
+        font-size: 2em;
+    }
+
+    .index-parent-infos .adresse {
+        font-size: 0.8em;
+    }
+
+    .index-parent-infos .date-heure {
+        font-size: 0.9em;
+    }
+
+    .index-plus {
+        font-size: 0.5em;
+        min-height: auto;
+        margin-bottom: 20px;
+    }
+
+    .mignon{
+        width: 75%;
+        font-size: 0.8em;
+        text-align: center;
+    }
+
+    .news {
+        display: none;
+    }
+    .pagination-actu {
+        display: none;
+    }
+    
+/********** Index *********/
+
+}
+
+
+
+@media all and (max-width: 405px){
+
+/*********** Nav **************/    
+    a.link-nav {
+        font-size: 0.8em;
+    }
+
+    .header li.active {
+        padding-left: 0 ;
+        padding-right: 0;
+    }
+
+
+    .sub-menu-1 a.link-nav {
+        font-size: 0.7em;
+    }
+/*********** Nav **************/
+
+/********** Index ************/
+
+    .parent-shuffle .link-names {
+        font-size: 1.5rem;
+    }
+
+     .parent-shuffle .link-names {
+        font-size: 1.7rem;
+    }
+
+    .index-parent-event {
+        width: 75%;
+    }
+
+    .index-parent-event .index-affiche {
+        object-position: center;
+    }
+
+    .index-parent-infos {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .index-parent-infos .index-infos {
+        margin-bottom: 0;
+    }
+
+    .index-parent-infos .event-titre {
+        font-size: 2em;
+    }
+
+    .index-parent-infos .adresse {
+        font-size: 0.8em;
+    }
+
+    .index-parent-infos .date-heure {
+        font-size: 0.9em;
+    }
+
+    .index-plus {
+        font-size: 0.5em;
+        min-height: auto;
+        margin-bottom: 20px;
+    }
+
+    .mignon{
+        width: 75%;
+        font-size: 0.8em;
+        text-align: center;
+    }
+
+    .news {
+        display: none;
+    }
+    .pagination-actu {
+        display: none;
+    }
+
+    /********** Index *********/
+}
+

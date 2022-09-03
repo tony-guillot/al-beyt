@@ -1,0 +1,18 @@
+{
+    "name": "app/al-beyt",
+    "description": "Al-beyt website",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "AlBeyt\\": "al-beyt/",
+            "AlBeyt\\Controllers\\": "al-beyt/controllers/",
+            "AlBeyt\\Library\\": "al-beyt/library/",
+            "AlBeyt\\Models\\": "al-beyt/models/",
+            "AlBeyt\\Views\\": "al-beyt/views/"
+        }
+    },
+    "minimum-stability": "dev",
+    "require": {
+        "dompdf/dompdf": "dev-master"
+    }
+}

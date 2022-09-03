@@ -1,0 +1,6 @@
+.idea/
+images/*
+!images/couverture.png
+!images/photo.png
+!images/logo.png
+!images/flag.jpg
