@@ -113,7 +113,7 @@ li
 
 body
 {
-    background: linear-gradient(#140f16,#1c092b, #140f16);
+    background: #140f16;
     color:#ffe9fb;
 }
 
@@ -1315,6 +1315,8 @@ section .article
 {
     display: flex;
     justify-content: space-between;
+	width: 75%;
+
 }
 .contener-article .icones
 {

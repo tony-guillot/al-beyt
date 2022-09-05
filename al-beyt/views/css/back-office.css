@@ -3,6 +3,16 @@ main.accueil
 {
    min-height: 75vh;
    position: relative;
+   display:flex;
+   justify-content: center;
+   align-items: center;
+   width: 100%;
+}
+
+.back-office
+{
+   font-size:12em;
+   color:grey;
 }
 
 /********* Footer ****************/
@@ -294,3 +304,15 @@ table .material-icons
 .grey-text.text-darken-4:hover {
    color: #ab47bc  !important;
  }
+
+
+/******* Password show/hide ********/
+span.field-icon {
+    float: right;
+    position: absolute;
+    right: 0;
+    top: 35px;
+    cursor: pointer;
+    z-index: 2;
+   opacity: 60%;
+}

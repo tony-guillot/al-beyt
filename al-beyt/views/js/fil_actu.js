@@ -4,8 +4,8 @@ function loadActu(page) {
     fetch(url)
         .then(response => response.json())
         .then((response) => {
-            //console.log(response.news);
-            if (page < response.pageMax) {
+            console.log(response.pageMax);
+            if (page < response.pageMax && page !== 1) {
                 document.getElementById('actu-next').style.display = "inline";
                 for (var i = 0; i < 8; i++) {
                     document.getElementById('tile-' + i).style.display = "block";

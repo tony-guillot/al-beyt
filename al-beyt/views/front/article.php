@@ -65,7 +65,8 @@ require_once('../include/header.php');
             <section class="sous-contener-article">
                 <div class="icones">
                         <a title="Télécharger l'article au format PDF" href="download_pdf.php?id_article=<?=$id?>"><i class="fa-solid fa-download" ></i></a>
-                        <a title="Partager sur twitter" href="<?= "https://twitter.com/intent/tweet?text=$tweet&url=".urlencode($url)."&hashtags=collectif,albeyt,syrie" ?>"  ><i class="fa-brands fa-twitter"></i></a>
+                        <a title="Partager sur twitter" href="<?= "https://twitter.com/intent/tweet?text=$tweet&url=".urlencode($url)."&hashtags=collectif,albeyt,syrie" ?>" target="popup"
+                            onclick="window.open('<?= "https://twitter.com/intent/tweet?text=$tweet&url=".urlencode($url)."&hashtags=collectif,albeyt,syrie" ?>','popup','width=600,height=600'); return false;"  ><i class="fa-brands fa-twitter"></i></a>
                         <a  title="Partager sur facebook" href="https://www.facebook.com/sharer/sharer.php?u=<?= $url ?>" target="popup"
                             onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=<?= $url ?>','popup','width=600,height=600'); return false;"><i class="fa-brands fa-facebook"></i></a>
                     </div>

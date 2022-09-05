@@ -5,7 +5,7 @@ use AlBeyt\Models\ArtisteModel;
 use AlBeyt\Models\EvenementModel;
 use AlBeyt\Models\DomaineModel;
 use AlBeyt\Controllers\Controller;
-use AlBeyt\Library\image;
+use AlBeyt\Library\Image;
 
 class ArtisteController extends Controller
 {
