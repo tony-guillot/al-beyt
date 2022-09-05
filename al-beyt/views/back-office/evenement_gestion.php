@@ -30,7 +30,7 @@ $totalEvents = count($controllerEvenement->displayAllInfosEvent());
 $pageMax = ceil($totalEvents / EvenementController::NB_EVENEMENT_PAR_PAGE);
 
 
-$title = 'Gestion evenement';
+$title = 'Gestion évènements';
 require_once('../include/headerBo.php');
 ?>
 <?php require_once('../include/sidebar.php');?>

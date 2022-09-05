@@ -51,7 +51,7 @@ if(isset($_POST['replace_image']))
     $artist = $controller->displayArtistById($id);
 }
 
-$title = 'Modif Artiste';
+$title = 'Modification artiste';
 require_once('../include/headerBo.php');
 require_once('../include/sidebar.php');
 ?>

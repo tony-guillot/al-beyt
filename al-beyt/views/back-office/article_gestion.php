@@ -30,7 +30,7 @@ $pageMax = ceil($totalArticles / ArticleController::NB_ARTICLE_PAR_PAGE);
 
 $allArticles = $controllerArticle->displayAllArticles($page);
 
-$title ="Gestion article";
+$title ="Gestion articles";
 require_once('../include/headerBo.php');
 ?>
 <?php require_once('../include/sidebar.php');?>

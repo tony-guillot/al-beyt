@@ -109,7 +109,7 @@ class  EvenementController extends Controller {
     )
     {
         $id_evenement = 0;
-        if (!empty($titre) && !empty($adresse) && !empty($date) && !empty($heure)  && !empty($description)) {
+        if (!empty($titre) && !empty($adresse) && !empty($date) && !empty($heure)  && !empty($description)){
             if (strlen($titre) < 150) {
                 if(empty($lien_billeterie) || filter_var($lien_billeterie,FILTER_VALIDATE_URL))
                 {
@@ -134,12 +134,12 @@ class  EvenementController extends Controller {
                                 }
                             }
                         echo Error::displaySuccess("Votre évènement a bien été enregistré.");}else{
-                            echo  Error::displayError('Veuillez choisir une image complémentaire valide. (Taille limite = 2Mo maximum)');
+                            echo  Error::displayError('Veuillez choisir une image complémentaire valide. (La taille limite doit être égale à 1 Mo maximum)');
                         }
                     }
                     else
                     {
-                        echo Error::displayError('Veuillez choisir un poids d\'affiche valide. (Taille limite = 1Mo maximum)');
+                        echo Error::displayError('Veuillez choisir une image d\'affiche valide. (La taille limite doit être égale à 1 Mo maximum)');
                     }
                 }
                 else
@@ -150,7 +150,7 @@ class  EvenementController extends Controller {
             }
             else
             {
-               echo Error::displayError('La longueur du titre ne doit pas exceder 150 caracteres.');
+               echo Error::displayError('La longueur du titre ne doit pas excéder 150 caracteres.');
             }
         }
         else
@@ -171,7 +171,7 @@ class  EvenementController extends Controller {
                  {
 
                      $this->modelEvenement->updateEvent($titre, $adresse, $date, $heure, $description, $lien_billeterie, $id);
-                     echo Error::displaySuccess("Votre evenement a bien été modifié.");
+                     echo Error::displaySuccess("Votre évènement a bien été modifié.");
 
                  }
                  else
@@ -239,9 +239,9 @@ class  EvenementController extends Controller {
                 echo Error::displaySuccess("Les images ont bien été mises à jour.");
             }
         }
-
     }
-    //---------------------------------------------------------------------------------\\
+    
+    //-------------------------------------------------------------------------------------\\
 
     public function supprimeEvent($id)
     {

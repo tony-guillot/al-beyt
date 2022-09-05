@@ -60,7 +60,7 @@ if(!empty($_POST['valider']))
 $article = $controllerArticle->displayArticleById($id_article);
 $images_article = $controllerArticle->displayImagesByIdArticle($id_article);
 
-$title = 'Back-Office';
+$title = 'modification article';
 require_once('../include/headerBo.php');
 require_once('../include/sidebar.php');
 

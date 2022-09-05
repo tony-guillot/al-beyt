@@ -79,7 +79,7 @@ $imagesEvent = $controller->displayImagesByEventId($id);
 // si l'image 2 est vide il faut inserer sinon il faut udpate.
 $imagesEvent = $controller->displayImagesByEventId($id);
 
-$title = 'Modif evenement';
+$title = 'Modification évènement';
 require_once('../include/headerBo.php');
 require_once('../include/sidebar.php');
 ?>
