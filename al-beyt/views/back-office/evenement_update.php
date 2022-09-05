@@ -168,7 +168,7 @@ require_once('../include/sidebar.php');
                                 if(!empty($imagesEvent[1]['chemin'])):?>
                             <img style="width:100%;" class="image" id="image1" src="http://<?= $imagesEvent[1]['chemin']?>" alt=""></br>
                             <?php else:?>
-                                <img style="width:100%" class="image" src="http://al-beyt.moi/images/placeholder.jpg" alt="image vide">
+                                <img style="width:100%" class="image" src="../../../images/placeholder.jpg" alt="image vide">
                             <?php endif?>
                         </div>
                     </article>
