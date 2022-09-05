@@ -133,7 +133,7 @@ class  EvenementController extends Controller {
                                     }
                                 }
                             }
-                        echo Error::displaySuccess("Votre evenement a bien été enregistré.");}else{
+                        echo Error::displaySuccess("Votre évènement a bien été enregistré.");}else{
                             echo  Error::displayError('Veuillez choisir une image complémentaire valide. (Taille limite = 2Mo maximum)');
                         }
                     }
