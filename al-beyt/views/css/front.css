@@ -817,6 +817,7 @@ img.index-affiche:hover
 
 .tile
 {
+    display: none;
     height: 300px;
     margin: 15px 10px;
     position: relative;
