@@ -18,7 +18,7 @@ $images_article = $controllerArticle->displayImagesByIdArticle($id);
 // var_dump($images_article);
 // echo '</pre>';
 
-$title = "Article";
+$title = "Article - ".$article['titre'];
 $url = $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 $abstract = substr($article['description'],0,100).'[...]';
 $tweet = "Pète sa mère cet article : ";
@@ -89,18 +89,20 @@ require_once('../include/header.php');
                 </article>
             </section>
         </section>
-    </section>    
-
-    <section class="box-slider">
-        <div id="slider">
-            <!-- <a href="http://<?= $images_article[1]['chemin'];?>" target="_blank"></a> -->
-            <img  src="http://<?= $images_article[1]['chemin'];?>"
-             alt="<?= $images_article[1]['legende']?>" id="slide">
-
-            <div id="precedent" onclick="displaySlider(<?=$id ?>,-1)">&lsaquo;</div>
-            <div id="suivant" onclick="displaySlider(<?=$id ?>,1)">&rsaquo;</div>
-        </div>
     </section>
+
+        <section class="box-slider">
+            <div id="slider">
+            <?php if (!empty($images_article[1])): ?>
+                <!-- <a href="http://<?= $images_article[1]['chemin']; ?>" target="_blank"></a> -->
+                <img src="http://<?= $images_article[1]['chemin']; ?>"
+                     alt="<?= $images_article[1]['legende'] ?>" id="slide">
+
+                <div id="precedent" onclick="displaySlider(<?= $id ?>,-1)">&lsaquo;</div>
+                <div id="suivant" onclick="displaySlider(<?= $id ?>,1)">&rsaquo;</div>
+            <?php endif ?>
+            </div>
+        </section>
 
     <script>displaySlider(<?= $id.',0'?>) </script>
 </main>
