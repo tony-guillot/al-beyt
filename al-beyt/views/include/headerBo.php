@@ -61,7 +61,7 @@ $articleYearFilter = $controArticle->displayYearFilters();
                 </a>        
                 <!-- link nav princpale-->
                 <ul id="link-nav" class="right show-on-med-and-down">
-                    <li><a href="../front/index.php" target="_blank">Accueil</a></li>
+                    <li><a href="../front/index.php" target="_blank">Al-Beyt</a></li>
                     <li><a class="dropdown-trigger" href="../front/artistes.php" target="_blank" data-target="domaines">Artistes<i class="material-icons right">arrow_drop_down</i></a></li>
                     <li><a class="dropdown-trigger" href="../front/evenements.php" target="_blank" data-target="eventYears">Evènements<i class="material-icons right">arrow_drop_down</i></a></li>
                     <li><a class="dropdown-trigger" href="../front/articles.php" target="_blank" data-target="articleYears">Actualité<i class="material-icons right">arrow_drop_down</i></a></li>

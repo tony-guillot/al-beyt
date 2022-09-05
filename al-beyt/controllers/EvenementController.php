@@ -134,12 +134,12 @@ class  EvenementController extends Controller {
                                 }
                             }
                         echo Error::displaySuccess("Votre évènement a bien été enregistré.");}else{
-                            echo  Error::displayError('Veuillez choisir une image complémentaire valide. (La taille limite doit être égale à 1 Mo maximum)');
+                            echo  Error::displayError('Veuillez choisir une image complémentaire valide (La taille limite doit être égale à 1 Mo maximum).');
                         }
                     }
                     else
                     {
-                        echo Error::displayError('Veuillez choisir une image d\'affiche valide. (La taille limite doit être égale à 1 Mo maximum)');
+                        echo Error::displayError('Veuillez choisir une image d\'affiche valide (La taille limite doit être égale à 1 Mo maximum).');
                     }
                 }
                 else
@@ -191,6 +191,7 @@ class  EvenementController extends Controller {
         }
     }
 
+    
     public function modifyImagesEvent($image_en_avant, $legende_en_avant, $ordre_image_en_avant, $image2, $legende2, $ordre_image2, $id_evenement)
     {
         if(!empty($image_en_avant['name']))
