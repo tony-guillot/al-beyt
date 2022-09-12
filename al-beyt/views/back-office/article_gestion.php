@@ -61,7 +61,7 @@ require_once('../include/headerBo.php');
                     <td><?= $allArticle['date']?></td>
                     <td><?= $allArticle['auteur']?></td>
                     <td><?= substr($allArticle['description'],0,300).'[...]'?></td>
-                    <td class="buttons"> <a href="article_update.php?id=<?= $id_article?>"><i class="edit material-icons grey-text text-darken-4">edit</i></a> </td>
+                    <td class="buttons"> <a href="article_update.php?id=<?= $id_article?>" title="Editer"><i class="edit material-icons grey-text text-darken-4">edit</i></a> </td>
                     <form action="" methode='get'>
                         <td class="buttons">
                             <button class="button-trash" onclick="return confirmDelete('<?= $allArticle['titre']?>','article')" name="delete" type="submit" value='<?= $id_article?>' ><i class="edit material-icons grey-text text-darken-4">delete</i></button>

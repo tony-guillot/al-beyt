@@ -43,7 +43,7 @@ require_once('../include/headerBo.php');
                     <input type="text" placeholder="King Tubby" name="nom"></br>
                 </article>
                 <article>
-                    <label class=" purple-text text-lighten-3" for="id_domaine">Pôle</label>
+                    <label class=" purple-text text-lighten-3" for="id_domaine">Pôle:</label>
                     <select class="browser-default" name="id_domaine">
                             <option value="">sélectionner une pratique artistique</option>
                         
