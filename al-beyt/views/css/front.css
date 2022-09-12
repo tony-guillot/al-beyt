@@ -1346,7 +1346,7 @@ section .article
     flex-direction: column;
     justify-content: space-between;
     width: 70%;
-    height: 30vh;
+    height: 100px;
 }
 
 .infos-article .titre-article
