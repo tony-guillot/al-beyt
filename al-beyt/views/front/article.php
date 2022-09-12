@@ -21,7 +21,7 @@ $images_article = $controllerArticle->displayImagesByIdArticle($id);
 $title = "Article - ".$article['titre'];
 $url = $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 $abstract = substr($article['description'],0,100).'[...]';
-$tweet = "Pète sa mère cet article : ";
+$tweet = "Un article du collectif Al-Beyt : ";
 require_once('../include/header.php');
 ?>
 <script>
