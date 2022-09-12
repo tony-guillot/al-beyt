@@ -143,30 +143,30 @@ class Affichage
         $print .= '<div class="email-siteweb">';
             if(!empty($email))
             {
-                $print .= '<a href="'.$email.'"><i class="fa-solid fa-envelope"></i>&ensp;'.$email.'</a>';
+                $print .= '<a target="_blank" href="'.$email.'"><i class="fa-solid fa-envelope"></i>&ensp;'.$email.'</a>';
             }
             if(!empty($website))
             {
-                $print .= '<a href="'.$website.'"><i class="fa-solid fa-globe"></i>&ensp;'.$website.'</a>';
+                $print .= '<a target="_blank" href="'.$website.'"><i class="fa-solid fa-globe"></i>&ensp;'.$website.'</a>';
             }
         $print .= '</div>';
 
         $print .= '<div class="reseaux">';
         if(!empty($instagram))
         {
-            $print .= '<a href="'.$instagram.'" title=" ↗ Me rendre sur la page instagram de l\'artiste"><i class="fa-brands fa-instagram"></i></a>';
+            $print .= '<a target="_blank" href="'.$instagram.'" title=" ↗ Me rendre sur la page instagram de l\'artiste"><i class="fa-brands fa-instagram"></i></a>';
         }
         if(!empty($twitter))
         {
-            $print .= '<a href="'.$twitter.'" title=" ↗ Me rendre sur la page twitter de l\'artiste"><i class="fa-brands fa-twitter"></i></a>';
+            $print .= '<a target="_blank" href="'.$twitter.'" title=" ↗ Me rendre sur la page twitter de l\'artiste"><i class="fa-brands fa-twitter"></i></a>';
         }
         if(!empty($soundcloud))
         {
-            $print .= '<a href="'.$soundcloud.'" title=" ↗ Me rendre sur la page soundcloud de l\'artiste"><i class="fa-brands fa-soundcloud"></i></a>';
+            $print .= '<a target="_blank" href="'.$soundcloud.'" title=" ↗ Me rendre sur la page soundcloud de l\'artiste"><i class="fa-brands fa-soundcloud"></i></a>';
         }
         if(!empty($facebook))
         {
-            $print .= '<a href="'.$facebook.'" title=" ↗ Me rendre sur la page soundcloud de l\'artiste"><i class="fa-brands fa-facebook"></i></a>';
+            $print .= '<a target="_blank" href="'.$facebook.'" title=" ↗ Me rendre sur la page soundcloud de l\'artiste"><i class="fa-brands fa-facebook"></i></a>';
         }
         $print .= '</div>';
 
