@@ -116,7 +116,7 @@ require_once('../include/sidebar.php');
                     </div>
                     <div>
                         <label class="purple-text text-lighten-3" for="billeterie">Adresse url du lien vers la billeterie:</label>
-                        <input class="grey-text text-darken-2" type="text" value="<?= $_POST['lien_billeterie'] ?? "" ?>" name="lien_billeterie" placeholder="Entrer un lien vers la billeterie en ligne">
+                        <input class="grey-text text-darken-2" type="text" value="<?= $event['lien_billeterie'] ?? "" ?>" name="lien_billeterie" placeholder="Entrer un lien vers la billeterie en ligne">
                     </div>
                 </article>
                 <article>
