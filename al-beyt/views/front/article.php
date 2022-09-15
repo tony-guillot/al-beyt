@@ -93,9 +93,9 @@ require_once('../include/header.php');
 
         <section class="box-slider">
             <div id="slider">
-            <?php if (!empty($images_article[1])): ?>
+            <?php if (!empty($images_article[1]) || !empty($images_article[2]) || !empty($images_article[3])): ?>
                 <!-- <a href="http://<?= $images_article[1]['chemin']; ?>" target="_blank"></a> -->
-                <img src="http://<?= $images_article[1]['chemin']; ?>"
+                <img src="http://<?= $images_article[1]['chemin'] ?? $images_article[2]['chemin'] ?? $images_article[3]['chemin']; ?>"
                      alt="<?= $images_article[1]['legende'] ?>" id="slide">
 
                 <div id="precedent" onclick="displaySlider(<?= $id ?>,-1)">&lsaquo;</div>
