@@ -29,8 +29,8 @@ function displaySlider (id,sens) {
         }
 
         document.getElementById("slide").src = 'http://'+slide[indexSlide];
-        console.log(slide[indexSlide]);
-    });
+        // console.log(slide[indexSlide]);
+    }); 
 }
 
 

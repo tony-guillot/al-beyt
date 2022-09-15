@@ -74,7 +74,7 @@ class ArticleController extends Controller
         {
             if (strlen($titre) < 150)
             {
-                if (!empty($image_en_avant['name']))
+                if (!empty($image_en_avant['name']) && $image_en_avant['size'] < Image::TAILLE_LIMITE)
                 {
                     $id_article = $this->modelArticle->insertArticle($titre, $auteur, $description);
                     $cheminImageEnAvant = Image::sauvegardeImage($image_en_avant);
