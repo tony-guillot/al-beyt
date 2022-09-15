@@ -18,10 +18,10 @@ $images_article = $controllerArticle->displayImagesByIdArticle($id);
 // var_dump($images_article);
 // echo '</pre>';
 
-$title = "Article";
+$title = "Article - ".$article['titre'];
 $url = $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 $abstract = substr($article['description'],0,100).'[...]';
-$tweet = "Pète sa mère cet article : ";
+$tweet = "Un article du collectif Al-Beyt : ";
 require_once('../include/header.php');
 ?>
 <script>
@@ -65,7 +65,8 @@ require_once('../include/header.php');
             <section class="sous-contener-article">
                 <div class="icones">
                         <a title="Télécharger l'article au format PDF" href="download_pdf.php?id_article=<?=$id?>"><i class="fa-solid fa-download" ></i></a>
-                        <a title="Partager sur twitter" href="<?= "https://twitter.com/intent/tweet?text=$tweet&url=".urlencode($url)."&hashtags=collectif,albeyt,syrie" ?>"  ><i class="fa-brands fa-twitter"></i></a>
+                        <a title="Partager sur twitter" href="<?= "https://twitter.com/intent/tweet?text=$tweet&url=".urlencode($url)."&hashtags=collectif,albeyt,syrie" ?>" target="popup"
+                            onclick="window.open('<?= "https://twitter.com/intent/tweet?text=$tweet&url=".urlencode($url)."&hashtags=collectif,albeyt,syrie" ?>','popup','width=600,height=600'); return false;"  ><i class="fa-brands fa-twitter"></i></a>
                         <a  title="Partager sur facebook" href="https://www.facebook.com/sharer/sharer.php?u=<?= $url ?>" target="popup"
                             onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=<?= $url ?>','popup','width=600,height=600'); return false;"><i class="fa-brands fa-facebook"></i></a>
                     </div>
@@ -88,18 +89,20 @@ require_once('../include/header.php');
                 </article>
             </section>
         </section>
-    </section>    
-
-    <section class="box-slider">
-        <div id="slider">
-            <!-- <a href="http://<?= $images_article[1]['chemin'];?>" target="_blank"></a> -->
-            <img  src="http://<?= $images_article[1]['chemin'];?>"
-             alt="<?= $images_article[1]['legende']?>" id="slide">
-
-            <div id="precedent" onclick="displaySlider(<?=$id ?>,-1)">&lsaquo;</div>
-            <div id="suivant" onclick="displaySlider(<?=$id ?>,1)">&rsaquo;</div>
-        </div>
     </section>
+
+        <section class="box-slider">
+            <div id="slider">
+            <?php if (!empty($images_article[1]) || !empty($images_article[2]) || !empty($images_article[3])): ?>
+                <!-- <a href="http://<?= $images_article[1]['chemin']; ?>" target="_blank"></a> -->
+                <img src="http://<?= $images_article[1]['chemin'] ?? $images_article[2]['chemin'] ?? $images_article[3]['chemin']; ?>"
+                     alt="<?= $images_article[1]['legende'] ?>" id="slide">
+
+                <div id="precedent" onclick="displaySlider(<?= $id ?>,-1)">&lsaquo;</div>
+                <div id="suivant" onclick="displaySlider(<?= $id ?>,1)">&rsaquo;</div>
+            <?php endif ?>
+            </div>
+        </section>
 
     <script>displaySlider(<?= $id.',0'?>) </script>
 </main>

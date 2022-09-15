@@ -6,7 +6,7 @@ class Image
 {
     const SOUS_REPERTOIRE_IMAGES = '/../../images/'; // repertoire_images.
     const TYPES_AUTORISES = ['image/jpeg','image/png','image/gif'];
-    const TAILLE_LIMITE = 2000000; // = 1 Mo
+    const TAILLE_LIMITE = 1000000; // = 1 Mo
 
 
     public static function sauvegardeImage($image)
@@ -24,7 +24,7 @@ class Image
                 echo Error::displayError("Verifiez le type de fichier (types .jpeg, .png, .gif)");
             }
         }else{
-                echo Error::displayError("Le serveur a rencontré une erreur lors du chargement de la photo, merci de réessayer");
+                echo Error::displayError("Le serveur a rencontré une erreur lors du chargement de l'image, merci de réessayer");
         }
         return $urlDestination;
     }

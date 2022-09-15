@@ -4,11 +4,24 @@ function loadActu(page) {
     fetch(url)
         .then(response => response.json())
         .then((response) => {
-            //console.log(response.news);
-            if (page < response.pageMax) {
-                document.getElementById('actu-next').style.display = "inline";
+            //console.log(response.pageMax);
+            if (page < response.pageMax || page == 1) {
+                if(page == 1) {
+                    document.getElementById('actu-prev').style.display = "none";
+                }else{
+                    document.getElementById('actu-prev').style.display = "inline";
+                }
+
+                if (page != response.pageMax ) {
+                    document.getElementById('actu-next').style.display = "inline";
+                }else {
+                    document.getElementById('actu-next').style.display = "none";
+                }
+
                 for (var i = 0; i < 8; i++) {
-                    document.getElementById('tile-' + i).style.display = "block";
+                    if (response.news[i].date_news != null) {
+                        document.getElementById('tile-' + i).style.display = "block";
+                    }
                     if (response.news[i].id_article == null) {
                         //evenements
                         document.getElementById('tile-info-' + i).style.display = "none";

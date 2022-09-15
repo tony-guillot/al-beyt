@@ -68,7 +68,7 @@ require_once('../include/headerBo.php');
                         <td><?= $artist['lien_soundcloud']?></td>
                         <td><?= $artist['lien_facebook']?></td>
                         <td><?= $artist['lien_twitter']?></td> -->
-                        <td class="buttons"><a href="artiste_update.php?id=<?=  $artist['id_artiste']?>"><i class="edit material-icons grey-text text-darken-4">edit</i></td>
+                        <td class="buttons"><a href="artiste_update.php?id=<?=  $artist['id_artiste']?>" title="Editer"><i class="edit material-icons grey-text text-darken-4">edit</i></td>
                         <td class="buttons">
                             <?php if($artist['statut'] == 1)
                                 {echo '<i class="material-icons">visibility</i>';}

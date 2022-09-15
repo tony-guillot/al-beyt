@@ -20,7 +20,8 @@ class ConnexionController extends Controller
          
         if( !empty($identifiant)  && !empty($mot_de_passe))
         {    
-
+			$identifiant = trim($identifiant);
+			
             if(filter_var($identifiant,FILTER_VALIDATE_EMAIL))
             {  
                 

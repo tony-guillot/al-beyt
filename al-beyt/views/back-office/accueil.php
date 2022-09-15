@@ -17,7 +17,7 @@ require_once('../include/headerBo.php');
 <section>
         <?php require_once('../include/sidebar.php');?>
 </section>
-<section style="font-size:10em;color:grey;" class="center-align">
+<section class="center-align back-office">
     <span>مساحة الإدارة</span>
  </section>
 </main>

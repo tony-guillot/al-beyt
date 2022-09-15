@@ -13,7 +13,7 @@ if(!empty($_POST['valider']))
     $controllerArticle->registerArticle($_POST['titre'], $_POST['auteur'], $_POST['description'], $_FILES['image_en_avant'], $_POST['legende_en_avant'],  $_FILES['image2'],  $_POST['legende2'], $_FILES['image3'],  $_POST['legende3'], $_FILES['image4'],  $_POST['legende4']);
 
 }
-$title ="Ajout article";
+$title ="ajout article";
 require_once('../include/headerBo.php');
 ?>
 <?php require_once('../include/sidebar.php');?>

@@ -79,7 +79,7 @@ $imagesEvent = $controller->displayImagesByEventId($id);
 // si l'image 2 est vide il faut inserer sinon il faut udpate.
 $imagesEvent = $controller->displayImagesByEventId($id);
 
-$title = 'Modif evenement';
+$title = 'Modification évènement';
 require_once('../include/headerBo.php');
 require_once('../include/sidebar.php');
 ?>
@@ -116,7 +116,7 @@ require_once('../include/sidebar.php');
                     </div>
                     <div>
                         <label class="purple-text text-lighten-3" for="billeterie">Adresse url du lien vers la billeterie:</label>
-                        <input class="grey-text text-darken-2" type="text" value="<?= $_POST['lien_billeterie'] ?? "" ?>" name="lien_billeterie" placeholder="Entrer un lien vers la billeterie en ligne">
+                        <input class="grey-text text-darken-2" type="text" value="<?= $event['lien_billeterie'] ?? "" ?>" name="lien_billeterie" placeholder="Entrer un lien vers la billeterie en ligne">
                     </div>
                 </article>
                 <article>
@@ -168,7 +168,7 @@ require_once('../include/sidebar.php');
                                 if(!empty($imagesEvent[1]['chemin'])):?>
                             <img style="width:100%;" class="image" id="image1" src="http://<?= $imagesEvent[1]['chemin']?>" alt=""></br>
                             <?php else:?>
-                                <img style="width:100%" class="image" src="http://al-beyt.moi/images/placeholder.jpg" alt="image vide">
+                                <img style="width:100%" class="image" src="../../../images/placeholder.jpg" alt="image vide">
                             <?php endif?>
                         </div>
                     </article>

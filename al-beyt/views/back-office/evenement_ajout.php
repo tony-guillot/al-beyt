@@ -47,7 +47,7 @@ if(!empty($_POST['valider']))
     );
 }
 
-$title = 'Ajout evenement';
+$title = 'Ajout évènement';
 require_once('../include/headerBo.php');
 ?>
 <?php require_once('../include/sidebar.php');?>

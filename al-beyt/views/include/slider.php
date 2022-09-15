@@ -12,7 +12,7 @@
 }
 
 $newArrayImagesArticle = $controllerArticle->displayImagesByIdArticle($id);
-
+array_shift($newArrayImagesArticle);
 echo json_encode($newArrayImagesArticle);
 
 ?>

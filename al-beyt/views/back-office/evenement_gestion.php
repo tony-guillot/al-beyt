@@ -30,7 +30,7 @@ $totalEvents = count($controllerEvenement->displayAllInfosEvent());
 $pageMax = ceil($totalEvents / EvenementController::NB_EVENEMENT_PAR_PAGE);
 
 
-$title = 'Gestion evenement';
+$title = 'Gestion évènements';
 require_once('../include/headerBo.php');
 ?>
 <?php require_once('../include/sidebar.php');?>
@@ -79,7 +79,7 @@ require_once('../include/headerBo.php');
                             }
                             ?>
                         </td>
-                        <td class="buttons"> <a href="evenement_update.php?id=<?= $id_evenement?>"><i class="edit material-icons grey-text text-darken-4">edit</i></a> </td>
+                        <td class="buttons"> <a href="evenement_update.php?id=<?= $id_evenement?>" title="Editer"><i class="edit material-icons grey-text text-darken-4" >edit</i></a> </td>
                         <form action="" methode='get'>
                             <td class="buttons">
                                 <button id='btn' class="button-trash" onclick="return confirmDelete('<?= str_replace("'","&rsquo;",$allEvent['titre'])?>', 'evenement')" name="delete" type="submit" value='<?= $id_evenement?>'><i class="edit material-icons grey-text text-darken-4">delete</i></button>

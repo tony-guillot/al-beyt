@@ -74,7 +74,7 @@ class ArticleController extends Controller
         {
             if (strlen($titre) < 150)
             {
-                if (!empty($image_en_avant['name']))
+                if (!empty($image_en_avant['name']) && $image_en_avant['size'] < Image::TAILLE_LIMITE)
                 {
                     $id_article = $this->modelArticle->insertArticle($titre, $auteur, $description);
                     $cheminImageEnAvant = Image::sauvegardeImage($image_en_avant);
@@ -82,33 +82,38 @@ class ArticleController extends Controller
                     if ($cheminImageEnAvant != "") {
                         $this->modelArticle->insertImage($cheminImageEnAvant, $legende_en_avant, $id_article, 1);
                     }
-                    //if (empty($image2['name']) || (!empty($image2['name']) && $image2['size'] < Image::TAILLE_LIMITE)) {
-                    if (!empty($image2) && !empty($legende2)) {
-                        $cheminImage2 = Image::sauvegardeImage($image2);
-                        if ($cheminImage2 != "") {
-                            $this->modelArticle->insertImage($cheminImage2, $legende2, $id_article, 2);
-                        }else{
-                            echo Error::displayError('Veuillez choisir une image 2 valide. (Taille limite = 2Mo maximum)');
+                    if (!empty($image2['name'])) {
+                        if ($image2['size'] < Image::TAILLE_LIMITE) {
+                            $cheminImage2 = Image::sauvegardeImage($image2);
+                            if ($cheminImage2 != "") {
+                                $this->modelArticle->insertImage($cheminImage2, $legende2, $id_article, 2);
+                            }
+                        } else {
+                            echo Error::displayError('Veuillez choisir une image 2 valide. (Taille limite = 1 Mo maximum)');
                         }
                     }
-                    if (!empty($image3) && !empty($legende3)) {
-                        $cheminImage3 = Image::sauvegardeImage($image3);
-                        if ($cheminImage3 != "") {
-                            $this->modelArticle->insertImage($cheminImage3, $legende3, $id_article, 3);
-                        }else{
-                            echo Error::displayError('Veuillez choisir une image 3 valide. (Taille limite = 2Mo maximum)');
+                    if (!empty($image3['name'])) {
+                        if ($image3['size'] < Image::TAILLE_LIMITE) {
+                            $cheminImage3 = Image::sauvegardeImage($image3);
+                            if ($cheminImage3 != "") {
+                                $this->modelArticle->insertImage($cheminImage3, $legende3, $id_article, 3);
+                            }
+                        } else {
+                            echo Error::displayError('Veuillez choisir une image 3 valide. (Taille limite = 1 Mo maximum)');
                         }
                     }
-                    if (!empty($image4) && !empty($legende4)) {
-                        $cheminImage4 = Image::sauvegardeImage($image4);
-                        if ($cheminImage4 != "") {
-                            $this->modelArticle->insertImage($cheminImage4, $legende4, $id_article, 4);
-                        }else{
-                            echo Error::displayError('Veuillez choisir une image 4 valide. (Taille limite = 2Mo maximum)');
+                    if (!empty($image4['name'])) {
+                        if ($image4['size'] < Image::TAILLE_LIMITE) {
+                            $cheminImage4 = Image::sauvegardeImage($image4);
+                            if ($cheminImage4 != "") {
+                                $this->modelArticle->insertImage($cheminImage4, $legende4, $id_article, 4);
+                            }
+                        } else {
+                            echo Error::displayError('Veuillez choisir une image 4 valide. (Taille limite = 1 Mo maximum)');
                         }
                     }
                 } else {
-                    echo Error::displayError('Veuillez choisir une image de présentation valide (Taille limite = 2Mo maximum).');
+                    echo Error::displayError('Veuillez choisir une image de présentation valide (Taille limite = 1 Mo maximum).');
                 }
             }
             else{

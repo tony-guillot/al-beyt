@@ -12,7 +12,11 @@ function displaySlider (id,sens) {
     })
     .then((response)=>{ 
 
-        var slide = new Array(response[1]['chemin'], response[2]['chemin'], response[3]['chemin']);
+        //var slide = [response[1]['chemin'], response[2]['chemin'], response[3]['chemin']];
+        var slide = [];
+        response.forEach((image, index) => {
+          slide[index] = image['chemin'];
+        });
 
 
         indexSlide = indexSlide + sens;
@@ -25,8 +29,8 @@ function displaySlider (id,sens) {
         }
 
         document.getElementById("slide").src = 'http://'+slide[indexSlide];
-        console.log(slide[indexSlide]);
-    });
+        // console.log(slide[indexSlide]);
+    }); 
 }
 
 

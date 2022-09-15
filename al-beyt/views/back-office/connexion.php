@@ -38,9 +38,12 @@ if(isset($_POST['submit']))
                     <label  class=" purple-text text-lighten-2 " for="identifiant"> Email administrateur:</label>
                     <input type="text" name="identifiant" id="login" placeholder="admin@domaine.com">
                 </div>
-                <div>
+                <div style="position: relative;padding-right: 35px;">
                     <label class=" purple-text text-lighten-2 "  for="mot_de_passe">Mot de passe:</label>
                     <input type="password" name="mot_de_passe" id="password">
+					                    <span style="" toggle="#password" class="field-icon toggle-password">
+                        <span class="material-icons tiny">visibility</span>
+                    </span>
                 </div>
                 <div id="error-section" class=" red-text text-lighten-3 valign-wrapper z-depth-0">
                     <i id="error-icon" class="material-icons"></i> &ensp;
@@ -50,6 +53,29 @@ if(isset($_POST['submit']))
             </form>
         </section>     
     </main>
+	<script>
+        var clicked = 0;
+
+          $(".toggle-password").click(function (e) {
+             e.preventDefault();
+
+            $(this).toggleClass("toggle-password");
+              if (clicked == 0) {
+                $(this).html('<span class="material-icons">visibility_off</span >');
+                 clicked = 1;
+              } else {
+                 $(this).html('<span class="material-icons">visibility</span >');
+                  clicked = 0;
+               }
+
+            var input = $($(this).attr("toggle"));
+            if (input.attr("type") == "password") {
+               input.attr("type", "text");
+            } else {
+               input.attr("type", "password");
+            }
+        });
+    </script>
 </body>
 </html>
 

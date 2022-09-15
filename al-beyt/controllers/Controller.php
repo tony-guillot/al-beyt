@@ -40,7 +40,7 @@ class Controller
     public static function secureBackOffice()
     {
         $utilisateurModel = new UtilisateurModel;
-        $adminData = $utilisateurModel->getAdminByIdentifiant('administrateur@gmail.com');
+        $adminData = $utilisateurModel->getAdminByIdentifiant('collectif.albeyt@gmail.com');
 
         if($_SESSION['admin']['identifiant'] != $adminData['identifiant'] ||
          $_SESSION['admin']['mot_de_passe'] != $adminData['mot_de_passe'])

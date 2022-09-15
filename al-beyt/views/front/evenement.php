@@ -41,7 +41,7 @@ require_once('../include/header.php');
                 if(!empty($event['lien_billeterie']))
                 { ?>
                     <div class="billeterie">
-                        <span><i class="fa-solid fa-ticket"></span></i> <a class="label-billeterie" href="<?=$event['lien_billeterie']?>">Billeterie  en  ligne </i></a><span class="kamo">(つ✧ω✧)つ</span></br>
+                        <span><i class="fa-solid fa-ticket"></span></i> <a target="_blank" class="label-billeterie" href="<?=$event['lien_billeterie']?>">Billeterie  en  ligne </i></a><span class="kamo">(つ✧ω✧)つ</span></br>
                     </div>
            <?php
                 }
@@ -59,7 +59,7 @@ require_once('../include/header.php');
                     }
                     foreach ($artistes as $artiste) {
                     ?>  
-                        <a  class="artistes" href="artiste.php?id=<?= $artiste['id'] ?>"><?= $artiste['nom'] ?></a> ❥
+                        <a target="_blank"  class="artistes" href="artiste.php?id=<?= $artiste['id'] ?>"><?= $artiste['nom'] ?></a> ❥
                     <?php } ?>
                 </span>
             </article>
