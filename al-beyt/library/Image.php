@@ -24,7 +24,7 @@ class Image
                 echo Error::displayError("Verifiez le type de fichier (types .jpeg, .png, .gif)");
             }
         }else{
-                echo Error::displayError("Le serveur a rencontré une erreur lors du chargement de la photo, merci de réessayer");
+                echo Error::displayError("Le serveur a rencontré une erreur lors du chargement de l'image, merci de réessayer");
         }
         return $urlDestination;
     }
